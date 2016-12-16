@@ -1,0 +1,76 @@
+.vistor-trends {
+	background-color: #fff;
+	border: 12px solid rgba(52,77,103,0.4);
+	border-radius: 5px;
+	h4 {
+		background-color: rgba(52,77,103,0.4);
+		margin: 0;
+		padding: 12px;
+		padding-top: 0;
+		color: #fff;
+	}
+	&-period {
+		ul {
+			padding: 0 12px;
+		}
+		&-select {
+			display: block;
+			.clearfix();
+			margin: 10px 20px;
+			border-bottom: 4px solid @ck-sub;
+			
+		}
+		li {
+			display: block;
+			float: left;
+			padding:6px 12px;
+			cursor: pointer;
+			& + li {
+				margin-left: 1px;
+			}
+			&.active {
+				background-color: @ck-sub;
+				color: #fff;
+			}
+			&:hover {
+				background-color: @ck-sub-light;
+				color: #fff;
+			}
+		}
+	}
+}
+
+.canvas1 {
+	margin: 0 20px 20px 20px;
+	overflow: hidden;
+	text {
+	  font: 10px sans-serif;
+	}
+	svg {
+		margin-right: 40px;
+		.axis path,
+		.axis line {
+		  	fill: none;
+		  	stroke: #000;
+		  	opacity: 0.1;
+		  	shape-rendering: crispEdges;
+		}
+
+		.overlay {
+		  	fill: none;
+		  	pointer-events: all;
+		}
+
+		.line {
+		  	fill: none;
+		  	stroke: teal;
+		  	stroke-width: 1px;
+		}
+
+		.focus circle {
+		  	fill: none;
+		  	stroke: steelblue;
+		}
+	}
+
+}

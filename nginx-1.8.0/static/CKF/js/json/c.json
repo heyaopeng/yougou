@@ -1,0 +1,820 @@
+[
+    {
+        "categoryId": 101000000,
+        "name": "TRANG PHỤC NỮ",
+        "trend": {
+            "101020000": "Quần",
+            "101010000": "Áo, Áo khoác",
+            "101050000": "Phụ kiện, tất chân",
+            "101030000": "Áo lót, quần lót",
+            "101040000": "Bộ đồ mặc nhà"
+        },
+        "sub": [
+            {
+                "categoryId": 101010000,
+                "name": "Áo, Áo khoác",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101010010,
+                        "name": "Áo phông",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010020,
+                        "name": "Áo sơ mi",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010030,
+                        "name": "Áo sợi",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010040,
+                        "name": "Áo chiffon",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010050,
+                        "name": "Áo ren",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010060,
+                        "name": "Aó sát nách dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010070,
+                        "name": "Áo gile",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010080,
+                        "name": "Áo len",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010090,
+                        "name": "Áo nỉ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010100,
+                        "name": "Áo denim",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010110,
+                        "name": "Áo chống nắng",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010130,
+                        "name": "Bộ vest dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010140,
+                        "name": "Bộ rời",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010150,
+                        "name": "Áo gió",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010160,
+                        "name": "Áo bóng chày",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010170,
+                        "name": "Áo khoác dày",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010180,
+                        "name": "Áo cotton",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010190,
+                        "name": "Áo da",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010200,
+                        "name": "Áo khoác",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101010220,
+                        "name": "áo thun",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101020000,
+                "name": "Quần",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101020010,
+                        "name": "Quần Jean",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020020,
+                        "name": "Quần da",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020030,
+                        "name": "Quần dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020040,
+                        "name": "Quần short bò",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020050,
+                        "name": "Quần short dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020080,
+                        "name": "Quần cạp cao",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020090,
+                        "name": "Quần legging",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020100,
+                        "name": "Quần lửng ( đến mắt cá chân)",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020130,
+                        "name": "Quần harem",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020140,
+                        "name": "jumpsuit",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020150,
+                        "name": "Quần suông",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020160,
+                        "name": "Quần skinny",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101020170,
+                        "name": "Quần yếm",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101030000,
+                "name": "Áo lót, quần lót",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101030010,
+                        "name": "Áo ngực",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101030100,
+                        "name": "Nội y liền thân",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101030120,
+                        "name": "Áo lót gen tạo dáng",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101030140,
+                        "name": "Quần lót tam giác",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101030150,
+                        "name": "Quần lót đùi",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101030250,
+                        "name": "Bộ lót giữ nhiệt",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101040000,
+                "name": "Bộ đồ mặc nhà",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101040010,
+                        "name": "Áo ngủ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101040040,
+                        "name": "Áo khoác ngủ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101040060,
+                        "name": "Bộ đồ mặc nhà thoải mái",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101040070,
+                        "name": "Bộ quần áo đôi",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101050000,
+                "name": "Phụ kiện, tất chân",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101050030,
+                        "name": "Khăn quàng",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101050050,
+                        "name": "Mũ lưỡi trai",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101050100,
+                        "name": "Mũ len",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101050110,
+                        "name": "Mũ phớt",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101050120,
+                        "name": "Mũ fedora",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101050340,
+                        "name": "Tất cổ vừa",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101070000,
+                "name": "Áo lông vũ",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101070010,
+                        "name": "Áo khoác lông vũ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101070040,
+                        "name": "Áo phao lông vũ dáng dài",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101070050,
+                        "name": "Áo phao lông vũ dáng ngắn",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101070060,
+                        "name": "Áo phao lông vũ dày",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101070090,
+                        "name": "Áo phao lông vũ bông chần",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101080000,
+                "name": "Váy",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101080010,
+                        "name": "Váy liền",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101080020,
+                        "name": "Váy sát nách",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101080030,
+                        "name": "Chân váy",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101080040,
+                        "name": "Váy cạp cao",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101080050,
+                        "name": "Váy denim",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101080060,
+                        "name": "váy hoa",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 101090000,
+                "name": "Giày",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 101090010,
+                        "name": "giày đế bằng",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101090050,
+                        "name": "bốt",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 101090070,
+                        "name": "giầy vải bạt",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "categoryId": 102000000,
+        "name": "TRANG PHỤC NAM",
+        "trend": {
+            "102030000": "Áo lót, quần lót",
+            "102070000": "Áo lông vũ",
+            "102020000": "Quần",
+            "102010000": "Áo, Áo khoác",
+            "102040000": "Bộ đồ mặc nhà"
+        },
+        "sub": [
+            {
+                "categoryId": 102010000,
+                "name": "Áo, Áo khoác",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 102010010,
+                        "name": "Áo sơ mi",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010020,
+                        "name": "Áo phông",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010030,
+                        "name": "Áo sát nách",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010040,
+                        "name": "Áo phông cổ đức",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010050,
+                        "name": "Áo sợi",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010060,
+                        "name": "Áo len",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010070,
+                        "name": "Áo nỉ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010080,
+                        "name": "Cardigan",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010090,
+                        "name": "Áo gió",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010100,
+                        "name": "jacket",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010110,
+                        "name": "Áo gile",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010130,
+                        "name": "Bộ vest dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010180,
+                        "name": "Áo khoác",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010190,
+                        "name": "Áo da",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102010200,
+                        "name": "Áo cotton",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 102020000,
+                "name": "Quần",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 102020010,
+                        "name": "Quần Jean",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020020,
+                        "name": "Quần dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020030,
+                        "name": "Quần dáng ôm",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020050,
+                        "name": "Quần Âu",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020060,
+                        "name": "Quần bảo hộ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020080,
+                        "name": "Quần suông",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020090,
+                        "name": "Quần short dạo phố",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102020110,
+                        "name": "Quần short mặc đi biển",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 102030000,
+                "name": "Áo lót, quần lót",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 102030030,
+                        "name": "Quần lót tam giác",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102030040,
+                        "name": "Quần lót đùi",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 102040000,
+                "name": "Bộ đồ mặc nhà",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 102040030,
+                        "name": "Áo khoác ngủ",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102040050,
+                        "name": "Bộ quần áo đôi",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 102070000,
+                "name": "Áo lông vũ",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 102070010,
+                        "name": "Áo khoác lông vũ",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 102080000,
+                "name": "Giày",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 102080010,
+                        "name": "giầy đế bằng",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102080050,
+                        "name": "giầy thể thao",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 102080060,
+                        "name": "giầy vải bạt",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "categoryId": 103000000,
+        "name": "ĐỒ DÙNG CHO MẸ VÀ BÉ",
+        "trend": {
+            "103020000": "Quần áo sơ sinh từ 0-2 tuổi",
+            "103010000": "Đồ bầu"
+        },
+        "sub": [
+            {
+                "categoryId": 103010000,
+                "name": "Đồ bầu",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 103010010,
+                        "name": "Váy bầu",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 103010020,
+                        "name": "Áo bầu",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 103010030,
+                        "name": "Quần bầu",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 103010040,
+                        "name": "Áo lót bầu",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 103010050,
+                        "name": "Quần lót bầu",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 103010080,
+                        "name": "quần áo bà bầu",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            },
+            {
+                "categoryId": 103020000,
+                "name": "Quần áo sơ sinh từ 0-2 tuổi",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 103020020,
+                        "name": "Cardigan",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "categoryId": 105000000,
+        "name": "ĐỒ DA THỜI TRANG",
+        "trend": {
+            "105010000": "Túi da"
+        },
+        "sub": [
+            {
+                "categoryId": 105010000,
+                "name": "Túi da",
+                "trend": null,
+                "sub": [
+                    {
+                        "categoryId": 105010010,
+                        "name": "Túi xách tay",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010020,
+                        "name": "Ví cầm tay",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010030,
+                        "name": "Túi đeo một bên vai",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010040,
+                        "name": "Túi đeo chéo",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010050,
+                        "name": "Ba lô",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010070,
+                        "name": "Ví tiền",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010100,
+                        "name": "Túi du lịch",
+                        "trend": null,
+                        "sub": null
+                    },
+                    {
+                        "categoryId": 105010180,
+                        "name": "Túi tua rua",
+                        "trend": null,
+                        "sub": null
+                    }
+                ]
+            }
+        ]
+    }
+]

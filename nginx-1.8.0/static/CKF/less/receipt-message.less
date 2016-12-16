@@ -1,0 +1,193 @@
+@import "public.less";
+.receipt-message {
+	.clearfix();
+	&-module {
+		.clearfix();
+		padding-bottom: 1px;
+		margin-bottom: 20px;
+	}
+	padding-bottom: 1px;
+	&-bg {
+		margin-top: 40px;
+		margin-bottom: 10px;
+		background: #fff;
+		padding-left: 1px;
+		padding-right: 1px;
+	}
+	&-details {
+		width: 80%;
+		float: left;
+	}
+	&-title {
+		color: @ck-sub;
+		padding-left: 2.3%;
+		padding-top: 10.5px;
+		padding-bottom: 10.5px;
+		margin: 0;
+	}
+	&-set-default {
+		display: none;
+		position: absolute;
+		right: 20px;
+		top: 12px;
+		color: #fff;
+		width: 70px;
+		height: 20px;
+		padding: 0;
+		background: #b3b3b3;
+		text-align: center;
+		&:hover {
+			background: @ck-main;
+		}
+	}
+	&-info {
+		width: 20%;
+		float: left;
+		padding: 14px;
+		position: relative;
+		&:hover {
+			cursor: pointer;
+			position: relative;
+			z-index: 100;
+			background-color: #f9f9f9;
+			box-shadow: 0 0 0 1px @ck-main inset;
+			.receipt-message-opt {
+				&-edit,
+				&-del {
+					color: @ck-main;
+					border-color: @ck-main;
+					&:hover {
+						background: @ck-main;
+						color: #fff;
+					}
+				}
+			}
+			.receipt-message-set-default {
+				display: block;
+			}
+		}
+		&.notdefault {
+			.receipt-message-set-default {
+				background: #b3b3b3 !important;
+			}
+		}
+		&.isdefault {
+			background-color: #f9f9f9;
+			.receipt-message-set-default {
+				display: block;
+				background: @ck-main;
+				&:hover {
+					background: @ck-main;
+				}
+			}
+		}
+		&.active {
+			position: relative;
+			z-index: 100;
+			box-shadow: 0 0 0 1px @ck-main inset;
+			.receipt-message-opt {
+				&-edit,
+				&-del {
+					color: @ck-main;
+					border-color: @ck-main;
+					&:hover {
+						background: @ck-main;
+						color: #fff;
+					}
+				}
+			}
+			.receipt-message-set-default {
+				display: block;
+				background: @ck-main;
+				&:hover {
+					background: @ck-main;
+				}
+			}
+			&::after {
+				content: '';
+				color: #fff;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 0 46px 46px;
+				border-color: transparent transparent @ck-main transparent;
+				position: absolute;
+				z-index: 888;
+				bottom: 0;
+				right: 0;
+			}
+			.icon-check {
+				display: block;
+			}
+		}
+		&-empty {
+			height: 195px;
+			padding-top: 60px;
+			background: #f2f2f2;
+			text-align: center;
+			cursor: pointer;
+		}
+		.icon-check {
+			font-size: 23px;
+			position: absolute;
+			z-index: 1000;
+			right: 6px;
+			bottom: 4px;
+			color: #fff;
+			display: none;
+		}
+		&-line {
+			&.receipt-message-info-empty {
+				height: 116px;
+				padding-top: 18px;
+			}
+			margin-left: 1%;
+			margin-right: 1%;
+            margin-top: 10px;
+			width: 98%;
+			.receipt-message-address {
+				height: 20px;
+				.one-line();
+			}
+            .receipt-message-opt {
+                margin-top: 30px;
+                width: 20%;
+                float: left;
+            }
+		}
+	}
+	&-name {
+		color: @ck-main;
+	}
+	&-address {
+		height: 60px;
+		overflow: hidden;
+	}
+	&-postcode,
+	&-tel {
+		.one-line();
+	}
+	&-opt {
+		.clearfix();
+		margin-top: 16px;
+		margin-bottom: 8px;
+		&-edit,
+		&-del {
+			border: 2px solid #ccc;
+			font-size: 18px;
+			padding: 6px;
+			border-radius: 17px;
+			margin-right: 8px;
+			font-weight: 700;
+			color: #ccc;
+			cursor: pointer;
+		}
+		&-add {
+			color: #ccc;
+			font-size: 40px;
+		}
+		&-tips {
+			display: block;
+		}
+	}
+}

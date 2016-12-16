@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.CityMapper" >
+  <resultMap id="City" type="com.duobao.fundation.data.mybatis.model.City" >
+    <id column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="state_id" property="stateId" jdbcType="INTEGER" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="SMALLINT" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    city_id, state_id, city, position, is_active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="City" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_cities
+    where city_id = #{cityId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByStateId" resultMap="City" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_cities
+    where state_id = #{stateId,jdbcType=INTEGER} order by position desc
+  </select>
+  <select id="selectByCity" resultMap="City" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_cities
+    where city = #{city,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_cities
+    where city_id = #{cityId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.City" >
+    insert into db_cities (city_id, state_id, city, 
+      position, is_active)
+    values (#{cityId,jdbcType=INTEGER}, #{stateId,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
+      #{position,jdbcType=SMALLINT}, #{isActive,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.City" >
+    insert into db_cities
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="stateId != null" >
+        state_id,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="stateId != null" >
+        #{stateId,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.City" >
+    update db_cities
+    <set >
+      <if test="stateId != null" >
+        state_id = #{stateId,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+    </set>
+    where city_id = #{cityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.City" >
+    update db_cities
+    set state_id = #{stateId,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
+      position = #{position,jdbcType=SMALLINT},
+      is_active = #{isActive,jdbcType=BIT}
+    where city_id = #{cityId,jdbcType=INTEGER}
+  </update>
+</mapper>

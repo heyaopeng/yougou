@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.DeliverAddrMapper" >
+  <resultMap id="DeliverAddr" type="com.duobao.fundation.data.mybatis.model.DeliverAddr" >
+    <id column="deliverAddr_id" property="deliveraddrId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="region" property="region" jdbcType="VARCHAR" />
+    <result column="addr_detail" property="addrDetail" jdbcType="VARCHAR" />
+    <result column="zipCode" property="zipcode" jdbcType="VARCHAR" />
+    <result column="is_default" property="isDefault" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    deliverAddr_id, user_id, name, phone, country, state, city, region, addr_detail, 
+    zipCode, is_default
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="DeliverAddr" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_deliver_addrs
+    where deliverAddr_id = #{deliveraddrId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserAndAddrId" resultMap="DeliverAddr" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_deliver_addrs
+    where user_id=#{userId,jdbcType=INTEGER} and deliverAddr_id = #{deliveraddrId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="DeliverAddr" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_deliver_addrs
+    where user_id = #{userId,jdbcType=INTEGER} order by is_default desc , deliverAddr_id desc
+  </select>
+  <select id="selectDefaultByUserId" resultMap="DeliverAddr" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_deliver_addrs
+    where user_id = #{userId,jdbcType=INTEGER} and is_default=1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_deliver_addrs
+    where deliverAddr_id = #{deliveraddrId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByUserIdAndAddrId">
+    delete from db_deliver_addrs
+    where user_id=#{userId,jdbcType=INTEGER} and deliverAddr_id = #{deliveraddrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.DeliverAddr" >
+    insert into db_deliver_addrs (deliverAddr_id, user_id, name, 
+      phone, country, state, 
+      city, region, addr_detail, 
+      zipCode, is_default)
+    values (#{deliveraddrId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, #{addrDetail,jdbcType=VARCHAR}, 
+      #{zipcode,jdbcType=VARCHAR}, #{isDefault,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.DeliverAddr" >
+    insert into db_deliver_addrs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deliveraddrId != null" >
+        deliverAddr_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="region != null" >
+        region,
+      </if>
+      <if test="addrDetail != null" >
+        addr_detail,
+      </if>
+      <if test="zipcode != null" >
+        zipCode,
+      </if>
+      <if test="isDefault != null" >
+        is_default,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deliveraddrId != null" >
+        #{deliveraddrId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="addrDetail != null" >
+        #{addrDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.DeliverAddr" >
+    update db_deliver_addrs
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null" >
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="addrDetail != null" >
+        addr_detail = #{addrDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        zipCode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+    </set>
+    where deliverAddr_id = #{deliveraddrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.DeliverAddr" >
+    update db_deliver_addrs
+    set user_id = #{userId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      addr_detail = #{addrDetail,jdbcType=VARCHAR},
+      zipCode = #{zipcode,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=BIT}
+    where deliverAddr_id = #{deliveraddrId,jdbcType=INTEGER}
+  </update>
+</mapper>

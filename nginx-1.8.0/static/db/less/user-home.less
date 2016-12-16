@@ -1,0 +1,256 @@
+@import "public.less";
+.userhome{
+	&-top{
+		position: relative;
+		&-background{
+			width: 100%;
+			height:180px;
+			
+		}
+		&-data{
+			width: 100%;
+			color: white;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+
+			&-info{
+				margin-left: 20px;
+				margin-bottom: 57px;
+				.clearfix();
+				&-item{
+					float: left;
+					border-radius : 50%;
+					&-image{
+						width: 70px;
+						height: 70px;
+						border-radius : 50%;
+					}
+					&-text{
+						font-weight: bold;
+						color: white;
+						font-size: 15px;
+						padding: 7px;
+					}
+				}
+			}
+		}
+	}
+	&-tab {
+		.clearfix();
+		background-color: white;
+		position: relative;
+		width: 100%;
+		top: 200;
+		left: 0;
+		right: 0;
+		z-index: 999;
+		margin-bottom: 2px;
+		&-item {
+			display: block;
+			float: left;
+			width: 100/3%;
+			text-align: center;
+			cursor: pointer;
+			padding: 8px;
+			position: relative;
+
+			&.active {
+				color:red;
+				border-bottom: 1px solid red;
+			}
+
+			& + & {
+				&:before {
+					content: "";
+					position: absolute;
+					top: 5px;
+					bottom: 5px;
+					left: 0;
+					width: 1px;
+					background-color: #ddd;
+				}
+			}
+		}
+
+	}
+
+	&-rec{
+		&-item {
+			.clearfix();
+
+			background-color: white;
+			margin-bottom: 5px;
+			border-bottom: 1px solid #ddd;
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+			}
+			&-thumb {
+				padding: 5px;
+				display: block;
+				float: left;
+			}
+			&-time{
+				.clearfix();
+			}
+			&-info {
+				.red{
+					color: red;
+				}
+				color: grey;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				> span  + span {
+					margin-left: 10px;
+				}
+
+				> span + a {
+					margin-left: 10px;
+				}
+			}
+			&-content {
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+				}
+				overflow: hidden;
+				padding: 5px 15px 5px 15px;
+			}
+			&-title {
+				color: black;
+				padding-bottom: 5px;
+				padding-top: 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			&-proc {
+				background-color: #ddd;
+				border-radius: 5px;
+				margin-top: 5px;
+				&-fill {
+					border-radius: 5px;
+					height: 5px;
+					background-color: orange;
+				}
+			}
+			&-rest{
+				color: grey;
+				padding-right: 10px;
+			}
+			&-win {
+				width: 100%;
+				border-top: 1px solid #ddd;
+				&-cell {
+					font-size: 12px;
+					float: left;
+					width: 100/3%;
+					padding: 5px 0;
+					&-left{
+						padding-left: 10px;
+						text-align: left;
+					}
+					&-right{
+						padding-right: 10px;
+						text-align: right;
+					}
+					&-center{
+						&-text{
+							color: red;
+						}
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+
+	&-show{
+		&-item {
+			.clearfix();
+			background-color: white;
+			margin-bottom: 3px;
+			border-bottom: 1px solid #CCCCCC;
+			&-thumb {
+				width: 50px;
+				border-radius : 50%;
+				padding: 5px;
+				display: block;
+				float: left;
+			}
+			&-title{
+				.clearfix();
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			&-info {
+				.red{
+					color: red;
+				}
+				color: grey;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				> span  + span {
+					margin-left: 10px;
+				}
+
+				> span + a {
+					margin-left: 10px;
+				}
+			}
+			&-content {
+				overflow: hidden;
+				padding: 5px 15px 5px 15px;
+			}
+			&-nickname {
+				font-size: 20px;
+				color: #0066CC;
+				padding-bottom: 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			&-proc {
+				background-color: #ddd;
+				border-radius: 5px;
+				margin-top: 5px;
+				&-fill {
+					border-radius: 5px;
+					height: 5px;
+					background-color: orange;
+				}
+			}
+			&-rest{
+				color: grey;
+				padding-right: 10px;
+			}
+			&-btns {
+				text-align: center;
+				.btn {
+					width: 30%;
+					margin-top: 3px;
+					border-radius : 15px;
+					padding: 3px 20px;
+					margin-left: 5px;
+					color : red;
+					background-color: white;
+				}
+			}
+
+			&-images {
+				.clearfix();
+				&-col{
+					padding-top: 5px;
+					padding-bottom: 5px;
+					width: 100/3%;
+					float: left;
+				}
+			}
+		}
+	}
+}

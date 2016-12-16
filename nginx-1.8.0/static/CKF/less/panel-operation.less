@@ -1,0 +1,84 @@
+@import "public.less";
+
+.main-sub-content {
+	.clearfix();
+	.panel-operation {
+		border-right: 1px solid #f8f4f4;
+	}
+}
+
+.panel-operation {
+	.clearfix();
+	.btn {
+		border: 0;
+		height: 26px;
+		line-height: 26px;
+		padding: 0 4px;
+		width: 60px;
+	}
+	.dropdown {
+		display: inline-block;
+		border: 1px solid @ck-sub-light;
+		&-menu {
+			margin: 0;
+			padding: 0;
+			width: 62px;
+			min-width: 62px;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			left: -1px;
+			border: 1px solid @ck-sub-light;
+		}
+	}
+	&-show {
+		&-list,
+		&-grid,
+		&-num,
+		&-order {
+			float: right;
+		}
+		&-list,
+		&-grid {
+			margin: 6px;
+			background: #fff;
+			cursor: pointer;
+			box-shadow: 1px 1px 0 @ck-sub inset, -1px -1px 0 @ck-sub inset;
+			&:hover {
+				background: @ck-sub;
+				a {
+					color: #fff;
+				}
+			}
+			&.active {
+				background: @ck-sub;
+				a {
+					color: #fff;
+				}
+			}
+			a {
+				display: block;
+				padding: 4px 8px;
+				text-decoration: none;
+				color: @ck-sub;
+			}
+		}
+		&-num,
+		&-order {
+			padding: 10px;
+		}
+		&-num {
+			> span {
+				padding-right: 6px;
+			}
+		}
+
+	}
+}
+.panel-operation-rank {
+  	.clearfix();
+	background-color: #f2f2f2;
+  	padding: 7px 10px 5px 0;
+  	.pagination {
+	  margin: 0;
+	}
+}

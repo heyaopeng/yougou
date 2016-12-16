@@ -1,0 +1,57 @@
+@import "public.less";
+
+.product-group {
+	&-header {
+		background-color: white;
+		padding: 10px;
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+
+		&-link {
+			float: right;
+		}
+		&-note{
+			margin-left: 10px;
+			font-size: 13px;
+			color: #6299c8;
+		}
+		&-icon{
+			font-size: 17px;
+			margin-left: 5px;
+		}
+	}
+
+	&-body {
+		.clearfix();
+
+		.product-item {
+			float: left;
+			width: 50%;
+			border-bottom: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+		}
+
+		background-color: white;
+
+	}
+
+	&-hor {
+
+		.product-group-body {
+			overflow-x: scroll;
+			-webkit-overflow-scrolling: touch;
+			white-space: nowrap;
+			.product-item {
+				float: none;
+				display: inline-block;
+				width: 45%;
+				border: none;
+			}
+
+			.product-item + .product-item {
+				margin-left: 10px;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,71 @@
+@import "public.less";
+
+.withdraw-list {
+	.clearfix();
+	padding-top: 44px;
+	&-tab {
+		.clearfix();
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+
+		&-item {
+			display: block;
+			float: left;
+			width: 100/3%;
+			text-align: center;
+			cursor: pointer;
+			padding: 10px;
+			position: relative;
+
+			&.active {
+				color:red;
+				border-bottom: 1px solid red;
+			}
+
+			& + & {
+				&:before {
+					content: "";
+					position: absolute;
+					top: 5px;
+					bottom: 5px;
+					left: 0;
+					width: 1px;
+					background-color: #ddd;
+				}
+			}
+		}
+	}
+
+	&-item{
+		.clearfix();
+		background-color: white;
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 5px;
+		width: 100%;
+		padding: 10px;
+		&-row{
+			padding: 5px;
+			&-status{
+				display: block;
+				float: right;
+				padding: 5px 10px;
+				border-radius: 15px;
+				color: white;
+			}
+			.yellow{
+				background-color: #FF9933;
+			}
+			.red{
+				background-color: red;
+			}
+			.green{
+				background-color: #00CC00;
+			}
+		}
+	}
+}

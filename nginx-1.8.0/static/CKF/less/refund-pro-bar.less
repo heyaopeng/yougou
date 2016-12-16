@@ -1,0 +1,47 @@
+@import "public.less";
+
+.refund-pro-bar {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    &-ul {
+      .clearfix();
+    }
+    &-li {
+      display: inline-block;
+      width: 217px;
+      span {
+        width: 90%;
+        display: inline-block;
+        background-color: #fff3e3;
+        padding: 7px 12px 9px 12px;
+      }
+      &:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        display: inline-block;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 13px solid #fff3e3;
+        vertical-align: middle;
+        font-size: 0;
+        line-height: 0;
+      }
+      &:last-child{
+        &:after {
+          border: 0;
+        }
+      }
+      &.active ~ &{
+        span {
+          background-color: #efefef;
+        }
+        &:after {
+          border-left-color:#efefef;
+        }
+      }
+      &+& {
+        margin-left: 1.7%;
+      }
+    }
+}

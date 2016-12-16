@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: web-session-redis
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.duobao.web.session
+Build-Jdk: 1.8.0_101
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

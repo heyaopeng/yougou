@@ -1,0 +1,36 @@
+@import "public.less";
+
+.transaction-history {
+  margin: 8px;
+  thead > tr > th {
+    text-align: center;
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  tbody > tr > td {
+    border: 0;
+    vertical-align: middle;
+    text-align: center;
+  }
+  &-time-box {
+        cursor: pointer;
+        a {
+            color: #333;
+        }
+        a:hover {
+            text-decoration: none;
+            color: @ck-main;
+        }
+      .glyphicon-arrow-down,.glyphicon-arrow-up {
+        display: none;
+    }
+    &.desc .glyphicon-arrow-down {
+        display: inline-block;
+    }
+    &.asce .glyphicon-arrow-up {
+        display: inline-block;
+    }
+    }
+}

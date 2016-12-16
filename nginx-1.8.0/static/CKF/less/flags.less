@@ -1,0 +1,25 @@
+@fwidth: 22px;
+@fheight: 16px;
+
+.ck-flag {
+	display: inline-block;
+	width: @fwidth;
+	height: @fheight;
+	vertical-align: sub;
+	background-image: url(../images/flags.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+
+	&.zh_CN {
+		background-position: 0 0;
+	}
+
+	&.en_US {
+		background-position: 0 @fheight * -1;
+	}
+
+	&.vi_VN {
+		background-position: 0 @fheight * -2;
+	}
+}
+

@@ -1,0 +1,71 @@
+.ajax-loading {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	background-color: #ddd;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: none;
+
+	&.loading {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&-icon {
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		background-image: url(../images/loading.png);
+		-webkit-animation: load-spin 1.5s infinite linear;
+		animation: load-spin 1.5s infinite linear;
+	}
+
+	&-in {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		background-image: url(../images/loading_in.png);
+	}
+
+}
+
+@-webkit-keyframes load-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+
+}
+
+@keyframes load-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>Cavassion Check</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+    <!--[if lt IE 9]>
+        <script src="./js/libs/html5shiv.min.js"></script>
+        <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 trim-left">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+                        店铺管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="store-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我要开店</a></li>
+                            <li><a href="#">店铺装修</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+                        产品管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="product-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我的产品</a></li>
+                            <li><a href="#">产品上架</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="admin-main">
+                <div class="admin-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="#">货物配送</a></li>
+                        <li class="active">揽货确认</li>
+                    </ol>
+                </div>
+                <div class="cavassion-check-module">
+                    <div class="order-search-module">
+                        <form class="form-horizontal order-search-form" id="order-search-form">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label trim-right">请输入需要揽货的订单号：</label>
+                                <div class="col-md-4 trim-left">
+                                    <input type="text" class="form-control order-search-num" placeholder="订单号">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table table-bordered cavassion-check-table">
+                        <thead>
+                            <tr align="center">
+                                <th>订单号</th>
+                                <th>商家号</th> 
+                                <th>商家名称</th>
+                                <th>货号</th>
+                                <th>商品</th>
+                                <th>规格</th>
+                                <th>数量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 第一个商家号 -->
+                            <tr>
+                                <td rowspan="16">201509345355232546325</td>     <!-- 该rowspan的值为该订单号中的项数 -->
+                                <td rowspan="8">2055384</td>    <!-- 该商家号中的rowspan的值为该商家号中商品的项数 -->
+                                <td rowspan="8">创富成农</td>   <!-- 同上 -->
+                                <td rowspan="3">#8090</td>      <!-- 该货号中的rowspan值为同一货号的项数 -->
+                                <td rowspan="3" class="pro-img">    <!-- 同上 -->
+                                    <img src="./images/7.jpg">
+                                    2015夏 碎衣连衣裙
+                                </td>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                                <td rowspan="8"><button class="btn btn-default">确认签收</button></td>  <!-- 该rowspan的值与商家号的值一致 -->
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="5">#7825</td>
+                                <td rowspan="5" class="pro-img">
+                                    <img src="./images/2.jpg">
+                                    东南亚风情印花T恤
+                                </td>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            
+                            <!-- 第二个商家号 -->
+                            <tr>
+                                <td rowspan="8">2055386</td>
+                                <td rowspan="8">利斯女装</td>
+                                <td rowspan="3">#8090</td>
+                                <td rowspan="3" class="pro-img">
+                                    <img src="./images/7.jpg">
+                                    2015夏 碎衣连衣裙
+                                </td>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                                <td rowspan="8"><button class="btn btn-default">确认签收</button></td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="5">#7825</td>
+                                <td rowspan="5" class="pro-img">
+                                    <img src="./images/2.jpg">
+                                    东南亚风情印花T恤
+                                </td>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>颜色：红    尺寸：M</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>                           
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+<script src="./js/libs/FV/formValidation.min.js"></script>
+<script src="./js/libs/FV/bootstrap.min.js"></script>
+<script src="./js/libs/FV/i18n.min.js"></script>
+<script src="./js/getUrlArg.js"></script>
+<script src="./js/ck_lang.js"></script>
+<script src="./js/libs/bootstrap-datepicker.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        var lang = $.getUrlArg('language');
+
+        // 搜索表单
+
+        $('#order-search-form .input-daterange').datepicker({
+            format: "yyyy/mm/dd",
+            startDate: "2014/12/01",
+            todayHighlight: true,
+            autoclose: true,
+            orientation: "top right",
+            language: lang
+        })
+        .on('changeDate', function () {
+            $('#rech-history-form').formValidation('revalidateField', 'f-time');
+        });
+
+        $('#order-search-form').formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            addOns: {
+                i18n: {}
+            },       
+            fields: {
+                'order-search-num': {
+                    selector: '#order-search-form .order-search-num',
+                    validators: {
+                        numeric: {
+                            message: {
+                                en_US: 'The order number consists of digits',
+                                zh_CN: '订单号由数字组成'
+                            }
+                        },
+                        stringLength: {
+                            max: 30,
+                            message: {
+                                en_US: 'The order number length is less than 30',
+                                zh_CN: '订单号长度小于30'
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[^\s]*$/,
+                            message: {
+                                en_US: 'The order number can not contain space',
+                                zh_CN: '订单号不能包含空格'
+                            }
+                        }
+                    }
+                },
+                'order-search-bussiness': {
+                    selector: '#order-search-form .order-search-bussiness',
+                    validators: {
+                        stringLength: {
+                            max: 20,
+                            message: {
+                                en_US: 'The order number length is less than 20',
+                                zh_CN: '订单号长度小于20'
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[^\s]*$/,
+                            message: {
+                                en_US: 'The order number can not contain space',
+                                zh_CN: '订单号不能包含空格'
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.validator.fv', function(e, data) {
+            data.element
+                    .data('fv.messages')
+                    .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+                    .filter('[data-fv-validator="' + data.validator + '"]').show();
+        });
+        $('#order-search-form').formValidation('setLocale',lang);
+
+        //---------------------------------------------------------------------------------------------
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.CategoryMapper" >
+  <resultMap id="Category" type="com.duobao.fundation.data.mybatis.model.Category" >
+    <id column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="position" property="position" jdbcType="SMALLINT" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    category_id, category, parent_id, position, weight
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Category" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_categories
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="Category" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_categories order by position desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_categories
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Category" >
+    insert into db_categories (category_id, category, parent_id, 
+      position, weight)
+    values (#{categoryId,jdbcType=INTEGER}, #{category,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{position,jdbcType=SMALLINT}, #{weight,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Category" >
+    insert into db_categories
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Category" >
+    update db_categories
+    <set >
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+    </set>
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Category" >
+    update db_categories
+    set category = #{category,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      position = #{position,jdbcType=SMALLINT},
+      weight = #{weight,jdbcType=INTEGER}
+    where category_id = #{categoryId,jdbcType=INTEGER}
+  </update>
+</mapper>

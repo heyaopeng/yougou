@@ -1,0 +1,302 @@
+@import "public.less";
+
+.bas {
+	&-header {
+		background-color: @ck-sub;
+		border-bottom: 2px solid @ck-main;
+	}
+
+	&-logo {
+		background-color: darken(@ck-sub, 5%);
+		padding: 20px 0;
+	}
+
+	&-user {
+		.clearfix();
+
+		&-item {
+			color: #fff;
+			float: left;
+			text-align: center;
+			width: 100/3%;
+			padding: 10px 0;
+
+			[class^="icon-"],
+			[class*=" icon-"] {
+				display: block;
+				font-size: 40px;
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: #fff;
+				text-decoration: none;
+			}
+
+			&:nth-child(odd) {
+				background-color: darken(@ck-sub, 5%);
+			}
+
+		}
+
+		&-text {
+			display: block;
+			margin-top: 5px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+	}
+
+	&-sidebar {
+		background-color: #EBF2FC;
+		padding: 20px 0;
+	}
+
+	&-thead {
+		margin-bottom: 0;
+
+		> thead > tr > th {
+			// text-align: center;
+		}
+
+	}
+
+	&-table {
+		table-layout:fixed;
+		border: 2px solid #fff;
+		margin: 0;
+
+		> tbody > tr {
+			> td,
+			> th {
+				background-color: #F2F5F9;
+				vertical-align: middle;
+				border: none;
+			}
+		}
+		&-td-line {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			word-break: keep-all;
+		}
+
+		.td-center {
+			text-align: center;
+		}
+
+		.td-action {
+			position: relative;
+
+			> a {
+				color: #333;
+				text-decoration: none;
+			}
+
+			text-align: center;
+			background-color: #F5F9FC;
+
+			&-text {
+				display: block;
+				margin-top: 15px;
+			}
+
+			[class^="icon-"],
+			[class*=" icon-"] {
+				display: block;
+				font-size: 24px;
+			}
+
+		}
+
+		&-spec + &-spec {
+			margin-left: 10px;
+		}
+
+	}
+
+	&-label {
+		display: block;
+		position: absolute;
+		right: 5px;
+		bottom: 5px;
+		color: #fff;
+		z-index: 9;
+
+		&:after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			border-width: 35px;
+			border-style: solid;
+			border-color: @ck-main;
+			border-top-color: transparent;
+			border-left-color: transparent;
+			position: absolute;
+			top: -45px;
+			right: -5px;
+			z-index: -1;
+		}
+
+	}
+
+	&-bill {
+		background-color: #E0E7F2;
+		padding: 10px;
+		.clearfix();
+
+		&-status {
+			padding: 10px;
+			background-color: #fff;
+			.clearfix();
+			margin: 10px 0;
+
+			&-label {
+				color: #fff;
+				background-color: #F97450;
+				padding: 5px;
+				border-radius: 5px;
+			}
+
+			&-text {
+				display: block;
+				float: right;
+				max-width: 500px;
+			}
+		}
+
+		&-time {
+			background-color: #fff;
+			padding: 20px;
+			color: @ck-main;
+			font-weight: bold;
+			float: left;
+			position: relative;
+
+			&-prev,
+			&-next {
+				display: block;
+				position: absolute;
+				background-color: #ccc;
+				color: #fff;
+				height: 100%;
+				width: 20px;
+				top: 0;
+				cursor: pointer;
+
+				[class^="icon-"],
+				[class*=" icon-"] {
+					position: absolute;
+					width: 14px;
+					height: 14px;
+					top: 0;
+					right: 0;
+					left: 0;
+					bottom: 0;
+					margin: auto;
+				}
+
+			}
+
+			&-prev {
+				left: 0;
+			}
+
+			&-next {
+				right: 0;
+			}
+
+		}
+
+	}
+
+	&-count {
+		.clearfix();
+		float: left;
+		margin-left: 15px;
+		text-align: center;
+
+		&-total {
+			float: left;
+			min-width: 150px;
+		}
+
+		&-num {
+			background-color: #fff;
+			color: @ck-main;
+			padding: 10px;
+			font-weight: bold;
+		}
+
+		&-title {
+			color: #fff;
+			background-color: @ck-main;
+			// padding: 5px;
+		}
+
+	}
+
+	&-count-total-inverse {
+		.bas-count-num {
+			background-color: #f7f7f7;
+			color: #333;
+		}
+
+		.bas-count-title {
+			background-color: @ck-sub-light;
+		}
+
+	}
+
+	&-derive-btn {
+		display: inline-block;
+		background-color: #fff;
+		border: none;
+		color: @ck-main;
+		padding: 5px;
+		text-align: center;
+		margin: 0 10px;
+
+		[class^="icon-"],
+		[class*=" icon-"] {
+			display: block;
+			font-size: 24px;
+		}
+
+		&-text {
+			display: block;
+			margin-top: 5px;
+		}
+
+	}
+
+	&-period {
+		float: left;
+		margin: 0 15px;
+
+		&-block {
+			.clearfix();
+		}
+
+		&-mark {
+			float: left;
+			background-color: #989899;
+			padding: 5px 10px;
+			display: block;
+			color: #fff;
+		}
+
+		&-date {
+			float: left;
+			display: block;
+			padding: 5px 10px;
+			background-color: #F2F2F2;
+		}
+
+	}
+
+}

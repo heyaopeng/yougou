@@ -1,0 +1,84 @@
+<div class="bas-bill">
+	<h5>详细订单：</h5>
+
+	<div class="bas-bill-time">
+		<span class="bas-bill-time-prev bas-bill-time-slide" data-value="{{periodPrev}}">
+			<span class="icon-chevron-left"></span>
+		</span>
+		{{period}}
+		<span class="bas-bill-time-next bas-bill-time-slide" data-value="{{periodNext}}">
+			<span class="icon-chevron-right"></span>
+		</span>
+	</div>
+
+	<div class="bas-count">
+		<div class="bas-count-total">
+			<div class="bas-count-num">{{totalPrice}}</div>
+			<div class="bas-count-title">交易总额</div>
+		</div>
+		<div class="bas-count-total bas-count-total-inverse">
+			<div class="bas-count-num">{{totalOrder}}</div>
+			<div class="bas-count-title">交易订单数</div>
+		</div>
+	</div>
+
+	<a href="{{deriveLink}}" class="bas-derive-btn">
+		<span class="icon-user"></span>
+		<span class="bas-derive-btn-text">导出订单</span>
+	</a>
+</div>
+
+<table class="table bas-thead">
+	<thead>
+		<tr>
+			<th width="10%">订单号</th>
+			<th width="10%">交易时间</th>
+			<th width="10%">货号</th>
+			<th width="15%">商品名称</th>
+			<th width="15%">单价</th>
+			<th width="20%">规格</th>
+			<th width="5%">数量</th>
+			<th width="10%">总额</th>
+		</tr>
+	</thead>
+</table>
+
+
+{{#each orders}}
+<table class="table bas-table">
+	<tbody>
+		{{#each this}}
+			{{#ifEq @index 0}}
+			<tr>
+				<td width="10%" rowspan="{{../this.length}}">{{orderNumber}}</td>
+				<td width="10%" rowspan="{{../this.length}}">{{prderTime}}</td>
+				<td width="10%">{{productNumber}}</td>
+				<td width="15%">name name name name</td>
+				<td width="15%">$123.45</td>
+				<td width="20%">
+					{{#each productSpec}}
+					<span class="bas-table-spec">{{@key}}：{{this}}</span>
+					{{/each}}
+				</td>
+				<td width="5%">{{amount}}</td>
+				<td width="10%" rowspan="{{../this.length}}">
+					<span class="text-primary">{{totalPrice}}</span>
+				</td>
+			</tr>
+			{{else}}
+			<tr>
+				<td width="10%">{{productNumber}}</td>
+				<td width="15%">name name name name</td>
+				<td width="15%">$123.45</td>
+				<td width="20%">
+					{{#each productSpec}}
+					<span class="bas-table-spec">{{@key}}：{{this}}</span>
+					{{/each}}
+				</td>
+				<td width="5%">{{amount}}</td>
+			</tr>
+			{{/ifEq}}
+		{{/each}}
+	</tbody>
+</table>
+{{/each}}

@@ -1,0 +1,15 @@
+<div class="header">
+	<img src="$staticConfig.getPath()/ck_market/images/desert_bg.jpg" width="100%">
+	<div class="header-user">
+		#if($request.getSession().getAttribute("userName"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userName")</strong>
+			</span>
+		#elseif($request.getSession().getAttribute("userEmail"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userEmail")</strong>
+			</span>
+	    #end
+		<a href="/cooka-user-web/logout">LogOut</a>
+	</div>
+</div>

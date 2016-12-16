@@ -1,0 +1,24 @@
+@ck_main: #13a0fa;
+@ck_sub: rgba(239, 71, 58, 1);
+
+.clearfix() {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.abs-center(@w: auto, @h: auto) {
+	width: @w;
+	height: @h;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}

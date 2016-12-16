@@ -1,0 +1,68 @@
+@import "public.less";
+
+.cash-coupon-balance {
+
+	p{
+		margin: 0;
+	}
+	.clearfix();
+	&-meta{
+		.clearfix();
+		background-color: white;
+		width: 100%;
+		text-align: center;
+		&-item{
+			padding: 5px;
+			width: 100/3%;
+			float: left;
+		}
+	}	
+
+	&-money{
+		background-color: white;
+		margin-bottom: 4px;
+		&-block{
+			.clearfix();
+			&-text{
+				.red{
+					color: red;
+				}
+				font-size: 18px;
+				padding: 5px 15px 5px 15px;
+				margin: 10px 20px;
+				text-align: center;
+				float: left;
+			}
+			&-button{
+				background-color: white;
+				text-align: center;
+				float: right;
+				border-radius : 15px;
+				margin: 10px 20px;
+				padding: 5px 15px 5px 15px;
+				color : red;
+				border: 1px solid red;
+			}
+		}
+	}
+
+	&-log{
+		background-color: white;
+		&-table{
+		  	background-color: white;
+		  	width: 100%;
+		 	&-body{
+		 		td{
+					text-align: center;
+					width: 100/3%;
+					padding:15px 9px;
+					&.money{
+						color: red;
+					}
+					border-bottom: 1px solid #ddd;
+				}
+		 	}
+		 }
+	}
+
+}

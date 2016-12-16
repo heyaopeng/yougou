@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cooka | 市场运营商管理系统</title>
+<link rel="stylesheet" href="$staticConfig.getPath()/ck_market/build/merchant_info.css">
+<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/backend.css">
+</head>
+<body>
+	#parse("common.vm")
+
+	<script src="$staticConfig.getPath()/ck_market/build/merchant_info.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/jquery-1.11.2.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/bootstrap.min.js"></script>
+	<script src="$staticConfig.getPath()/js/ck_ajax_setup.js"></script>
+	<script src="$staticConfig.getPath()/js/ck_lang.js"></script>
+</body>
+</html>

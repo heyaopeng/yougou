@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>Delivery Order</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+    <link rel="stylesheet" type="text/css" href="./CKF/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+    <!--[if lt IE 9]>
+        <script src="./js/libs/html5shiv.min.js"></script>
+        <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 trim-left">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+                        店铺管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="store-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我要开店</a></li>
+                            <li><a href="#">店铺装修</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+                        产品管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="product-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我的产品</a></li>
+                            <li><a href="#">产品上架</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="admin-main">
+                <div class="admin-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="#">货物配送</a></li>
+                        <li class="active">配送订单</li>
+                    </ol>
+                </div>
+                <div class="delivery-order-module">
+                    <div class="order-search-module">
+                        <form class="form-inline order-search-form order-search-form-more" id="order-search-form">
+                            <div class="form-group">
+                                <label class="control-label text-right" style="width:100px;">订单号：</label>
+                                <input type="text" class="form-control order-search-num" placeholder="订单号">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">商家号：</label>
+                                <input type="text" class="form-control order-search-bussiness" placeholder="商家号">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">揽货人：</label>
+                                <select class="form-control cavassion-peo">
+                                    <option value="">—— 请选择 ——</option>
+                                    <option value="1">张三</option>
+                                    <option value="2">李四</option>
+                                    <option value="3">王五</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-right" style="width:100px;">下单时间：</label>
+                                <div class="input-daterange input-group">
+                                    <input type="text" class="form-control f-date" name="" />
+                                    <span class="input-group-addon">到</span>
+                                    <input type="text" class="form-control f-date" name="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                    <table class="table table-bordered delivery-order-table">
+                        <thead>
+                            <tr>
+                                <th>订单号</th>
+                                <th>商家数</th> 
+                                <th>供货商数量</th>
+                                <th>下单时间</th>
+                                <th>揽货状态</th>
+                                <th>揽货人</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20435845939363339367012</td>
+                                <td>78</td>
+                                <td>3</td>
+                                <td>2015/09/28 12:16</td>
+                                <td>已完成</td>
+                                <td>张三，李四</td>
+                                <td>
+                                    <a href="#" class="delivery-order-check">查看</a>
+                                    <button class="btn btn-default">打印配送单</button>
+                                    <button class="btn btn-default">确认配送</button>
+                                </td> 
+                            </tr>
+                            <tr>
+                                <td>20435845939363339367012</td>
+                                <td>78</td>
+                                <td>3</td>
+                                <td>2015/09/28 12:16</td>
+                                <td>已完成</td>
+                                <td>张三，李四</td>
+                                <td>
+                                    <a href="#" class="delivery-order-check">查看</a>
+                                    <button class="btn btn-default">打印配送单</button>
+                                    <button class="btn btn-default">确认配送</button>
+                                </td> 
+                            </tr>
+                            <tr>
+                                <td>20435845939363339367012</td>
+                                <td>78</td>
+                                <td>3</td>
+                                <td>2015/09/28 12:16</td>
+                                <td>已完成</td>
+                                <td>张三，李四</td>
+                                <td>
+                                    <a href="#" class="delivery-order-check">查看</a>
+                                    <button class="btn btn-default">打印配送单</button>
+                                    <button class="btn btn-default">确认配送</button>
+                                </td> 
+                            </tr>
+                            <tr>
+                                <td>20435845939363339367012</td>
+                                <td>78</td>
+                                <td>3</td>
+                                <td>2015/09/28 12:16</td>
+                                <td>已完成</td>
+                                <td>张三，李四</td>
+                                <td>
+                                    <a href="#" class="delivery-order-check">查看</a>
+                                    <button class="btn btn-default">打印配送单</button>
+                                    <button class="btn btn-default">确认配送</button>
+                                </td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+<script src="./js/libs/FV/formValidation.min.js"></script>
+<script src="./js/libs/FV/bootstrap.min.js"></script>
+<script src="./js/libs/FV/i18n.min.js"></script>
+<script src="./js/getUrlArg.js"></script>
+<script src="./js/ck_lang.js"></script>
+<script src="./js/libs/bootstrap-datepicker.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        var lang = $.getUrlArg('language');
+
+        // 搜索表单
+
+        $('#order-search-form .input-daterange').datepicker({
+            format: "yyyy/mm/dd",
+            startDate: "2014/12/01",
+            todayHighlight: true,
+            autoclose: true,
+            orientation: "top right",
+            language: lang
+        })
+        .on('changeDate', function () {
+            $('#rech-history-form').formValidation('revalidateField', 'f-time');
+        });
+
+        $('#order-search-form').formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            addOns: {
+                i18n: {}
+            },       
+            fields: {
+                'order-search-num': {
+                    selector: '#order-search-form .order-search-num',
+                    validators: {
+                        numeric: {
+                            message: {
+                                en_US: 'The order number consists of digits',
+                                zh_CN: '订单号由数字组成'
+                            }
+                        },
+                        stringLength: {
+                            max: 30,
+                            message: {
+                                en_US: 'The order number length is less than 30',
+                                zh_CN: '订单号长度小于30'
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[^\s]*$/,
+                            message: {
+                                en_US: 'The order number can not contain space',
+                                zh_CN: '订单号不能包含空格'
+                            }
+                        }
+                    }
+                },
+                'order-search-bussiness': {
+                    selector: '#order-search-form .order-search-bussiness',
+                    validators: {
+                        stringLength: {
+                            max: 20,
+                            message: {
+                                en_US: 'The order number length is less than 20',
+                                zh_CN: '订单号长度小于20'
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[^\s]*$/,
+                            message: {
+                                en_US: 'The order number can not contain space',
+                                zh_CN: '订单号不能包含空格'
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.validator.fv', function(e, data) {
+            data.element
+                    .data('fv.messages')
+                    .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+                    .filter('[data-fv-validator="' + data.validator + '"]').show();
+        });
+        $('#order-search-form').formValidation('setLocale',lang);
+
+        //---------------------------------------------------------------------------------------------
+    });
+</script>
+</body>
+</html>

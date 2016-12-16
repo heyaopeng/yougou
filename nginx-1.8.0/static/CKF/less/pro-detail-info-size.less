@@ -1,0 +1,71 @@
+@import "public.less";
+.pro-detail-info-size{
+	border-top: solid 1px #999999;
+    border-bottom: solid 1px #999;
+    line-height: 44px;
+    vertical-align: middle;
+    position: relative;    
+    max-height: 176px;
+    overflow: hidden;
+    .input-group{
+        .form-control{
+            border-color: #f2f2f2;
+        }
+        .btn{
+            background-color: #f2f2f2;
+            height: 34px;
+        }
+        &.hover{
+            .form-control{
+                border-color: #dbdad9;
+            }
+            .btn{
+                background-color: #dbdad9;
+            }
+        }
+        &.active{
+            .form-control{
+                border-color: @ck-main;
+            }
+            .btn{
+                background-color: @ck-main;
+                color: #fff;
+            }
+        }
+    }
+    .input-group-btn.active{
+        .btn{
+            background-color: @ck-main;
+            color: #fff;
+        }
+    }
+    .tab-content{
+        position: static;
+    }
+    table>tbody>tr>td{
+        padding: 5px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    &-available{
+        color: #999;
+    }
+    &-table{
+        width: 98%;
+        margin-left:0;
+        &-t{
+
+        }
+    }
+    [class*="icon-chevron-"]{
+        width: 50px;
+        height: 25px;
+        position: absolute;
+        bottom: 0;
+        left: 12%;
+        background-color: @ck-main;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+    }
+}

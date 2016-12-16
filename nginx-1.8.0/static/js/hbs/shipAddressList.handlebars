@@ -1,0 +1,22 @@
+{{#each addrList}}
+	<div class="radio ship-address{{#if isDefault}} default-address active{{/if}}"
+	data-addr='{{json this}}'>
+		<label>
+			<input type="radio" name="optionsRadios" class="address-check"{{#if isDefault}} checked{{/if}}>
+			{{name}} {{country}} {{state}} {{city}} {{region}} {{addrDetail}}
+		</label>
+		<span class="label label-warning default-label">__('Default')</span>
+		<div class="btn-group btn-group-sm pull-right address-option">
+			<button class="btn btn-default set-default" type="button">__('Set as Default')</button>
+			<button class="btn btn-default edit-address" type="button">__('Edit')</button>
+		</div>
+	</div>
+{{/each}}
+<button class="btn btn-default add-new-addr">
+	<span class="glyphicon glyphicon-plus-sign"></span>
+	__('Add New Address')
+</button>
+
+<div class="choose-address-option">
+	<button class="btn btn-primary btn-wide choose-confirm">__('OK')</button>
+</div>

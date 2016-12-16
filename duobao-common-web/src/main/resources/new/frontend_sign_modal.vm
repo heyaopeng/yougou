@@ -1,0 +1,210 @@
+<div class="modal fade sign-modal" id="sign-modal" tabindex="-1" data-j="signModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal">
+                <span class="icon-close"></span>
+            </button>
+
+            <div class="modal-body">
+                <div class="sign-modal-content">
+                    <img src="$staticConfig.getPath()/CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+                    <h4 class="sign-modal-title">#springMessage("welcome_to_duobaobuy")</h4>
+                    <div class="sign-modal-signin">
+                    
+	                    <div class="sign-switch-tab">
+							<span class="sign-switch-tab-item active" data-switch="s-email">
+								<span class="icon-envelope-o"></span>
+								#springMessage('sign_in_by_email')
+							</span>
+							<span class="sign-switch-tab-item" data-switch="s-phone">
+								<span class="icon-circle-mobile-o"></span>
+								#springMessage('sign_in_by_phone_number')
+							</span>
+						</div>
+						
+                        <form class="form-horizontal" id="sign-in-form" mehtod="post">
+                        <input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+                            <div class="alert alert-danger sign-modal-resend sign-modal-hide">
+                                <span>#springMessage('you_need_to_activate_your_account')</span>
+                                <br>    
+                                <a href="/duobao-user-web/active?email=" class="btn btn-primary sign-modal-resend-link">#springMessage('re-send_activate_email')</a>
+                            </div>
+                            
+                            <div class="form-group sign-switch-target active" id="s-email">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<span class="icon-envelope-o"></span>
+									</span>
+									<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+							</div>
+							<div class="sign-switch-target" id="s-phone">
+								<div class="form-group">
+									<input type="text" name="account" class="form-control f-mobile" disabled>
+								</div>
+							</div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-lock-o"></span>
+                                    </span>
+                                    <input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+                            </div>
+                            <div class="form-group sign-modal-captcha sign-modal-hide">
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-vertify-code-o"></span>
+                                        </span>
+                                        <input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="/duobao-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+                                <div class="col-md-1">
+                                    <a href="#" class="sign-modal-refresh">
+                                        <span class="icon-refresh"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a href="/duobao-user-web/resetOptions" class="pull-left">#springMessage("forget_password")?</a>
+                                <a href="#" class="pull-right" data-goto="signup">#springMessage("sign_up")</a>
+                            </div>
+                            <div class="form-group">
+                                <!-- <button class="btn btn-primary btn-block" type="submit">Sign In</button> -->
+                                <button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-in-btn"><span class="ladda-label">#springMessage("sign_in")</span></button>
+                            </div>
+                            <div class="social-sign" data-j="socialSign">
+								<div class="social-sign-line">
+									<span>or</span>
+								</div>
+								<a href="/duobao-user-web/facebookLogin" class="social-sign-btn ssb-facebook">
+									<span class="icon-facebook"></span>
+									Sign in with Facebook
+								</a>
+								<a href="/duobao-user-web/googleLogin" class="social-sign-btn ssb-google">
+									<span class="icon-google-plus"></span>
+									Sign in with Google+
+								</a>
+							</div>
+                        </form>
+						<p class="text-center">
+							#springMessage("no_duobaobuy_account")?#springMessage("30_seconds_to_become_a_menber_of_duobaobuy").
+						</p>
+                    </div>
+                    
+                    
+                    <div class="sign-modal-signup">
+                    	<div class="sign-switch-tab">
+							<span class="sign-switch-tab-item active" data-switch="s-email2">
+								<span class="icon-envelope-o"></span>
+								#springMessage('sign_up_by_email')
+							</span>
+							<span class="sign-switch-tab-item" data-switch="s-phone2">
+								<span class="icon-circle-mobile-o"></span>
+								#springMessage('sign_up_by_phone_number')
+							</span>
+						</div>
+						
+                        <form class="form-horizontal" id="sign-up-form">
+                        <input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+                            <div class="form-group sign-switch-target active" id="s-email2">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<span class="icon-envelope-o"></span>
+									</span>
+									<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+							</div>
+							<div class="sign-switch-target" id="s-phone2">
+								<div class="form-group">
+									<input type="text" name="account" class="form-control f-mobile" disabled>
+								</div> 
+								<div class="form-group">
+									<div class="col-md-7">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-vertify-code-o"></span>
+											</span>
+											<input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+									</div>
+								</div>
+							</div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-lock-o"></span>
+                                    </span>
+                                    <input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="icon-check-lock-o"></span>
+                                    </span>
+                                    <input type="password" class="form-control f-confirm-password" placeholder="Confirm Password"></div>
+                            </div>
+                            <div class="form-group sign-modal-captcha">
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-vertify-code-o"></span>
+                                        </span>
+                                        <input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="/duobao-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+                                <div class="col-md-1">
+                                    <a href="#" class="sign-modal-refresh">
+                                        <span class="icon-refresh"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+                                        <input type="checkbox" value="" id="f-agree" class="f-agree">
+                                        <span class="icons">
+                                            <span class="icon-unchecked">
+                                                <span class="icon-square-o"></span>
+                                            </span>
+                                            <span class="icon-checked">
+                                                <span class="icon-square"></span>
+                                            </span>
+                                        </span>
+                                        #springMessage("i_agree_the_service_agreement_of_duobaobuy")
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- <button class="btn btn-primary btn-block" type="submit">Sign Up</button> -->
+                                <button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-up-btn"><span class="ladda-label">#springMessage("sign_up")</span></button>
+                            </div>
+                        </form>
+						<p class="text-center">
+							#springMessage("already_have_an_account")?
+							<a href="#" data-goto="signin">#springMessage("sign_in")</a>
+						</p>
+					</div>
+					<div class="sign-modal-verify sign-modal-hide">
+						<img src="$staticConfig.getPath()/CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+						<p class="text-center">
+							#springMessage("we_had_sent_a_confirmation_mail_to_your_registered_email")
+							<a href="#" class="sign-modal-email-link">someone@nowhere.com</a>
+						</p>
+						<a href="#" class="btn btn-primary btn-block sign-modal-verify-btn">#springMessage("verify_my_account")</a>
+                    </div>
+                    <div class="sign-modal-verify-m sign-modal-hide">
+                        <img src="$staticConfig.getPath()/CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+                        <h4 class="text-success text-center">#springMessage("sign_up_success_please_sign_in")</h4>
+                       	<div class="text-center">
+							<a href="#" class="btn btn-primary mobile-to-sign-in">#springMessage("sign_in_now")</a>
+						</div>	
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

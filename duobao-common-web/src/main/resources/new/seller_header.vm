@@ -1,0 +1,45 @@
+<div class="bas-header">
+	<div class="container">
+		<div class="col-md-2">
+			<div class="bas-logo">
+				<img src="$staticConfig.getPath()/CKF/images/logo.png" height="42" width="200" alt="Cookabuy Logo" class="center-block img-responsive">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="bas-lang" data-j="basLang">
+				<a href="#" data-lang="zh_CN">简体中文</a>
+				<span>|</span>
+				<a href="#" data-lang="vi_VN">越南语</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="bas-user">
+				<span class="bas-user-item">
+					<span class="icon-business-num"></span>
+					<span class="bas-user-text">#springMessage("store_number")：
+						#if($request.getSession().getAttribute("storeNum"))
+							$!request.getSession().getAttribute("storeNum")
+							
+						#else
+						      $storeUtil.getStoerNum($request.getSession().getAttribute("userId"))
+						#end
+					</span>
+				</span>
+				<span class="bas-user-item">
+					<span class="icon-user"></span>
+					<span class="bas-user-text">#springMessage("username"):
+						#if($request.getSession().getAttribute("userName"))
+		                   $!request.getSession().getAttribute("userName")
+		                #elseif($request.getSession().getAttribute("userEmail"))
+		                   $!request.getSession().getAttribute("userEmail")
+		                #end
+                	</span>
+				</span>
+				<a href="/duobao-user-web/logout" class="bas-user-item">
+					<span class="icon-poweroff"></span>
+					<span class="bas-user-text">#springMessage("logout")</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

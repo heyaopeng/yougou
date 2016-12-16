@@ -1,0 +1,234 @@
+#set($layout = "/layout/riskControlOrderList_layout.vm")
+<div class="admin-main">
+	<div class="admin-breadcrumb">
+		<ol class="breadcrumb">
+			<li class="active">#springMessage("order_management")</li>
+		</ol>
+		<h4>#springMessage("product_sold")</h4>
+		<div class="order-tab">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#">#springMessage("all_orders")</a></li>
+			</ul>
+		</div>
+
+		<div class="order-search">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form action="" id="order-search-form">
+						<div class="row">
+							<div class="col-md-10 trim-right">
+								<div class="form-inline">
+									<div class="form-group">
+										<label class="control-label col-md-3">Order Number:</label>
+										<div class="col-md-3">
+											<input type="text"  name="orderSerialnum" class="form-control" value="$!search.orderSerialnum"></div>
+										<label class="control-label col-md-3">#springMessage("payment_order_number"):</label>
+										<div class="col-md-3">
+											<input type="text"  name="paymentSerialNum" class="form-control" value=""></div>
+										<label class="control-label col-md-3">Product Name:</label>
+										<div class="col-md-3">
+											<input type="text" name="searchProductName" class="form-control"  value="$!search.searchProductName"></div>
+									</div>
+									<div class="form-group has-float">
+										<label>#springMessage("order_create_time"):</label>
+										<div class="pull-right">
+											<div class="input-daterange input-group" id="deal-range">
+												<input type="text" class="form-control f-time" name="timeStart" value="$!date.format('yyyy/MM/dd',$search.searchTimeLeftBound)"/>
+												<span class="input-group-addon">#springMessage("to")</span>
+												<input type="text" class="form-control f-time" name="timeEnd" value="$!date.format('yyyy/MM/dd',$search.searchTimeRightBound)"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 order-btn-holder">
+								<button type="submit"
+									class="btn btn-primary btn-block order-btn">#springMessage("search")</button>
+							</div>
+						</div>
+						<div class="order-status">
+							<strong class="pull-left order-status-title">#springMessage("trade_state"):</strong>
+							<ul class="nav nav-pills order-status-list pull-left">
+								<li #if(!$tradeCode) class="active"#end>
+									<a href="orderList.vm">#springMessage("all")</a>
+								</li>
+								<li #if($tradeCode==$orderCode.getWaitpay()) class="active"#end>
+									<a href="orderList.vm?tradeCode=$orderCode.getWaitpay()">#springMessage("awaiting_payment")#if($!unpaidCount !=0)<span class="user-search-classify-num">$!unpaidCount</span>#end
+									</a>
+								</li>
+								<li #if($tradeCode==$orderCode.getWaitship()) class="active"#end>
+									<a href="orderList.vm?tradeCode=$orderCode.getWaitship()">#springMessage("logistic_shipping")</a>
+								</li>
+								<li #if($tradeCode==$orderCode.getWaitrec()) class="active"#end>
+									<a href="orderList.vm?tradeCode=$orderCode.getWaitrec()">#springMessage("waiting_for_reception")#if($!waittingRecCount !=0)<span class="user-search-classify-num">$!waittingRecCount</span>#end
+									</a>
+								</li>
+								<li #if($tradeCode==$orderCode.getTradesuccess()) class="active"#end>
+									<a href="orderList.vm?tradeCode=$orderCode.getTradesuccess()">#springMessage("trade_success")</a>
+								</li>
+								<li #if($tradeCode==$orderCode.getTradeclose()) class="active"#end>
+									<a href="orderList.vm?tradeCode=$orderCode.getTradeclose()">#springMessage("trade_closed")</a>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- need a form here? ask lee -->
+		<div class="orders has-check-all">
+			<div class="order-heading">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th width="40%">#springMessage("product")</th>
+							<th width="10%">#springMessage("price")</th>
+							<th width="10%">#springMessage("total_price")</th>
+							<th width="20%">#springMessage("trade_state")</th>
+							<th width="10%">#springMessage("trade_operation")</th>
+							<th width="10%">#springMessage("others")</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="order-options clearfix">
+				<label class="checkbox-inline"> <input type="checkbox"
+					class="check-all"> #springMessage("pick_all")
+				</label>
+			</div>
+			#foreach($order in $orders.list)
+			<div class="panel panel-default order-block">
+				<div class="panel-heading clearfix">
+					<div class="checkbox order-check pull-left">
+						<label> <input type="checkbox" value="" class="check-item">
+						</label>
+					</div>
+
+					<ul class="order-info pull-left">
+						<li>#springMessage("order_number"):$order.orderSerialnum</li>
+						<li>#springMessage("payment_order_number"):$order.paymentSerialNum</li>
+						<li>#springMessage("order_time"):$date.format('yyyy-MM-dd HH:mm:ss',$order.createTime)</li>
+					</ul>
+					<a href="/duobao-backend-web/backendOrderDetail?orderSerialNum=$order.orderSerialnum" class="pull-right">#springMessage("view_order_details") >></a>
+				</div>
+				
+				<!-- order table start -->
+				<table class="table table-bordered">
+					<tbody>
+						#foreach($orderProduct in $order.orderProducts) 
+							#if($velocityCount == 1)
+								<tr>
+									<td width="40%" class="order-product-name">
+										<div class="media">
+											<div class="media-left">
+												<a target="_blank" href="/duobao-productDetail-web/productDetail.htm?productId=$orderProduct.productId">
+													#if($orderProduct.imageUrl)
+													<img src="$!orderProduct.imageUrl" height="150" width="100" alt="order thumbnail">
+													#else
+													<img src="$staticConfig.getPath()/images/default_img.jpg" height="150" width="100" alt="order thumbnail">
+													#end
+												</a>
+											</div>
+											<div class="media-body">
+												<div>
+													<a target="_blank" href="/duobao-productDetail-web/productDetail.htm?productId=$orderProduct.productId">$orderProduct.title</a>
+												</div>
+												#foreach($item in $orderProduct.orderItems)
+													<div>
+														#foreach($param in ${item.specificationValues.keySet()})  
+															<span class="order-spec" ><strong>$param: </strong>${item.specificationValues.get($param)}</span>
+														#end
+														<span class="order-spec"><strong>#springMessage("amount"):</strong>$item.amount</span>
+														<span class="order-spec">
+															#if($item.status == "returnSuccess")
+																(<a href="/duobao-order-web/backendrefundHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("return_success")</a>)
+															#elseif($item.status=="refundSuccess")
+																(<a href="/duobao-order-web/backendrefundHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("refund_success")</a>)
+															#elseif($item.status=="return")
+																(<a href="/duobao-order-web/backendreturnHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("return_handling")</a>)
+															#elseif($item.status=="refund")
+																(<a href="/duobao-order-web/backendrefundHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("refund_handling")</a>)
+															#end
+														</span>
+													</div>
+												#end
+											</div>
+										</div>
+									</td>
+									<td width="10%">
+										<span class="order-price"><strong>$!currency.getPricecurrencysymbol()$!cookies.getFixLengthByLang($!orderProduct.price)</strong></span>
+									</td>
+									<td width="10%" rowspan="$!order.orderProducts.size()">
+										<span class="order-total"><strong>$!currency.getPricecurrencysymbol()$!cookies.getFixLengthByLang($!order.totalPrice)</strong></span>
+										<br>
+									</td>
+									<td width="20%" rowspan="$!order.orderProducts.size()">
+										#if($order.status==$orderVel.getAwaitingpayment())
+											<span>#springMessage("awaiting_payment")</span>											
+										#elseif($order.status==$orderVel.getAwaitingshipment())
+											<span>#springMessage("awaiting_shipment") </span>
+										#elseif($order.status==$orderVel.getAwaitingreceipt())
+											<span>#springMessage("waiting_for_reception")</span>
+										#elseif($order.status==$orderVel.getSuccess())
+											<span>#springMessage("trade_success") </span>
+										#elseif($order.status==$orderVel.getClose())
+											<span>#springMessage("trade_closed") </span>											
+										#end
+									</td>
+									<td width="10%">
+										#if($order.disputeStatus == 2)
+											<a href="/duobao-order-web/backendOrderItemList?orderSerialnum=$order.orderSerialnum">#springMessage("return_or_refund")</a>
+										#end
+									</td>
+								</tr>
+							#else
+								<tr>
+									<td width="40%" class="order-product-name">
+										<div class="media">
+											<div class="media-left">
+												<img src="$!orderProduct.imageUrl" alt="order thumbnail" class="media-object" width="100" height="150">
+											</div>
+											<div class="media-body">
+												<div>
+													<a href="/duobao-productDetail-web/productDetail.htm?productId=$orderProduct.productId">$orderProduct.title</a>
+												</div>
+												#foreach($item in $orderProduct.orderItems)
+													<div>
+														#foreach($param in ${item.specificationValues.keySet()})  
+															<span class="order-spec" ><strong>$param: </strong>${item.specificationValues.get($param)}</span>
+														#end
+														<span class="order-spec"><strong>#springMessage("amount"):</strong>$item.amount</span>
+														<span class="order-spec">
+															#if($item.status == "returnSuccess")
+																(<a href="/duobao-order-web/backendrefundHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("return_success")</a>)
+															#elseif($item.status=="refundSuccess")
+																(<a href="/duobao-order-web/backendrefundHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("refund_success")</a>)
+															#elseif($item.status=="return")
+																(<a href="/duobao-order-web/backendreturnHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("return_handling")</a>)
+															#elseif($item.status=="refund")
+																(<a href="/duobao-order-web/backendrefundHandle?itemSerialNum=$!item.itemSerialNum">#springMessage("refund_handling")</a>)
+															#end
+														</span>													
+													</div>
+												#end
+											</div>
+										</div>
+									</td>
+									<td width="10%">
+										<span class="order-price"><strong>$!currency.getPricecurrencysymbol()$!cookies.getFixLengthByLang($!orderProduct.price)</strong></span>
+									</td>
+		
+									<td width="10%">
+									
+									</td>
+								</tr>
+							#end
+						#end
+					</tbody>
+				</table>
+				<!-- order table end -->
+			</div>
+			#end
+			$!pageDiv		</div>
+	</div>
+</div>

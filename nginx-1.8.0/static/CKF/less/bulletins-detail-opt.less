@@ -1,0 +1,107 @@
+@import "public.less";
+
+.bulletins-detail {
+	padding: 12px;
+	padding-right: 20px;
+	
+	&-opt {
+		&-top {
+			color: white;
+			padding: 1px 12px;
+			padding-top: 5px;
+			background-color: @ck-main;
+			a {
+				color: #fff;
+				text-decoration: none;
+				& + span {
+					margin-left: 10px;
+				}
+			}
+			span {
+				font-size: 28px;
+				position: relative;
+
+				&::after {
+					position: absolute;
+					left:0;
+					height: 28px;
+					width: 28px;
+					content: '';
+					border-radius: 14px;
+					padding: 2px;
+					z-index: -1;
+					background: #fff;
+					-webkit-transition: -webkit-transform 0.2s, opacity 0.3s;
+					-moz-transition: -moz-transform 0.2s, opacity 0.3s;
+					transition: transform 0.2s, opacity 0.3s;
+				}
+
+				&:hover {
+					cursor: pointer;
+					border-radius: 14px;
+					box-shadow: 0 0 2px 3px #fff inset;
+
+					&::after {
+						z-index: 999;
+						-webkit-transform: scale(1);
+						-moz-transform: scale(1);
+						-ms-transform: scale(1);
+						transform: scale(1);
+						opacity: 0;
+					}
+					
+				}
+				+ span {
+					margin-left: 10px;
+				}
+				
+			}
+		}
+
+		&-bottom {
+			.bulletins-detail {
+				&-next {
+					&:hover {
+						span {
+							position: relative;
+							top: 2px;
+						}
+					}
+				}
+				&-previous {
+					&:hover {
+						span {
+							position: relative;
+							top: -2px;
+						}
+					}
+				}
+			}
+			
+
+		}
+	}
+
+	&-star {
+		font-size: 18px;
+	}
+
+	&-remove {
+		font-size: 18px;
+	}
+
+	&-next,
+	&-previous {
+		float: right;
+		margin-left: 6px;
+		padding: 6px 12px;
+		span {
+			margin-left: 6px;
+		}
+
+		&:hover {
+			box-shadow: 0 0 1px 1px @ck-main inset;
+			border-radius: 17px;
+		}
+	}
+}

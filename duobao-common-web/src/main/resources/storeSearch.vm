@@ -1,0 +1,34 @@
+<div class="ck-search">
+	<!--form action="" class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-8 trim-right">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search for..."> <span class="input-group-btn">
+						<button class="btn btn-primary">
+							<span class="glyphicon glyphicon-search"></span> This Store
+						</button>
+					</span>
+				</div>
+			</div>
+			<div class="col-md-4 trim-left">
+				<button class="btn btn-primary search-global">
+					<span class="glyphicon glyphicon-search"></span> Cookabuy
+				</button>
+			</div>
+		</div  -->
+	</form>
+	<form name="searchform" action="/cooka-search/searchProductFqs" method="GET" class="form-horizontal">
+		<div class="form-group">
+			<div class="input-group">
+				<input id="queryField" name="q" size="12" type="text" value="$!{query}" class="form-control" placeholder="Search for...">
+				
+				<span class="input-group-btn">
+					<input type="submit" class="btn btn-primary">
+						<span class="glyphicon glyphicon-search"></span>
+						Cookabuy
+					</input>
+				</span>
+			</div>
+		</div>
+	</form>
+</div>

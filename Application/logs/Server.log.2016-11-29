@@ -1,0 +1,500 @@
+2016-11-29 08:56:53,134 - {dataSource-1} inited
+ 2016-11-29 08:56:59,920 - 更新微信Token
+ 2016-11-29 09:02:11,493 - {dataSource-1} inited
+ 2016-11-29 09:02:36,433 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 09:02:36,434 - getServerName   localhost
+ 2016-11-29 09:02:37,138 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"pwi74CzxEAvQdFSd70hAkPZE","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"ada399b1-588e-4bce-abb9-98e3cad968cf","version":0}]
+ 2016-11-29 09:03:17,208 - account 为cookabuy@163.com
+ 2016-11-29 09:03:17,228 - account为cookabuy@163.com
+ 2016-11-29 09:03:17,248 - 长度11
+ 2016-11-29 09:03:17,253 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 09:03:17,253 - inputPassword: "nicaicaia3+"
+ 2016-11-29 09:03:17,266 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 09:03:17,266 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 09:03:17,279 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 09:03:17,328 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 09:03:17,353 - 登陆成功----
+ 2016-11-29 09:03:17,379 - 登录名是cookabuy@163.com
+ 2016-11-29 09:03:17,436 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 09:03:17,437 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 09:03:17,739 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"pwi74CzxEAvQdFSd70hAkPZE","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"oKWpWPUHyIC8gFArAbToiZBpwsn4DlaR/4vmPxZstYT7bTD6JfnILDpuquftbNr90GnxBWa5OJ8lGb0AyO1Is/9tiEl1SrA6W9gQ5VyMxXTWDPEa/YGsQeU2q1BQJpPVFv2YpIlqFuAYb8AHV5W8vZte6yPw8WRWhiNiib292tBaImdTNC//UwbueTmhLTkcj+oZ37jh86PiLas/t43OJFRoxkAAJfUfplWmIMnwoszQ3fnj8rFxse7jXXu5BBdR/fV9e5cGT45n8vIZL8kN0rVqU3QMHmWPPYcuHL+8tUgye2+F4NMpJXbq/abX+7nNlIgTs5866GBHDuNzL/ZCKLwEh9iGvmOsDYXwR+R1Wy6g4OeEUlC596Pi/DiGeUBqOjwGG1kAic99TCeVZcHP1DDOpPHrL9LRGVQrLecPtU2AnT9BAbMmf5A/erE+sw4wBIyN+KnvMTnTy/XZH1y56qXqWCy4sTKr7jn7A7F7WWYnu5E5grk72GgVZi7jS2B4aFaAkAKoJ5Vz/AN8Bchx+Q","version":0}]
+ 2016-11-29 09:03:18,915 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 09:03:18,916 - getServerName   localhost
+ 2016-11-29 09:03:18,924 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"_UwCaVrJabdMLDzchORchChu","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"oKWpWPUHyIC8gFArAbToiZBpwsn4DlaR/4vmPxZstYT7bTD6JfnILDpuquftbNr90GnxBWa5OJ8lGb0AyO1Is/9tiEl1SrA6W9gQ5VyMxXTWDPEa/YGsQeU2q1BQJpPVFv2YpIlqFuAYb8AHV5W8vZte6yPw8WRWhiNiib292tBaImdTNC//UwbueTmhLTkcj+oZ37jh86PiLas/t43OJFRoxkAAJfUfplWmIMnwoszQ3fnj8rFxse7jXXu5BBdR/fV9e5cGT45n8vIZL8kN0rVqU3QMHmWPPYcuHL+8tUgye2+F4NMpJXbq/abX+7nNlIgTs5866GBHDuNzL/ZCKLwEh9iGvmOsDYXwR+R1Wy6g4OeEUlC596Pi/DiGeUBqOjwGG1kAic99TCeVZcHP1DDOpPHrL9LRGVQrLecPtU2AnT9BAbMmf5A/erE+sw4wBIyN+KnvMTnTy/XZH1y56qXqWCy4sTKr7jn7A7F7WWYnu5E5grk72GgVZi7jS2B4aFaAkAKoJ5Vz/AN8Bchx+Q","version":0}]
+ 2016-11-29 09:03:21,194 - This is isLogin,用户已经登录
+ 2016-11-29 09:03:21,196 - 拿到的name 是何耀澎
+ 2016-11-29 09:04:13,888 - This is isLogin,用户已经登录
+ 2016-11-29 09:04:13,890 - 拿到的name 是何耀澎
+ 2016-11-29 09:04:18,298 - This is isLogin,用户已经登录
+ 2016-11-29 09:04:18,298 - 拿到的name 是何耀澎
+ 2016-11-29 09:05:55,833 - {dataSource-1} inited
+ 2016-11-29 09:06:37,386 - This is isLogin,用户已经登录
+ 2016-11-29 09:06:37,387 - 拿到的name 是何耀澎
+ 2016-11-29 09:07:00,291 - erroCode: null
+ 2016-11-29 09:08:00,847 - This is isLogin,用户已经登录
+ 2016-11-29 09:08:00,848 - 拿到的name 是何耀澎
+ 2016-11-29 09:08:27,610 - This is isLogin,用户已经登录
+ 2016-11-29 09:08:27,611 - 拿到的name 是何耀澎
+ 2016-11-29 09:08:36,491 - This is isLogin,用户已经登录
+ 2016-11-29 09:08:36,492 - 拿到的name 是何耀澎
+ 2016-11-29 09:09:14,183 - This is isLogin,用户已经登录
+ 2016-11-29 09:09:14,184 - 拿到的name 是何耀澎
+ 2016-11-29 09:09:34,750 - This is isLogin,用户已经登录
+ 2016-11-29 09:09:34,750 - 拿到的name 是何耀澎
+ 2016-11-29 09:10:05,329 - {dataSource-1} inited
+ 2016-11-29 09:11:21,077 - This is isLogin,用户已经登录
+ 2016-11-29 09:11:21,078 - 拿到的name 是何耀澎
+ 2016-11-29 09:13:59,253 - This is isLogin,用户已经登录
+ 2016-11-29 09:13:59,253 - 拿到的name 是何耀澎
+ 2016-11-29 09:23:16,685 - This is isLogin,用户已经登录
+ 2016-11-29 09:23:16,686 - 拿到的name 是何耀澎
+ 2016-11-29 09:23:28,181 - This is isLogin,用户已经登录
+ 2016-11-29 09:23:28,181 - 拿到的name 是何耀澎
+ 2016-11-29 09:24:49,721 - This is isLogin,用户已经登录
+ 2016-11-29 09:24:49,722 - 拿到的name 是何耀澎
+ 2016-11-29 09:24:57,919 - This is isLogin,用户已经登录
+ 2016-11-29 09:24:57,920 - 拿到的name 是何耀澎
+ 2016-11-29 09:25:56,315 - This is isLogin,用户已经登录
+ 2016-11-29 09:25:56,316 - 拿到的name 是何耀澎
+ 2016-11-29 09:26:11,788 - This is isLogin,用户已经登录
+ 2016-11-29 09:26:11,791 - 拿到的name 是何耀澎
+ 2016-11-29 09:27:36,919 - This is isLogin,用户已经登录
+ 2016-11-29 09:27:36,920 - 拿到的name 是何耀澎
+ 2016-11-29 09:27:57,218 - This is isLogin,用户已经登录
+ 2016-11-29 09:27:57,219 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:12,864 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:12,865 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:31,442 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:31,443 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:37,632 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:37,633 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:41,264 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:41,265 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:46,350 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:46,352 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:56,115 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:56,116 - 拿到的name 是何耀澎
+ 2016-11-29 09:28:59,323 - This is isLogin,用户已经登录
+ 2016-11-29 09:28:59,324 - 拿到的name 是何耀澎
+ 2016-11-29 09:29:07,309 - This is isLogin,用户已经登录
+ 2016-11-29 09:29:07,310 - 拿到的name 是何耀澎
+ 2016-11-29 09:29:27,466 - This is isLogin,用户已经登录
+ 2016-11-29 09:29:27,467 - 拿到的name 是何耀澎
+ 2016-11-29 09:29:52,155 - This is isLogin,用户已经登录
+ 2016-11-29 09:29:52,155 - 拿到的name 是何耀澎
+ 2016-11-29 09:30:15,432 - This is isLogin,用户已经登录
+ 2016-11-29 09:30:15,433 - 拿到的name 是何耀澎
+ 2016-11-29 09:32:18,680 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 09:32:18,681 - getServerName   localhost
+ 2016-11-29 09:32:18,818 - cookie[{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"HzsgTpVS3o+M4lIQPXNXIf4ulIK0gsMweqRUNcqyUZCmqLWHvFSMLBl45gHpRcGXXVODWjhVZNcz+b7oDbTYvZyH5kTuNfcPPTtmh+zu00rSY/m0Q6Yw4M0sWNqeCPiqC29Rt2QQ/6OIXBMr91ypgTrDshEYxXzYXMu87DlUU4t9KgoKb/1n6naUDEBOmjwUf213XnBo21PmQiHz4LlvPoxXFcs3CuN5kwBZlpf3tp+RgIl0rJ6StGPIj4KEX0ulHN7vWezSPekZjwTmNLTcfJf1JLoOhhuUV91oGpw33b+GlBN/Q9hY7Gz0lXXEERExRpaN7abjGHaGvZSRTZ6CwTULlM8Q+knCMlPlQP9rR1dL2vgZ8vTpy2RdlfYXP8C6FhgWEs/8HO0ts8v22gGBud68nYZyymJ2Q15fFpEpcAxPagjLtZ1JOnvPSeeh90AxSQVcHqU3Xrvy8PKY72c5a4hCHuQsxFfImH1Gjv0/kWP25sXFcxIdMKYYJ0gUhpuWSBmzucuprSH+Qz73SLJ0Jg","version":0}]
+ 2016-11-29 09:32:31,693 - account 为cookabuy@163.com
+ 2016-11-29 09:32:31,711 - account为cookabuy@163.com
+ 2016-11-29 09:32:31,733 - 长度11
+ 2016-11-29 09:32:31,737 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 09:32:31,738 - inputPassword: "nicaicaia3+"
+ 2016-11-29 09:32:31,743 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 09:32:31,743 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 09:32:31,744 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 09:32:31,766 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 09:32:31,792 - 登陆成功----
+ 2016-11-29 09:32:32,112 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"e10c37a1-41b5-4f67-bb25-e2ef30c12089","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"Auoi6TS8ljNtBdonFf5qgjOFbRNTIOB2fJmrbdGWrQtwPYuC7vorIswVccKQXHs/CNRM8GYHm2U8Yh3BzhXl//t98OZmJBXpmpQ8iBBXMfs+aFX4O6WqBxFHMzeGrqhkmVEzaQUmHe47I+CYpoV5zUP5hUbsegpYYnd3H+0e8WF2a6TLgqbrxmbDn4DKu/sFkI6/0ErLtmkW9nVjH1jEV2yeIlFAjX1QSdEBlYTHaj3RJ1Spt+r6G+ELIt4uJsQ97DXoIbzSHAfM74f+qYK8lxWUpwjOivLMkyhjqjficeOirX0JWN4GzJTQnucSJnnXyjrKykHW7v/7TwgfJkwHQdDGFLFkl/17qQqw8ZK7Am4bbBYzMeDsgHkuTu/Cx+Wy4cs73EiXQKcl9HTB6P8q3qYl5PnOEep6n/FWk5qPP5D+oVMVEwchQHyyVbPLTp5jPbN8mvKR6TDe5Axz/YjwYVr03yKTco8XZFn7ZNFmqKDPX3sMCLKQt5I7U/6quDmvhAr1z5dwVZB5nzY8vS03Sw","version":0}]
+ 2016-11-29 09:32:36,298 - This is isLogin,用户已经登录
+ 2016-11-29 09:32:36,299 - 拿到的name 是何耀澎
+ 2016-11-29 09:33:35,011 - This is isLogin,用户已经登录
+ 2016-11-29 09:33:35,013 - 拿到的name 是何耀澎
+ 2016-11-29 09:34:14,723 - This is isLogin,用户已经登录
+ 2016-11-29 09:34:14,724 - 拿到的name 是何耀澎
+ 2016-11-29 09:36:00,950 - This is isLogin,用户已经登录
+ 2016-11-29 09:36:00,951 - 拿到的name 是何耀澎
+ 2016-11-29 09:36:25,231 - This is isLogin,用户已经登录
+ 2016-11-29 09:36:25,232 - 拿到的name 是何耀澎
+ 2016-11-29 09:39:07,998 - This is isLogin,用户已经登录
+ 2016-11-29 09:39:07,999 - 拿到的name 是何耀澎
+ 2016-11-29 09:39:17,548 - This is isLogin,用户已经登录
+ 2016-11-29 09:39:17,550 - 拿到的name 是何耀澎
+ 2016-11-29 09:39:27,861 - This is isLogin,用户已经登录
+ 2016-11-29 09:39:27,862 - 拿到的name 是何耀澎
+ 2016-11-29 09:44:11,805 - This is isLogin,用户已经登录
+ 2016-11-29 09:44:11,806 - 拿到的name 是何耀澎
+ 2016-11-29 09:44:39,390 - 登录名是cookabuy@163.com
+ 2016-11-29 09:44:39,514 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 09:44:39,515 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 09:44:39,971 - erroCode: null
+ 2016-11-29 09:45:12,149 - This is isLogin,用户已经登录
+ 2016-11-29 09:45:12,151 - 拿到的name 是何耀澎
+ 2016-11-29 09:45:15,638 - erroCode: null
+ 2016-11-29 09:45:33,392 - This is isLogin,用户已经登录
+ 2016-11-29 09:45:33,393 - 拿到的name 是何耀澎
+ 2016-11-29 09:45:36,435 - This is isLogin,用户已经登录
+ 2016-11-29 09:45:36,436 - 拿到的name 是何耀澎
+ 2016-11-29 09:45:36,601 - {"accountId":1,"type":5,"userId":1}
+ 2016-11-29 09:45:39,264 - [{"accountId":1,"balance":5540.340,"isIn":true,"logId":1849,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480383915000,"timeStr":"2016-11-29","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5539.340,"isIn":true,"logId":1848,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480381620000,"timeStr":"2016-11-29","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5538.340,"isIn":true,"logId":1847,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480344014000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5537.340,"isIn":true,"logId":1846,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480343881000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5536.340,"isIn":true,"logId":1845,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480334282000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5535.340,"isIn":true,"logId":1844,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480327373000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5534.340,"isIn":true,"logId":1843,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480327314000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5533.340,"isIn":true,"logId":1842,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480327283000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5532.340,"isIn":true,"logId":1841,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325727000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5531.340,"isIn":true,"logId":1840,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325532000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5530.340,"isIn":true,"logId":1839,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325418000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5529.340,"isIn":true,"logId":1838,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325382000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5528.340,"isIn":true,"logId":1837,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325311000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5527.340,"isIn":true,"logId":1836,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325257000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5526.340,"isIn":true,"logId":1835,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325216000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5}]
+ 2016-11-29 09:45:39,278 - {"endRow":15,"firstPage":1,"hasNextPage":true,"hasPreviousPage":false,"isFirstPage":true,"isLastPage":false,"lastPage":2,"list":[{"accountId":1,"balance":5540.340,"isIn":true,"logId":1849,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480383915000,"timeStr":"2016-11-29","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5539.340,"isIn":true,"logId":1848,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480381620000,"timeStr":"2016-11-29","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5538.340,"isIn":true,"logId":1847,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480344014000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5537.340,"isIn":true,"logId":1846,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480343881000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5536.340,"isIn":true,"logId":1845,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480334282000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5535.340,"isIn":true,"logId":1844,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480327373000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5534.340,"isIn":true,"logId":1843,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480327314000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5533.340,"isIn":true,"logId":1842,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480327283000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5532.340,"isIn":true,"logId":1841,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325727000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5531.340,"isIn":true,"logId":1840,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325532000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5530.340,"isIn":true,"logId":1839,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325418000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5529.340,"isIn":true,"logId":1838,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325382000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5528.340,"isIn":true,"logId":1837,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325311000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5527.340,"isIn":true,"logId":1836,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325257000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5526.340,"isIn":true,"logId":1835,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325216000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5}],"navigatePages":8,"navigatepageNums":[1,2],"nextPage":2,"pageNum":1,"pageSize":15,"pages":2,"prePage":0,"size":15,"startRow":1,"total":23}
+ 2016-11-29 09:45:45,186 - {"accountId":1,"type":5,"userId":1}
+ 2016-11-29 09:45:46,448 - [{"accountId":1,"balance":5525.340,"isIn":true,"logId":1834,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325176000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5524.340,"isIn":true,"logId":1833,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325145000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5523.340,"isIn":true,"logId":1832,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324999000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5522.340,"isIn":true,"logId":1831,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324972000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5521.340,"isIn":true,"logId":1830,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324882000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5520.340,"isIn":true,"logId":1829,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324764000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5519.340,"isIn":true,"logId":1828,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324653000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5518.340,"isIn":true,"logId":1827,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324572000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5}]
+ 2016-11-29 09:45:46,450 - {"endRow":23,"firstPage":1,"hasNextPage":false,"hasPreviousPage":true,"isFirstPage":false,"isLastPage":true,"lastPage":2,"list":[{"accountId":1,"balance":5525.340,"isIn":true,"logId":1834,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325176000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5524.340,"isIn":true,"logId":1833,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480325145000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5523.340,"isIn":true,"logId":1832,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324999000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5522.340,"isIn":true,"logId":1831,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324972000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5521.340,"isIn":true,"logId":1830,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324882000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5520.340,"isIn":true,"logId":1829,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324764000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5519.340,"isIn":true,"logId":1828,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324653000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5},{"accountId":1,"balance":5518.340,"isIn":true,"logId":1827,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480324572000,"timeStr":"2016-11-28","title":"1元幸运抽奖红包","type":5}],"navigatePages":8,"navigatepageNums":[1,2],"nextPage":0,"pageNum":2,"pageSize":15,"pages":2,"prePage":1,"size":8,"startRow":16,"total":23}
+ 2016-11-29 09:45:49,010 - This is isLogin,用户已经登录
+ 2016-11-29 09:45:49,012 - 拿到的name 是何耀澎
+ 2016-11-29 09:46:54,163 - This is isLogin,用户已经登录
+ 2016-11-29 09:46:54,165 - 拿到的name 是何耀澎
+ 2016-11-29 09:46:57,036 - This is isLogin,用户已经登录
+ 2016-11-29 09:46:57,037 - 拿到的name 是何耀澎
+ 2016-11-29 09:46:57,274 - {"accountId":1,"type":5,"userId":1}
+ 2016-11-29 09:46:57,286 - []
+ 2016-11-29 09:46:57,287 - {"endRow":0,"firstPage":0,"hasNextPage":false,"hasPreviousPage":false,"isFirstPage":true,"isLastPage":false,"lastPage":0,"list":[],"navigatePages":8,"navigatepageNums":[],"nextPage":0,"pageNum":1,"pageSize":15,"pages":0,"prePage":0,"size":0,"startRow":0,"total":0}
+ 2016-11-29 09:47:00,749 - This is isLogin,用户已经登录
+ 2016-11-29 09:47:00,750 - 拿到的name 是何耀澎
+ 2016-11-29 09:48:10,579 - erroCode: null
+ 2016-11-29 09:48:23,214 - This is isLogin,用户已经登录
+ 2016-11-29 09:48:23,214 - 拿到的name 是何耀澎
+ 2016-11-29 09:48:24,791 - This is isLogin,用户已经登录
+ 2016-11-29 09:48:24,791 - 拿到的name 是何耀澎
+ 2016-11-29 09:48:24,962 - {"accountId":1,"type":5,"userId":1}
+ 2016-11-29 09:48:25,218 - [{"accountId":1,"balance":1.000,"isIn":true,"logId":1850,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480384090000,"timeStr":"2016-11-29","title":"1元幸运抽奖红包","type":5}]
+ 2016-11-29 09:48:25,218 - {"endRow":1,"firstPage":1,"hasNextPage":false,"hasPreviousPage":false,"isFirstPage":true,"isLastPage":true,"lastPage":1,"list":[{"accountId":1,"balance":1.000,"isIn":true,"logId":1850,"money":1.000,"note":"1元幸运抽奖红包","operator":"","paymentSerialNum":"","time":1480384090000,"timeStr":"2016-11-29","title":"1元幸运抽奖红包","type":5}],"navigatePages":8,"navigatepageNums":[1],"nextPage":0,"pageNum":1,"pageSize":15,"pages":1,"prePage":0,"size":1,"startRow":1,"total":1}
+ 2016-11-29 09:48:26,986 - This is isLogin,用户已经登录
+ 2016-11-29 09:48:26,987 - 拿到的name 是何耀澎
+ 2016-11-29 09:48:28,235 - This is isLogin,用户已经登录
+ 2016-11-29 09:48:28,236 - 拿到的name 是何耀澎
+ 2016-11-29 09:52:04,136 - This is isLogin,用户已经登录
+ 2016-11-29 09:52:04,136 - 拿到的name 是何耀澎
+ 2016-11-29 09:52:08,042 - erroCode: null
+ 2016-11-29 09:52:32,174 - This is isLogin,用户已经登录
+ 2016-11-29 09:52:32,174 - 拿到的name 是何耀澎
+ 2016-11-29 09:52:33,784 - erroCode: null
+ 2016-11-29 09:52:52,742 - This is isLogin,用户已经登录
+ 2016-11-29 09:52:52,743 - 拿到的name 是何耀澎
+ 2016-11-29 09:52:52,874 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 10:02:49,869 - {dataSource-1} inited
+ 2016-11-29 10:03:53,903 - This is isLogin,用户已经登录
+ 2016-11-29 10:03:53,908 - 拿到的name 是何耀澎
+ 2016-11-29 10:03:55,302 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 10:03:59,452 - This is isLogin,用户已经登录
+ 2016-11-29 10:03:59,453 - 拿到的name 是何耀澎
+ 2016-11-29 10:03:59,954 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 10:04:03,180 - This is isLogin,用户已经登录
+ 2016-11-29 10:04:03,181 - 拿到的name 是何耀澎
+ 2016-11-29 10:04:03,408 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 10:57:06,112 - 更新微信Token
+ 2016-11-29 11:13:51,190 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 11:13:51,190 - getServerName   localhost
+ 2016-11-29 11:13:51,322 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"_UwCaVrJabdMLDzchORchChu","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"oKWpWPUHyIC8gFArAbToiZBpwsn4DlaR/4vmPxZstYT7bTD6JfnILDpuquftbNr90GnxBWa5OJ8lGb0AyO1Is/9tiEl1SrA6W9gQ5VyMxXTWDPEa/YGsQeU2q1BQJpPVFv2YpIlqFuAYb8AHV5W8vZte6yPw8WRWhiNiib292tBaImdTNC//UwbueTmhLTkcj+oZ37jh86PiLas/t43OJFRoxkAAJfUfplWmIMnwoszQ3fnj8rFxse7jXXu5BBdR/fV9e5cGT45n8vIZL8kN0rVqU3QMHmWPPYcuHL+8tUgye2+F4NMpJXbq/abX+7nNlIgTs5866GBHDuNzL/ZCKLwEh9iGvmOsDYXwR+R1Wy6g4OeEUlC596Pi/DiGeUBqOjwGG1kAic99TCeVZcHP1DDOpPHrL9LRGVQrLecPtU2AnT9BAbMmf5A/erE+sw4wBIyN+KnvMTnTy/XZH1y56qXqWCy4sTKr7jn7A7F7WWYnu5E5grk72GgVZi7jS2B4aFaAkAKoJ5Vz/AN8Bchx+Q","version":0}]
+ 2016-11-29 11:14:06,590 - account 为cookabuy@163.com
+ 2016-11-29 11:14:06,652 - account为cookabuy@163.com
+ 2016-11-29 11:14:06,757 - 长度11
+ 2016-11-29 11:14:06,774 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 11:14:06,775 - inputPassword: "nicaicaia3+"
+ 2016-11-29 11:14:06,794 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 11:14:06,795 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 11:14:06,814 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 11:14:06,877 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 11:14:06,948 - 登陆成功----
+ 2016-11-29 11:14:07,037 - 登录名是cookabuy@163.com
+ 2016-11-29 11:14:07,287 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 11:14:07,289 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 11:14:09,732 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"_UwCaVrJabdMLDzchORchChu","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"1bayJbJUYKEUnlhbr0fqePo5T0O/mA6QKmoNCzyD8KS4IVmoPKPIKxIhSriWQHOxgY4E/CVtQBEnyywx4922ZbYJQQoSvWzKo01H9F/Vs0En73Xu14Na/YB7FcFJv+VSLQDrBbnDnnmbe2mRFzUg8tMbW0yx7T/yhwx2FfLQurlLEeyXbFOIJVCu8Yfs72mjBX3RClzwH8SyNXo0KfAgCrqZhzh5B+w4ahOjljL7EGPKOpwSBueozYH1lA2t9zjisBiNnPIZo5kBEgoY94Bzcc5GfzA6pLTJfi3pG1ThWxc1rDsbwwC7KSQx4r9KjhA7sxu0B9vI3i1TlgRH7451/gFnogjGbxaqUxKogvs5qk+gM9UpDDVNpp9uPPz77yUhssfRnBUEeRqG1DjS82EaMoXAn8JHM7Vs2d0SUKz9tFh/5iTxxVglrAIcbFi34E4JNxX5vUc3i6/5tZyRjW27DKWkMFahxbg/qTnWkZ2qTYcvMngegt8tN1Rr2wRcX/hmuqcUJTQry2AtZggY6Ilziw","version":0}]
+ 2016-11-29 11:14:11,981 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 11:14:11,983 - getServerName   localhost
+ 2016-11-29 11:14:12,001 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"H-A4pRt07nyWI9O5v8Z57xQW","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"1bayJbJUYKEUnlhbr0fqePo5T0O/mA6QKmoNCzyD8KS4IVmoPKPIKxIhSriWQHOxgY4E/CVtQBEnyywx4922ZbYJQQoSvWzKo01H9F/Vs0En73Xu14Na/YB7FcFJv+VSLQDrBbnDnnmbe2mRFzUg8tMbW0yx7T/yhwx2FfLQurlLEeyXbFOIJVCu8Yfs72mjBX3RClzwH8SyNXo0KfAgCrqZhzh5B+w4ahOjljL7EGPKOpwSBueozYH1lA2t9zjisBiNnPIZo5kBEgoY94Bzcc5GfzA6pLTJfi3pG1ThWxc1rDsbwwC7KSQx4r9KjhA7sxu0B9vI3i1TlgRH7451/gFnogjGbxaqUxKogvs5qk+gM9UpDDVNpp9uPPz77yUhssfRnBUEeRqG1DjS82EaMoXAn8JHM7Vs2d0SUKz9tFh/5iTxxVglrAIcbFi34E4JNxX5vUc3i6/5tZyRjW27DKWkMFahxbg/qTnWkZ2qTYcvMngegt8tN1Rr2wRcX/hmuqcUJTQry2AtZggY6Ilziw","version":0}]
+ 2016-11-29 11:14:15,093 - This is isLogin,用户已经登录
+ 2016-11-29 11:14:15,095 - 拿到的name 是何耀澎
+ 2016-11-29 11:14:32,269 - This is isLogin,用户已经登录
+ 2016-11-29 11:14:32,271 - 拿到的name 是何耀澎
+ 2016-11-29 11:14:32,524 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 11:14:57,843 - This is isLogin,用户已经登录
+ 2016-11-29 11:14:57,844 - 拿到的name 是何耀澎
+ 2016-11-29 11:14:58,390 - null
+ 2016-11-29 11:15:13,242 - termId: 2726
+ 2016-11-29 11:15:13,341 - 张杰正在购买
+ 2016-11-29 11:15:13,342 - 1元购买份额3
+ 2016-11-29 11:15:17,284 - This is isLogin,用户已经登录
+ 2016-11-29 11:15:17,284 - 拿到的name 是何耀澎
+ 2016-11-29 11:15:49,499 - {dataSource-1} inited
+ 2016-11-29 11:16:07,168 - This is isLogin,用户已经登录
+ 2016-11-29 11:16:07,172 - 拿到的name 是何耀澎
+ 2016-11-29 11:16:07,876 - null
+ 2016-11-29 11:16:14,460 - {"amount":1,"imageUrl":"http://120.25.193.220/group1/M00/00/08/eBnB3FgWy36AGoNRAAI7Eoec2Vk55.file","moneyLimit":1,"productId":1,"termId":2726,"title":"苹果7 4.7英寸 32G 颜色随机","userId":1}
+ 2016-11-29 11:16:15,564 - This is isLogin,用户已经登录
+ 2016-11-29 11:16:15,564 - 拿到的name 是何耀澎
+ 2016-11-29 11:16:21,191 - This is isLogin,用户已经登录
+ 2016-11-29 11:16:21,192 - 拿到的name 是何耀澎
+ 2016-11-29 11:16:26,873 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 11:16:27,952 - This is isLogin,用户已经登录
+ 2016-11-29 11:16:27,953 - 拿到的name 是何耀澎
+ 2016-11-29 11:16:54,036 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 11:16:54,036 - getServerName   localhost
+ 2016-11-29 11:16:54,167 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"BsCi3V2OQYeFAQ4h_FwpInTw","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"e10c37a1-41b5-4f67-bb25-e2ef30c12089","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"Auoi6TS8ljNtBdonFf5qgjOFbRNTIOB2fJmrbdGWrQtwPYuC7vorIswVccKQXHs/CNRM8GYHm2U8Yh3BzhXl//t98OZmJBXpmpQ8iBBXMfs+aFX4O6WqBxFHMzeGrqhkmVEzaQUmHe47I+CYpoV5zUP5hUbsegpYYnd3H+0e8WF2a6TLgqbrxmbDn4DKu/sFkI6/0ErLtmkW9nVjH1jEV2yeIlFAjX1QSdEBlYTHaj3RJ1Spt+r6G+ELIt4uJsQ97DXoIbzSHAfM74f+qYK8lxWUpwjOivLMkyhjqjficeOirX0JWN4GzJTQnucSJnnXyjrKykHW7v/7TwgfJkwHQdDGFLFkl/17qQqw8ZK7Am4bbBYzMeDsgHkuTu/Cx+Wy4cs73EiXQKcl9HTB6P8q3qYl5PnOEep6n/FWk5qPP5D+oVMVEwchQHyyVbPLTp5jPbN8mvKR6TDe5Axz/YjwYVr03yKTco8XZFn7ZNFmqKDPX3sMCLKQt5I7U/6quDmvhAr1z5dwVZB5nzY8vS03Sw","version":0}]
+ 2016-11-29 11:17:06,251 - account 为cookabuy@163.com
+ 2016-11-29 11:17:06,304 - account为cookabuy@163.com
+ 2016-11-29 11:17:06,401 - 长度11
+ 2016-11-29 11:17:06,407 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 11:17:06,408 - inputPassword: "nicaicaia3+"
+ 2016-11-29 11:17:06,414 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 11:17:06,415 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 11:17:06,416 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 11:17:06,496 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 11:17:06,606 - 登陆成功----
+ 2016-11-29 11:17:07,799 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"BsCi3V2OQYeFAQ4h_FwpInTw","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"bddeaa3a-27c9-444f-b62d-c0d834765b05","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"2Q49JmTwZKTq4+Ph3tEdbth4Ckadz2iOjB4kwpVYvLWbbdTBxBFWKicPCiwZ8nU9LzCSKyMJTxbe5tIEzmvrgKuvf3pv12pNvihPcWmBjDu6WQmlVfwntK6r457uEklJveMMt2dfs28PC2U0weG9Mkt/XRI1yGgbIgq8qEFs1FzUS1iTPXrVDQtQpzRFnN9EXfeeH0SkSaV9RaA4fGPOSLqVBIqxfIzndHjDwqwysflGHWsz9DxHWoILmdRC3s8GjAGEioM/em+A6XfLp7z10xrB18x+f2UAtotm0H6HBAdXTx7txBYKZSEmno5p/dlB/s0l3+2rN5FijjaG65ddVhmM+i/9uX0rVMFQBjh7WFX9YTm8xg7fk4kJ7msPjSN+ybAH65tygYVnSB9ni3stzdbWVLZNSylls/I0u6twCr/IzqfSQVDAkR+UMu2OUP2TcnPirTnRtcSZWJ98VBQ0RVT5eBpEwlBYuKZARc+Wyf6zleH7FcSMNcf3pSCyq0Y1+UiflM4aa0G8TYAgoOCvRQ","version":0}]
+ 2016-11-29 11:17:15,749 - This is isLogin,用户已经登录
+ 2016-11-29 11:17:15,749 - 拿到的name 是何耀澎
+ 2016-11-29 11:17:16,392 - null
+ 2016-11-29 11:17:20,177 - {"amount":1,"imageUrl":"http://120.25.193.220/group1/M00/00/08/eBnB3FgWy36AGoNRAAI7Eoec2Vk55.file","moneyLimit":1,"productId":1,"termId":2726,"title":"苹果7 4.7英寸 32G 颜色随机","userId":1}
+ 2016-11-29 11:17:21,085 - This is isLogin,用户已经登录
+ 2016-11-29 11:17:21,086 - 拿到的name 是何耀澎
+ 2016-11-29 11:17:24,016 - This is isLogin,用户已经登录
+ 2016-11-29 11:17:24,017 - 拿到的name 是何耀澎
+ 2016-11-29 11:17:26,731 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 11:17:28,366 - This is isLogin,用户已经登录
+ 2016-11-29 11:17:28,367 - 拿到的name 是何耀澎
+ 2016-11-29 11:17:59,217 - This is isLogin,用户已经登录
+ 2016-11-29 11:17:59,217 - 拿到的name 是何耀澎
+ 2016-11-29 11:18:20,471 - This is isLogin,用户已经登录
+ 2016-11-29 11:18:20,471 - 拿到的name 是何耀澎
+ 2016-11-29 11:18:24,855 - This is isLogin,用户已经登录
+ 2016-11-29 11:18:24,856 - 拿到的name 是何耀澎
+ 2016-11-29 11:18:42,164 - 夺币支付处理
+ 2016-11-29 11:18:45,634 - 1.00
+ 2016-11-29 11:18:45,636 - {"touser":"ocydnwkicQdKQgz5x4Pedh5LpFUM","template_id":"OnZuzHm3q4n2kuc3Fq-VJv6e_3hs5vkXlJAviqb44uA","topcolor":"#FF0000","url":"m.uclee.com/recordDetail?orderSerialNum=14803893871562367","data":{"first":{"value":"亲爱的很长的名：您的订单已处理完成，共计成功购得夺宝号1个。"},"keyword1":{"value":"很长的名"},"keyword2":{"value":"14803893871562367"},"keyword3":{"value":"1.0元"},"keyword4":{"value":"苹果7 4.7英寸 32G 颜色随机"},"remark":{"color":"#173177","value":"点击详情查看夺宝详情，如有问题请致电客服手机号15902023879或直接在微信留言，客服在线时间为工作日10:00-18:00.客服人员将第一时间为您服务。"}}}
+ 2016-11-29 11:19:42,096 - 夺币支付处理
+ 2016-11-29 11:21:23,910 - 夺币支付处理
+ 2016-11-29 11:21:47,260 - This is isLogin,用户已经登录
+ 2016-11-29 11:21:47,261 - 拿到的name 是何耀澎
+ 2016-11-29 11:22:00,797 - This is isLogin,用户已经登录
+ 2016-11-29 11:22:00,798 - 拿到的name 是何耀澎
+ 2016-11-29 11:23:01,221 - 夺币支付处理
+ 2016-11-29 11:23:24,942 - This is isLogin,用户已经登录
+ 2016-11-29 11:23:24,943 - 拿到的name 是何耀澎
+ 2016-11-29 11:23:36,057 - {dataSource-1} inited
+ 2016-11-29 11:23:55,436 - This is isLogin,用户已经登录
+ 2016-11-29 11:23:55,438 - 拿到的name 是何耀澎
+ 2016-11-29 11:24:01,541 - 夺币支付处理
+ 2016-11-29 11:24:06,620 - 1.00
+ 2016-11-29 11:24:06,636 - {"touser":"ocydnwkicQdKQgz5x4Pedh5LpFUM","template_id":"OnZuzHm3q4n2kuc3Fq-VJv6e_3hs5vkXlJAviqb44uA","topcolor":"#FF0000","url":"m.uclee.com/recordDetail?orderSerialNum=14803893871562367","data":{"first":{"value":"亲爱的很长的名：您的订单已处理完成，共计成功购得夺宝号1个。"},"keyword1":{"value":"很长的名"},"keyword2":{"value":"14803893871562367"},"keyword3":{"value":"1.0元"},"keyword4":{"value":"苹果7 4.7英寸 32G 颜色随机"},"remark":{"color":"#173177","value":"点击详情查看夺宝详情，如有问题请致电客服手机号15902023879或直接在微信留言，客服在线时间为工作日10:00-18:00.客服人员将第一时间为您服务。"}}}
+ 2016-11-29 11:24:07,954 - This is isLogin,用户已经登录
+ 2016-11-29 11:24:07,954 - 拿到的name 是何耀澎
+ 2016-11-29 11:24:17,096 - This is isLogin,用户已经登录
+ 2016-11-29 11:24:17,098 - 拿到的name 是何耀澎
+ 2016-11-29 11:38:50,024 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 11:38:50,025 - getServerName   localhost
+ 2016-11-29 11:38:50,198 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"H-A4pRt07nyWI9O5v8Z57xQW","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"1bayJbJUYKEUnlhbr0fqePo5T0O/mA6QKmoNCzyD8KS4IVmoPKPIKxIhSriWQHOxgY4E/CVtQBEnyywx4922ZbYJQQoSvWzKo01H9F/Vs0En73Xu14Na/YB7FcFJv+VSLQDrBbnDnnmbe2mRFzUg8tMbW0yx7T/yhwx2FfLQurlLEeyXbFOIJVCu8Yfs72mjBX3RClzwH8SyNXo0KfAgCrqZhzh5B+w4ahOjljL7EGPKOpwSBueozYH1lA2t9zjisBiNnPIZo5kBEgoY94Bzcc5GfzA6pLTJfi3pG1ThWxc1rDsbwwC7KSQx4r9KjhA7sxu0B9vI3i1TlgRH7451/gFnogjGbxaqUxKogvs5qk+gM9UpDDVNpp9uPPz77yUhssfRnBUEeRqG1DjS82EaMoXAn8JHM7Vs2d0SUKz9tFh/5iTxxVglrAIcbFi34E4JNxX5vUc3i6/5tZyRjW27DKWkMFahxbg/qTnWkZ2qTYcvMngegt8tN1Rr2wRcX/hmuqcUJTQry2AtZggY6Ilziw","version":0}]
+ 2016-11-29 11:49:02,828 - This is isLogin,用户已经登录
+ 2016-11-29 11:49:02,828 - 拿到的name 是何耀澎
+ 2016-11-29 11:49:23,931 - This is isLogin,用户已经登录
+ 2016-11-29 11:49:23,932 - 拿到的name 是何耀澎
+ 2016-11-29 11:51:08,554 - This is isLogin,用户已经登录
+ 2016-11-29 11:51:08,554 - 拿到的name 是何耀澎
+ 2016-11-29 11:51:08,683 - http://localhost/choujiang
+ 2016-11-29 11:51:11,861 - key:  access_token is invalid or not latest hint---value:  [bPHDwa0471rsz8!]
+ 2016-11-29 11:51:11,862 - key: errcode---value: 40001
+ 2016-11-29 11:51:11,864 - key: errmsg---value: invalid credential
+ 2016-11-29 11:51:11,864 - 设置ticket
+ 2016-11-29 11:51:11,865 - preSignParam: jsapi_ticket=null&noncestr=76eb047fdebdedb585366d172133b917&timestamp=1480391468&url=http://localhost/choujiang
+ 2016-11-29 11:51:11,869 - signature: a8ab9e27105403aaa971156a952b5a5bd54199e8
+ 2016-11-29 11:53:29,768 - This is isLogin,用户已经登录
+ 2016-11-29 11:53:29,768 - 拿到的name 是何耀澎
+ 2016-11-29 11:53:30,012 - http://localhost/choujiang?serialNum=141212
+ 2016-11-29 11:53:30,080 - 登录名是cookabuy@163.com
+ 2016-11-29 11:53:30,180 - key:  access_token is invalid or not latest hint---value:  [vDiiza0609rsz6!]
+ 2016-11-29 11:53:30,180 - key: errcode---value: 40001
+ 2016-11-29 11:53:30,180 - key: errmsg---value: invalid credential
+ 2016-11-29 11:53:30,180 - 设置ticket
+ 2016-11-29 11:53:30,181 - preSignParam: jsapi_ticket=null&noncestr=fd66e7bea7de8ee3d7980d1a1208545e&timestamp=1480391610&url=http://localhost/choujiang?serialNum=141212
+ 2016-11-29 11:53:30,181 - signature: 7a86fcd1fe89fe2b0db2d223339c835e75f7fff8
+ 2016-11-29 11:53:30,257 - This is isLogin,用户已经登录
+ 2016-11-29 11:53:30,257 - 拿到的name 是何耀澎
+ 2016-11-29 11:53:30,383 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 11:53:30,383 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 12:57:12,459 - 更新微信Token
+ 2016-11-29 13:39:57,684 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 13:39:57,686 - getServerName   localhost
+ 2016-11-29 13:39:57,697 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"jf8z83GUulN9CL1uISHS7FSt","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"bddeaa3a-27c9-444f-b62d-c0d834765b05","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"2Q49JmTwZKTq4+Ph3tEdbth4Ckadz2iOjB4kwpVYvLWbbdTBxBFWKicPCiwZ8nU9LzCSKyMJTxbe5tIEzmvrgKuvf3pv12pNvihPcWmBjDu6WQmlVfwntK6r457uEklJveMMt2dfs28PC2U0weG9Mkt/XRI1yGgbIgq8qEFs1FzUS1iTPXrVDQtQpzRFnN9EXfeeH0SkSaV9RaA4fGPOSLqVBIqxfIzndHjDwqwysflGHWsz9DxHWoILmdRC3s8GjAGEioM/em+A6XfLp7z10xrB18x+f2UAtotm0H6HBAdXTx7txBYKZSEmno5p/dlB/s0l3+2rN5FijjaG65ddVhmM+i/9uX0rVMFQBjh7WFX9YTm8xg7fk4kJ7msPjSN+ybAH65tygYVnSB9ni3stzdbWVLZNSylls/I0u6twCr/IzqfSQVDAkR+UMu2OUP2TcnPirTnRtcSZWJ98VBQ0RVT5eBpEwlBYuKZARc+Wyf6zleH7FcSMNcf3pSCyq0Y1+UiflM4aa0G8TYAgoOCvRQ","version":0}]
+ 2016-11-29 13:40:05,947 - account 为cookabuy@163.com
+ 2016-11-29 13:40:06,057 - account为cookabuy@163.com
+ 2016-11-29 13:40:06,123 - 长度11
+ 2016-11-29 13:40:06,129 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 13:40:06,129 - inputPassword: "nicaicaia3+"
+ 2016-11-29 13:40:06,137 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 13:40:06,137 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 13:40:06,139 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 13:40:06,269 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 13:40:06,317 - 登陆成功----
+ 2016-11-29 13:40:06,347 - 登录名是cookabuy@163.com
+ 2016-11-29 13:40:06,490 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 13:40:06,491 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 13:40:06,783 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"jf8z83GUulN9CL1uISHS7FSt","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"7673691b-da6d-4b30-b89a-fdc3048bc993","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"Qr3r5VxNWXcfLPeDWEAWXufwbLu3merZpIGFHPcA9tBHGUfYkaJXMQi6tR99x+5VglZdyzj/BBPR4dtC6ZEtrTL3/6p3VElnEJuDT00fCs6MfIvtjPz3muNVTYiydFYk2Vpv027yZqA3geBphPxJ13X1flwCo97k4kqN4D7v7JKdwTGrdymTofWIvjB+9ccowbCeUtZr+5HuVItet2sbxCuggpVEgNwxZdg+ahuRWHjuJqnHV4tzZ0F8XokEdpE/qwNWOWLnab3yjuLDhvmGLfKWeqrvY8F9EXxxcoI4L0gx4bpkvXfXb9fsZqsI62k1V6UfP3mjO8P637d63bKkYXgqG8XJheUB9eiXsyHLm/ccHJEpiy+Yi4yeBlMve8y9tlaND11+WkMSr0iThcHzIcggbKcAzcs11XYMnF4ovmHbjaafbMeQKzZ57de25CRcJBn+xNrjkWoQuRqzGUDQIWSCxVqFAIBGWlszRJWH/CkjYRA0gcQwod5WZJTd2z1n8m17vsPgWCF1vOUFrZQhJg","version":0}]
+ 2016-11-29 13:40:16,020 - This is isLogin,用户已经登录
+ 2016-11-29 13:40:16,020 - 拿到的name 是何耀澎
+ 2016-11-29 13:40:16,073 - http://localhost/choujiang
+ 2016-11-29 13:40:16,203 - key:  access_token is invalid or not latest hint---value:  [hDcria0015rsz7!]
+ 2016-11-29 13:40:16,204 - key: errcode---value: 40001
+ 2016-11-29 13:40:16,204 - key: errmsg---value: invalid credential
+ 2016-11-29 13:40:16,204 - 设置ticket
+ 2016-11-29 13:40:16,205 - preSignParam: jsapi_ticket=null&noncestr=7f6f174620ffea0652a4c0c181582d3a&timestamp=1480398016&url=http://localhost/choujiang
+ 2016-11-29 13:40:16,205 - signature: 8b59aad51464792582578b64d59a6c5dc29f5b2c
+ 2016-11-29 13:40:32,869 - {dataSource-1} inited
+ 2016-11-29 13:41:23,861 - This is isLogin,用户已经登录
+ 2016-11-29 13:41:23,874 - 拿到的name 是何耀澎
+ 2016-11-29 13:41:23,875 - http://localhost/choujiang
+ 2016-11-29 13:41:24,024 - key:  access_token is invalid or not latest hint---value:  [CjNWna0083rsz8!]
+ 2016-11-29 13:41:24,025 - key: errcode---value: 40001
+ 2016-11-29 13:41:24,025 - key: errmsg---value: invalid credential
+ 2016-11-29 13:41:24,025 - 设置ticket
+ 2016-11-29 13:41:24,025 - preSignParam: jsapi_ticket=null&noncestr=9f21b202c01879a17bb12cee4237c1dc&timestamp=1480398083&url=http://localhost/choujiang
+ 2016-11-29 13:41:24,026 - signature: 0abc4d3299f06dc4e4e460d548014165adffe959
+ 2016-11-29 13:45:01,666 - http://localhost/choujiang
+ 2016-11-29 13:45:01,868 - key:  access_token is invalid or not latest hint---value:  [UZ5k30301rsz7!]
+ 2016-11-29 13:45:01,868 - key: errcode---value: 40001
+ 2016-11-29 13:45:01,869 - key: errmsg---value: invalid credential
+ 2016-11-29 13:45:01,869 - 设置ticket
+ 2016-11-29 13:45:01,869 - preSignParam: jsapi_ticket=null&noncestr=e44b26b1f2605458bdcf8ff6f8335466&timestamp=1480398301&url=http://localhost/choujiang
+ 2016-11-29 13:45:01,871 - signature: 41877c4598cc17cb9b55e55499a385edc52bdbf4
+ 2016-11-29 13:45:02,082 - This is isLogin,用户已经登录
+ 2016-11-29 13:45:02,082 - 拿到的name 是何耀澎
+ 2016-11-29 16:15:40,661 - {dataSource-1} inited
+ 2016-11-29 16:15:47,534 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 16:15:47,535 - getServerName   localhost
+ 2016-11-29 16:15:47,698 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"H-A4pRt07nyWI9O5v8Z57xQW","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"edbdfaac-5267-4dd8-a538-7f14fa345959","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"1bayJbJUYKEUnlhbr0fqePo5T0O/mA6QKmoNCzyD8KS4IVmoPKPIKxIhSriWQHOxgY4E/CVtQBEnyywx4922ZbYJQQoSvWzKo01H9F/Vs0En73Xu14Na/YB7FcFJv+VSLQDrBbnDnnmbe2mRFzUg8tMbW0yx7T/yhwx2FfLQurlLEeyXbFOIJVCu8Yfs72mjBX3RClzwH8SyNXo0KfAgCrqZhzh5B+w4ahOjljL7EGPKOpwSBueozYH1lA2t9zjisBiNnPIZo5kBEgoY94Bzcc5GfzA6pLTJfi3pG1ThWxc1rDsbwwC7KSQx4r9KjhA7sxu0B9vI3i1TlgRH7451/gFnogjGbxaqUxKogvs5qk+gM9UpDDVNpp9uPPz77yUhssfRnBUEeRqG1DjS82EaMoXAn8JHM7Vs2d0SUKz9tFh/5iTxxVglrAIcbFi34E4JNxX5vUc3i6/5tZyRjW27DKWkMFahxbg/qTnWkZ2qTYcvMngegt8tN1Rr2wRcX/hmuqcUJTQry2AtZggY6Ilziw","version":0}]
+ 2016-11-29 16:15:47,905 - 更新微信Token
+ 2016-11-29 16:16:04,515 - account 为cookabuy@163.com
+ 2016-11-29 16:16:05,103 - account为cookabuy@163.com
+ 2016-11-29 16:16:06,106 - 长度11
+ 2016-11-29 16:16:06,124 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 16:16:06,125 - inputPassword: "nicaicaia3+"
+ 2016-11-29 16:16:06,141 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 16:16:06,142 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 16:16:06,145 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-11-29 16:16:06,217 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 16:16:06,789 - 登陆成功----
+ 2016-11-29 16:16:06,909 - 登录名是cookabuy@163.com
+ 2016-11-29 16:16:07,149 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 16:16:07,151 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 16:16:08,859 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"H-A4pRt07nyWI9O5v8Z57xQW","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"b3855a78-ec9c-4d31-9386-9cac6821fd23","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"edzBbbN3xIpxLbeHbevWLbRAGQvvNyYDfiMAxiO+EICNOor8bCgu7J+t/AjWVoo6lOVqL3h99TM7S+bAIxXrHREO+DE6tiIADOgkoBVjjHwE/lPWzNBRjV4RK4Y7ZbzdRjjktMCgVXniiLE/HfTXWi3JIFxuhSe+eE/7TMnPyY61a+p5lGNt3/tgWAOEAydCFHai+zC74jq/5A7mLyrJvlv/RDQQscGziiqGQB79mteMKLMGKA3ApvF/oEOfCSZhOQ4iJ3OxCsa1KxAkMfHqnreCiU80RO4RfUklEQgptkEkb21MJ63twt/M+Myx2b97ydmCF5+gGtYt+7ftPwTpiqTENvAdPtdakHgxnKdtfmHRJ45HiWmuPaABpDnqDsV3YJiyZUPf8H7Fr2vxQtQDOUV/27vwcjD/4KpcYLVu1GNl66i6uGmIYn46TFkZOE4/auvRqndfKpwhlq8XXMRcGh6YWJ95JVlAA1PpkLWLkCc/H8OQoyJS2Fp+FDGtKurickN+J2QiJDv8tuOg9w6SpA","version":0}]
+ 2016-11-29 16:16:12,004 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 16:16:12,006 - getServerName   localhost
+ 2016-11-29 16:16:12,033 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"k6UziYa4DQzRjIbU4UQ-6S-q","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"b3855a78-ec9c-4d31-9386-9cac6821fd23","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"edzBbbN3xIpxLbeHbevWLbRAGQvvNyYDfiMAxiO+EICNOor8bCgu7J+t/AjWVoo6lOVqL3h99TM7S+bAIxXrHREO+DE6tiIADOgkoBVjjHwE/lPWzNBRjV4RK4Y7ZbzdRjjktMCgVXniiLE/HfTXWi3JIFxuhSe+eE/7TMnPyY61a+p5lGNt3/tgWAOEAydCFHai+zC74jq/5A7mLyrJvlv/RDQQscGziiqGQB79mteMKLMGKA3ApvF/oEOfCSZhOQ4iJ3OxCsa1KxAkMfHqnreCiU80RO4RfUklEQgptkEkb21MJ63twt/M+Myx2b97ydmCF5+gGtYt+7ftPwTpiqTENvAdPtdakHgxnKdtfmHRJ45HiWmuPaABpDnqDsV3YJiyZUPf8H7Fr2vxQtQDOUV/27vwcjD/4KpcYLVu1GNl66i6uGmIYn46TFkZOE4/auvRqndfKpwhlq8XXMRcGh6YWJ95JVlAA1PpkLWLkCc/H8OQoyJS2Fp+FDGtKurickN+J2QiJDv8tuOg9w6SpA","version":0}]
+ 2016-11-29 16:16:34,939 - This is isLogin,用户已经登录
+ 2016-11-29 16:16:34,941 - 拿到的name 是何耀澎
+ 2016-11-29 16:16:35,152 - http://10.0.0.103/choujiang
+ 2016-11-29 16:16:39,543 - key: errcode---value: 0
+ 2016-11-29 16:16:39,545 - key: errmsg---value: ok
+ 2016-11-29 16:16:39,545 - key: expires_in---value: 7200
+ 2016-11-29 16:16:39,546 - key: ticket---value: kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A
+ 2016-11-29 16:16:39,547 - 设置ticket
+ 2016-11-29 16:16:39,548 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=6221df91f2b879548a0976e914563595&timestamp=1480407395&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:16:39,552 - signature: 1b5ffc18fed69c949dfab1e586b11fc729766d31
+ 2016-11-29 16:16:59,859 - http://10.0.0.103/choujiang
+ 2016-11-29 16:16:59,860 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=1367fb0178a0f5beac5f3baa8f1a305c&timestamp=1480407419&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:16:59,861 - signature: 02c2a4a3fe1f8ae1bba1e9ef77dd64e2c3390936
+ 2016-11-29 16:17:00,332 - This is isLogin,用户已经登录
+ 2016-11-29 16:17:00,333 - 拿到的name 是何耀澎
+ 2016-11-29 16:17:43,796 - http://10.0.0.103/choujiang
+ 2016-11-29 16:17:43,797 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=69a445b9d95e49c0db1b0ee0a729b2fd&timestamp=1480407463&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:17:43,798 - signature: 9aeac12208b0c0faf01f4765ad6db70be4196a6e
+ 2016-11-29 16:17:44,023 - This is isLogin,用户已经登录
+ 2016-11-29 16:17:44,024 - 拿到的name 是何耀澎
+ 2016-11-29 16:18:00,926 - This is isLogin,用户已经登录
+ 2016-11-29 16:18:00,927 - 拿到的name 是何耀澎
+ 2016-11-29 16:18:00,964 - http://10.0.0.103/choujiang
+ 2016-11-29 16:18:00,964 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=5ea114b38abc2a67803ab86475043491&timestamp=1480407480&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:18:00,964 - signature: 42913145cfa323e69a9d7c6899f2c0a691b4e474
+ 2016-11-29 16:19:16,484 - This is isLogin,用户已经登录
+ 2016-11-29 16:19:16,485 - 拿到的name 是何耀澎
+ 2016-11-29 16:19:24,365 - http://10.0.0.103/choujiang
+ 2016-11-29 16:19:24,367 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=7feb784246d0d888b3d4169ff587c1d2&timestamp=1480407564&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:19:24,368 - signature: e9768393a48648af1551b9c0213790650f6cc3c2
+ 2016-11-29 16:19:24,510 - This is isLogin,用户已经登录
+ 2016-11-29 16:19:24,511 - 拿到的name 是何耀澎
+ 2016-11-29 16:19:41,732 - This is isLogin,用户已经登录
+ 2016-11-29 16:19:41,733 - 拿到的name 是何耀澎
+ 2016-11-29 16:19:41,788 - http://10.0.0.103/choujiang
+ 2016-11-29 16:19:41,788 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=8b7319052c0e977a266baa9b0b564e5b&timestamp=1480407581&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:19:41,788 - signature: 0f6a0e7cd42698e8f5bb7bb358db7bf87105f705
+ 2016-11-29 16:20:04,671 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 16:20:04,671 - getServerName   localhost
+ 2016-11-29 16:20:04,681 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"H0vDyF1vJyo9dMwJovt4ZmHC","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"7673691b-da6d-4b30-b89a-fdc3048bc993","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"Qr3r5VxNWXcfLPeDWEAWXufwbLu3merZpIGFHPcA9tBHGUfYkaJXMQi6tR99x+5VglZdyzj/BBPR4dtC6ZEtrTL3/6p3VElnEJuDT00fCs6MfIvtjPz3muNVTYiydFYk2Vpv027yZqA3geBphPxJ13X1flwCo97k4kqN4D7v7JKdwTGrdymTofWIvjB+9ccowbCeUtZr+5HuVItet2sbxCuggpVEgNwxZdg+ahuRWHjuJqnHV4tzZ0F8XokEdpE/qwNWOWLnab3yjuLDhvmGLfKWeqrvY8F9EXxxcoI4L0gx4bpkvXfXb9fsZqsI62k1V6UfP3mjO8P637d63bKkYXgqG8XJheUB9eiXsyHLm/ccHJEpiy+Yi4yeBlMve8y9tlaND11+WkMSr0iThcHzIcggbKcAzcs11XYMnF4ovmHbjaafbMeQKzZ57de25CRcJBn+xNrjkWoQuRqzGUDQIWSCxVqFAIBGWlszRJWH/CkjYRA0gcQwod5WZJTd2z1n8m17vsPgWCF1vOUFrZQhJg","version":0}]
+ 2016-11-29 16:20:18,144 - account 为cookabuy@163.com
+ 2016-11-29 16:20:18,206 - account为cookabuy@163.com
+ 2016-11-29 16:20:18,292 - 长度11
+ 2016-11-29 16:20:18,292 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 16:20:18,293 - inputPassword: "nicaicaia3+"
+ 2016-11-29 16:20:18,294 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 16:20:18,294 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 16:20:18,296 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 16:20:18,347 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 16:20:18,874 - 登陆成功----
+ 2016-11-29 16:20:21,852 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"H0vDyF1vJyo9dMwJovt4ZmHC","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"ad4a92a0-b0c3-4710-ac4e-b85f04df1539","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"DfSmBRewlh6dAG/Gfs7ivpHmUQ7VzFhIe4oOpq37dfoRyf2NVcxgvmJQPcBg5Vubka7l5WGBuxf9xEM9FF11yIaXt3L+axDrGvNCFda4YxvFOp3K7U7bH4hE8+nXcjw82Pd1mgJIFkEno1XwxraCPWTKt4UYp/hTWJPKTnu4APD5Q9CRjKftgoADdPH4HtFrs9grlMTBRPNvNvUPCbYplMdaTd5WeiGRo16Ce0aCRInt5JgVSgCzEajf9bPZavL3e29ykdfCeq+qKG4rPpP0fgYPBJ9ITPmEOW1Wibe+aSL0q1YgpBlNl+JUoR6jzaFQwIReECCZdaiSPUu+l5EPDLKWo3QDj+9Hvu3BR3UtQ8Yia+dTwi2YB8udwubh72mUQZmYebQ44Dv1qgzbtEcWxeW5v+89jd/yIkySD6E+LbrTx4nW7r4WyW//MfeN2AAXU+WU+KHcspbyebLlGVlg08tNBiQgLeOjJAGo3noPJbVpW5QyyhWlpVPYSGFSqhbaQZi5MAuDhK1cm/cW2k+sGw","version":0}]
+ 2016-11-29 16:20:28,317 - http://localhost/choujiang
+ 2016-11-29 16:20:28,475 - This is isLogin,用户已经登录
+ 2016-11-29 16:20:28,476 - 拿到的name 是何耀澎
+ 2016-11-29 16:20:28,650 - key: errcode---value: 0
+ 2016-11-29 16:20:28,651 - key: errmsg---value: ok
+ 2016-11-29 16:20:28,651 - key: expires_in---value: 7200
+ 2016-11-29 16:20:28,651 - key: ticket---value: kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A
+ 2016-11-29 16:20:28,652 - 设置ticket
+ 2016-11-29 16:20:28,652 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=83c2eea703c46704655fb59477288e94&timestamp=1480407628&url=http://localhost/choujiang
+ 2016-11-29 16:20:28,653 - signature: f47e3f282a75eee3164e46c3a9ff673391fc9af5
+ 2016-11-29 16:21:01,855 - This is isLogin,用户已经登录
+ 2016-11-29 16:21:01,857 - 拿到的name 是何耀澎
+ 2016-11-29 16:21:02,656 - http://10.0.0.103/choujiang
+ 2016-11-29 16:21:02,657 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=79d7a832609d7964a8b679f14054ebcc&timestamp=1480407662&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:21:02,658 - signature: b1b563a3b07a2b007301c160715d2e45a82bbcaf
+ 2016-11-29 16:21:12,432 - This is isLogin,用户已经登录
+ 2016-11-29 16:21:12,433 - 拿到的name 是何耀澎
+ 2016-11-29 16:21:13,557 - http://10.0.0.103/choujiang
+ 2016-11-29 16:21:13,558 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=fa0644f4d8b32602db58eac00888b990&timestamp=1480407673&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:21:13,559 - signature: b3508f98449c80bf97336537b466c6a5908ce5bb
+ 2016-11-29 16:23:47,759 - This is isLogin,用户已经登录
+ 2016-11-29 16:23:47,759 - 拿到的name 是何耀澎
+ 2016-11-29 16:23:48,753 - http://10.0.0.103/choujiang
+ 2016-11-29 16:23:48,754 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=aed28f78eadc4ff2a49207a11cae564b&timestamp=1480407828&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:23:48,755 - signature: 9452398f6803a10d5a41bdb166fb81ac24d89d84
+ 2016-11-29 16:24:35,273 - http://10.0.0.103/choujiang
+ 2016-11-29 16:24:35,274 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=0bc27f5457e10c3bc74320b45806f9b7&timestamp=1480407875&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:24:35,274 - signature: f90383fc48bdb7030015ac432005ac2e291cd985
+ 2016-11-29 16:24:35,397 - This is isLogin,用户已经登录
+ 2016-11-29 16:24:35,398 - 拿到的name 是何耀澎
+ 2016-11-29 16:24:57,758 - This is isLogin,用户已经登录
+ 2016-11-29 16:24:57,759 - 拿到的name 是何耀澎
+ 2016-11-29 16:25:57,947 - This is isLogin,用户已经登录
+ 2016-11-29 16:25:57,949 - 拿到的name 是何耀澎
+ 2016-11-29 16:25:58,191 - http://10.0.0.103/choujiang
+ 2016-11-29 16:25:58,192 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=9e7b2344915faf98d40d7a6bf53ea4b2&timestamp=1480407958&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:25:58,193 - signature: eee0fa0063d36f3f2b33ef84fd12834d75c18739
+ 2016-11-29 16:26:17,341 - This is isLogin,用户已经登录
+ 2016-11-29 16:26:17,342 - 拿到的name 是何耀澎
+ 2016-11-29 16:26:17,422 - http://10.0.0.103/choujiang
+ 2016-11-29 16:26:17,423 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=6818d5e1951068104a0eb29f054ddc03&timestamp=1480407977&url=http://10.0.0.103/choujiang
+ 2016-11-29 16:26:17,424 - signature: 003211fd493a86bf8a752446a22a9a6b6cf161da
+ 2016-11-29 16:43:21,005 - This is isLogin,用户已经登录
+ 2016-11-29 16:43:21,006 - 拿到的name 是何耀澎
+ 2016-11-29 16:43:21,186 - http://localhost/choujiang
+ 2016-11-29 16:43:21,186 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=d08e698e5293bcca2496c0e26053894a&timestamp=1480409001&url=http://localhost/choujiang
+ 2016-11-29 16:43:21,187 - signature: 14503c7905fdb57dea87b7cbe7a7bd0f2cb6a75d
+ 2016-11-29 16:43:24,140 - This is isLogin,用户已经登录
+ 2016-11-29 16:43:24,140 - 拿到的name 是何耀澎
+ 2016-11-29 16:43:24,206 - http://localhost/choujiang
+ 2016-11-29 16:43:24,206 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=7c32f9df7667da5f47e669ff60523b77&timestamp=1480409004&url=http://localhost/choujiang
+ 2016-11-29 16:43:24,206 - signature: 00f77454259ac593e7b2c98376c67ce3ad36943f
+ 2016-11-29 16:43:30,857 - This is isLogin,用户已经登录
+ 2016-11-29 16:43:30,857 - 拿到的name 是何耀澎
+ 2016-11-29 16:43:30,907 - http://localhost/choujiang
+ 2016-11-29 16:43:30,907 - preSignParam: jsapi_ticket=kgt8ON7yVITDhtdwci0qedABceXtHwAJ03bfipJwt0DblVr2JoCmWDqW7x6ypPlHAARXhw_DfrYq1dKg02RX3A&noncestr=e2e0299b03db468153d7df817d5582b5&timestamp=1480409010&url=http://localhost/choujiang
+ 2016-11-29 16:43:30,907 - signature: 1b5d4a783176e78ddb1da72f6a8d9303b60d8455
+ 2016-11-29 17:45:31,385 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-11-29 17:45:31,386 - getServerName   localhost
+ 2016-11-29 17:45:31,408 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"auTVJ5hI2cWvAj9xxZA5hIFy","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"ad4a92a0-b0c3-4710-ac4e-b85f04df1539","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"DfSmBRewlh6dAG/Gfs7ivpHmUQ7VzFhIe4oOpq37dfoRyf2NVcxgvmJQPcBg5Vubka7l5WGBuxf9xEM9FF11yIaXt3L+axDrGvNCFda4YxvFOp3K7U7bH4hE8+nXcjw82Pd1mgJIFkEno1XwxraCPWTKt4UYp/hTWJPKTnu4APD5Q9CRjKftgoADdPH4HtFrs9grlMTBRPNvNvUPCbYplMdaTd5WeiGRo16Ce0aCRInt5JgVSgCzEajf9bPZavL3e29ykdfCeq+qKG4rPpP0fgYPBJ9ITPmEOW1Wibe+aSL0q1YgpBlNl+JUoR6jzaFQwIReECCZdaiSPUu+l5EPDLKWo3QDj+9Hvu3BR3UtQ8Yia+dTwi2YB8udwubh72mUQZmYebQ44Dv1qgzbtEcWxeW5v+89jd/yIkySD6E+LbrTx4nW7r4WyW//MfeN2AAXU+WU+KHcspbyebLlGVlg08tNBiQgLeOjJAGo3noPJbVpW5QyyhWlpVPYSGFSqhbaQZi5MAuDhK1cm/cW2k+sGw","version":0}]
+ 2016-11-29 17:45:38,753 - account 为cookabuy@163.com
+ 2016-11-29 17:45:38,793 - account为cookabuy@163.com
+ 2016-11-29 17:45:38,873 - 长度11
+ 2016-11-29 17:45:38,875 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-11-29 17:45:38,876 - inputPassword: "nicaicaia3+"
+ 2016-11-29 17:45:38,877 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 17:45:38,878 - Session默认超时时间为[3600000]毫秒
+ 2016-11-29 17:45:38,881 - x-forwarded-for: 127.0.0.1
+ 2016-11-29 17:45:38,911 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-11-29 17:45:39,039 - 登陆成功----
+ 2016-11-29 17:45:39,163 - 登录名是cookabuy@163.com
+ 2016-11-29 17:45:39,429 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-11-29 17:45:39,430 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-11-29 17:45:39,967 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"auTVJ5hI2cWvAj9xxZA5hIFy","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"fe35b07f-d2a6-47ff-9705-1caeebae0a5c","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"eyTay+c+9Tj9K9xsahPR4wl5Z8KkV6yngueKg/XgvA6WfWyp8GcTDlS5bP5AplXVIqPxHeLqhAnOKR6lXHIxYh28sfLpC/SJapt27BgWjrwdc0ejFhE/JmRGLSB1tDDiF+BCyztJuBXcXb71elk8DJdLMHXWlQXU6IGM/50V83C0OYHvUmiINKYiF67BbBBUXscScvA/WTAfkFd6RbRsazd/8TVru0txs/TVX1YZZts7ksTyejqXmPL8liJwj3Nl71VGEUH/TSo/qu/Rdnneoic9qJcAM2IPoSb0gBYNWfSAlCeTJYr+FV3ci+Jngk6plAgB035tFu5U2KCU/yCbK4iw8uHP42hyrxrSil4mcuCSbmm6sE03BqtEvSPK4sSObdN5Ugjvw6CH3qohxbGbVquz9uIzs7c9VWBy6vY4qo1tToon8x/PS8vd9bI6yZBpjiYwS9LtSdAv/YXfXc24ePLZDVSZ/qU66gTciIELcr0rmg+lTYZxhFyhw3gVlDVCipbIcvCsdBPHPEmmC1Yopw","version":0}]
+ 

@@ -1,0 +1,46 @@
+<div class="col-md-2 trim-col">
+				<div class="help-sidebar">
+					<h4 class="help-title">#springMessage("help_center")</h4>
+					<ul class="help-sidebar-list">
+						<li class="has-sub-side">
+							<a href="#" class="sub-side-title">
+								<i class="fa fa-caret-right"></i>
+								<i class="fa fa-caret-down"></i>
+								qqq
+							</a>
+							<ul class="sub-side">
+								<li><a href="#">asd</a></li>
+							</ul>
+						</li>
+						<li class="has-sub-side">
+							<a href="#" class="sub-side-title">
+								<i class="fa fa-caret-right"></i>
+								<i class="fa fa-caret-down"></i>
+								qaz
+							</a>
+							<ul class="sub-side">
+								<li><a href="#">a</a></li>
+								<li><a href="#" class="active">a</a></li>
+								<li><a href="#">a</a></li>
+							</ul>
+						</li>
+						<li class="has-sub-side">
+							<a href="#" class="sub-side-title">
+								<i class="fa fa-caret-right"></i>
+								<i class="fa fa-caret-down"></i>
+								qaz
+							</a>
+							<ul class="sub-side">
+								<li><a href="#">a</a></li>
+								<li><a href="#">a</a></li>
+								<li><a href="#">a</a></li>
+							</ul>
+						</li>
+					</ul>
+					<div class="custom-service text-center">
+						<h4 class="help-title">#springMessage("custom_service")</h4>
+						<p class="text-center">#springMessage("need_more_help") ? </p>
+						<a href="#" class="btn btn-default">#springMessage("contact_us")</a>
+					</div>
+				</div>
+			</div>

@@ -1,0 +1,50 @@
+@import "public.less";
+.user-aside {
+	&-announce {
+		&-title {
+			color: @ck-main;
+			margin: 0;
+			padding: 10px;
+			border-bottom: 1px solid @ck-main;
+
+			&:first-letter {
+				text-transform: uppercase;
+			}
+		}
+
+		&-list {
+			margin: 0;
+			padding: 0;
+			> li {
+				margin: 10px 0;	
+				> a {
+					color: #333;
+					display: block;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+
+					&:before {
+						content: "●";
+						margin: 0 10px;
+					}
+				}
+			}
+		}
+	}
+
+	&-ad {
+		margin-top: 10px;
+		padding: 0 15px;
+
+		> a {
+			color: #333;
+		}
+
+		&-img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+	}
+}

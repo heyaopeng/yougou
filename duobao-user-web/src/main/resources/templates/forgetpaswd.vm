@@ -1,0 +1,126 @@
+#set($layout = "/layout/forgetpaswd_layout.vm")
+#if($flag=="sendEmailSuccess")
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="reset-pw" data-j="resetPw">
+				<div class="reset-pw-inner">
+					<div class="reset-pw-header">#springMessage("reset_password")</div>
+					<div class="reset-pw-body">
+						<ul class="reset-pw-steps">
+							<li class="done">
+								<span class="reset-pw-step-text">#springMessage("enter_email")</span>
+								<span class="reset-pw-step-num">1</span>
+							</li>
+							<li class="done">
+								<span class="reset-pw-step-text">#springMessage("confirm_email")</span>
+								<span class="reset-pw-step-num">2</span>
+							</li>
+							<li>
+								<span class="reset-pw-step-text">#springMessage("reset_password")</span>
+								<span class="reset-pw-step-num">3</span>
+							</li>
+							<li>
+								<span class="reset-pw-step-text">#springMessage("complete")</span>
+								<span class="reset-pw-step-num">4</span>
+							</li>
+						</ul>
+						
+						<div class="reset-pw-article">
+							<p>#springMessage("we_have_sent_email") #springMessage("click_the_link_to_reset_password") </p>
+							<span class="text-primary" id="reset-pw-email">$email</span>
+							<hr>
+							<div class="alert alert-warning reset-pw-alert hide">
+								<strong>#springMessage("sorry").</strong>
+								#springMessage("we_can_not_resolve_your_email_automatically"),
+								#springMessage("please_check_out_your_in_box_manually").
+							</div>
+							<a href="#" class="btn btn-secondary-light reset-pw-btn hide">#springMessage("check_verification_email")</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+#else
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="reset-pw" data-j="resetPw">
+				<div class="reset-pw-inner">
+					<div class="reset-pw-header">#springMessage("reset_password")</div>
+					<div class="reset-pw-body">
+						<ul class="reset-pw-steps">
+							<li class="done">
+								<span class="reset-pw-step-text">#springMessage("enter_email")</span>
+								<span class="reset-pw-step-num">1</span>
+							</li>
+							<li>
+								<span class="reset-pw-step-text">#springMessage("confirm_email")</span>
+								<span class="reset-pw-step-num">2</span>
+							</li>
+							<li>
+								<span class="reset-pw-step-text">#springMessage("reset_password")</span>
+								<span class="reset-pw-step-num">3</span>
+							</li>
+							<li>
+								<span class="reset-pw-step-text">#springMessage("complete")</span>
+								<span class="reset-pw-step-num">4</span>
+							</li>
+						</ul>
+
+						<div class="reset-pw-form-wrapper">
+							<form class="form-horizontal" id="reset-pw-form" action="doforgetpaswd" method="post">
+								<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+								<div class="alert alert-danger reset-pw-errors hide">
+								#springBind("user.account")
+									#foreach($error in $status.errorMessages)
+								 		$error<br>
+								 	#end
+								 	#springBind("user.password")
+								 	
+								#springBind("user.captcha")
+								 	#foreach($error in $status.errorMessages)
+								 		$error<br>
+								 	#end
+								</div>
+								
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-envelope-o"></span>
+										</span>
+										<input type="text" name="account" class="form-control f-email" placeholder="Email">
+									</div>
+								</div>
+								<div class="form-group reset-pw-captcha">
+									<div class="col-md-5">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-vertify-code-o"></span>
+											</span>
+											<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code">
+										</div>
+									</div>
+									<div class="col-md-4">
+										<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img">
+									</div>
+									<div class="col-md-1">
+										<a href="#" class="reset-pw-refresh">
+											<span class="icon-refresh"></span>
+										</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-secondary-light btn-block reset-pw-btn" type="submit">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+#end

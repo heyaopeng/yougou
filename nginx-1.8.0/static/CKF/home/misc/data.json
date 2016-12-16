@@ -1,0 +1,107 @@
+{
+    "carousel": [
+        {
+            "link": "/cooka-productDetail-web/promotionProductsList?promotionSerialNum=14502021697432636",
+            "src": "/CKF/home/misc/raw/carousel6.jpg"
+        },
+        {
+            "link": "/cooka-search/searchProductFqs?ob=priceUp",
+            "src": "/CKF/home/misc/raw/carousel1.jpg"
+        },
+        {
+            "link": "/CKF/channel3.html",
+            "src": "/CKF/home/misc/raw/carousel4.jpg"
+        }
+    ],
+    "smallAd": [
+        {
+            "category": "101010000",
+            "src": "/CKF/images/home/101010000.jpg"
+        },
+        {
+            "category": "101020000",
+            "src": "/CKF/images/home/101020000.jpg"
+        },
+        {
+            "category": "101080000",
+            "src": "/CKF/images/home/101080000.png"
+        },
+        {
+            "category": "101030000",
+            "src": "/CKF/images/home/101030000.jpg"
+        }
+    ],
+    "aside": {
+        "link": "/cooka-productDetail-web/promotionProductsList?promotionSerialNum=14502021697432636",
+        "src": "/CKF/home/misc/raw/s.jpg"
+    },
+    "banner": "/CKF/home/misc/raw/banner_20151231.jpg",
+    "category": [
+        {
+            "id": "101000000",
+            "name": "Trang phục nữ",
+            "height": "100px",
+            "trend": {
+                "101010010": "Áo phông",
+                "101010020": "Áo sơ mi",
+                "101010040": "Áo chiffon",
+                "101020010": "Quần Jean",
+                "101020000": "Quần",
+                "101080000": "Váy",
+                "101080010": "Váy liền"
+            }
+        },
+        {
+            "id": "102000000",
+            "name": "Trang phục nam",
+            "height": "100px",
+            "trend": {
+                "102010020": "Áo phông",
+                "102010010": "Áo sơ mi",
+                "102010040": "Áo phông cổ đức",
+                "102010030": "Áo sát nách",
+                "102020010": "Quần Jean",
+                "102020020": "Quần dạo ph"
+            }
+        },
+        {
+            "id": "103000000",
+            "name": "Đồ dùng cho mẹ và bé",
+            "height": "50px",
+            "trend": {
+                "103010020": "Áo bầu",
+                "103010010": "Váy bầu",
+                "103010030": "Quần bầu"
+            }
+        },
+        {
+            "id": "101030000",
+            "name": "Đồ lót",
+            "height": "50px",
+            "trend": {
+                "101030010": "Áo lót",
+                "101030140": "Quần lót nữ",
+                "102030000": "Đồ lót nam"
+            }
+        },
+        {
+            "name": "Giày túi mũ",
+            "height": "70px",
+            "trend": {
+                "101090000": "Giày nữ",
+                "101050000": "Phụ kiên, tất nữ",
+                "105010000": "Túi",
+                "102080000": "Giày nam"
+            }
+        }
+    ],
+    "keywords": [
+        "Áo phông",
+        "Áo sơ mi",
+        "Áo chiffon",
+        "Váy liền",
+        "Chân váy",
+        "Quần short",
+        "Jean"
+    ]
+}

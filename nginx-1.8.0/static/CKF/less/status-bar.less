@@ -1,0 +1,65 @@
+@import "public.less";
+.status-bar {
+    .status-style {
+        width: 80%;
+        margin: 30px auto;
+    }
+    .last-status-item {
+        width: 15%;
+    }
+    .status-unit {
+        position: relative;
+    }
+    .status-line {
+        background: #ddd;
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        top: 8px;
+        left: 15px;
+    }
+    .status-point {
+        border-radius: 20px;
+        padding: 1px;
+        background: #ddd;
+        text-align: center;
+        line-height: 20px;
+        position: absolute;
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        z-index: 1;
+    }
+    .has-status-time {
+        color: #aaa;
+        width: 80%;
+    }
+    .done {
+        .status-name {
+            color: @ck-main;
+        }
+        .status-point, .status-line {
+            background: @ck-main;
+        }
+        .status-line {
+            width: 100%;
+        }
+    }
+    .now {
+        .status-name {
+            color: @ck-main;
+        }
+        .status-point {
+            background: @ck-main;
+            z-index: 10;
+        }
+        .status-line-on {
+            background: @ck-main;
+            width: 50%;
+            height: 5px;
+            position: absolute;
+            top: 8px;
+            left: 15px;
+        }
+    }
+}

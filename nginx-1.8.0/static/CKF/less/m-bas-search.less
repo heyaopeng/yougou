@@ -1,0 +1,79 @@
+@import "public.less";
+
+.m-bas-search {
+	
+	.control-label	{
+		text-align: right;
+		padding-top: 5px;
+	}
+
+	.form-group {
+		background-color: #fff;
+		margin: 0;
+		padding: 5px;
+		border-bottom: 1px solid #bcbcbc;
+	}
+
+	.form-group {
+		input[type="date"] {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+	}
+
+	&-btn {
+		margin-top: 30px;
+		padding: 0 25px;
+	}
+
+	&-history {
+		margin-top: 30px;
+		padding: 10px;
+	}
+
+	&-hlist {
+		background-color: #fff;
+		margin: 0;
+		padding: 0;
+
+		> li {
+			list-style: none;
+			display: block;
+
+			> a {
+				display: block;
+				color: #333;
+				text-decoration: none;
+				padding: 10px;
+
+				&:hover,
+				&:focus,
+				&:active {
+					background-color: #eee;
+				}
+			}
+		}
+
+		> li + li {
+			border-top: 1px solid #bcbcbc;
+		}
+	}
+
+	&-clear {
+		display: block;
+		color: #333;
+		padding: 10px;
+		text-align: center;
+		background-color: #fff;
+		border-top: 1px solid #bcbcbc;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #333;
+			text-decoration: none;
+			background-color: #eee;
+		}
+	}
+}

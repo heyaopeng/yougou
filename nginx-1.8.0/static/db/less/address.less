@@ -1,0 +1,144 @@
+@import "public.less";
+.address{
+
+	&-add{
+		.clearfix();
+		position: fixed;
+		padding: 10px;
+		background-color: #FF3300;
+		color: white;
+		text-align: center;
+		left: 5%;
+		right: 0;
+		width: 90%;
+		z-index: 999;
+		bottom: 60px;
+		border-radius : 15px;
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			color: white;
+		}
+	}
+
+	&-empty{
+		width: 100%;
+		text-align: center;
+		margin-top: 50%;
+		font-size: 20px;
+	}
+
+	&-info{
+		width: 100%;
+		background-color: white;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #ddd;
+
+		&-item{
+			width: 100%;
+			&-name{
+				font-size: 18px;
+				padding: 10px;
+				display: block;
+				width: 50%;
+				float: left;
+			}
+			&-phone{
+				display: block;
+				font-size: 18px;
+				padding: 10px;
+				width: 50%;
+				float: left;
+				color: black;
+				text-align: right;
+			}
+			&-addr{
+				font-size: 18px;
+				width: 100%;
+				padding: 10px;
+				border-bottom: 1px solid #ddd;
+			}
+
+		}
+
+		&-option{
+			.clearfix();
+			width: 100%;
+
+			input{
+				margin:18px 5px 10px 10px;
+				display: block;
+				float: left;
+			}
+
+			&-setdeault{
+				font-size: 18px;
+				padding:13px 10px 10px 0;
+				display: block;
+				float: left;
+			}
+
+			&-edit{
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: #FF3300;
+				}
+				font-size: 18px;
+				margin: 8px 5px;
+				color: #FF3300;
+				display: block;
+				padding: 3px;
+				width: 20%;
+				float: right;
+				text-align: center;
+				border-radius : 15px;
+				background-color: white;
+				border: 1px solid #FF3300;
+			}
+
+			&-pick{
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: #FF3300;
+				}
+				font-size: 18px;
+				margin: 8px 5px;
+				color: #FF3300;
+				display: block;
+				padding: 3px;
+				width: 40%;
+				float: right;
+				text-align: center;
+				border-radius : 15px;
+				background-color: white;
+				border: 1px solid #FF3300;
+			}
+
+			&-delete{
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: #FF3300;
+				}
+				font-size: 18px;
+				margin: 8px 5px;
+				color: #FF3300;
+				display: block;
+				padding: 3px;
+				width: 20%;
+				float: right;
+				text-align: center;
+				border-radius : 15px;
+				background-color: white;
+				border: 1px solid #FF3300;
+			}
+		}
+
+	}
+}

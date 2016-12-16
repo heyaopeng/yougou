@@ -1,0 +1,148 @@
+@import "public.less";
+
+.m-bas-settle {
+	&-head {
+		background-color: #EFF3F9;
+		padding: 5px;
+		.clearfix();
+
+		&-time {
+			padding: 10px;
+		}
+	}
+
+	&-stat {
+		text-align: center;
+		float: left;
+		padding: 5px 10px;
+
+		& + & {
+			border-left: 1px solid #aaa;
+		}
+
+		&-number {
+			color: #F15A24;
+			font-weight: bold;
+			font-size: 18px;
+			display: block;
+		}
+
+		&-text {
+			display: block;
+		}
+	}
+
+	&-timetable {
+		float: right;
+		td {
+			padding: 3px;
+		}
+		.td-1 {
+			color: #fff;
+			background-color: #989898;
+		}
+		.td-2 {
+			background-color: #F2F2F2;
+		}
+		.td-3 {
+			color: #fff;
+			background-color: #B5B9BC;
+		}
+		.td-4 {
+			background-color: #FFFFFF;
+		}
+	}
+
+	&-form {
+		padding: 0 10px;
+	}
+
+	&-in {
+		&-heading {
+			padding: 10px;
+			background-color: #FFFDF8;
+		}
+
+
+		&-hitem {
+			margin: 0;
+			padding: 5px 0;
+		}
+
+		&-item.open {
+			.icon-chevron-right {
+				transform: rotate(90deg);
+			}
+
+			.m-bas-settle-in-detail {
+				display: block;
+			}
+		}
+
+		&-detail {
+			display: none;
+			background-color: #fff;
+		}
+
+		&-table {
+			margin: 0;
+		}
+
+		&-info {
+			position: relative;
+			padding: 15px 10px;
+			padding-right: 30px;
+			background-color: #F2F6F9;
+
+			.icon-chevron-right {
+				position: absolute;
+				font-size: 18px;
+				color: @ck-main; 
+				width: 18px;
+				height: 18px;
+				right: 10px;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				transition: all 0.3s ease;
+			}
+		}
+	}
+
+	&-table {
+		margin-bottom: 0;
+		background-color: #fff;
+
+		> thead > tr > th {
+			text-align: center;
+			border-bottom-width: 1px;
+		}
+
+		> tbody > tr > td {
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+
+	&-link {
+		color: #333;
+		display: block;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #333;	
+			text-decoration: none;	
+		}
+	}
+
+	&-status {
+		padding: 10px;
+
+		&-label {
+			display: inline-block;
+			padding: 5px;
+			background-color: #F97450;
+		}
+	}
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.UserInvitedLinkMapper" >
+  <resultMap id="UserInvitedLink" type="com.duobao.fundation.data.mybatis.model.UserInvitedLink" >
+    <id column="link_id" property="linkId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="invited_id" property="invitedId" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    link_id, user_id, invited_id,time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="UserInvitedLink" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_invited_link
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="UserInvitedLink" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_invited_link
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserIdAndInvitedId" resultMap="UserInvitedLink" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_invited_link
+    where user_id = #{userId,jdbcType=INTEGER} and  invited_id = #{invitedId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByInvitedId" resultMap="UserInvitedLink" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_invited_link
+    where invited_id = #{invitedId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_user_invited_link
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.UserInvitedLink" >
+    insert into db_user_invited_link (link_id, user_id, invited_id ,time
+      )
+    values (#{linkId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{invitedId,jdbcType=INTEGER}, #{invitedId,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.UserInvitedLink" >
+    insert into db_user_invited_link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="linkId != null" >
+        link_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="invitedId != null" >
+        invited_id,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="linkId != null" >
+        #{linkId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="invitedId != null" >
+        #{invitedId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.UserInvitedLink" >
+    update db_user_invited_link
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="invitedId != null" >
+        invited_id = #{invitedId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.UserInvitedLink" >
+    update db_user_invited_link
+    set user_id = #{userId,jdbcType=INTEGER},
+   	  time = #{time,jdbcType=TIMESTAMP},
+      invited_id = #{invitedId,jdbcType=INTEGER}
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </update>
+</mapper>

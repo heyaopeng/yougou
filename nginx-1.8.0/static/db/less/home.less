@@ -1,0 +1,167 @@
+@import "public.less";
+
+.home {
+
+	&-hidden{
+		&-subscribe{
+			position: fixed;
+			top:0%;
+			left:0%;
+			z-index: 1002;
+			margin-top: 5px;
+			background-color: rgba(153, 153, 153, 0.6);
+			width: 100%;
+			height: 100%;
+			&-image{
+				position: fixed;
+				top:25%;
+				left:15%;
+				width: 70%
+			}
+			&-image1{
+				position: fixed;
+				top:15%;
+				left:5%;
+				width: 90%
+			}
+			&-button{
+				background-color: #e65100;
+				border-color: #e65100;
+				position: fixed;
+				font-size: 18px;
+				color: white;
+				padding: 5px 20px;
+				top:65%;
+				left:35%;
+				text-align: center;
+				border-radius : 15px;
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: white;
+				}
+			}
+		}
+	}
+
+	padding-bottom: 60px;
+	&-carousel {
+		&-img {
+			width: 100%;
+		}
+
+		&-item {
+			> a {
+				display: block;
+			}
+		}
+
+		.slick-dots {
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+
+			> li {
+				display: inline-block;
+
+				> button {
+					background-color: rgba(239, 71, 58, 0.5);
+					border: none;
+					font-size: 0;
+					width: 12px;
+					height: 12px;
+					border-radius: 50%;
+					display: block;
+					outline: 0;
+				}
+			}
+
+			> li + li {
+				margin-left: 10px;
+			}
+
+			> .slick-active {
+				> button {
+					background-color: rgba(239, 71, 58, 1);
+				}
+			}
+		}
+	}
+
+	&-count {
+		padding: 10px;
+		text-align: center;
+		background-color: white;
+
+		&-num {
+			display: inline-block;
+			padding: 0 2px;
+			border: 1px solid #aaa;
+			color: @ck_sub;
+			letter-spacing:5px;
+			& + & {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	&-nav {
+		.clearfix();
+		background-color: white;
+		margin-top: 5px;
+		padding-bottom: 5px;
+
+		&-item {
+			float: left;
+			width: 100/4%;
+			text-align: center;
+			padding-top: 10px;
+
+			&:first-child {
+				.home-nav-item-icon {
+					background-color: #efa26e;
+				}
+			}
+
+			&:nth-child(2) {
+				.home-nav-item-icon {
+					background-color: #f0c84f;
+				}
+			}
+
+			&:nth-child(3) {
+				.home-nav-item-icon {
+					background-color: #ef7b6e;
+				}
+			}
+
+			&:nth-child(4) {
+				.home-nav-item-icon {
+					background-color: #6dd2dc;
+				}
+			}
+
+			&-icon {
+				display: block;
+				color: #fff;
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				font-size: 32px;
+				border-radius: 50%;
+				line-height: 1.5em;			
+			}
+
+			&-text {
+				display: block;
+				color:#555;
+				padding-top: 5px;
+			}
+		}
+	}
+}

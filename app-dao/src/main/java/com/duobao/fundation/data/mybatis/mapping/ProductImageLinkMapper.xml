@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.ProductImageLinkMapper" >
+  <resultMap id="ProductImageLink" type="com.duobao.fundation.data.mybatis.model.ProductImageLink" >
+    <id column="link_id" property="linkId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="is_master" property="isMaster" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    link_id, product_id, image_url, is_master
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ProductImageLink" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_product_images_link
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByProductId" resultMap="ProductImageLink" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_product_images_link
+    where product_id = #{productId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="ProductImageLink">
+    select 
+    <include refid="Base_Column_List" />
+    from db_product_images_link
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_product_images_link
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.ProductImageLink" >
+    insert into db_product_images_link (link_id, product_id, image_url, 
+      is_master)
+    values (#{linkId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{imageUrl,jdbcType=VARCHAR}, 
+      #{isMaster,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.ProductImageLink" >
+    insert into db_product_images_link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="linkId != null" >
+        link_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="isMaster != null" >
+        is_master,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="linkId != null" >
+        #{linkId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isMaster != null" >
+        #{isMaster,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.ProductImageLink" >
+    update db_product_images_link
+    <set >
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isMaster != null" >
+        is_master = #{isMaster,jdbcType=BIT},
+      </if>
+    </set>
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.ProductImageLink" >
+    update db_product_images_link
+    set product_id = #{productId,jdbcType=INTEGER},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      is_master = #{isMaster,jdbcType=BIT}
+    where link_id = #{linkId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,28 @@
+@import "public.less";
+
+.info-edit-modal {
+	&-title {
+		text-indent: 1em;
+		color: @ck-main-light;
+		margin-bottom: 0;
+		padding-bottom: 8px;
+		border-bottom: 2px solid @ck-main-light;
+	}
+	&-form {
+		padding-top: 20px;
+	}
+    .f-sex + i.form-control-feedback.glyphicon {
+        right: -40px;
+    }
+	.help-block {
+		.one-line();
+	} 
+	&-a {
+		a {
+        color: #03F;
+        &:hover {
+          color: @ck-main;
+        }
+      }
+	}
+}

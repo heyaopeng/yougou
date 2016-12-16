@@ -1,0 +1,101 @@
+@import "public.less";
+// footer
+.footer {
+
+    color: #999;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding: 15px;
+    min-height: 100px;
+
+    &-inner {
+        .container();
+    }
+
+    &-intro {
+        text-align: left;
+        font-size: 13px;
+
+        &-title {
+            font-size: inherit;
+            border-bottom: 1px solid #ddd;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+    }
+
+    &-row {
+        .clearfix();
+        display: table;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: left;
+        width: 100%;
+    }
+
+    &-col {
+        width: 25%;
+        vertical-align: top;
+        display: table-cell;
+        padding: 10px;
+        & + & {
+            border-left: 1px solid #ddd;
+        }
+
+        &-large {
+            width: 75%;
+        }
+    }
+
+    &-form {
+        &-input {
+            border-color: @ck-main;
+        }
+    }
+
+    &-sitemap {
+        &-section {
+            float: left;
+            width: 100/3%;
+            display: block;
+
+            dt {
+                text-transform: uppercase;
+            }
+
+            dd:first-letter {
+                text-transform: capitalize;
+            }
+
+            a {
+                color: #999;
+            }
+        }
+    }
+
+    &-links {
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #ddd;
+        text-transform: uppercase;
+
+        > li {
+            list-style-type: none;
+            display: inline-block;
+            margin: 0 10px;
+
+            > a {
+                color: #333;
+            }
+        }
+    }
+
+    hr {
+    	margin-top: 10px;
+    	margin-bottom: 10px;
+    }
+}

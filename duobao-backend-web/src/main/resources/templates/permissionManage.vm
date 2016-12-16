@@ -1,0 +1,72 @@
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+#set($layout = "/layout/permissionManage_layout.vm")
+	<div class="juri-admin">
+				<div class="admin-breadcrumb">
+					<ol class="breadcrumb">
+						<!-- <li ><a href="#">#springMessage("management")</a></li> -->
+						<li class="active">#springMessage("permission_management")</li>
+					</ol>
+				</div>
+                <div class="pull-right">
+                    <a href="/duobao-backend-web/addPermission">
+                        <button class="btn btn-default">
+                            <i class="fa fa-plus add-btn" title="add a jurisdiction"> #springMessage("add")</i>
+                        </button>
+                    </a>
+                </div>
+				<table class="table table-bordered table-hover">
+					<thead class="table-head">
+					<tr>
+						<th width="5%">#springMessage("id")</th>
+						<th width="20%">#springMessage("permission")</th>
+						<th width="50%">#springMessage("permission_string")</th>
+						<!-- <th width="10%">#springMessage("status")</th> -->
+						<th width="15%">#springMessage("Action")</th>
+					</tr>
+					</thead>
+					<tbody>
+					#foreach($item in $permissions)
+					<tr data-id="$item.permissionId">
+						<td>$velocityCount</td>
+						<td>$!item.name</td>
+						<td>
+                            $!item.permission
+						</td>
+						<td>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default  btn-sm delete-click">
+									<i class="fa fa-trash-o manage-icon"></i>
+								</button>						
+							</div>
+							&nbsp;
+							<div class="btn-group">
+							<a href="/duobao-backend-web/updatePermissoin?permissionId=$item.permissionId">
+								<button type="button" class="btn btn-default btn-sm">
+									<i class="fa fa-cog manage-icon"></i>
+								</button>
+							</a>
+							</div>
+						</td>
+					</tr>
+					#end
+					</tbody>
+				</table>
+				
+				<div class="modal fade" id="juriModal" tabindex="-1" role="dialog" aria-labelledby="juriModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">#springMessage("kindly_reminder")</h4>
+							</div>
+							<div class="modal-body">
+								#springMessage("are_you_sure_delete_it")?
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">#springMessage("close")</button>
+								<button type="button" class="btn btn-primary sure-btn">#springMessage("submit")</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>

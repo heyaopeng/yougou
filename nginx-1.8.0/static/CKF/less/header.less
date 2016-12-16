@@ -1,0 +1,87 @@
+@import "public.less";
+// header
+.header {
+    &-inner {
+        background-color: #405E7A;
+        padding: 20px 0;
+    }
+
+    &-btns {
+        text-align: center;
+        text-transform: uppercase;
+
+        &-item {
+            display: block;
+            float: left;
+            width: 33%;
+            color: #fff;
+
+            &:hover {
+                text-decoration: none;
+                color: #eee;
+            }
+        }
+
+        &-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            background-image: url(../images/header_btns.png);
+            background-position: 0 0;
+
+            &-cart {
+                background-position: 0 0;
+            }
+
+            &-search {
+                background-position: -40px 0;
+            }
+
+            &-help {
+                background-position: -80px 0;
+            }
+        }
+
+        &-text {
+            display: block;
+            margin-top: -5px;
+            white-space: nowrap;
+        }
+    }
+
+    &-nav {
+        background-color: #fff;
+        // border-bottom: 1px solid @ck-sub;
+
+        &-items {
+            margin: 0;
+            padding: 0;
+            .clearfix();
+            li {
+                list-style-type: none;
+                display: block;
+                float: left;
+            }
+
+            li + li {
+                border-left: 1px solid #ccc;
+            }
+
+            a {
+                display: block;
+                color: @ck-main;
+                text-decoration: none;
+                -webkit-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+                padding: 5px 10px;
+
+                &:hover {
+                    background-color: @ck-main;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

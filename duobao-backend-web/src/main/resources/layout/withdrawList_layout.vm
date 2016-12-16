@@ -1,0 +1,237 @@
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" href="$staticConfig.getPath()/images/favicon.ico">
+	<link rel="apple-touch-icon" href="$staticConfig.getPath()/images/apple-touch-icon.png">
+
+	<title>withdraw list</title>
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/backend.css">
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/formValidation.min.css">
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/js/libs/ttt/ttt.css">
+
+	<!--[if lt IE 9]>
+	<script src="./js/libs/html5shiv.min.js"></script>
+	<script src="./js/libs/respond.min.js"></script>
+	<![endif]-->
+	
+    
+
+</head>
+<body>
+	#parse("common.vm")
+
+	<script src="$staticConfig.getPath()/js/libs/jquery-1.11.2.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/bootstrap.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/FV/formValidation.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/FV/bootstrap.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/FV/i18n.min.js"></script>
+	<script src="$staticConfig.getPath()/js/getUrlArg.js"></script>
+	<script src="$staticConfig.getPath()/js/ck_page.js"></script>
+	<script src="$staticConfig.getPath()/js/ck_ajax_setup.js?v=$version.getNum()"></script>
+	<script src="$staticConfig.getPath()/js/libs/ttt/ttt.js"></script>
+	<script src="$staticConfig.getPath()/js/ck_lang.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/jquery.form.min.js"></script>
+
+	<script>
+		$(document).ready(function (){
+			var lang = $.getUrlArg('language');
+			$('#timeStartInput').datetimepicker();
+			$('#timeEndInput').datetimepicker();
+			
+			$('#withdraw-disapprove-form').formValidation({
+	            framework: 'bootstrap',
+	            icon: {
+	                valid: 'glyphicon glyphicon-ok',
+	                invalid: 'glyphicon glyphicon-remove',
+	                validating: 'glyphicon glyphicon-refresh'
+	            },
+	            addOns: {
+	                i18n: {}
+	            },       
+	            fields: {
+	                 'f-disapprove': {
+	                    selector: '#withdraw-disapprove-form .f-disapprove',
+	                    validators: {
+	                        notEmpty: {
+	                            message: {
+	                                en_US: 'The reason is required',
+	                                zh_CN: '理由不能为空'
+	                            }
+	                        },
+	                        stringLength: {
+	                            max: 200,
+	                            message: {
+	                                en_US: 'The text length is less than 200',
+	                                zh_CN: '文本长度小于200'
+	                            }
+	                        }
+	                    }
+	                } 
+	            }
+	        })
+	        .on('err.validator.fv', function(e, data) {
+	            data.element
+	                    .data('fv.messages')
+	                    .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+	                    .filter('[data-fv-validator="' + data.validator + '"]').show();
+	        });
+	        $('#withdraw-disapprove-form').formValidation('setLocale',lang);
+	        
+			$('.approve-link').on('click',function(){
+				var value = $(this).data('value');
+				
+				$('.withdrawSerialNum').val(value);
+			});
+			$('#timeStartValue').on('blur',function(){
+				var startValue= $('#timeStartValue').val();
+				startValue=encodeURIComponent(startValue);
+				var href = $('#excelUrl').attr("href");
+				var endValue= $('#timeEndValue').val();
+				endValue=encodeURIComponent(endValue);
+				var pram = "?timeStart="+startValue+"&timeEnd="+endValue;
+				href = href+pram;
+				console.log(href);
+				$('#excelUrl').attr('href', href);
+				
+			});
+			$('#timeEndValue').on('blur',function(){
+				var startValue= $('#timeStartValue').val();
+				startValue=encodeURIComponent(startValue);
+				var href = '/duobao-backend-web/withdrawToExcel';
+				var endValue= $('#timeEndValue').val();
+				endValue=encodeURIComponent(endValue);
+				var pram = "?timeStart="+startValue+"&timeEnd="+endValue;
+				href = href+pram;
+				console.log(href);
+				$('#excelUrl').attr('href', href);
+			});
+			$('.disapprove-link').on('click',function(){
+				var value = $(this).data('value');
+				
+				$('.withdrawSerialNum').val(value);
+			});
+			$('.view-reason-link').on('click',function(){
+				var value = $(this).data('value');
+				$.ajax({
+					type: "GET",
+					contentType : 'application/json;charset=utf-8',
+					url: '/duobao-backend-web/getRejectWithdrawReason?withdrawSerialnum=' + value,
+					success: function(result) {
+						$('.reason-text').val(result);
+					},
+					error: function() {
+						alert('Error!!!');
+					}
+				});
+			});
+			$('.view-evidence-link').on('click',function(){
+				var value = $(this).data('value');
+				$.ajax({
+					type: "GET",
+					contentType : 'application/json;charset=utf-8',
+					url: '/duobao-backend-web/getWithdrawEvidence?withdrawSerialnum=' + value,
+					success: function(result) {
+						$('.evidence-image').attr('src',result);
+					},
+					error: function() {
+						alert('Error!!!');
+					}
+				});
+			});
+
+			$('.time-box').on('click', 'a', function(e) {
+		        e.preventDefault();
+
+		        if ($('.time-box').hasClass('desc')) {
+		            window.location.href = '/duobao-backend-web/withdrawList?orderBy=asce';
+		        } else {
+		            window.location.href = '/duobao-backend-web/withdrawList?orderBy=desc';
+		        }
+		    });
+			$('#month-select').on('change', function() {
+		    	console.log($('#month-select').val());
+		    	window.location.href = '/duobao-backend-web/withdrawList?preMonth=' + $('#month-select').val();
+		    });
+
+			$('#file').on('change',function(){
+				var file = $('#file')[0].files[0];
+				
+				var options = {
+						type: "POST",
+						url: '/duobao-backend-web/doUploadImage.do',
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function(url) {
+
+							$('#evidence').val(url);
+							console.log(url);
+						},
+						error: function() {
+							alert('Error!!!');
+						}
+					};
+					$('#file').closest('form').ajaxSubmit(options);
+					
+				/* data = new FormData();
+				data.append("file", file);
+
+				$.ajax({
+					data: data,
+					type: "POST",
+					url: '/duobao-backend-web/doUploadImage.do',
+					cache: false,
+					contentType: false,
+					processData: false,
+					success: function(url) {
+						$('#evidence').val(url);
+					},
+					error: function() {
+						alert('Error!!!');
+					}
+				}); */
+			});
+	        $('.status-action').on('click', '.single-action', function (e) {
+	            e.preventDefault();
+	            var action = {
+	                waitAudit: function () {
+	                    var $this = $(this);
+	                    $.ajax({
+	                        // ...
+	                        success: function () {
+	                            updateMenu($this);
+	                        }
+	                    });
+	                },
+
+	                completeAudit: function () {
+	                    var $this = $(this);
+	                    $.ajax({
+	                        // ...
+	                        success: function () {
+	                            updateMenu($this);
+	                        }
+	                    });
+	                }
+	            };
+
+	            function updateMenu (elem) {
+	                var dText = elem.text();
+	                elem
+	                .closest('.status-action')
+	                .find('[data-toggle="dropdown"]')
+	                .html(dText + '\n<span class="caret"></span>');
+	            }
+	            
+	            var $this = $(this);
+	            var dAction = $this.data('action');
+
+	            action[dAction].call(this);
+	        }); 
+	    });
+	</script>
+</body>
+</html>

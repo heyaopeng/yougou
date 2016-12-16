@@ -1,0 +1,77 @@
+2016-12-06 15:44:40,583 - {dataSource-1} inited
+ 2016-12-06 15:44:48,308 - 自动1元购买
+ 2016-12-06 15:44:49,136 - 1元购买时间828
+ 2016-12-06 15:45:31,255 - 请求方式：["Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-06 15:45:31,256 - getServerName   localhost
+ 2016-12-06 15:45:42,045 - account 为cookabuy@163.com
+ 2016-12-06 15:45:42,104 - account为cookabuy@163.com
+ 2016-12-06 15:45:42,202 - 长度11
+ 2016-12-06 15:45:42,251 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-12-06 15:45:42,251 - inputPassword: "nicaicaia3+"
+ 2016-12-06 15:45:42,264 - Session默认超时时间为[3600000]毫秒
+ 2016-12-06 15:45:42,264 - Session默认超时时间为[3600000]毫秒
+ 2016-12-06 15:45:42,283 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-06 15:45:42,321 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-12-06 15:45:42,402 - 登陆成功----
+ 2016-12-06 15:45:42,460 - 登录名是cookabuy@163.com
+ 2016-12-06 15:45:43,342 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-12-06 15:45:43,343 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-12-06 15:45:43,719 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"d0d9c93b-d3fc-4907-96ba-bd03608c45f6","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"eefkeB5PzdWfr1pvn//ExoPMYS7vgY1c3ioZCg226Sm2VNP7Xvab73PvgfobjjUJTvENG3pfpFEYmKJCafXWRnTBBXvvVTqZci7wZdTpjoU1ZHamTo7+uwWrnZiMwSHoU3W8GVfDWOFT8kd69zdrgmLabz1yEbTbnWGiqaMcn51arDEukJjSE8B4s8g+4wuvdgqNQpauiTbo11U2ZedtmYGUvaHBVHDP7cQZF6AC1zRki5lff+foQUMF2F6XsuBI+3u6YhPSk2rdDaeNSTPIqFdnlLX/FkkGqHvpicvFT34xm3JhPOCdcXFno7EfmMLTFk5LwA/ci4WTwXllKX0ROSwwZG4KBkP5rVYbBni+k1URM9xDH8Xe8nemJXHAalmaM07ZOl3phkFS5HT6olk7AXqAzOy41jhvBZe6/YB85xk4di9dkt9JXlqWGAAh/65pKZmyv9Wt4+LFBz91txkK6eFCW/dCH1YxCX9TYDc3GzgCGMItV9X+s9gl/JvyGgtmubKbyc3G22CafpRhbP/b7A","version":0}]
+ 2016-12-06 15:45:50,950 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-06 15:45:50,950 - getServerName   localhost
+ 2016-12-06 15:45:50,959 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"umzolvsYt0IjOrPptjCUkmbJ","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"d0d9c93b-d3fc-4907-96ba-bd03608c45f6","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"eefkeB5PzdWfr1pvn//ExoPMYS7vgY1c3ioZCg226Sm2VNP7Xvab73PvgfobjjUJTvENG3pfpFEYmKJCafXWRnTBBXvvVTqZci7wZdTpjoU1ZHamTo7+uwWrnZiMwSHoU3W8GVfDWOFT8kd69zdrgmLabz1yEbTbnWGiqaMcn51arDEukJjSE8B4s8g+4wuvdgqNQpauiTbo11U2ZedtmYGUvaHBVHDP7cQZF6AC1zRki5lff+foQUMF2F6XsuBI+3u6YhPSk2rdDaeNSTPIqFdnlLX/FkkGqHvpicvFT34xm3JhPOCdcXFno7EfmMLTFk5LwA/ci4WTwXllKX0ROSwwZG4KBkP5rVYbBni+k1URM9xDH8Xe8nemJXHAalmaM07ZOl3phkFS5HT6olk7AXqAzOy41jhvBZe6/YB85xk4di9dkt9JXlqWGAAh/65pKZmyv9Wt4+LFBz91txkK6eFCW/dCH1YxCX9TYDc3GzgCGMItV9X+s9gl/JvyGgtmubKbyc3G22CafpRhbP/b7A","version":0}]
+ 2016-12-06 15:46:04,036 - 请求方式：["Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-06 15:46:04,037 - getServerName   localhost
+ 2016-12-06 15:46:20,851 - account 为cookabuy@163.com
+ 2016-12-06 15:46:20,865 - account为cookabuy@163.com
+ 2016-12-06 15:46:20,888 - 长度11
+ 2016-12-06 15:46:20,888 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-12-06 15:46:20,889 - inputPassword: "nicaicaia3+"
+ 2016-12-06 15:46:20,889 - Session默认超时时间为[3600000]毫秒
+ 2016-12-06 15:46:20,889 - Session默认超时时间为[3600000]毫秒
+ 2016-12-06 15:46:20,890 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-06 15:46:20,939 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-12-06 15:46:20,979 - 登陆成功----
+ 2016-12-06 15:46:21,253 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"58d5d602-2092-4438-813a-0f5b21982a98","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"fZeBJvp+6tRdwo69z44zDwerS/kKg4096HjyJYbEmVsbCwkX1hBaWJqUQx+A8o1iYRhrL96vZmgPVfDwvNy2irJ7GEgv/ROPJCU+NGrtllbfgCbIZvj1nX4GwkJ13uGWEvt+0AJkAfxNqG6QRjynOTWaF0U1rQUO9mB1K+NRuBrPWe2BFd56MNd83kfRnn7yPIjSGroC484lKOUIuWjH81eQ0jXU7I+PE1ELEI8p+VaxYLRi/GdFvo/DQn9LMrKZoWHA9n9cAvNsQgc+6AWta2VRO6OnHdgzwzf8ZyhVNpE+bnA2cveBaX78XdPUUbk73O6cj/RKZd+GZRBg6sKuL2pvZQHwTwpRCTwcKzAJLdll3LIvmn6j01En932dS+iHV4VmMcFjf0KjNHjhp+GDrmkNCpOKQn7I89N5zHC38F4VLGn/n02ZVoEvxkjbi2kTe6StEo4Gz3D7fhbflRcr1QqUSLCqpFh1XmSGfRW7OR6Q9tKVR0zkcuWT6Ta6C6DvnTut+szKs5wcKh9/vsFsew","version":0}]
+ 2016-12-06 15:46:22,925 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-06 15:46:22,926 - getServerName   localhost
+ 2016-12-06 15:46:22,933 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"YxxyiTLZoi4Vbz5YFPy8bUOX","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"58d5d602-2092-4438-813a-0f5b21982a98","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"fZeBJvp+6tRdwo69z44zDwerS/kKg4096HjyJYbEmVsbCwkX1hBaWJqUQx+A8o1iYRhrL96vZmgPVfDwvNy2irJ7GEgv/ROPJCU+NGrtllbfgCbIZvj1nX4GwkJ13uGWEvt+0AJkAfxNqG6QRjynOTWaF0U1rQUO9mB1K+NRuBrPWe2BFd56MNd83kfRnn7yPIjSGroC484lKOUIuWjH81eQ0jXU7I+PE1ELEI8p+VaxYLRi/GdFvo/DQn9LMrKZoWHA9n9cAvNsQgc+6AWta2VRO6OnHdgzwzf8ZyhVNpE+bnA2cveBaX78XdPUUbk73O6cj/RKZd+GZRBg6sKuL2pvZQHwTwpRCTwcKzAJLdll3LIvmn6j01En932dS+iHV4VmMcFjf0KjNHjhp+GDrmkNCpOKQn7I89N5zHC38F4VLGn/n02ZVoEvxkjbi2kTe6StEo4Gz3D7fhbflRcr1QqUSLCqpFh1XmSGfRW7OR6Q9tKVR0zkcuWT6Ta6C6DvnTut+szKs5wcKh9/vsFsew","version":0}]
+ 2016-12-06 15:46:55,704 - This is isLogin,用户已经登录
+ 2016-12-06 15:46:55,705 - 拿到的name 是何耀澎
+ 2016-12-06 15:47:03,093 - This is isLogin,用户已经登录
+ 2016-12-06 15:47:03,094 - 拿到的name 是何耀澎
+ 2016-12-06 15:47:04,154 - null
+ 2016-12-06 15:55:07,729 - This is isLogin,用户已经登录
+ 2016-12-06 15:55:07,729 - 拿到的name 是何耀澎
+ 2016-12-06 15:55:08,602 - null
+ 2016-12-06 15:55:21,528 - This is isLogin,用户已经登录
+ 2016-12-06 15:55:21,528 - 拿到的name 是何耀澎
+ 2016-12-06 15:55:21,656 - null
+ 2016-12-06 15:55:41,021 - 自动1元购买
+ 2016-12-06 15:55:41,200 - 1元购买时间178
+ 2016-12-06 16:07:19,012 - 自动1元购买
+ 2016-12-06 16:07:19,307 - 1元购买时间295
+ 2016-12-06 16:18:10,046 - 自动1元购买
+ 2016-12-06 16:18:11,023 - 1元购买时间977
+ 2016-12-06 16:28:40,062 - 自动1元购买
+ 2016-12-06 16:28:41,184 - 1元购买时间1122
+ 2016-12-06 16:34:03,255 - This is isLogin,用户已经登录
+ 2016-12-06 16:34:03,255 - 拿到的name 是何耀澎
+ 2016-12-06 16:39:14,021 - 自动1元购买
+ 2016-12-06 16:39:15,687 - 1元购买时间1666
+ 2016-12-06 16:49:57,565 - 自动1元购买
+ 2016-12-06 16:49:58,117 - 1元购买时间552
+ 2016-12-06 16:58:23,071 - 自动1元购买
+ 2016-12-06 16:58:23,571 - 1元购买时间500
+ 2016-12-06 17:09:38,031 - 自动1元购买
+ 2016-12-06 17:09:38,361 - 1元购买时间330
+ 2016-12-06 17:20:50,596 - 自动1元购买
+ 2016-12-06 17:20:50,747 - 1元购买时间151
+ 2016-12-06 17:23:17,701 - 更新微信Token
+ 2016-12-06 17:29:18,051 - 自动1元购买
+ 2016-12-06 17:29:19,033 - 1元购买时间982
+ 2016-12-06 17:40:55,012 - 自动1元购买
+ 2016-12-06 17:40:55,733 - 1元购买时间721
+ 2016-12-06 17:49:34,081 - 自动1元购买
+ 2016-12-06 17:49:35,029 - 1元购买时间948
+ 

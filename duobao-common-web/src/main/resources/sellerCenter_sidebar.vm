@@ -1,0 +1,29 @@
+<div class="admin-sidebar" id="admin-side-menu">
+	<div class="panel sidebar-section">
+		<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+			#springMessage("store_management")
+			<span class="pull-right glyphicon glyphicon-menu-right"></span>
+			<span class="pull-right glyphicon glyphicon-menu-down"></span>
+		</a>
+		<div id="store-menu" class="panel-collapse collapse">
+			<ul class="subside-menu">
+				<li><a href="/cooka-store-web/createStore">#springMessage("apply_for_a_vendor")</a></li>
+				<!-- <li><a href="#">#springMessage("decorate_store")</a></li> -->
+			</ul>
+		</div>
+	</div>
+
+	<div class="panel sidebar-section">
+		<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+			#springMessage("products_management")
+			<span class="pull-right glyphicon glyphicon-menu-right"></span>
+			<span class="pull-right glyphicon glyphicon-menu-down"></span>
+		</a>
+		<div id="product-menu" class="panel-collapse collapse">
+			<ul class="subside-menu">
+				<li><a href="/cooka-store-web/productManage">#springMessage("my_products")</a></li>
+				<li><a href="/cooka-store-web/addProduct">#springMessage("add_product")</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

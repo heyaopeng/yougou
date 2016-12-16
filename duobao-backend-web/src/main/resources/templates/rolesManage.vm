@@ -1,0 +1,93 @@
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+#set($layout = "/layout/rolesManage_layout.vm")
+            <div class="role-admin">
+                <div class="admin-breadcrumb">
+                    <ol class="breadcrumb">
+                        <!-- <li ><a href="#">#springMessage("management")</a></li> -->
+                        <li class="active">#springMessage("role_management")</li>
+                    </ol>
+                </div>
+                #if($shiro.hasPermission("add:role"))
+                <div class="pull-right">
+                    <a href="/duobao-backend-web/addRole">
+                        <button class="btn btn-default">                    
+                            <i class="fa fa-plus add-btn" title="#springMessage('add_a_role')">#springMessage("add")</i>
+                        </button>
+                    </a>
+                </div>
+                #end
+                <table class="table table-bordered table-hover">
+                    <thead class="table-head">
+                    <tr>
+                        <th width="5%">#springMessage("id")</th>
+                        <th width="20%">#springMessage("role")</th>
+                        <th width="10%">#springMessage("status")</th>
+                        <th width="15%">#springMessage("action")</th>
+                    </tr>
+                    </thead>
+                    #foreach($roleList in $roles.values())
+                    <tbody>
+                    #foreach($item in $roleList)
+                    <tr data-id="$item.roleId">
+                        <td>$velocityCount</td>
+                        <td style="text-align:left">
+                        #set($nums=[0 .. $item.level])
+                        #foreach($i in $nums)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        #end
+                        $item.role
+                        
+                        </td>
+                        <td>
+               			<div>
+	                        #if($item.isActive)
+	                        <div>
+	                            <button type="button" class="btn btn-default urp-enable  action-btn"> #springMessage("enable")</button>
+	                            <button type="button" class="btn btn-default hide  action-btn">#springMessage("disable")  </button>  
+                            </div>
+                             #else
+                              <div>
+	                            <button type="button" class="btn btn-default  action-btn">  #springMessage("disable") </button> 
+	                            <button type="button" class="btn btn-default hide  action-btn urp-enable"> #springMessage("enable") </button> 
+                             </div>
+                              #end
+						</div>
+                        </td>
+                        <td>               
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default  btn-sm delete-click">
+                                  <i class="fa fa-trash-o manage-icon"></i>
+                                </button>                         
+                            </div>
+                            &nbsp;
+                            <div class="btn-group">
+                            	<a href="/duobao-backend-web/updateRole?roleId=$item.roleId">
+	                                <button type="button" class="btn btn-default btn-sm">
+	                                    <i class="fa fa-cog manage-icon"></i>
+	                                </button>                            
+                                </a>                             
+                            </div>
+                        </td>
+                    </tr>
+                    #end
+                    #end
+                    </tbody>
+                </table>
+                <div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="roleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">#springMessage("kindly_reminder")</h4>
+                            </div>
+                            <div class="modal-body">
+                                #springMessage("are_you_sure_delete_it")?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">#springMessage("close")</button>
+                                <button type="button" class="btn btn-primary sure-btn">#springMessage("submit")</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

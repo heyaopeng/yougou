@@ -1,0 +1,47 @@
+@import "public.less";
+.range {
+	&-size {
+		.clearfix();
+		padding: 8px 10px;
+		&-clothes {
+			cursor: pointer;
+			display: block;
+			float: left;
+			min-width: 45px;
+			padding: 4px 12px;
+			border: 1px solid @ck-sub-light;
+			margin: 4px;
+			text-align: center;
+			&:hover {
+				background: @ck-main;
+				color: #fff;
+			}
+			&.active {
+				background: @ck-main;
+				color: #fff;
+			}
+		}
+	}
+	&-color {
+		.clearfix();
+		padding: 8px 10px;
+	}
+	&-price {
+		margin: 20px 10px;
+	}
+	&-score {
+		margin: 20px 10px;
+	}
+	&-left-value,
+	&-right-value {
+		cursor: default;
+		display: block;
+		padding: 6px 0;
+		width: 100px;
+		text-align: center;
+		letter-spacing: 1px;
+		line-height: 12px;
+		border: 1px solid #e6e6e6;
+		color: @ck-main;
+	}
+}

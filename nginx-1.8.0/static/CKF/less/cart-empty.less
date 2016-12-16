@@ -1,0 +1,36 @@
+@import "public.less";
+.cart-empty{
+	text-align: center;
+	margin-top: 30px;
+	background-color: #fff;
+	&-box{
+		width: 100%;
+		position: relative;
+		height:200px; 
+	}
+	&-img{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	&-head{		
+		color: #666;
+		margin-bottom: 0;
+		margin-top: 50px;
+		font-size: 24px;		
+	}
+	&-a{
+		display: block;
+		font-size: 20px;
+		margin-top: 20px;
+		.btn+.btn{
+			margin-left: 15px;
+		}
+		.btn{
+			width: 160px;
+		}
+	}
+}

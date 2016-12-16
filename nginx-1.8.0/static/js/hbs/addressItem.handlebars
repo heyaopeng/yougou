@@ -1,0 +1,22 @@
+<div class="address-mgr-item {{#if isDefault}}is-default{{/if}}" data-addr='{{json this}}' data-addr-id='{{deliveraddrId}}'>
+	<span class="address-mgr-default">__('Default')</span>
+	<dl class="dl-horizontal address-mgr-info">
+		<dt>__('Receiver'):</dt>
+		<dd>{{name}}</dd>
+		<dt>__('Address'):</dt>
+		<dd>{{country}} {{state}} {{city}} {{region}}</dd>
+		<dt>__('Address Detail'):</dt>
+		<dd>{{addrDetail}}</dd>
+		<dt>__('Zip Code'):</dt>
+		<dd>{{zipcode}}</dd>
+		<dt>__('Phone Number'):</dt>
+		<dd>{{phone}}</dd>
+	</dl>
+	<div class="address-mgr-option">
+		<div class="btn-group btn-group-sm">
+			<button type="button" class="btn btn-default address-mgr-set-default">__('Set as Default')</button>
+			<button type="button" class="btn btn-default address-mgr-edit" data-toggle="modal" data-target="#edit-addr-modal">__('Edit')</button>
+		</div>
+	</div>
+	<button type="button" class="btn btn-danger btn-sm address-mgr-delete">__('Delete')</button>
+</div>

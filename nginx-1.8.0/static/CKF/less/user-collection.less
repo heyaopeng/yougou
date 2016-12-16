@@ -1,0 +1,63 @@
+@import "public.less";
+
+.user-collection {
+	&-carousel {
+		.clearfix();
+
+		&-item {
+			.clearfix();
+		}
+
+		&-col {
+			float: left;
+			width: 100/5%;
+
+			.product-in-collection {
+				> a {
+					position: relative;
+					display: block;
+					height: 200px;
+					width: 100%;
+					// background-color: #eee;
+					overflow-y: hidden;
+
+					> img {
+						position: absolute;
+						display: block;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						margin: auto;
+						max-width: 100%;
+						max-height: 100%;
+						width: auto;
+					}
+
+				}
+
+			}
+
+		}
+
+		&-control {
+			float: right;
+			margin-top: 10px;
+			margin-right: 10px;
+
+			.btn {
+				padding: 6px 10px;
+			}
+
+		}
+
+	}
+
+	.nav > li > a {
+		&:first-letter {
+			text-transform: uppercase;
+		}
+
+	}
+
+}

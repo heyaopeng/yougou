@@ -1,0 +1,52 @@
+@import "public.less";
+
+.joinList {
+	.clearfix();
+
+	&-item {
+		.clearfix();
+		background-color: white;
+		margin-bottom: 3px;
+		border-bottom: 1px solid #CCCCCC;
+		&-thumb {
+			margin:20px 0 0 15px;
+			border-radius : 50%;
+			padding: 5px;
+			display: block;
+			float: left;
+		}
+		
+		&-content {
+			float: left;
+			padding: 5px 15px 5px 15px;
+			&-ip{
+				.clearfix();
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			&-info {
+				.red{
+					color: red;
+				}
+				color: grey;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				> span  + span {
+					margin-left: 10px;
+				}
+
+				> span + a {
+					margin-left: 10px;
+				}
+			}
+			&-nickname {
+				font-size: 20px;
+				color: #0066CC;
+				padding-bottom: 5px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

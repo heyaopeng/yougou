@@ -1,0 +1,18 @@
+<div class="receipt-message-info {{#if isDefault}}active{{/if}}" data-addr='{{json this}}' data-addr-id='{{deliveraddrId}}'>
+	<div class="receipt-message-set-default">
+		__('default')
+	</div>
+	<div class="receipt-message-common">
+		<div class="receipt-message-name">{{name}}</div>
+		<div class="receipt-message-address">
+			__('address'):&nbsp;&nbsp;{{country}} {{state}} {{city}} {{region}}
+		</div>
+		<div class="receipt-message-postcode">__('Postcode'):&nbsp;&nbsp;{{zipcode}}</div>
+		<div class="receipt-message-tel">__('Phone number'):&nbsp;&nbsp;{{phone}}</div>
+	</div>
+	<div class="receipt-message-opt">
+		<span class="icon-edit-o receipt-message-opt-edit" data-toggle="modal" data-target="#info-change-modal"></span>
+		<span class="icon-delete-o receipt-message-opt-del"></span>
+	</div>
+	<span class="icon-check"></span>
+</div>

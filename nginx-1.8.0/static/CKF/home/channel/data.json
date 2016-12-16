@@ -1,0 +1,112 @@
+{
+    "channel": [
+        {
+            "link": "/cooka-search/searchProductFqs?ct=101010010",
+            "src": "/CKF/images/home/101010010.png",
+            "item": [
+                {
+                    "title": "Áo thun cộc tay nữ in họa tiết đôi môi mùa hè",
+                    "score": 5,
+                    "price": "64.000 VND",
+                    "id": "4471",
+                    "src": "/CKF/images/home/4471.png"
+                },
+                {
+                    "title": "Áo thun cộc tay cổ tròn nữ phối màu in họa tiết mùa hè",
+                    "score": 5,
+                    "price": "80.000 VND",
+                    "id": "4466",
+                    "src": "/CKF/images/home/4466.png"
+                },
+                {
+                    "title": "Áo thun cộc tay cổ tròn nữ kẻ sọc cá tính",
+                    "score": 5,
+                    "price": "98.000 VND",
+                    "id": "4529",
+                    "src": "/CKF/images/home/4529.png"
+                }
+            ]
+        },
+        {
+            "link": "/cooka-search/searchProductFqs?ct=101010040",
+            "src": "/CKF/images/home/101010040.png",
+            "item": [
+                {
+                    "title": "Áo chiffon cộc tay phối màu nữ mùa hè",
+                    "score": 5,
+                    "price": "107.000 VND",
+                    "id": "4580",
+                    "src": "/CKF/images/home/4580.png"
+                },
+                {
+                    "title": "Áo chiffon cộc tay cổ tròn nữ phối vải ren mùa hè",
+                    "score": 5,
+                    "price": "99.000 VND",
+                    "id": "4614",
+                    "src": "/CKF/images/home/4614.png"
+                },
+                {
+                    "title": "Áo chiffon cổ tròn cộc tay in họa tiết nữ mùa hè nữ tính",
+                    "score": 5,
+                    "price": "103.000 VND",
+                    "id": "4620",
+                    "src": "/CKF/images/home/4620.png"
+                }
+            ]
+        },
+        {
+            "link": "/cooka-search/searchProductFqs?ct=101080010",
+            "src": "/CKF/images/home/101080010.png",
+            "item": [
+                {
+                    "title": "Váy liền sát nách phối màu in họa tiết hình học mùa hè",
+                    "score": 5,
+                    "price": "119.000 VND",
+                    "id": "4621",
+                    "src": "/CKF/images/home/4621.png"
+                },
+                {
+                    "title": "Váy liền sát nách cổ lật",
+                    "score": 5,
+                    "price": "99.000 VND",
+                    "id": "4450",
+                    "src": "/CKF/images/home/4450.png"
+                },
+                {
+                    "title": "Váy liền cổ chữ V cộc tay dáng ôm gợi cảm bán hot 2016",
+                    "score": 5,
+                    "price": "139.000 VND",
+                    "id": "4540",
+                    "src": "/CKF/images/home/4540.png"
+                }
+            ]
+        },
+        {
+            "link": "/cooka-search/searchProductFqs?ct=101020000",
+            "src": "/CKF/images/home/101020000.png",
+            "item": [
+                {
+                    "title": "Quần short cạp cao nữ mùa hè 326#",
+                    "score": 5,
+                    "price": "92.000 VND",
+                    "id": "4427",
+                    "src": "/CKF/images/home/4427.png"
+                },
+                {
+                    "title": "Quần yếm jean nữ",
+                    "score": 5,
+                    "price": "141.000 VND",
+                    "id": "4507",
+                    "src": "/CKF/images/home/4507.png"
+                },
+                {
+                    "title": "Quần chân nhỏ cạp cao nữ",
+                    "score": 5,
+                    "price": "179.000 VND",
+                    "id": "4413",
+                    "src": "/CKF/images/home/4413.png"
+                }
+            ]
+        }
+    ]
+}

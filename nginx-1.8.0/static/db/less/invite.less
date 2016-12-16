@@ -1,0 +1,83 @@
+@import "public.less";
+
+.invitation {
+	padding-top: 77px;
+	p{
+		margin: 0;
+	}
+	.clearfix();
+	&-tab {
+		.clearfix();
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+		border-bottom: 1px solid #ddd;
+		&-item {
+			display: block;
+			float: left;
+			width: 100/2%;
+			text-align: center;
+			padding: 10px;
+			position: relative;
+			color:black;
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+				color: red;
+			}
+
+			&.active {
+				color:red;
+				border-bottom: 1px solid red;
+			}
+
+			& + & {
+				&:before {
+					content: "";
+					position: absolute;
+					top: 5px;
+					bottom: 5px;
+					left: 0;
+					width: 1px;
+					background-color: #ddd;
+				}
+			}
+		}
+
+	}
+	&-meta{
+		position: fixed;
+		width: 100%;
+		top:45px;
+		text-align: center;
+		&-item{
+			padding: 5px;
+			width: 100/3%;
+			float: left;
+		}
+	}	
+
+	&-log{
+		&-table{
+		  	background-color: white;
+		  	width: 100%;
+		 	&-body{
+		 		td{
+					text-align: center;
+					width: 100/3%;
+					padding:15px 9px;
+					&.money{
+						color: red;
+					}
+					border-bottom: 1px solid #ddd;
+				}
+		 	}
+		 }
+	}
+
+}

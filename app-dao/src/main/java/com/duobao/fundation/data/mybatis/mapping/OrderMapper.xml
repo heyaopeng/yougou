@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.OrderMapper" >
+  <resultMap id="Order" type="com.duobao.fundation.data.mybatis.model.Order" >
+    <id column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_serialNum" property="orderSerialnum" jdbcType="VARCHAR" />
+    <result column="product_title" property="productTitle" jdbcType="VARCHAR" />
+    <result column="product_image" property="productImage" jdbcType="VARCHAR" />
+    <result column="product_price" property="productPrice" jdbcType="DECIMAL" />
+    <result column="term_id" property="termId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="addr" property="addr" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="payment_order_id" property="paymentOrderId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="is_paid" property="isPaid" jdbcType="BIT" />
+    <result column="is_lucky_order" property="isLuckyOrder" jdbcType="BIT" />
+    <result column="ip_addr" property="ipAddr" jdbcType="VARCHAR" />   
+    <result column="is_active" property="isActive" jdbcType="BIT" /> 
+    <result column="is_auto_buy" property="isAutoBuy" jdbcType="BIT" /> 
+    <result column="is_point" property="isPoint" jdbcType="BIT" /> 
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, order_serialNum, product_title,product_image,product_price, term_id, user_id,addr, name,phone,payment_order_id, create_time, 
+    pay_time, total_price, is_paid, is_lucky_order,ip_addr,is_active,is_auto_buy,is_point
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Order" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_orders
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <select id="selectBySerialNum" resultMap="Order" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_orders
+    where order_serialNum = #{orderSerialnum,jdbcType=VARCHAR} and is_active=1
+  </select>
+  <select id="selectByPaymentOrderId" resultMap="Order" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_orders
+    where payment_order_id = #{paymentOrderId,jdbcType=INTEGER} and is_active=1
+  </select>
+  <select id="selectByUserId" resultMap="Order" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_orders
+    where user_id = #{userId,jdbcType=INTEGER} and is_active=1
+  </select>
+  <select id="selectByTermIdAndUserId" resultMap="Order"  >
+    select 
+    <include refid="Base_Column_List" />
+    from db_orders
+    where user_id = #{userId,jdbcType=INTEGER} and term_id=#{termId,jdbcType=INTEGER} and is_paid=1
+  </select>
+  <select id="selectByTermId" resultMap="Order"  >
+    select A.* from db_orders as A left join db_order_numbers as B on A.order_id=B.order_id where A.term_id=#{termId,jdbcType=INTEGER} and is_paid=1 
+    group by A.order_id having count(B.number)>0 order by create_time desc 
+  </select>
+  <select id="selectForSchedule" resultMap="Order"  >
+    select 
+    <include refid="Base_Column_List" />
+    from db_orders
+    where is_active=1 and is_paid=0 
+  </select>
+  <select id="selectByOrder" resultMap="Order" >
+    select 
+    A.*
+    from db_orders as A left join db_terms as B on A.term_id = B.term_id
+    <where>
+    	 <if test="isOpen != null" >
+    	 	<if test="isOpen==1">
+	      		 and  B.status = 'opened'
+    	 	</if>
+    	 	<if test="isOpen==0">
+	      		 and  B.status = 'running'
+    	 	</if>
+	      </if>
+    	 <if test="userId != null" >
+	      and  A.user_id = #{userId,jdbcType=INTEGER}
+	      </if>
+    	 <if test="isLuckyOrder != null" >
+	      and  A.is_lucky_order = #{isLuckyOrder,jdbcType=BIT}
+	      </if>
+	      and A.is_active=1
+    </where>
+    order by A.create_time desc
+  </select>
+  <select id="selectByWinOrderForUserHome" resultMap="Order" >
+    select 
+    A.*
+    from db_orders as A left join db_order_numbers as B on A.order_id = B.order_id
+    <where>
+    	B.is_lucky_number = 1 
+    	 <if test="userId != null" >
+	      and  B.user_id = #{userId,jdbcType=INTEGER}
+	      </if>
+	      and A.is_active=1
+    </where>
+    order by A.create_time desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_orders
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Order" useGeneratedKeys="true"
+    keyProperty="orderId">
+    insert into db_orders (order_id, order_serialNum, product_title,product_image,product_price, 
+      term_id, user_id,addr,name,phone, payment_order_id, 
+      create_time, pay_time, total_price, 
+      is_paid, is_lucky_order,ip_addr,is_active,is_auto_buy,is_point)
+    values (#{orderId,jdbcType=INTEGER}, #{orderSerialnum,jdbcType=VARCHAR}, #{productTitle,jdbcType=VARCHAR}, #{productImage,jdbcType=VARCHAR}, #{productPrice,jdbcType=DECIMAL}, 
+      #{termId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{addr,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{paymentOrderId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{payTime,jdbcType=TIMESTAMP}, #{totalPrice,jdbcType=DECIMAL}, 
+      #{isPaid,jdbcType=BIT}, #{isLuckyOrder,jdbcType=BIT}, #{ipAddr,jdbcType=VARCHAR},#{isActive,jdbcType=BIT},#{isAutoBuy,jdbcType=BIT},#{isPoint,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Order" useGeneratedKeys="true"
+    keyProperty="orderId">
+    insert into db_orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderSerialnum != null" >
+        order_serialNum,
+      </if>
+      <if test="productTitle != null" >
+        product_title,
+      </if>
+      <if test="productImage != null" >
+        product_image,
+      </if>
+      <if test="productPrice != null" >
+        product_price,
+      </if>
+      <if test="termId != null" >
+        term_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="addr != null" >
+        addr,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="paymentOrderId != null" >
+        payment_order_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="isPaid != null" >
+        is_paid,
+      </if>
+      <if test="isLuckyOrder != null" >
+        is_lucky_order,
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="isAutoBuy != null" >
+        is_auto_buy,
+      </if>
+      <if test="isPoint != null" >
+        is_point,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSerialnum != null" >
+        #{orderSerialnum,jdbcType=VARCHAR},
+      </if>
+     <if test="productTitle != null" >
+        #{productTitle,jdbcType=VARCHAR}, 
+      </if>
+      <if test="productImage != null" >
+        #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productPrice != null" >
+        #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="termId != null" >
+        #{termId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addr != null" >
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentOrderId != null" >
+        #{paymentOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isPaid != null" >
+        #{isPaid,jdbcType=BIT},
+      </if>
+      <if test="isLuckyOrder != null" >
+        #{isLuckyOrder,jdbcType=BIT},
+      </if>
+      <if test="ipAddr != null" >
+        #{ipAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="isAutoBuy != null" >
+        #{isAutoBuy,jdbcType=BIT},
+      </if>
+      <if test="isPoint != null" >
+        #{isPoint,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Order" >
+    update db_orders
+    <set >
+      <if test="orderSerialnum != null" >
+        order_serialNum = #{orderSerialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="productTitle != null" >
+        product_title = #{productTitle,jdbcType=VARCHAR}, 
+      </if>
+      <if test="productImage != null" >
+        product_image = #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productPrice != null" >
+        product_price = #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="termId != null" >
+        term_id = #{termId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addr != null" >
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentOrderId != null" >
+        payment_order_id = #{paymentOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="isPaid != null" >
+        is_paid = #{isPaid,jdbcType=BIT},
+      </if>
+      <if test="isLuckyOrder != null" >
+        is_lucky_order = #{isLuckyOrder,jdbcType=BIT},
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr = #{ipAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="isAutoBuy != null" >
+        is_auto_buy = #{isAutoBuy,jdbcType=BIT},
+      </if>
+      <if test="isPoint != null" >
+        is_point = #{isPoint,jdbcType=BIT},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Order" >
+    update db_orders
+    set order_serialNum = #{orderSerialnum,jdbcType=VARCHAR},
+      product_title = #{productTitle,jdbcType=VARCHAR}, 
+      product_image = #{productImage,jdbcType=VARCHAR},
+      product_price = #{productPrice,jdbcType=DECIMAL},
+      term_id = #{termId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      addr = #{addr,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      addr = #{phone,jdbcType=VARCHAR},
+      payment_order_id = #{paymentOrderId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      is_paid = #{isPaid,jdbcType=BIT},
+      is_lucky_order = #{isLuckyOrder,jdbcType=BIT},
+      ip_addr = #{ipAddr,jdbcType=VARCHAR},
+      is_active = #{isActive,jdbcType=BIT},
+      is_auto_buy = #{isAutoBuy,jdbcType=BIT},
+      is_point = #{isPoint,jdbcType=BIT}
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+  <update id="updateIsPaidByOrderId" parameterType="java.lang.Integer" >
+    update db_orders
+    set is_paid = 1
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </update>
+</mapper>

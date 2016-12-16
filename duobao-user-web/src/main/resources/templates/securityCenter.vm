@@ -1,0 +1,722 @@
+#set($layout = "/layout/securityCenter_layout.vm")
+<div class="main">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+    <div class="container main-inner">
+        <div class="row">
+            #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="security-center">
+                    <div class="security-rate" data-j="securityRate">
+                        <div class="row">
+                            <div class="col-md-2"><span class="security-rate-title">#springMessage("security_rating"):&nbsp;&nbsp;<strong>0</strong></span></div>
+                            <div class="col-md-6">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                        <!-- <span class="sr-only">40% Complete (success)</span> -->
+                                    </div>
+                                </div>
+                                <div class="progress-tip letter-upper">
+                                    #springMessage("security_tips")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped security-table" data-j="securityTable">
+                        <tbody>
+                            <tr>
+                            	<!-- 邮箱 1-->
+                                <th align="center"> <span class="icon-circle-evelope-o"></span></th>
+                                #if("$!email"!="")
+                                <th scope="row" class="letter-upper">#springMessage("mailbox_confirmation")</th>
+                                <td class="security-table-check"><span class="icon-check-bold"></span></td>
+                                <td>
+                                    #springMessage("your_confirmed_mailbox"): $email
+                                </td>
+	                                #if("$!defaultAccount" == "email")
+	                                 <td data-wayId="1" class="letter-upper"><span class="no-opt">#springMessage("modify")</span></td>
+	                                 #else
+	                                 <td data-wayId="1" class="letter-upper"><a class="btn-modify">#springMessage("modify")</a></td>
+	                                 #end
+                                #else
+                                <th scope="row" class="letter-upper">#springMessage("mailbox_confirmation")</th>
+                                <td class="security-table-check"><span class="icon-failed-bold"></span></td>
+                                <td class="text-danger">#springMessage("your_account_did_not_bound_email")</td>
+                                 <td data-wayId="1">
+                                    <button class="btn btn-verification" data-toggle="modal" data-target="#security-modal" data-backdrop="static">#springMessage("verification")</button>
+                                </td>
+                                #end
+                            </tr>
+                            <tr>
+                            	<!-- 登陆密码 2-->
+                                <th align="center">
+                                    <span class="icon-circle-lock-o"></span>
+                                </th>
+                                <th scope="row" class="letter-upper">#springMessage("login_password")</th>
+                                <td class="security-table-check"><span class="icon-check-bold"></span></td>
+                                <td>#springMessage("login_password_desc")</td>
+                                 <td data-wayId="2" class="letter-upper"><a href="#" class="btn-modify">#springMessage("modify")</a></td>
+                            </tr>
+                            <tr> 
+                            	<!-- 手机 3-->
+                                <th align="center"><span class="icon-circle-mobile-o"></span></th>
+                                <th scope="row" class="letter-upper">#springMessage("mobile_confirmation")</th>
+                                #if("$!phone"!="")
+                                <td class="security-table-check"><span class="icon-check-bold"></span></td>
+                                <td>#springMessage("your_confirmed_mobile"): $!phone</td>
+                                
+                                #if("$!defaultAccount" == "phone")
+                                     <td data-wayId="3" class="letter-upper"><span class="no-opt">#springMessage("modify")</span></td>
+                                     #else
+                                     <td data-wayId="3" class="letter-upper"> <a href="#" class="btn-modify">#springMessage("modify")</a> </td>
+                                     #end
+                               
+                                #else
+                                <td class="security-table-check"><span class="icon-failed-bold"></span></td>
+                                <td class="text-danger">#springMessage("not_bound_phone")</td>
+                                <td data-wayId="3">
+                                    <button class="btn btn-verification" data-toggle="modal" data-target="#security-modal" data-backdrop="static">#springMessage("verification")</button>
+                                </td>
+                                #end
+                            </tr>
+                            <tr>
+                            	<!-- 密保问题 4-->
+                                <th align="center"><span class="icon-circle-shield-o"></span></th>
+                                <th scope="row" class="letter-upper">#springMessage("safety_problem_for_password") <!-- $isSetSafetyProblem -->   </th>
+                                #if($isSetSafetyProblem == "true")
+                                <td class="security-table-check"><span class="icon-check-bold"></span></td>
+                                <td>#springMessage("have_set_safety_problme")</td>
+                                <td data-wayId="4" class="letter-upper"><a href="#" class="btn-modify">#springMessage("modify")</a></td>
+                                #else
+                                <td class="security-table-check"><span class="icon-failed-bold"></span></td>
+                                 <td class="text-danger">#springMessage("not_set_safety_problem_for_password")</td>
+                                <td data-wayId="4">
+                                    <button class="btn btn-verification" data-toggle="modal" data-target="#security-modal" data-backdrop="static">#springMessage("verification")</button>
+                                </td>
+                                #end
+                            </tr>
+                            <tr>
+                            	<!-- 支付密码 5-->
+                                <th align="center"><span class="icon-circle-calculator-o"></span></th>
+                                #if($payPassword == "isNotActive")
+                                    <th scope="row" class="letter-upper">#springMessage("payment_password")</th>
+                                    <td class="security-table-check"><span class="icon-failed-bold"></span></td>
+                                    <td>#springMessage("pay_password_is_not_active")</td>
+                                #else
+                                    <th scope="row" class="letter-upper">#springMessage("payment_password")</th>
+                                    <td class="security-table-check"><span class="icon-check-bold"></span></td>
+                                    <td>#springMessage("has_set_pay_password")</td>
+                                #end
+                                 <td data-wayId="5" class="letter-upper"><a href="#" class="btn-modify">#springMessage("modify")</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade security-modal" id="security-modal" tabindex="-1" data-j="securityModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span class="icon-close"></span>
+                    </button>
+
+                    <div class="modal-body">
+                        <div class="security-modal-content">
+                            <h5 class="security-modal-title">#springMessage("Payment")&nbsp;&nbsp;&nbsp;&nbsp;#springMessage("password")</h5>
+                            <div class="ui-step-module" data-j="uiStepModule">
+                                <ol class="ui-step-flow ui-step-3">
+                                    <li class="ui-step ui-step-active">
+                                        <div class="ui-step-line"></div>
+                                        <div class="ui-step-cons letter-upper">
+                                            <span class="ui-step-cons-number"></span>
+                                            <span class="ui-step-cons-text">#springMessage("verification")</span>
+                                        </div>
+                                    </li>
+                                    <li class="ui-step">
+                                        <div class="ui-step-line"></div>
+                                        <div class="ui-step-cons letter-upper">
+                                            <span class="ui-step-cons-number"></span>
+                                            <span class="ui-step-cons-text">#springMessage("setting")</span>
+                                        </div>
+                                    </li>
+                                    <li class="ui-step ui-step-end">
+                                        <div class="ui-step-line"></div>
+                                        <div class="ui-step-cons letter-upper">
+                                            <span class="ui-step-cons-number"></span>
+                                            <span class="ui-step-cons-text">#springMessage("finished")</span>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="security-modal-form">
+                                <!-- 第一步：设置公共认证表单 -->
+                                <form class="form-horizontal security-pwd-verification-form" id="security-pwd-verification-form" action="verifyIdentity">
+                                    <div class="form-group">
+                                        <p class="text-primary">#springMessage("input_password_to_verify_identity")</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="icon-lock-o"></span>
+                                                </span>
+                                            <input type="password" name="password" class="form-control f-password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="icon-vertify-code-o"></span>
+                                                    </span>
+                                                <input type="text" class="form-control f-captcha" name="captcha" placeholder="Verification code">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a href="#" class="security-modal-refresh"><span class="icon-refresh"></span></a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block letter-upper" type="submit">#springMessage("submit")</button>
+                                    </div>
+                                </form>
+                                
+                                <!-- 邮箱设置 -->
+                                <form class="form-horizontal security-email-bind-form" id="security-email-bind-form" action="doAddAccount">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="icon-envelope-o"></span>
+                                                </span>
+                                            <input type="email" name="email" class="form-control f-email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="icon-vertify-code-o"></span>
+                                                    </span>
+                                                <input type="text" name="randomNum" class="form-control f-confirm-code" placeholder="Verification code" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-md-offset-1">
+                                            <button id="skipButton" class="btn btn-primary letter-upper time-count message-change" type="button" data-j="timeCount">
+                                                #springMessage("get_code")
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block letter-upper" type="submit" id="validateButton" disabled>#springMessage("submit")</button>
+                                    </div>
+                                </form>
+
+                                <!-- 手机绑定 -->
+                                <form class="form-horizontal security-mobile-bind-form" id="security-mobile-bind-form" action="doAddAccount">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="icon-check-lock-o"></span>
+                                            </span>
+                                            <input type="tel"  name="account" class="form-control f-phone" placeholder="Mobile Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="icon-vertify-code-o"></span>
+                                                    </span>
+                                                <input type="text" name="randomNum" class="form-control f-confirm-code" placeholder="Verification code" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-md-offset-1">
+                                            <button id="skipButton" class="btn btn-primary letter-upper time-count message-change" type="button" data-j="timeCount">
+                                                #springMessage("get_code")
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block letter-upper" type="submit" id="validateButton" disabled>#springMessage("submit")</button>
+                                    </div>
+                                </form>
+
+                                <!-- 第二步：密保设置 -->
+                                <form class="form-horizontal security-question-form" id="security-question-form" action="doAddSecurityAns">
+                                    <div class="security-question-form-area">
+                                    #foreach($!i in [0..2])
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="icon-check-lock-o"></span>
+                                                </span>
+                                                <select class="form-control f-problem" data-id="$i" name="answers[$i].problemId">
+                                                    <option>--- #springMessage("choose_your_question") ---</option>
+                                                    #foreach($question in $questions)
+                                                        <option value="$!question.problemId">#springMessage("$!question.problem")</option>
+                                                    #end
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="icon-check-lock-o"></span>
+                                                </span>
+                                                <input type="text" class="form-control answer f-answer" name="answers[$i].answer" placeholder="Your answer">
+                                            </div>
+                                        </div>
+                                        #end
+                                        <div class="form-group">
+                                            <div class="btn btn-primary btn-block btn-check">      
+                                                #springMessage("check")
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="security-question-confirm">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>#springMessage("question")</th>
+                                                    <th>#springMessage("answer")</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <button class="btn btn-primary btn-block letter-upper" type="submit" id="validateButton">#springMessage("submit")</button>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <div class="btn btn-primary btn-block btn-return">#springMessage("return_to_change")</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                
+                                <!-- 第三步：设置成功提示 -->
+                                <div class="security-modal-success">
+                                    <h5><span class="icon-check"></span>&nbsp;&nbsp;&nbsp;&nbsp;#springMessage("setting_finished")</h5>
+                                    <a href="/cooka-user-web/center/security"><button class="btn btn-primary btn-block">User&nbsp;&nbsp;&nbsp;&nbsp;Center</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- select varification way -->
+        <div class="modal fade security-select-modal" id="security-select-modal" tabindex="-1" data-j="securitySelectModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span class="icon-close"></span>
+                    </button>
+                    
+                    <div class="modal-body">
+                        <div class="security-select-modal-content">
+                            <p class="text-center security-select-modal-title">#springMessage("verification_mode_select_before") <strong>$email</strong>, #springMessage("verification_mode_select_after")":</p>
+                            <div class="security-select-way">
+                                #if("$!email"!="")
+                                <button class="btn btn-default center-block btn-ver-email" data-ver-id="1"><span class="icon-envelope-o"></span>#springMessage("confirm_mode_tip_email")</button>
+                                #end
+                                
+                                #if("$!phone" != "")
+                                <button class="btn btn-default center-block btn-ver-question" data-ver-id="3"><span class="icon-mobile-o"></span>#springMessage("confirm_mode_tip_mobile")</button>
+                                #end
+
+                                #if($isSetSafetyProblem == "true")
+                                <button class="btn btn-default center-block btn-ver-mobile" data-ver-id="2"><span class="icon-circle-shield-o"></span>#springMessage("confirm_mode_tip_question") </button>
+                                #end
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 修改 -->
+<div class="modal fade security-modify-modal" id="security-modify-modal" tabindex="-1" data-j="securityModifyModal">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <button type="button" class="close" data-dismiss="modal">
+                 <span class="icon-close"></span>
+             </button>
+
+             <div class="modal-body">
+                 <div class="security-modify-modal-content">
+                     <h5 class="security-modify-modal-title">#springMessage("change")</h5>
+                     <div class="ui-step-module" data-j="uiStepModule">
+                         <ol class="ui-step-flow ui-step-3">
+                             <li class="ui-step ui-step-active">
+                                 <div class="ui-step-line"></div>
+                                 <div class="ui-step-cons letter-upper">
+                                     <span class="ui-step-cons-number"></span>
+                                     <span class="ui-step-cons-text">#springMessage("confirm_the_status")</span>
+                                 </div>
+                             </li>
+                             <li class="ui-step">
+                                 <div class="ui-step-line"></div>
+                                 <div class="ui-step-cons letter-upper">
+                                     <span class="ui-step-cons-number"></span>
+                                     <span class="ui-step-cons-text">#springMessage("setting")</span>
+                                 </div>
+                             </li>
+                             <li class="ui-step ui-step-end">
+                                 <div class="ui-step-line"></div>
+                                 <div class="ui-step-cons letter-upper">
+                                     <span class="ui-step-cons-number"></span>
+                                     <span class="ui-step-cons-text">#springMessage("finished")</span>
+                                 </div>
+                             </li>
+                         </ol>
+                     </div>
+                     <div class="security-modify-modal-form">
+                     
+                     <!-- 验证阶段-->
+                          #if("$!email"!="")           
+                         <!-- 邮箱验证 -->
+                         <form class="form-horizontal security-email-verification-form" action="verifyRandomNum" id="security-email-verification-form">
+                             <div class="form-group">
+                                 <p class="letter-upper">#springMessage("email_address") <strong>$!email</strong></p>
+                             </div>
+                             <div class="form-group">
+                                 <div class="col-md-5">
+                                     <div class="input-group">
+                                             <span class="input-group-addon">
+                                                 <span class="icon-vertify-code-o"></span>
+                                             </span>
+                                         <input type="text" name="confirmCode" class="form-control f-confirm-code" placeholder="Verification code" disabled>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-4 col-md-offset-1">
+                                     <button id="skipButton" class="btn btn-primary letter-upper time-count message-change" type="button" data-j="timeCount">
+                                         #springMessage("get_code")
+                                     </button>
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <button class="btn btn-primary btn-block letter-upper" type="submit">#springMessage("submit")</button>
+                             </div>
+                         </form>
+                         #end
+                         
+                         #if("$!phone"!="")
+                         <!-- 手机验证 -->
+                         <form class="form-horizontal security-mobile-verification-form"  name="confirmCode"  action="verifyRandomNum"  id="security-mobile-verification-form">
+                             <div class="form-group">
+                                 <p>#springMessage("mobile_num") <strong>$!phone</strong></p>
+                             </div>
+                             <div class="form-group">
+                                 <div class="col-md-5">
+                                     <div class="input-group">
+                                             <span class="input-group-addon">
+                                                 <span class="icon-vertify-code-o"></span>
+                                             </span>
+                                         <input type="text" class="form-control f-confirm-code" name="confirmCode"placeholder="Verification code" disabled>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-4 col-md-offset-1">
+                                     <button id="skipButton" class="btn btn-primary letter-upper time-count message-change" type="button" data-j="timeCount">
+                                         #springMessage("get_code")
+                                     </button>
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <button class="btn btn-primary btn-block letter-upper" type="submit">#springMessage("submit")</button>
+                             </div>
+                         </form>
+                         #end
+                         
+                         #if($isSetSafetyProblem == "true")
+                         <!-- 密保验证 -->
+                         <form class="form-horizontal security-question-verification-form" action="verifyAnswer" id="security-question-verification-form">
+                          #foreach($!i in [0..2])
+                             <div class="form-group">
+                                 <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-lock-o"></span>
+                                         </span>
+                                     <input type="text" class="form-control" value="#springMessage($question[$!i].problem)" disabled>
+                                     <input type="hidden" name= "answers[$!i].problemId"  value="$question[$!i].problemId">
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <div class="input-group">
+                                     <span class="input-group-addon">
+                                         <span class="icon-check-lock-o"></span>
+                                     </span>
+                                     <input type="text" class="form-control f-answer"  name="answers[$!i].answer" placeholder="Your answer">
+                                 </div>
+                             </div>
+                             #end
+                             <div class="form-group">
+                                 <button class="btn btn-primary btn-block letter-upper" type="submit">#springMessage("submit")</button>
+                             </div>
+                         </form>
+                         #end
+                     <!-- 重设阶段 -->
+                     	<!-- 邮箱重设 -->
+                        <form class="form-horizontal security-reset-email-form" id="security-reset-email-form" action="doAddAccount">
+                            <div class="form-group">
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-envelope-o"></span>
+                                        </span>
+                                    <input type="text" name="email" class="form-control f-email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="icon-vertify-code-o"></span>
+                                            </span>
+                                        <input type="text" name="randomNum" class="form-control f-confirm-code" placeholder="Verification code" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-md-offset-1">
+                                    <button id="skipButton" class="btn btn-primary letter-upper time-count message-change" type="button" data-j="timeCount">
+                                        #springMessage("get_code")
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block letter-upper" type="submit" id="validateButton" disabled>#springMessage("submit")</button>
+                            </div>
+                        </form>
+                        
+                         <!-- 重设密码 -->
+                         <form class="form-horizontal security-reset-pwd-form" action="resetPaswd" id="security-reset-pwd-form">
+                             <div class="form-group">
+                                 <p>#springMessage("reset_pay_password_tip")</p>
+                             </div>
+                             <div class="form-group">
+                                 <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-lock-o"></span>
+                                         </span>
+                                     <input type="password" name="password" class="form-control f-password" placeholder="Password">
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                     <input type="password" class="form-control f-confirm-password" placeholder="Confirm Password">
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <button class="btn btn-primary btn-block letter-upper" type="submit">#springMessage("submit")</button>
+                             </div>
+                         </form>
+                         
+                         <!-- 重设密保 -->
+                         <form class="form-horizontal security-reset-question-form" id="security-reset-question-form" action="doAddSecurityAns">
+                             <div class="security-question-form-area">
+                                 <div class="form-group">
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                         <select class="form-control f-problem" data-id="0"  name="answers[0].problemId">
+                                             <option>--- #springMessage("choose_your_question") ---</option>
+                                                    #foreach($question in $questions)
+                                                        <option value="$question.problemId">#springMessage("$question.problem")</option>
+                                                    #end
+                                         </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                         <input type="text" name="answers[0].answer" class="form-control f-answer" placeholder="Your answer">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                         <select class="form-control f-problem" data-id="1" name="answers[1].problemId">
+                                             <option>--- #springMessage("choose_your_question") ---</option>
+                                                    #foreach($question in $questions)
+                                                        <option value="$question.problemId">#springMessage("$question.problem")</option>
+                                                    #end
+                                         </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                         <input type="text" name="answers[1].answer" class="form-control f-answer" placeholder="Your answer">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                         <select class="form-control f-problem" data-id="2" name="answers[2].problemId">
+                                             <option>--- #springMessage("choose_your_question") ---</option>
+                                                    #foreach($question in $questions)
+                                                        <option value="$question.problemId">#springMessage("$question.problem")</option>
+                                                    #end
+                                         </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                         <input type="text" name="answers[2].answer" class="form-control f-answer" placeholder="Your answer">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <div class="btn btn-primary btn-block btn-check">      
+                                         #springMessage("check")
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="security-question-confirm">
+                                 <table class="table">
+                                     <thead>
+                                         <tr>
+                                             <th></th>
+                                             <th>#springMessage("question")</th>
+                                             <th>#springMessage("answer")</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         <tr>
+                                             <th scope="row">1</th>
+                                             <td></td>
+                                             <td></td>
+                                         </tr>
+                                         <tr>
+                                             <th scope="row">2</th>
+                                             <td></td>
+                                             <td></td>
+                                         </tr>
+                                         <tr>
+                                             <th scope="row">3</th>
+                                             <td></td>
+                                             <td></td>
+                                         </tr>
+                                     </tbody>
+                                 </table>
+                                 <div class="form-group">
+                                     <div class="col-md-4">
+                                         <button class="btn btn-primary btn-block letter-upper" type="submit" id="validateButton">#springMessage("submit")</button>
+                                     </div>
+                                     <div class="col-md-4 col-md-offset-2">
+                                         <div class="btn btn-primary btn-block btn-return">#springMessage("return_to_change")</div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </form>
+                         
+                         <!-- 重设手机 -->
+                         <form class="form-horizontal security-reset-mobile-form" action="doAddPhone" id="security-reset-mobile-form">
+                             <div class="form-group">
+                                 <div class="input-group">
+                                     <span class="input-group-addon">
+                                         <span class="icon-check-lock-o"></span>
+                                     </span>
+                                     <input type="text" name="phone" class="form-control f-phone" placeholder="Mobile Number">
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <div class="col-md-5">
+                                     <div class="input-group">
+                                             <span class="input-group-addon">
+                                                 <span class="icon-vertify-code-o"></span>
+                                             </span>
+                                         <input type="text"  name="randomNum" class="form-control f-confirm-code" placeholder="Verification code" disabled>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-4 col-md-offset-1">
+                                     <button id="skipButton" class="btn btn-primary letter-upper time-count message-change" type="button" data-j="timeCount">
+                                         #springMessage("get_code")
+                                     </button>
+                                 </div>
+                             </div>
+                             
+                             <div class="form-group">
+                                 <button class="btn btn-primary btn-block letter-upper" type="submit" id="validateButton" disabled>#springMessage("submit")</button>
+                             </div>
+                         </form>
+                         
+                         <!-- 重设支付密码 -->
+                         <form class="form-horizontal security-reset-pay-form" action="resetPayPaswd" id="security-reset-pay-form">
+                             <div class="form-group">
+                                 <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-lock-o"></span>
+                                         </span>
+                                     <input type="password" class="form-control f-password" placeholder="Password">
+                                 </div>
+
+                                 <div class="progress password-meter" id="passwordMeter">
+                                     <div class="progress-bar"></div>
+                                 </div>
+                             </div>
+                             
+                             <div class="form-group">
+                                 <div class="input-group">
+                                         <span class="input-group-addon">
+                                             <span class="icon-check-lock-o"></span>
+                                         </span>
+                                     <input type="password" class="form-control f-confirm-password" name="payPassword" placeholder="Confirm Password">
+                                 </div>
+                             </div>
+
+                             <div class="form-group">
+                                 <button class="btn btn-primary btn-block letter-upper" type="submit">#springMessage("submit")</button>
+                             </div> 
+                         </form>
+
+                         <!-- 设置成功 -->
+                         <div class="security-modify-modal-success">
+                             <h5><span class="icon-check"></span>&nbsp;&nbsp;&nbsp;&nbsp;#springMessage("setting_finished")</h5>
+                             <a href="/cooka-user-web/center/security"><button class="btn btn-primary btn-block">User&nbsp;&nbsp;&nbsp;&nbsp;Center</button></a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+

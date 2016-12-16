@@ -1,0 +1,47 @@
+@import "public.less";
+.cart-store{
+    height: 40px;
+    vertical-align: middle;
+    position: relative;
+    padding: 5px;
+    border-top: solid 1px @ck-main;
+    &-logo{
+        position: absolute;
+        top: 10px;
+        left: 15px;
+    }
+    &-name{
+        position: absolute;
+        top: 15px;
+        left: 40px;
+    }
+    &-info{
+        position: relative;
+        &-control{
+            background-color: rgba(232, 232, 232, 0.57);
+            float: right;
+            height: 100%;
+            line-height: 30px;
+            padding-left: 15px;
+            padding-right: 15px;
+            cursor: pointer;
+        }
+
+        &-ul{
+            background-color: #ffffff;
+            display: inline;
+            float: right;
+            list-style: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            z-index: 10;
+        }
+
+        [class*="icon-"]{
+            font-size: 10px;
+        }
+
+    }
+
+}

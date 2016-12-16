@@ -1,0 +1,90 @@
+#set($layout = "/layout/updatePermission_layout.vm") 
+#if($type=="add")
+<div class="admin-breadcrumb">
+	<ol class="breadcrumb">
+		<li><a href="/duobao-backend-web/managePermission.htm">#springMessage("permission_management")</a></li>
+		<li class="active">#springMessage("update_permission")</li>
+	</ol>
+</div>
+<form id="updateJuriForm" method="post" action="doAddPermission" class="form-horizontal">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+ 
+	<div class="form-group">
+		<label class="col-md-3 control-label">#springMessage("permission_name"):</label>
+		<div class="col-md-4">
+			<input type="text" name="name" class="form-control f-juri-name" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-3 control-label">#springMessage("permission_string"):</label>
+		<div class="col-md-4">
+			<input type="text" name="permission" class="form-control f-juri-string" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-5 col-md-offset-3">
+			<div class="checkbox">
+				<input name="isActive" type="checkbox" value="true" checked/>
+				#springMessage("check_me_to_enable_the_permission")
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-9 col-md-offset-3">
+			<button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+		</div>
+	</div>
+</form>
+#elseif($type=="edit")
+<div class="admin-breadcrumb">
+    <ol class="breadcrumb">
+        <li><a href="#">#springMessage("management")</a></li>
+        <li class="active">#springMessage("update_permission")</li>
+    </ol>
+</div>
+<form id="updateJuriForm" method="post" action="doUpdatePermission" class="form-horizontal">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+<input type="hidden" name="permissionId" value="$permission.permissionId">
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("permission_name"):</label>
+        <div class="col-md-4">
+            <input type="text" name="name"  value="$permission.name" class="form-control f-juri-name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("permission_string"):</label>
+        <div class="col-md-4">
+            <input type="text" name="permission" value="$permission.permission" class="form-control f-juri-string" />
+        </div>
+    </div>
+    
+     <div class="form-group">
+        <label class="col-md-3 control-label">Tga(非必需):</label>
+        <div class="col-md-4">
+            <input type="text" name="tag" value="$permission.tag" class="form-control f-juri-string" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-5 col-md-offset-3">
+            <div class="checkbox">
+            #if($permission.isActive)
+                <input name="isActive" type="checkbox" value="true" checked/>
+             #else
+                <input name="isActive" type="checkbox" value="false"/>
+             #end
+                #springMessage("check_me_to_enable_the_permission")
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+        </div>
+    </div>
+</form>
+#end
+        

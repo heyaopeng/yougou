@@ -1,0 +1,45 @@
+#set($layout = "/layout/withdrawDetail_layout.vm")
+<ol class="breadcrumb">
+	<li><a href="#">提现详情</a></li>
+</ol>
+
+<div class="merchant-info">
+	<h3>提现详情 : </h3>
+	<dl class="dl-horizontal">
+
+		<dt>状态 : </dt>
+		<dd>#if($withdraw.status == 1)
+			<span>处理中</span>
+		#elseif($withdraw.status == 2)
+			<span>已处理</span>
+		#elseif($withdraw.status == 3)
+			<span>拒绝</span>
+		#end</dd>
+		<dt>提现时间:</dt>
+		<dd>$date.format('yyyy-MM-dd HH:mm:ss',$withdraw.applyTime) </dd>
+		<dt>单号 : </dt>
+		<dd>$!withdraw.withdrawSerialnum</dd>
+
+		<dt>卡号: </dt>
+		<dd>$!withdraw.cardNumAll</dd>
+
+		<dt>持卡人: </dt>
+		<dd>$!withdraw.cardholder</dd>
+		
+		<dt>发卡行: </dt>
+		<dd>$!withdraw.issuer</dd>
+
+		<dt>提现金额 : </dt>
+		<dd>$!withdraw.money</dd>
+		
+		<dt>手续费 : </dt>
+		<dd>$!withdraw.handlingCharge</dd>
+
+		<dt>应转账金额 : </dt>
+		<dd>$!withdraw.realWithdrawMoney</dd>
+		#if($!withdraw.status==3)
+		<dt>拒绝原因 : </dt>
+		<dd>$!withdraw.rejectReason</dd>
+		#end
+	</dl>
+</div>

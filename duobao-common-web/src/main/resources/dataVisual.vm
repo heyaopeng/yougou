@@ -1,0 +1,63 @@
+<div class="header">
+    <a href="/cooka-backend-web/admin"><img src="$staticConfig.getPath()/CKF/images/logo.png"></a>
+    <span>数据统计</span>
+    #if($shiro.isAuthenticated()) 
+	<span class="login-info">
+		#if($request.getSession().getAttribute("userName"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userName")</strong>
+			</span>
+		#elseif($request.getSession().getAttribute("userEmail"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userEmail")</strong>
+			</span>
+	    #end
+		<a href="/cooka-user-web/logout">LogOut</a>
+	</span>
+	#end
+</div>
+<div class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="side-bar side-bar-left">
+                    <!-- <a class="side-bar-item item-dashboard" href="#">
+                        <i class="fa fa-tachometer"></i>
+                        <h4 class="side-bar-title">Dashboard</h4>
+                    </a> -->
+                    
+                      #if($shiro.hasPermission("static:userData"))
+                    <a class="side-bar-item item-userData" href="/cooka-backend-web/userData">
+                        <i class="fa fa-users"></i>
+                        <h4 class="side-bar-title">User Data</h4>
+                    </a>
+                    #end
+                    
+                     #if($shiro.hasPermission("static:tradingData"))
+                    <a class="side-bar-item item-tradingData" href="/cooka-backend-web/tradingData">
+                        <i class="fa fa-gavel"></i>
+                        <h4 class="side-bar-title">Trading</h4>
+                    </a>
+                    #end
+                    
+                    #if($shiro.hasPermission("static:productData"))
+                    <a class="side-bar-item item-productData" href="/cooka-backend-web/productData">
+                        <i class="fa fa-shopping-cart"></i>
+                        <h4 class="side-bar-title">Product</h4>
+                    </a>
+                    #end
+              
+                    #if($shiro.hasPermission("static:rankingData"))
+                    <a class="side-bar-item item-rankData" href="/cooka-backend-web/rankingData?staticType=totalSaleNumber&groupType=product">
+                        <i class="fa fa-bar-chart"></i>
+                        <h4 class="side-bar-title">Rank</h4>
+                    </a>
+                    #end
+                </div>
+            </div>
+        	<div class="col-md-10">
+        		$screen_content
+        	</div>
+        </div>
+    </div>
+</div>

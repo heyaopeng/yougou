@@ -1,0 +1,84 @@
+#set($layout = "/layout/login_layout.vm")
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="sign" data-j="sign">
+				<div class="sign-inner">
+
+					<img src="$staticConfig.getPath()/CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+					<h4 class="sign-title">#springMessage("welcome_to_cookabuy")</h4>
+					
+					<form class="form-horizontal sign-form" id="sign-form-in" method="post" action="/duobao-user-web/dologin">
+						<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+						<input type="hidden" name="token" value=" $!request.getSession().getAttribute("token")"/>
+						
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-envelope-o"></span>
+								</span>
+								<input type="text" name="account" class="form-control f-email" placeholder="手机/邮箱">
+							</div>
+						</div>
+						<div class="form-group sign-switch-target" id="s-phone">
+							<input type="text" name="account" class="form-control f-mobile" disabled>
+						</div>
+						
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-lock-o"></span>
+								</span>
+								<input type="password" name="password" class="form-control f-password" placeholder="密码"></div>
+						</div>
+						
+						#if("$!neddCaptcha" != "")
+				            <div class="form-group sign-captcha">
+				                <div class="col-md-5">
+				                    <div class="input-group">
+				                        <span class="input-group-addon">
+				                            <span class="icon-vertify-code-o"></span>
+				                        </span>
+				                        <input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+				                </div>
+				                <div class="col-md-4">
+				                    <img src="/duobao-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+				                <div class="col-md-1">
+				                    <a href="#" class="sign-refresh">
+				                        <span class="icon-refresh"></span>
+				                    </a>
+				                </div>
+				            </div>
+						#end
+
+						#if($!emailNotActive)
+							<div class="alert alert-danger">
+	                        	#springMessage("click_to_send_the_activation_email_again") <a href="/duobao-user-web/active?email=$!emailNotActive">#springMessage("send")</a>
+	                        </div>
+	                    #else
+						<div class="alert alert-danger sign-errors hide">				
+							#springBind("user.account")
+						 	#foreach($error in $status.errorMessages)
+						    	$error
+						    #end
+						    
+						    #springBind("user.password")
+				         	#foreach($error in $status.errorMessages)
+				            	$error
+				            #end 
+				            
+				            #springBind("user.captcha")
+				         	#foreach($error in $status.errorMessages)
+				            	$error
+				            #end
+						</div>
+						#end
+						<div class="form-group">
+							<button class="btn btn-secondary-light btn-block sign-btn" type="submit" id="sign-btn">#springMessage("sign_in")</button>
+						</div>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

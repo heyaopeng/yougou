@@ -1,0 +1,52 @@
+@import "public.less";
+// buyer service
+.buyer-service {
+    &-heading {
+        color: #fff;
+        font-weight: bold;
+        background-color: @ck-sub-light;
+        padding: 10px;
+        text-transform: uppercase;
+    }
+
+    &-body {
+        background-color: #fff;
+        padding: 10px;
+        height: 364px;
+        position: relative;
+    }
+
+    &-items {
+        margin: 0;
+        padding: 0;        
+    }
+    
+    &-item {
+        list-style-type: none;
+        display: block;
+        > a {
+            color: #333;
+            display: block;
+            font-size: 13px;
+            text-decoration: none;
+            padding: 5px 0;
+
+            &:hover {
+                color: @ck-main;
+            }
+        }
+
+        [class^="icon-"], [class*=" icon-"] {
+            margin-right: 5px;
+            font-size: 20px;
+            vertical-align: sub;
+        }
+    }
+
+    &-img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+}

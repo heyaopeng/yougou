@@ -1,0 +1,179 @@
+#set($layout = "/layout/admin_layout.vm")
+#if($shiro.hasPermission("statistical"))
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">#springMessage("total_orders")</div>
+			<div class="panel-body">
+				<div class="text-right">
+					<span>$!orderCount</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">#springMessage("sales")</div>
+			<div class="panel-body">
+				<div class="text-right">
+					<span>$$!totalSeles</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">#springMessage("recent_order")</div>
+			<div class="panel-body">
+
+				<div>
+
+					<!-- Nav tabs -->
+					<ul class="nav nav-pills" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#status1" data-toggle="tab">#springMessage("all")</a>
+						</li>
+						<li role="presentation">
+							<a href="#status2" data-toggle="tab">#springMessage("awaiting_payment")</a>
+						</li>
+						<li role="presentation">
+							<a href="#status3" data-toggle="tab">#springMessage("awaiting_sent")</a>
+						</li>
+						<li role="presentation">
+							<a href="#status4" data-toggle="tab">#springMessage("awaiting_shipment")</a>
+						</li>
+						<li role="presentation">
+							<a href="#status5" data-toggle="tab">#springMessage("waiting_for_reception")</a>
+						</li>
+						<li role="presentation">
+							<a href="#status6" data-toggle="tab">#springMessage("trade_success")</a>
+						</li>
+						<li role="presentation">
+							<a href="#status7" data-toggle="tab">#springMessage("trade_closed")</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						#foreach($listOrder in $listOrders)
+							#if($!velocityCount == 1)
+							<div role="tabpanel" class="tab-pane fade in active" id="status$!velocityCount">
+							#else
+							<div role="tabpanel" class="tab-pane fade" id="status$!velocityCount">
+							#end
+							
+								<table class="table">
+									<tbody>
+										#foreach($order in $listOrder.list)
+										<tr>
+											<td>
+												<span>order status</span>
+											</td>
+											<td>
+												<a href="#">$order.orderSerialnum</a>
+											</td>
+											<td>
+												<span>$date.format('yyyy-MM-dd HH:mm:ss',$order.createTime)</span>
+											</td>
+											<td>
+												<span>$!cookies.getFixLengthByLang($!{order.totalPrice} ) VND</span>
+											</td>
+										</tr>
+										#end
+									</tbody>
+								</table>
+							</div>
+						#end
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">#springMessage("active_products")</div>
+			<div class="panel-body">
+				<div class="text-center">
+					<a href="">$!activeProductCount</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">#springMessage("register_user")</div>
+			<div class="panel-body">
+				<div class="text-center">
+					<a href="">$!userCount</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">#springMessage("total_categories")</div>
+			<div class="panel-body">
+				<div class="text-center">
+					<a href="">$!categoryCount</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">#springMessage("online_users")</div>
+            <div class="panel-body">
+                <div class="text-center">
+                    <a href="">$!onlineUsers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">#springMessage("total_loginCount")</div>
+            <div class="panel-body">
+                <div class="text-center">
+                    <a href="">$!totalLoginCount</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"> #springMessage("total_storeCount")</div>
+            <div class="panel-body">
+                <div class="text-center">
+                    <a href="">$!totalStoreCount</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">#springMessage("more_dtatistical_information")</div>
+            <div class="panel-body">
+                <div class="text-center">
+                    go to <a href="http://192.168.11.212/piwik/index.php?module=Login&action=logme&login=duobaobuy&password=204405c9319ba26bb4e179c77af09018" target="_Blank">PIWIK </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+#else
+<h1>Welcome to duobao backend system</h1> 
+#end

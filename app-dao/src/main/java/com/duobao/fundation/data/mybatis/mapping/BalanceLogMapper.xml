@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.BalanceLogMapper" >
+  <resultMap id="BalanceLog" type="com.duobao.fundation.data.mybatis.model.BalanceLog" >
+    <id column="log_id" property="logId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="payment_serial_num" property="paymentSerialNum" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="balance" property="balance" jdbcType="DECIMAL" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="is_in" property="isIn" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    log_id, account_id, payment_serial_num, title, operator, type, money, balance, time, 
+    note, is_in
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BalanceLog" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_balance_log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByBalanceLog" resultMap="BalanceLog" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_balance_log
+    <where>
+    	 <if test="type != null" >
+	       and type = #{type,jdbcType=TINYINT}
+	      </if>
+	      <if test="accountId != null" >
+	       and account_id = #{accountId,jdbcType=INTEGER}
+	      </if>
+    	 <if test="isIn != null" >
+	       and is_in = #{isIn,jdbcType=BIT}
+	      </if>
+    </where>
+    order by time desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_balance_log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.BalanceLog" >
+    insert into db_balance_log (log_id, account_id, payment_serial_num, 
+      title, operator, type, 
+      money, balance, time, 
+      note, is_in)
+    values (#{logId,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER}, #{paymentSerialNum,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{money,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL}, #{time,jdbcType=TIMESTAMP}, 
+      #{note,jdbcType=VARCHAR}, #{isIn,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.BalanceLog" >
+    insert into db_balance_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logId != null" >
+        log_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="paymentSerialNum != null" >
+        payment_serial_num,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="isIn != null" >
+        is_in,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logId != null" >
+        #{logId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentSerialNum != null" >
+        #{paymentSerialNum,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="isIn != null" >
+        #{isIn,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.BalanceLog" >
+    update db_balance_log
+    <set >
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="paymentSerialNum != null" >
+        payment_serial_num = #{paymentSerialNum,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="isIn != null" >
+        is_in = #{isIn,jdbcType=BIT},
+      </if>
+    </set>
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.BalanceLog" >
+    update db_balance_log
+    set account_id = #{accountId,jdbcType=INTEGER},
+      payment_serial_num = #{paymentSerialNum,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      money = #{money,jdbcType=DECIMAL},
+      balance = #{balance,jdbcType=DECIMAL},
+      time = #{time,jdbcType=TIMESTAMP},
+      note = #{note,jdbcType=VARCHAR},
+      is_in = #{isIn,jdbcType=BIT}
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,148 @@
+{
+    "f4": {
+        "src": "/CKF/home/f4/raw/hero.jpg",
+        "search": {
+            "102010020": "Áo phông",
+            "102010010": "Áo sơ mi",
+            "102010180": "Áo khoác",
+            "102010060": "Áo len",
+            "102010070": "Áo nỉ",
+            "102020010": "Quần Jean",
+            "102020020": "Quần dạo phố"
+        },
+        "item": [
+            [
+                [
+                    {
+                        "title": "Jacket nam thu đông, kiểu dáng quân đội, thích hợp mặc đi dạo phố hoặc đi tập thể dục T801",
+                        "score": 5,
+                        "price": "337.000 VND",
+                        "id": "165",
+                        "src": "/CKF/home/f4/raw/165.jpg"
+                    },
+                    {
+                        "title": "Áo phao cotton nam thu đông",
+                        "score": 5,
+                        "price": "278.000 VND",
+                        "id": "3990",
+                        "src": "/CKF/home/f4/raw/3990.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo len nam in họa tiết  mùa thu đông",
+                        "score": 5,
+                        "price": "218.000 VND",
+                        "id": "941",
+                        "src": "/CKF/home/f4/raw/941.jpg"
+                    },
+                    {
+                        "title": "Áo len dệt kim nam ôm dáng giữ ấm sành điệu mùa thu đông",
+                        "score": 5,
+                        "price": "151.000 VND",
+                        "id": "2731",
+                        "src": "/CKF/home/f4/raw/2731.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo khoác lông vũ cổ đứng nam dáng ôm, phong cách Hàn Quốc, mẫu mã  mới 2015 8803#",
+                        "score": 5,
+                        "price": "357.000 VND",
+                        "id": "890",
+                        "src": "/CKF/home/f4/raw/890.jpg"
+                    },
+                    {
+                        "title": "Áo khoác da PU nam",
+                        "score": 5,
+                        "price": "377.000 VND",
+                        "id": "3043",
+                        "src": "/CKF/home/f4/raw/3043.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo nỉ chui đầu nam dáng mỏng, chất liệu cotton space, phong cách Trung Quốc  W29#",
+                        "score": 5,
+                        "price": "139.000 VND",
+                        "id": "934",
+                        "src": "/CKF/home/f4/raw/934.jpg"
+                    },
+                    {
+                        "title": "Áo khoác nam kẻ caro",
+                        "score": 5,
+                        "price": "139.000 VND",
+                        "id": "3049",
+                        "src": "/CKF/home/f4/raw/3049.jpg"
+                    }
+                ]
+            ],
+            [
+                [
+                    {
+                        "title": "Áo sơ mi kẻ caro",
+                        "score": 5,
+                        "price": "92.000 VND",
+                        "id": "3050",
+                        "src": "/CKF/home/f4/raw/3050.jpg"
+                    },
+                    {
+                        "title": "Áo nỉ liền mũ nam thu đông",
+                        "score": 5,
+                        "price": "218.000 VND",
+                        "id": "3535",
+                        "src": "/CKF/home/f4/raw/3535.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo len nam kiểu mới thu 2015, thiết kế cổ tròn chui đầu, có tính co giãn, phong cách Hàn Quốc, dành cho chàng trai năng động035#",
+                        "score": 5,
+                        "price": "159.000 VND",
+                        "id": "261",
+                        "src": "/CKF/home/f4/raw/261.jpg"
+                    },
+                    {
+                        "title": "Áo nỉ nam",
+                        "score": 5,
+                        "price": "107.000 VND",
+                        "id": "3780",
+                        "src": "/CKF/home/f4/raw/3780.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo len tay dài cổ tròn nam in họa tiết, mẫu mã mới 821#",
+                        "score": 5,
+                        "price": "147.000 VND",
+                        "id": "943",
+                        "src": "/CKF/home/f4/raw/943.jpg"
+                    },
+                    {
+                        "title": "Áo len chui đầu nam mùa thu",
+                        "score": 5,
+                        "price": "151.000 VND",
+                        "id": "3814",
+                        "src": "/CKF/home/f4/raw/3814.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo nỉ in họa tiết",
+                        "score": 5,
+                        "price": "92.000 VND",
+                        "id": "3364",
+                        "src": "/CKF/home/f4/raw/3364.jpg"
+                    },
+                    {
+                        "title": "Áo len Cardigan nam dệt họa tiết",
+                        "score": 5,
+                        "price": "151.000 VND",
+                        "id": "3837",
+                        "src": "/CKF/home/f4/raw/3837.jpg"
+                    }
+                ]
+            ]
+        ]
+    }
+}

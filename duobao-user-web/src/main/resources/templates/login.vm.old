@@ -1,0 +1,148 @@
+#set($layout = "/layout/login_layout.vm")
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="sign" data-j="sign">
+				<div class="sign-inner">
+					<div class="sign-navi">
+						<a href="#" class="active">
+							<span class="icon-user"></span>
+							#springMessage("sign_in")
+						</a>
+						<a href="/cooka-user-web/register">
+							<span class="icon-register"></span>
+							#springMessage("sign_up")
+						</a>
+					</div>
+
+					<img src="$staticConfig.getPath()/CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+					<h4 class="sign-title">#springMessage("welcome_to_cookabuy")</h4>
+					
+					<div class="sign-switch-tab">
+					
+						#if("$!isPhone"!="")
+						<span class="sign-switch-tab-item" data-switch="s-phone">
+							<span class="icon-circle-mobile-o"></span>
+							#springMessage("sign_in_by_phone_number")
+						</span>
+						<span class="sign-switch-tab-item active" data-switch="s-email">
+							<span class="icon-envelope-o"></span>
+							#springMessage("sign_in_by_email")
+						</span>
+						#else
+						<span class="sign-switch-tab-item active" data-switch="s-phone">
+							<span class="icon-circle-mobile-o"></span>
+							#springMessage("sign_in_by_phone_number")
+						</span>
+						<span class="sign-switch-tab-item" data-switch="s-email">
+							<span class="icon-envelope-o"></span>
+							#springMessage("sign_in_by_email")
+						</span>
+						#end
+					</div>					
+
+					<form class="form-horizontal sign-form" id="sign-form-in" method="post" action="dologin">
+						<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+						<input type="hidden" name="token" value=" $!request.getSession().getAttribute("token")"/>
+						
+						#if("$!isPhone"!="")
+						<div class="form-group sign-switch-target active" id="s-email">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-envelope-o"></span>
+								</span>
+								<input type="text" name="account" class="form-control f-email" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group sign-switch-target" id="s-phone">
+							<input type="text" name="account" class="form-control f-mobile" disabled>
+						</div>
+						#else
+						<div class="form-group sign-switch-target" id="s-email">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-envelope-o"></span>
+								</span>
+								<input type="text" name="account" class="form-control f-email" placeholder="Email" disabled>
+							</div>
+
+						</div>
+						<div class="form-group sign-switch-target active" id="s-phone">
+							<input type="text" name="account" class="form-control f-mobile">
+						</div>
+						#end
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-lock-o"></span>
+								</span>
+								<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+						</div>
+						
+						#if("$!neddCaptcha" != "")
+				            <div class="form-group sign-captcha">
+				                <div class="col-md-5">
+				                    <div class="input-group">
+				                        <span class="input-group-addon">
+				                            <span class="icon-vertify-code-o"></span>
+				                        </span>
+				                        <input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+				                </div>
+				                <div class="col-md-4">
+				                    <img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+				                <div class="col-md-1">
+				                    <a href="#" class="sign-refresh">
+				                        <span class="icon-refresh"></span>
+				                    </a>
+				                </div>
+				            </div>
+						#end
+												
+						<div class="form-group">
+							<a href="/cooka-user-web/resetOptions" class="pull-left">#springMessage("forget_password")</a>
+						</div>
+						#if($!emailNotActive)
+							<div class="alert alert-danger">
+	                        	#springMessage("click_to_send_the_activation_email_again") <a href="/cooka-user-web/active?email=$!emailNotActive">#springMessage("send")</a>
+	                        </div>
+	                    #else
+						<div class="alert alert-danger sign-errors hide">				
+							#springBind("user.account")
+						 	#foreach($error in $status.errorMessages)
+						    	$error
+						    #end
+						    
+						    #springBind("user.password")
+				         	#foreach($error in $status.errorMessages)
+				            	$error
+				            #end 
+				            
+				            #springBind("user.captcha")
+				         	#foreach($error in $status.errorMessages)
+				            	$error
+				            #end
+						</div>
+						#end
+						<div class="form-group">
+							<button class="btn btn-secondary-light btn-block sign-btn" type="submit" id="sign-btn">#springMessage("sign_in")</button>
+						</div>
+						
+						<div class="social-sign" data-j="socialSign">
+							<div class="social-sign-line">
+								<span>or</span>
+							</div>
+							<a href="/cooka-user-web/facebookLogin" class="social-sign-btn ssb-facebook">
+								<span class="icon-facebook"></span>
+								Sign in with Facebook
+							</a>
+							<a href="/cooka-user-web/googleLogin" class="social-sign-btn ssb-google">
+								<span class="icon-google-plus"></span>
+								Sign in with Google+
+							</a>
+						</div>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

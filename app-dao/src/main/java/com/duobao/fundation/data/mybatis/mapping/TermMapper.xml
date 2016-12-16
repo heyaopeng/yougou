@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.TermMapper" >
+  <resultMap id="Term" type="com.duobao.fundation.data.mybatis.model.Term" >
+    <id column="term_id" property="termId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="order_serialNum" property="orderSerialnum" jdbcType="VARCHAR" />
+    <result column="product_title" property="productTitle" jdbcType="VARCHAR" />
+    <result column="product_image" property="productImage" jdbcType="VARCHAR" />
+    <result column="product_price" property="productPrice" jdbcType="DECIMAL" />
+    <result column="total_amount" property="totalAmount" jdbcType="INTEGER" />
+    <result column="current_amount" property="currentAmount" jdbcType="INTEGER" />
+    <result column="current_term" property="currentTerm" jdbcType="INTEGER" />
+    <result column="lucky_num" property="luckyNum" jdbcType="INTEGER" />
+    <result column="lucky_order" property="luckyOrder" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="full_time" property="fullTime" jdbcType="TIMESTAMP" />
+    <result column="open_time" property="openTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="is_quick" property="isQuick" jdbcType="BIT" />
+    <result column="is_pk" property="isPk" jdbcType="BIT" />
+    <result column="money_limit" property="moneyLimit" jdbcType="INTEGER" />
+    <result column="caipiao_term" property="caipiaoTerm" jdbcType="VARCHAR" />
+    <result column="coupon_id" property="couponId" jdbcType="INTEGER" />
+    <result column="is_point" property="isPoint" jdbcType="BIT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="point" property="point" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    term_id, product_id,product_title,product_image,product_price, total_amount, current_amount, current_term,lucky_num, lucky_order,start_time,full_time, open_time, 
+    status, is_quick,is_pk, money_limit,caipiao_term,coupon_id,is_point,code,point
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Term" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where term_id = #{termId,jdbcType=INTEGER}
+  </select>
+  <select id="getWaitingOpenList" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where (status='running' or status='openning') and total_amount=current_amount
+  </select>
+  <select id="selectForTermOpenningHandler" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where (status='running') and is_point=1
+  </select>
+  <select id="selectForTermOpenHandler" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where (status='openning') and is_point=1
+  </select>
+   <select id="selectWaitingForOpen" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where status='openning' order by term_id asc limit 50
+  </select>
+  <select id="selectAll" resultMap="Term">
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms where status='running' and money_limit=1 or (money_limit=10 and total_amount > 500)
+  </select>
+  <select id="selectAllOneLimit" resultMap="Term">
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms where money_limit=1 and status='running'
+  </select>
+  <select id="selectAllTenLimit" resultMap="Term">
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms where money_limit=10 and status='running'
+  </select>
+  <select id="selectByCode" resultMap="Term">
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms where code = #{code,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAllPK" resultMap="Term">
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms where is_pk=1 and status='running'
+  </select>
+  <select id="selectByCaiPiao" resultMap="Term" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where caipiao_term = #{caipiaoTerm,jdbcType=INTEGER}
+  </select>
+  <select id="getLatestOpenList" resultMap="Term">
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where status = 'openning' or status='opened' order by status,full_time desc
+  </select>
+  <select id="selectLatestForTermInfo" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where term_id &lt; #{termId,jdbcType=INTEGER} and product_id=#{productId,jdbcType=INTEGER} and is_quick=#{isQuick,jdbcType=BIT}
+    and money_limit = #{moneyLimit,jdbcType=INTEGER} and status='opened' order by term_id desc limit 10 
+  </select>
+  <select id="selectLatestWinTermInfo" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where term_id &lt; #{termId,jdbcType=INTEGER} and product_id=#{productId,jdbcType=INTEGER} and is_quick=#{isQuick,jdbcType=BIT}
+    and money_limit = #{moneyLimit,jdbcType=INTEGER} and status='opened' order by term_id desc limit 3
+  </select>
+  <select id="selectAllWinTermInfo" resultMap="Term" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_terms
+    where term_id &lt;= #{termId,jdbcType=INTEGER} and product_id=#{productId,jdbcType=INTEGER} and is_quick=#{isQuick,jdbcType=BIT}
+    and money_limit = #{moneyLimit,jdbcType=INTEGER} and status='opened' order by term_id desc
+  </select>
+  <select id="getAllProductSelective" resultMap="Term" >
+    select 
+    distinct A.*
+    from db_terms as A
+    left join db_products_categories_link as B on A.product_id=B.product_id
+    <where>
+    	<if test="categoryId != null">
+    		and B.category_id= #{categoryId,jdbcType=INTEGER}
+    		<if test="categoryId!=15">
+	    		and A.is_point=0
+	    	</if>
+	    	<if test="categoryId==15">
+	    		and A.is_point=1 and A.code=''
+	    	</if>
+    	</if>
+    	<if test="moneyLimit != null">
+    		and A.money_limit= #{moneyLimit,jdbcType=INTEGER} and A.is_point=0
+    	</if>
+    	<if test="isQuick != null">
+    		and A.is_quick= #{isQuick,jdbcType=BIT} and A.is_point=0
+    	</if>
+    	<if test="isPk != null">
+    		and A.is_pk = #{isPk,jdbcType=BIT} and A.is_point=0
+    	</if>
+    	<if test="categoryId == null and moneyLimit == null and isQuick == null and isPk == null">
+    		and A.is_point=0
+    	</if>
+    	and A.status="running"
+    	
+    </where>
+    <if test="filterType == 'process' " >
+    	order by A.current_amount/A.total_amount desc
+    </if>
+    <if test="filterType == 'newest' " >
+    	order by A.start_time desc
+    </if>
+    <if test="filterType == 'priceAsc' " >
+    	order by A.product_price asc
+    </if>
+    <if test="filterType == 'priceDesc' " >
+    	order by A.product_price desc
+    </if>
+  </select>
+  <select id="selectByTerm" resultMap="Term" >
+    select *
+    from db_terms 
+    <where>
+    	<if test="moneyLimit != null">
+    		and money_limit= #{moneyLimit,jdbcType=INTEGER}
+    	</if>
+    	<if test="productId != null">
+    		and product_id= #{productId,jdbcType=INTEGER}
+    	</if>
+    	<if test="isQuick != null">
+    		and is_quick= #{isQuick,jdbcType=BIT}
+    	</if>
+    	<if test="isPk != null">
+    		and is_pk = #{isPk,jdbcType=BIT}
+    	</if>
+    </where>
+    order by term_id desc limit 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_terms
+    where term_id = #{termId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Term" useGeneratedKeys="true"
+    keyProperty="termId">
+    insert into db_terms (term_id,product_id, product_title,product_image,product_price, total_amount, 
+      current_amount,current_term, lucky_num,lucky_order, start_time, full_time,
+      open_time, status, is_quick, is_pk
+      money_limit,caipiao_term,coupon_id,is_point,code,point)
+    values (#{termId,jdbcType=INTEGER},#{productId,jdbcType=INTEGER}, #{productTitle,jdbcType=VARCHAR}, #{productImage,jdbcType=VARCHAR}, #{productPrice,jdbcType=DECIMAL}, #{totalAmount,jdbcType=INTEGER}, 
+      #{currentAmount,jdbcType=INTEGER},#{currentTerm,jdbcType=INTEGER}, #{luckyNum,jdbcType=INTEGER}, #{luckyOrder,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, #{fullTime,jdbcType=TIMESTAMP},
+      #{openTime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, #{isQuick,jdbcType=BIT}, #{isPk,jdbcType=BIT}, 
+      #{moneyLimit,jdbcType=INTEGER}, #{caipiaoTerm,jdbcType=VARCHAR},#{couponId,jdbcType=INTEGER}, #{isPoint,jdbcType=BIT}, #{code,jdbcType=VARCHAR}, #{point,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Term" useGeneratedKeys="true"
+    keyProperty="termId">
+    insert into db_terms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="termId != null" >
+        term_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="productTitle != null" >
+        product_title,
+      </if>
+      <if test="productImage != null" >
+        product_image,
+      </if>
+      <if test="productPrice != null" >
+        product_price,
+      </if>
+      <if test="totalAmount != null" >
+        total_amount,
+      </if>
+      <if test="currentTerm != null" >
+        current_term,
+      </if>
+      <if test="currentAmount != null" >
+        current_amount,
+      </if>
+      <if test="luckyNum != null" >
+        lucky_num,
+      </if>
+      <if test="luckyOrder != null" >
+        lucky_order,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="fullTime != null" >
+        full_time,
+      </if>
+      <if test="openTime != null" >
+        open_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isQuick != null" >
+        is_quick,
+      </if>
+      <if test="isPk != null" >
+        is_pk,
+      </if>
+      <if test="moneyLimit != null" >
+        money_limit,
+      </if>
+      <if test="caipiaoTerm != null" >
+        caipiao_term,
+      </if>
+      <if test="couponId != null" >
+        coupon_id,
+      </if>
+      <if test="isPoint != null" >
+        is_point,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="point != null" >
+        point,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="termId != null" >
+        #{termId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productTitle != null" >
+        #{productTitle,jdbcType=VARCHAR}, 
+      </if>
+      <if test="productImage != null" >
+        #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productPrice != null" >
+        #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmount != null" >
+        #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="currentAmount != null" >
+        #{currentAmount,jdbcType=INTEGER},
+      </if>
+      <if test="currentTerm != null" >
+        #{currentTerm,jdbcType=INTEGER},
+      </if>
+      <if test="luckyNum != null" >
+        #{luckyNum,jdbcType=INTEGER},
+      </if>
+      <if test="luckyOrder != null" >
+        #{lucky_order,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fullTime != null" >
+        #{fullTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openTime != null" >
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="isQuick != null" >
+        #{isQuick,jdbcType=BIT},
+      </if>
+      <if test="isPk != null" >
+        #{isPk,jdbcType=BIT},
+      </if>
+      <if test="moneyLimit != null" >
+        #{moneyLimit,jdbcType=INTEGER},
+      </if>
+      <if test="caipiaoTerm != null" >
+        #{caipiaoTerm,jdbcType=VARCHAR},
+      </if>
+       <if test="couponId != null" >
+        #{couponId,jdbcType=INTEGER},
+      </if>
+       <if test="isPoint != null" >
+        #{isPoint,jdbcType=BIT},
+      </if>
+       <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+       <if test="point != null" >
+        #{point,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Term" >
+    update db_terms
+    <set >
+       <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER}, 
+      </if>
+       <if test="productTitle != null" >
+        product_title = #{productTitle,jdbcType=VARCHAR}, 
+      </if>
+      <if test="productImage != null" >
+        product_image = #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productPrice != null" >
+        product_price = #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalAmount != null" >
+        total_amount = #{totalAmount,jdbcType=INTEGER},
+      </if>
+      <if test="currentAmount != null" >
+        current_amount = #{currentAmount,jdbcType=INTEGER},
+      </if>
+      <if test="currentTerm != null" >
+        current_term = #{currentTerm,jdbcType=INTEGER},
+      </if>
+      <if test="luckyNum != null" >
+        lucky_num = #{luckyNum,jdbcType=INTEGER},
+      </if>
+      <if test="luckyOrder != null" >
+        lucky_order = #{luckyOrder,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fullTime != null" >
+        full_time = #{fullTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openTime != null" >
+        open_time = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="isQuick != null" >
+        is_quick = #{isQuick,jdbcType=BIT},
+      </if>
+      <if test="isPk != null" >
+        is_pk = #{isPk,jdbcType=BIT},
+      </if>
+      <if test="moneyLimit != null" >
+        money_limit = #{moneyLimit,jdbcType=INTEGER},
+      </if>
+      <if test="caipiaoTerm != null" >
+        caipiao_term = #{caipiaoTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="couponId != null" >
+        coupon_id = #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="isPoint != null" >
+        is_point = #{isPoint,jdbcType=BIT},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null" >
+        point = #{point,jdbcType=INTEGER},
+      </if>
+    </set>
+    where term_id = #{termId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Term" >
+    update db_terms
+    set product_id = #{productId,jdbcType=INTEGER}, 
+     product_title = #{productTitle,jdbcType=VARCHAR}, 
+      product_image = #{productImage,jdbcType=VARCHAR},
+      product_price = #{productPrice,jdbcType=DECIMAL},
+      total_amount = #{totalAmount,jdbcType=INTEGER},
+      current_amount = #{currentAmount,jdbcType=INTEGER},
+      current_term = #{currentTerm,jdbcType=INTEGER},
+      lucky_num = #{luckyNum,jdbcType=INTEGER},
+      lucky_order = #{luckyOrder,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      full_time = #{fullTime,jdbcType=TIMESTAMP},
+      open_time = #{openTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      is_quick = #{isQuick,jdbcType=BIT},
+      is_pk = #{isPk,jdbcType=BIT},
+      money_limit = #{moneyLimit,jdbcType=INTEGER},
+      coupon_id = #{couponId,jdbcType=INTEGER},
+      caipiao_term = #{caipiaoTerm,jdbcType=VARCHAR},
+      is_point = #{isPoint,jdbcType=BIT},
+      code = #{code,jdbcType=VARCHAR},
+      point = #{point,jdbcType=INTEGER}
+    where term_id = #{termId,jdbcType=INTEGER}
+  </update>
+  <update id="updateCurrentAmountById" parameterType="java.lang.Integer" >
+    update db_terms
+    set 
+      current_amount = #{currentAmount,jdbcType=INTEGER}
+    where term_id = #{termId,jdbcType=INTEGER}
+  </update>
+</mapper>

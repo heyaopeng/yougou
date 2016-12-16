@@ -1,0 +1,220 @@
+@import "public.less"; 
+
+.b-college {
+	&-bg {
+		background-image: url(../images/bc_bg.jpg);
+		background-repeat: no-repeat;
+		background-position: center top;
+		// background-size: 100%;
+	}
+
+	&-hero {
+		&-title {
+			margin-top: 50px;
+			margin-bottom: 30px;
+		}
+
+		&-more {
+			color: #fff;
+			text-align: center;
+			font-size: 18px;
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin: 0 auto;
+			margin-bottom: 100px;
+			position: relative;
+			z-index: 99;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&-steps {
+		.clearfix();
+		margin-top: 100px;
+		margin-bottom: 50px;
+	}
+
+	&-step {
+		width: 290px;
+		margin: 0 10px;
+		float: left;
+		background-color: #fff;
+		position: relative;
+		padding: 10px;
+		padding-top: 55px;
+
+		&-icon {
+			width: 115px;
+			height: 115px;
+			background-color: @ck-main;
+			color: #fff;
+			display: block;
+			position: absolute;
+			top: -55px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+
+			[class^="icon-"], [class*=" icon-"] {
+				font-size: 72px;
+				width: 72px;
+				height: 72px;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+		}
+
+		&-title {
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 15px;
+			color: @ck-main;
+		}
+
+		&-intro {
+			text-align: center;
+		}
+	}
+
+	&-section {
+		position: relative;
+		padding-top: 100px;
+		&-heading {
+			color: #fff;
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			top: -75px;
+		}
+
+
+		&-title {
+			display: table-cell;
+			vertical-align: middle;
+			width: 150px;
+			height: 150px;
+			text-align: center;
+			position: relative;
+			z-index: 9;
+		}
+
+		&-diamond {
+			width: 0;
+			height: 0;
+			border: 75px solid transparent;
+			border-bottom-color: @ck-main;
+			position: absolute;
+			top: -75px;
+			display: block;
+			z-index: 9;
+
+			&:after {
+				content: '';
+				position: absolute;
+				left: -75px;
+				top: 75px;
+				width: 0;
+				height: 0;
+				display: block;
+				border: 75px solid transparent;
+				border-top-color: @ck-main;
+			}
+		}
+	}
+
+	&-panel {
+		background-color: #fff;
+		margin: 10px;
+		padding: 10px;
+		height: 360px;
+
+		&-heading {
+			color: @ck-main;
+			border-bottom: 1px solid @ck-main;
+			padding: 10px;
+			position: relative;
+
+			&-link {
+				color: #333;
+				display: inline-block;
+				position: absolute;
+				z-index: 9;
+				top: 10px;
+				right: 10px;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: #333;
+					text-decoration: none;
+				}
+			}
+		}
+
+		&-body {
+			padding: 10px;
+		}
+	}
+
+	&-pop {
+
+		&-title {
+			position: relative;
+			padding-left: 15px;
+			font-weight: bold;
+
+			&:before {
+				content: "●";
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+
+		&-brief {
+			font-size: 13px;
+			padding-left: 25px;
+		}
+	}
+
+	&-knowledge {
+		margin-top: 75px;
+		background-color: #fff;
+		padding-bottom: 100px;
+	}
+
+	&-kbs {
+		.clearfix();
+		position: relative;
+   		z-index: 9;
+	}
+
+	&-kb {
+		width: 100/4%;
+		float: left;
+		padding: 10px;
+		margin-top: 0;
+
+		.media-heading {
+			color: @ck-main;
+			border-bottom: 1px solid @ck-main;
+		}
+
+		&-dark {
+			background-color: #f9f9f9;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 trim-col">
+			#parse("admin_header.vm")
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2 trim-col">
+			#parse("admin_sidebar.vm")
+		</div>
+		<div class="col-md-10 trim-right">
+			$screen_content
+		</div>
+	</div>
+</div>

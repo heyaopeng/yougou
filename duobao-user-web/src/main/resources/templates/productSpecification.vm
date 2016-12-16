@@ -1,0 +1,168 @@
+
+<form class="pro-detail-info js-shopping-modal-form" data-j="proDetailInfo" method="post">
+<h5 class="shopping-modal-title text-center">#springMessage('shopping')</h5>
+ <div class="shopping-modal-line"></div>
+	<table class="table  pro-detail-info-gradient">
+		<tr class="pro-detail-info-gradient-num">
+			<td>#springMessage("number")</td>
+			#foreach ($productPrice in $product.productPrices) #if($velocityCount <
+	$product.productPrices.size()) #set($index=$velocityCount) #set($a=${product.productPrices[$index].amountLimit}
+	- 1) #if($velocityCount==1)
+	<td>#springMessage("at_least"): ${productPrice.amountLimit} - ${a}</td> #else
+	<td>${productPrice.amountLimit} - ${a}</td> #end #else #if($product.productPrices.size()==1)
+	<td>#springMessage("at_least"): $productPrice.amountLimit</td> #else
+	<td>&ge; $productPrice.amountLimit</td> #end #end #end
+		</tr>
+		<tr class="pro-detail-info-gradient-price">
+			<td>#springMessage("price")($!currency.getPricecurrencysymbol())</td>
+			#foreach ($productPrice in $product.productPrices)
+	<td>  $!cookies.getFixLengthByLang(${productPrice.price})</td> #end	
+		</tr>
+	</table>
+		<input type="hidden" name="storeId" value="$product.storeId" /> 
+						<input type="hidden" name="productId" value="$product.productId" />										
+						<input type="hidden" name="imageUrl" value="#if($product.productImages.size()>=1)$product.productImages[0].imageUrl#end" />
+						<div class="form-horizontal">
+						#foreach($specification in $product.specifications) 
+							#if($specification.displaytype == "horizontal")
+								<div class="form-group  pro-detail-info-color">
+									<span class="col-md-2  pro-detail-info-title">
+										$!specification.specification:
+									</span>
+									<div class="col-md-8">									
+										<ul class="pro-detail-info-color-ul" data-j="proDetailColor">
+											#set($flag=[]) 
+											#foreach($value in $specification.specificationValues) 
+												#if($value.imageUrl)
+												<li class="#if($velocityCount==1)active#end pro-detail-info-color-li pro-detail-info-color-li-width js-color-li"><a data-toggle="tab" href="#c$value.valueId" class="pick-link"
+													data-color="$value.value"> <img src="$value.imageUrl" alt="$value.value" title="$value.value">
+												</a></li> 
+												#else
+												<li class="#if($velocityCount==1)active#end pro-detail-info-color-li js-color-li"><a data-toggle="tab" href="#c$value.valueId" class="pick-link"
+													data-color="$value.value"> <span class="type-item">$value.value</span>				
+												</a>
+												</li> 
+												#end 
+											
+											#set($temp = $flag.add("c$value.valueId"))
+											#set($itemCount = $product.specifications.size()) 
+											#end
+											#foreach($value in $specification.selfSpecificationValues) 
+												#if($value.imageUrl)
+												<li class="pro-detail-info-color-li pro-detail-info-color-li-width js-color-li">
+												<a data-toggle="tab" href="#c$value.hashCode" data-color="$value.selfValue"> <img src="$value.imageUrl" alt="$value.selfValue" title="$value.selfValue"></a>
+												</li> 
+												#else
+												<li class="pro-detail-info-color-li js-color-li">
+												<a data-toggle="tab" href="#c$value.hashCode" data-color="$value.selfValue"> <span class="type-item">$value.selfValue</span></a>
+												</li> 
+												#end 
+											#set($temp = $flag.add("c$value.hashCode"))
+											#end
+										</ul>
+									</div>
+								</div>
+							#elseif($specification.displaytype == "vertical")
+								<div class="form-group  pro-detail-info-size"  data-j="proDetailSize">
+									<div class="col-md-2">
+										<span class="pro-detail-info-title">$!specification.specification :</span>
+									</div>
+									<div class="col-md-8 tab-content">
+										#set($index = 0)
+										#set($indexB = 0)
+										#foreach($item in $flag)
+										#set($valueCount = $specification.specificationValues.size() + $specification.selfSpecificationValues.size())
+										<div class="tab-pane fade #if($velocityCount == 1) in active#end js-table" id="$item"  data-tr ="$valueCount">
+										#if($product.unitOfSale)<span class="pro-detail-info-pack">#springMessage("only_sells_by") $product.unitOfSale.saleUnit (1 $product.unitOfSale.saleUnit = $product.productSaleUnitLink.unitAmount $product.unit) </span>#end
+											
+											<table class="table pro-detail-info-size-table">
+												#foreach($value in $specification.specificationValues)
+													#if($product.specificationCombinations[$index].amount > 0)
+													<tr>
+														<td width="20%">$value.value</td>
+														<td width="30%" class="pro-detail-info-size-available">#if($product.specificationCombinations[$index].amount)$product.specificationCombinations[$index].amount#else 0 #end</td>
+														<td width="50%">
+															<div class="input-group js-minus-plus-group" data-j="minusPlusGroup" data-min="0" data-pack="#if($product.unitOfSale) $product.productSaleUnitLink.unitAmount #else 1 #end" data-max="#if($product.specificationCombinations[$index].amount)$product.specificationCombinations[$index].amount #else 0 #end">
+																<span class="input-group-btn">
+																	<button class="btn js-minus shopping-modal-btn" type="button">
+																		<span class="icon-minus"></span>
+																	</button>
+																</span>
+																<input type="hidden" name="combination[$indexB].combinationId" value=" $product.specificationCombinations[$index].combinationId" />
+																<input name="combination[$indexB].getamount" value="0" type="text" class="form-control js-quantity f-quantity" data-max="#if($product.specificationCombinations[$index].amount)$product.specificationCombinations[$index].amount #else 0 #end">
+																<span class="input-group-btn">
+																	<button class="btn js-plus  shopping-modal-btn" type="button">
+																		<span class="icon-plus"></span>
+																	</button>
+																</span>
+															</div>
+														</td>
+													</tr>
+													#set($indexB = $indexB + 1) 
+													#end
+													#set($index = $index + 1) 
+												#end
+												#foreach($value in $specification.selfSpecificationValues)
+													#if($product.specificationCombinations[$index].amount > 0)
+													<tr>
+														<td width="20%">$value.selfValue</td>
+														<td width="30%" class="pro-detail-info-size-available">#if($product.specificationCombinations[$index].amount)$product.specificationCombinations[$index].amount#else 0 #end</td>
+														<td width="50%">
+															<div class="input-group js-minus-plus-group" data-j="minusPlusGroup" data-min="0" data-pack="#if($product.unitOfSale) $product.productSaleUnitLink.unitAmount #else 1 #end" data-max="#if($product.specificationCombinations[$index].amount)$product.specificationCombinations[$index].amount#else 0 #end">
+																<span class="input-group-btn ">
+																	<button class="btn btn-primary js-minus  shopping-modal-btn" type="button">
+																		<span class="icon-minus"></span>
+																	</button>
+																</span>
+																<input type="hidden" name="combination[$indexB].combinationId" value=" $product.specificationCombinations[$index].combinationId" />
+																<input name="combination[$indexB].getamount" value="0" type="text" class="form-control js-quantity f-quantity" data-max="#if($product.specificationCombinations[$index].amount)$product.specificationCombinations[$index].amount #else 0 #end">
+																<span class="input-group-btn">
+																	<button class="btn btn-primary js-plus  shopping-modal-btn" type="button">
+																		<span class="icon-plus"></span>
+																	</button>
+																</span>
+															</div>
+														</td>
+													</tr>
+													#set($indexB = $indexB + 1)
+													#end
+													#set($index = $index + 1) 
+												#end
+											</table>
+										</div>
+										#end
+									</div>
+									 
+									<div class="js-icon-group hidden">									
+										 <span class="icon-chevron-down js-down"></span>
+	                                     <span class="icon-chevron-up hidden js-up"></span>
+									</div>
+								</div>
+							#end
+						#end
+	<div class="form-group">
+		<span class="pro-detail-info-messages">
+			<small class="help-block hidden js-say-less">#springMessage("the_total_pieces_less_than_requested")</small>
+			<small class="help-block hidden js-say-more">#springMessage("the_total_pieces_more_than_inventories")</small>
+		</span>
+	</div>											
+	<div class="form-group pro-detail-info-total">
+		<span class="col-md-2  pro-detail-info-title">
+			#springMessage("total_price") :
+		</span>
+		<div class="col-md-8 js-pro-detail-total" data-j="proDetailTotal"
+			 data-range="#foreach($productPrice in $product.productPrices)#if($velocityCount < $product.productPrices.size())$productPrice.amountLimit #else$productPrice.amountLimit#end#end" data-cost="#foreach($productPrice in $product.productPrices)#if($velocityCount < $product.productPrices.size())$productPrice.price #else$productPrice.price#end#end">
+			<span class="pro-detail-info-cost">&nbsp;<span class="js-cost">$!currency.getPricecurrencysymbol()</span>0</span>
+			<span class="pro-detail-info-piece">&nbsp;(<span class="js-piece">0</span> $product.unit)</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-10 text-center" data-j="shoppingModalBtn">
+				<button type="button" class="btn btn-primary btn-round js-cart">
+				#springMessage("confirm")</button>
+				<button type="button" class="btn btn-default btn-round shopping-modal-cancel js-cancel">
+				#springMessage("cancel")</button>
+		</div>
+	</div>
+	</div>
+</form> 

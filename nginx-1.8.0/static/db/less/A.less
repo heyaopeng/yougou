@@ -1,0 +1,138 @@
+@import "../less/public.less";
+
+body {
+	background-color: #F2F2F2;
+}
+
+.trim-left {
+	padding-left: 0;
+}
+
+.trim-right {
+	padding-right: 0;
+}
+
+.trim-col {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.trim-out {
+	margin-left: -5px;
+	margin-right: -5px;
+}
+
+.form-horizontal .control-label {
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: right;
+	font-weight: normal;
+}
+
+.form-control {
+	border-radius: 2px;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: @ck_main;
+	border-color: @ck_main;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+	color: #fff;
+	background-color: darken(@ck_main, 5%);
+	border-color: darken(@ck_main, 5%);
+}
+
+.btn-primary:hover {
+	color: #fff;
+	background-color: darken(@ck_main, 5%);
+	border-color: darken(@ck_main, 5%);
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	color: #fff;
+	background-color: darken(@ck_main, 5%);
+	border-color: darken(@ck_main, 5%);
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+	color: #fff;
+	background-color: darken(@ck_main, 5%);
+	border-color: darken(@ck_main, 5%);
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-image: none;
+}
+
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+	background-color: lighten(@ck_main, 5%);
+	border-color: lighten(@ck_main, 5%);
+}
+
+.btn-primary[disabled] {
+	color: #ddd;
+}
+
+.btn {
+	border-radius: 2px;
+}
+
+.help-block {
+	text-align: center;
+	font-size: small;
+}
+
+.alert {
+	border-radius: 2px;
+}
+
+.app-loader {
+	height: 5px;
+	background-color: @ck_main;
+	-webkit-animation: appload 5s ease-in-out;
+	animation: appload 5s ease-in-out;
+}
+
+@-webkit-keyframes appload {
+	from {
+		width: 1%;
+	}
+
+	to {
+		width: 99%;
+	}
+}
+
+@keyframes appload {
+	from {
+		width: 1%;
+	}
+
+	to {
+		width: 99%;
+	}
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<title>商家管理系统</title>
+	<link rel="stylesheet" href="$staticConfig.getPath()/CKF/build/mBasSign.css"></head>
+	<!--[if lt IE 9]>
+		<script src="$staticConfig.getPath()/CKF/js/libs/html5shiv.min.js"></script>
+		<script src="$staticConfig.getPath()/CKF/js/libs/respond.min.js"></script>
+	<![endif]-->
+<body>
+
+	<div class="container-fluid">
+		<div class="col-xs-10">
+			<div class="m-bas-sign">
+				<img src="$staticConfig.getPath()/CKF/images/m_bas_logo.png" width="100%" class="m-bas-sign-logo">
+
+				<div class="m-bas-sign-inner">
+					<form action="" id="m-bas-sign-in-form">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-user"></span>
+								</span>
+								<input type="email" class="form-control f-email" placeholder="用户名">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-lock-o"></span>
+								</span>
+								<input type="password" class="form-control f-password" placeholder="密码">
+							</div>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary btn-block" type="submit">登录</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="$staticConfig.getPath()/CKF/build/zh_CN.mBasSign.js"></script>
+</body>
+</html>

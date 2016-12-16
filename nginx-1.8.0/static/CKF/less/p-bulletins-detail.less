@@ -1,0 +1,45 @@
+@import "public.less";
+
+.bulletins-detail {
+	&-info {
+		margin-top: 10px;
+		border-left: 3px solid @ck-sub-light;
+		text-indent: 1em;
+		padding: 8px;
+		background: #f7f7f7;
+	}
+
+	&-sender,
+	&-consignee,
+	&-data {
+		line-height: 24px;
+		height: 24px;
+
+		span {
+			background-color: #e2e3e4;
+			padding: 2px 12px;
+		}
+	}
+
+	&-theme {
+		margin-left: 3px;
+		padding-top: 14px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #999;
+		color: @ck-main;
+		letter-spacing: 2px;
+		
+		span {
+			margin-left: 6px;
+			margin-right: 10px;
+		}
+	}
+
+	&-content {
+		margin-left: 3px;
+		padding-top: 8px;
+		padding-left: 12px;
+		padding-right: 20px;
+		margin-bottom: 40px;
+	}
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>Refund Check</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+    <!--[if lt IE 9]>
+        <script src="./js/libs/html5shiv.min.js"></script>
+        <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 trim-left">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+                        店铺管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="store-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我要开店</a></li>
+                            <li><a href="#">店铺装修</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+                        产品管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="product-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我的产品</a></li>
+                            <li><a href="#">产品上架</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="admin-main">
+                <div class="admin-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="#">货物配送</a></li>
+                        <li class="active">退货确认</li>
+                    </ol>
+                </div>
+                <div class="refund-check-module">
+                    <div class="order-search-module">
+                        <form class="form-horizontal order-search-form" id="order-search-form">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label trim-right">请输入接收退货的订单号：</label>
+                                <div class="col-md-4 trim-left">
+                                    <input type="text" class="form-control order-search-num" placeholder="订单号">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form class="form-horizontal refund-order-info" id="refund-order-info">
+                            <dl>
+                                <dt class="">退货订单信息：</dt>
+                                <dd><span class="col-md-3 text-right">订单号：</span><span class="col-md-9"><span>201509345355232546325</span><a href="#">查看货物清单</a></span></dd>
+                                <dd><span class="col-md-3 text-right">订单金额：</span><span class="col-md-9">333.00 VND</span></dd>
+                                <dd><span class="col-md-3 text-right">退货商品数：</span><span class="col-md-9">78</span></dd>
+                                <dd><span class="col-md-3 text-right">退货理由：</span><span class="col-md-9">收到的衣服全部都烂了！！！</span></dd>
+                                <dt>商场审核意见：</dt>
+                                <dd>
+                                    <span class="col-md-3 text-right">审核状态：</span>
+                                    <span class="col-md-9 text-success">已通过</span>
+                                    <!-- <span class="col-md-9 text-danger">未通过</span>
+                                    <span class="col-md-9 text-warning">未审核</span> -->
+                                </dd>
+                                <dd><span class="col-md-3 text-right">审核意见：</span><span class="col-md-9">是的，知道了</span></dd> 
+                                <dt>仓库验收货物：</dt>
+                                <dd>
+                                    <div class="form-group refund-order-check-result">
+                                        <label class="control-label col-md-3">验收结果：</label>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="1">通过</option>
+                                                <option value="2">不通过</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group refund-order-check-fail">
+                                        <label class="control-label col-md-3">不通过理由：</label>
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option value="1">退款银行账号有误</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">验收意见：</label>
+                                        <div class="col-md-6">
+                                            <textarea class="form-control f-advice" rows="7"></textarea>
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <button class="btn btn-default">提交</button>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+<script src="./js/libs/FV/formValidation.min.js"></script>
+<script src="./js/libs/FV/bootstrap.min.js"></script>
+<script src="./js/libs/FV/i18n.min.js"></script>
+<script src="./js/getUrlArg.js"></script>
+<script src="./js/ck_lang.js"></script>
+<script src="./js/libs/bootstrap-datepicker.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        var lang = $.getUrlArg('language');
+
+        // 搜索表单
+
+        $('#order-search-form .input-daterange').datepicker({
+            format: "yyyy/mm/dd",
+            startDate: "2014/12/01",
+            todayHighlight: true,
+            autoclose: true,
+            orientation: "top right",
+            language: lang
+        })
+        .on('changeDate', function () {
+            $('#rech-history-form').formValidation('revalidateField', 'f-time');
+        });
+
+        $('#order-search-form').formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            addOns: {
+                i18n: {}
+            },       
+            fields: {
+                'order-search-num': {
+                    selector: '#order-search-form .order-search-num',
+                    validators: {
+                        numeric: {
+                            message: {
+                                en_US: 'The order number consists of digits',
+                                zh_CN: '订单号由数字组成'
+                            }
+                        },
+                        stringLength: {
+                            max: 30,
+                            message: {
+                                en_US: 'The order number length is less than 30',
+                                zh_CN: '订单号长度小于30'
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[^\s]*$/,
+                            message: {
+                                en_US: 'The order number can not contain space',
+                                zh_CN: '订单号不能包含空格'
+                            }
+                        }
+                    }
+                },
+                'order-search-bussiness': {
+                    selector: '#order-search-form .order-search-bussiness',
+                    validators: {
+                        stringLength: {
+                            max: 20,
+                            message: {
+                                en_US: 'The order number length is less than 20',
+                                zh_CN: '订单号长度小于20'
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[^\s]*$/,
+                            message: {
+                                en_US: 'The order number can not contain space',
+                                zh_CN: '订单号不能包含空格'
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.validator.fv', function(e, data) {
+            data.element
+                    .data('fv.messages')
+                    .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+                    .filter('[data-fv-validator="' + data.validator + '"]').show();
+        });
+        $('#order-search-form').formValidation('setLocale',lang);
+
+        //---------------------------------------------------------------------------------------------
+
+        // 退货申请表单
+
+        var $checkFailClone = $('#refund-order-info').find('.refund-order-check-fail').clone(true);
+
+        $('#refund-order-info').find('.refund-order-check-fail').remove();
+
+        $('#refund-order-info').formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            addOns: {
+                i18n: {}
+            },       
+            fields: {
+                'f-advice': {
+                    selector: '#refund-order-info .f-advice',
+                    validators: {
+                        stringLength: {
+                            max: 300,
+                            message: {
+                                en_US: 'The order number length is less than 300',
+                                zh_CN: '订单号长度小于%'
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        .on('err.validator.fv', function(e, data) {
+            data.element
+                    .data('fv.messages')
+                    .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+                    .filter('[data-fv-validator="' + data.validator + '"]').show();
+        })
+        .on('change', '.refund-order-check-result select', function(event) {
+            event.preventDefault();
+            var $selectOpt = parseInt(this.value);
+            if($selectOpt === 2) {
+                $('#refund-order-info').find('.refund-order-check-result').after($checkFailClone);
+            } else {
+                $('#refund-order-info').find('.refund-order-check-fail').remove();
+            }
+        });
+        $('#refund-order-info').formValidation('setLocale',lang);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+@import "public.less";
+.payment{
+	background-color: #EDEDED;
+	.count-down{
+		text-align: center;
+		color: grey;
+		padding: 15px;
+		font-size: 15px;
+	}
+
+	&-countdown{
+		width: 100%;
+			background-color: white;
+		border-bottom: 1px solid #ddd;
+		&-title{
+			color: #FF3300;
+			padding: 15px;
+			font-size: 20px;
+			width: 100%;
+			text-align: center;
+		}
+		&-remind{
+			color: #C2C2C2;
+			padding: 15px;
+			font-size: 15px;
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&-info{
+		.clearfix();
+		width: 100%;
+		background-color: white;
+		margin-top:5px;
+
+		&-method{
+			padding: 15px;
+			border-bottom: 1px solid #ddd;
+			.red{
+				color: red;
+			}
+			&-text{
+				font-size: 15px;
+				margin-left: 10px;
+			}
+			&-image{
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+			}
+			.icon-check {
+				font-size: 23px;
+				position: absolute;
+				z-index: 1000;
+				right: 0;
+				bottom: 0;
+				color: #fff;
+				display: none;
+			}
+			&.active {	
+				border: 1px solid #ffa530;
+				border-color: #ffa530;
+				position: relative;
+				&::after {
+					content: '';
+					color: #fff;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 0 0 36px 36px;
+					border-color: transparent transparent #fc9005 transparent;
+					position: absolute;
+					z-index: 888;
+					bottom: 0;
+					right: 0;
+				}
+				.icon-check {
+					display: block;
+				}
+			}
+		}
+		&-money{
+			padding: 15px;
+		}
+	}
+
+	&-bottom{
+		position: fixed;
+		background-color: white;
+		left: 0;
+		right: 0;
+		width: 100%;
+		bottom: 3px;
+		border-top: 1px solid #ddd;
+		&-button{
+			width: 98%;
+			color: white;
+			padding: 15px;
+			background-color: #fc9005;
+			border-radius : 15px;
+			margin :1% 5px;
+		}
+	}
+}

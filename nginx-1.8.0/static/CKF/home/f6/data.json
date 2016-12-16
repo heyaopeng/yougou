@@ -1,0 +1,145 @@
+{
+    "f6": {
+        "src": "/CKF/home/f6/raw/hero.jpg",
+        "search": {
+            "102080000": "Giày nam",
+            "101090000": "Giày nữ",
+            "101050000": "Phụ kiên, tất nữ",
+            "105010000": "Túi"
+        },
+        "item": [
+            [
+                [
+                    {
+                        "id": "2763",
+                        "title": "Túi xách tay",
+                        "price": "317.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2763.jpg"
+                    },
+                    {
+                        "id": "2767",
+                        "title": "túi xách nữ , màu sắc cầu vồng nổi bật",
+                        "price": "230.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2767.jpg"
+                    }
+                ],
+                [
+                    {
+                        "id": "2771",
+                        "title": "Ba lô màu đen sành điệu",
+                        "price": "309.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2771.jpg"
+                    },
+                    {
+                        "id": "2775",
+                        "title": "Túi xách tay cao cấp",
+                        "price": "286.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2775.jpg"
+                    }
+                ],
+                [
+                    {
+                        "id": "2759",
+                        "title": "Túi xách tay",
+                        "price": "317.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2759.jpg"
+                    },
+                    {
+                        "title": "Boots nữ cổ thấp",
+                        "score": 5,
+                        "price": "298.000 VND",
+                        "id": "3784",
+                        "src": "/CKF/home/f6/raw/3784.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Boots nữ cổ thấp",
+                        "score": 5,
+                        "price": "270.000 VND",
+                        "id": "3793",
+                        "src": "/CKF/home/f6/raw/3793.jpg"
+                    },
+                    {
+                        "title": "Boots nữ cổ thấp gót thô",
+                        "score": 5,
+                        "price": "270.000 VND",
+                        "id": "3803",
+                        "src": "/CKF/home/f6/raw/3803.jpg"
+                    }
+                ]
+            ],
+            [
+                [
+                    {
+                        "title": "Boots nữ cao gót",
+                        "score": 5,
+                        "price": "258.000 VND",
+                        "id": "3804",
+                        "src": "/CKF/home/f6/raw/3804.jpg"
+                    },
+                    {
+                        "title": "giày đế bằng nam",
+                        "score": 5,
+                        "price": "139.000 VND",
+                        "id": "3872",
+                        "src": "/CKF/home/f6/raw/3872.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Giày vải bạt",
+                        "score": 5,
+                        "price": "163.000 VND",
+                        "id": "3873",
+                        "src": "/CKF/home/f6/raw/3873.jpg"
+                    },
+                    {
+                        "title": "Giày đế bằng",
+                        "score": 5,
+                        "price": "163.000 VND",
+                        "id": "3876",
+                        "src": "/CKF/home/f6/raw/3876.jpg"
+                    }
+                ],
+                [
+                    {
+                        "id": "2748",
+                        "title": "Mũ lưỡi trai",
+                        "price": "52.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2748.jpg"
+                    },
+                    {
+                        "id": "2755",
+                        "title": "Mũ lưỡi trai",
+                        "price": "40.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2755.jpg"
+                    }
+                ],
+                [
+                    {
+                        "id": "2745",
+                        "title": "Mũ len",
+                        "price": "64.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2745.jpg"
+                    },
+                    {
+                        "id": "2738",
+                        "title": "Mũ fedora",
+                        "price": "72.000 VND",
+                        "score": 5,
+                        "src": "/CKF/home/f6/raw/2738.jpg"
+                    }
+                ]
+            ]
+        ]
+    }
+}

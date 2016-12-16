@@ -1,0 +1,53 @@
+{{#each list}}
+	<div class="row comment-communication-buyer">
+		<div class="col-md-1 comment-communication-role">
+			<span class="comment-communication-name">{{userName}}</span>
+		</div>
+		<div class="col-md-9 comment-communication-col">
+			<div class="product-rate" data-j="productRate" data-score="{{scores}}">
+				<span class="product-rate-star">
+					<span class="icon-star-solid"></span>
+				</span>
+				<span class="product-rate-star">
+					<span class="icon-star-solid"></span>
+				</span>
+				<span class="product-rate-star">
+					<span class="icon-star-solid"></span>
+				</span>
+				<span class="product-rate-star">
+					<span class="icon-star-solid"></span>
+				</span>
+				<span class="product-rate-star">
+					<span class="icon-star-solid"></span>
+				</span>
+			</div>
+
+
+			{{#each comments}}
+				<div class="comment-communication-message">
+					<p>{{comment}}</p>
+					<span class="comment-communication-time">{{toTime createTime}}</span>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+	
+	<div class="row comment-communication-seller">
+		<div class="col-md-9 comment-communication-col">
+			{{#each sellerReply}}
+				<div class="comment-communication-message">
+					<p>{{comment}}</p>
+					<span class="comment-communication-time">{{toTime createTime}}</span>
+				</div>
+			{{/each}}
+		</div>
+		<div class="col-md-1 comment-communication-role">
+			<span class="comment-communication-name">{{sellerName}}</span>
+		</div>
+	</div>
+{{/each}}
+
+<div class="text-right">
+	{{{pageDiv this}}}
+</div>
+	

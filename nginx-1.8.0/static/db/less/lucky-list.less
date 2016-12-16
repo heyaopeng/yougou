@@ -1,0 +1,55 @@
+@import "public.less";
+
+.lucky-list {
+	
+	&-title {
+		padding: 10px;
+		border-bottom: 1px solid #ddd;
+		position: relative;
+	}
+
+	&-item {
+		background-color: white;
+		border-bottom: 1px solid #ccc;
+		&-header {
+			.clearfix();
+			padding: 5px 5px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		&-person {
+			.clearfix();
+			padding: 5px 0;
+			border-bottom: 1px solid #ccc;
+		}
+
+		&-img {
+			float: left;
+			padding: 10px;
+			> img {
+				border-radius: 50%;
+			}
+		}
+
+		&-info {
+			overflow: hidden;
+			padding-left: 10px;
+			.red{
+				color:#db3652;
+			}
+			.blank{
+				padding: 0 14px;
+			}
+			.blue{
+				color:#0079fe;
+			}
+		}
+
+		&-check {
+			text-align: center;
+			color: @ck_sub;
+			display: block;
+			padding: 10px;			
+		}
+	}
+}

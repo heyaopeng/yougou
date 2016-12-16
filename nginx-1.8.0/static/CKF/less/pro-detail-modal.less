@@ -1,0 +1,77 @@
+@import "public.less";
+.pro-detail-modal{
+    &-header{
+        color: @ck-main;
+        text-align: center;
+        font-size: 28px;
+        vertical-align: top;
+        height:80px;
+        [class*="icon"]{
+            font-size:72px;
+        }
+    }
+    &-title{
+        line-height:80px;
+        vertical-align: top;        
+    }
+    .user-collection-carousel-col{
+        width: 30%;
+        float: left;
+        margin: auto 12px;
+    }
+    &-carousel {
+        &-item {
+            .clearfix();
+        }
+
+        &-col {
+            
+        }
+
+        .carousel-control {
+            width: 30px;
+            height: 50px;
+            background-image: url(../images/carousel_arrow.png);
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .left {
+            background-position: 0 0;
+        }
+
+        .right {
+            background-position: -30px 0;
+        }
+    }
+
+
+    &-product{
+        &-img{
+            width: 100%;
+        }
+        &-info{
+            &-price{
+                color: @ck-main;
+            }
+            &-title{
+                width: 100%;
+                .one-line();
+            }
+        }
+    }
+    &-other{
+        text-align: center;
+        font-size: 18px;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+    &-footer{
+        text-align: center;
+        &-link{
+            display: block;
+            margin-top: 15px;
+        }
+    }
+}

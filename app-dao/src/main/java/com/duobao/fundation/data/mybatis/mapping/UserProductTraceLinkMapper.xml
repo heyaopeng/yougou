@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.UserProductTraceLinkMapper" >
+  <resultMap id="UserProductTraceLink" type="com.duobao.fundation.data.mybatis.model.UserProductTraceLink" >
+    <id column="product_id" property="productId" jdbcType="INTEGER" />
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="timestamp" property="timestamp" jdbcType="TIMESTAMP" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    product_id, user_id, timestamp, count
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="UserProductTraceLink" parameterType="com.duobao.fundation.data.mybatis.model.UserProductTraceLinkKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_product_trace_link
+    where product_id = #{productId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.UserProductTraceLinkKey" >
+    delete from db_user_product_trace_link
+    where product_id = #{productId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.UserProductTraceLink" >
+    insert into db_user_product_trace_link (product_id, user_id, timestamp, 
+      count)
+    values (#{productId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{timestamp,jdbcType=TIMESTAMP}, 
+      #{count,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.UserProductTraceLink" >
+    insert into db_user_product_trace_link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="timestamp != null" >
+        timestamp,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="timestamp != null" >
+        #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.UserProductTraceLink" >
+    update db_user_product_trace_link
+    <set >
+      <if test="timestamp != null" >
+        timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+    </set>
+    where product_id = #{productId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.UserProductTraceLink" >
+    update db_user_product_trace_link
+    set timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      count = #{count,jdbcType=INTEGER}
+    where product_id = #{productId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

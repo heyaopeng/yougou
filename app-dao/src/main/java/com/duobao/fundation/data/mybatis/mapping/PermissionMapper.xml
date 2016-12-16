@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.PermissionMapper" >
+  <resultMap id="Permission" type="com.duobao.fundation.data.mybatis.model.Permission" >
+    <id column="permission_id" property="permissionId" jdbcType="INTEGER" />
+    <id column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="permission" property="permission" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    permission_id, permission, tag, name, is_active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Permission" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_permissions
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </select>
+  
+  
+  <select id="selectRolePermissions" resultMap="Permission" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_permissions
+    <if test="roleId != null" >
+        where permission_id in (select permission_id from db_role_permission_link where  role_id = #{roleId,jdbcType=INTEGER} )
+      </if>
+  </select>
+  
+  <select id="selectPermissionsByTag" resultMap="Permission" parameterType="String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_permissions where tag = #{tag,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_permissions
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Permission" >
+    insert into db_permissions (permission_id, permission, tag, 
+      name, is_active)
+    values (#{permissionId,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{isActive,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Permission" >
+    insert into db_permissions
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        permission_id,
+      </if>
+      <if test="permission != null" >
+        permission,
+      </if>
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        #{permissionId,jdbcType=INTEGER},
+      </if>
+      <if test="permission != null" >
+        #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+    </trim>
+     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="permissionId" >  
+          select LAST_INSERT_ID()  
+        </selectKey> 
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Permission" >
+    update db_permissions
+    <set >
+      <if test="permission != null" >
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+    </set>
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Permission" >
+    update db_permissions
+    set permission = #{permission,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      is_active = #{isActive,jdbcType=BIT}
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </update>
+</mapper>

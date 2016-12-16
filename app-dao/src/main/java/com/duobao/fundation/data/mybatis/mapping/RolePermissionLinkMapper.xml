@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.RolePermissionLinkMapper" >
+  <resultMap id="RolePermissionLink" type="com.duobao.fundation.data.mybatis.model.RolePermissionLinkKey" >
+    <id column="role_id" property="roleId" jdbcType="INTEGER" />
+    <id column="permission_id" property="permissionId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.RolePermissionLinkKey" >
+    delete from db_role_permission_link
+    where role_id = #{roleId,jdbcType=INTEGER}
+      and permission_id = #{permissionId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <delete id="deleRolePermissions" parameterType="com.duobao.fundation.data.mybatis.model.RolePermissionLinkKey" >
+    delete from db_role_permission_link where 
+     <foreach collection="permissionIds" index="index" item="item"   open="(" separator="or" close=")"> 
+          role_id= #{roleId} and  permission_id=#{item}
+      </foreach>
+  </delete>
+  
+  <delete id="delePermissionsByRoleId" parameterType="com.duobao.fundation.data.mybatis.model.RolePermissionLinkKey" >
+    delete from db_role_permission_link
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.RolePermissionLinkKey" >
+    insert into db_role_permission_link (role_id, permission_id)
+    values (#{roleId,jdbcType=INTEGER}, #{permissionId,jdbcType=INTEGER})
+  </insert>
+  
+  
+  
+  <insert id="addRolePermissionsByList">
+    insert into db_role_permission_link (role_id, permission_id)
+    values 
+    <foreach collection="permissions" index="index" item="item"   separator="," > 
+       (
+          #{roleId},#{item.permissionId}
+       )
+      </foreach>  
+  </insert>
+  
+  <insert id="addRolePermissions">
+    insert into db_role_permission_link (role_id, permission_id)
+    values 
+    <foreach collection="permissionIds" index="index" item="item"   separator="," > 
+       (
+          #{roleId},#{item}
+       )
+      </foreach>  
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.RolePermissionLinkKey" >
+    insert into db_role_permission_link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="permissionId != null" >
+        permission_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="permissionId != null" >
+        #{permissionId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

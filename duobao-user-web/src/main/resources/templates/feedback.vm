@@ -1,0 +1,107 @@
+#set($layout = "/layout/feedback_layout.vm")
+
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+        #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="feedback-center" data-j="feedbackCenter">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#feedback-advice"  role="tab">#springMessage("feedback_and_advice")</a>
+                        </li>
+                    </ul>
+			
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="feedback-advice">
+                            <div class="feedback-center-main">
+                                <form class="form-horizontal js-feedback-center-form" id="f-feedback-form" action="post">
+                                <input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            <div class="alert feedback-center-main-success alert-dismissible" role="alert">
+                                                <button type="button" class="close feedback-center-main-close" data-dismiss="alert" aria-label="Close"><span class="icon-failed-thin"></span></button>
+                                                 #springBind("feedback.email")
+		                                         #foreach($error in $status.errorMessages)
+		                                         <span class="feedback-center-main-error">
+		                                            <strong>#springMessage("Attention")!</strong> $!error
+		                                          </span>
+		                                          #end
+                                          
+		                                         #springBind("feedback.title")
+		                                         #foreach($error in $status.errorMessages)
+		                                         <span class="feedback-center-main-error">
+		                                            <strong>#springMessage("Attention")!</strong> $!error
+		                                         </span>
+		                                          #end
+
+		                                          #springBind("feedback.content")
+		                                          #foreach($error in $status.errorMessages)
+		                                           <span class="feedback-center-main-error">
+		                                           <strong>#springMessage("Attention")!</strong> $!error
+		                                           </span>
+		                                           #end
+		                                           #if("$!hasError"=="")
+                                                        #springMessage("Attention")!#springMessage("for_the_convenience_of_contact_reply"),#springMessage("please_fill_in_your_email").
+                                                    #end
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label feedback-center-main-label">#springMessage("your_account") :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="email" class="form-control f-feedback-email" value="$!account" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label feedback-center-main-label">#springMessage("title") :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="title"  name="title" class="form-control f-feedback-title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-md-2 control-label feedback-center-main-label">#springMessage("content") :</label>
+                                        <div class="col-md-8">
+                                            <textarea name="content" class="form-control f-feedback-content"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-10 text-center">
+                                            <button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="complaints-management">
+                        </div>
+                    </div>
+				
+						  <div class="modal fade" id="feedback-center-modal" tabindex="-1">
+				        <div class="modal-dialog" role="document">
+				            <div class="modal-content">
+				                <button type="button" class="close" data-dismiss="modal">
+				                    <span class="icon-close"></span>
+				                </button>
+				
+				                <div class="modal-body">
+				                    <div class="feedback-center-modal text-center">
+				                   		<div class="feedback-center-modal-success">
+				                   			<span class="icon-check-circle-o feedback-center-modal-icon"></span>
+				                   			<span class="feedback-center-modal-text">#springMessage("your_suggestion_has_been_submmited_successfully").</span>			                   			
+				                   		</div>
+				                   			<button class="btn btn-primary feedback-center-modal-btn js-feedback-center-btn" data-dismiss="modal" type="button">
+					                   		 	#springMessage("confirm")
+		                                    </button>		                   			
+				                    </div>
+				                </div>
+				            </div>				 
+					    </div>
+             		 </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

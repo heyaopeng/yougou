@@ -1,0 +1,35 @@
+@import "public.less";
+
+.rate-average {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+
+	&-i,
+	&-o {
+		font-size: 0;
+		> .icon-star-solid {
+			font-size: 24px;
+			display: inline-block;
+		}
+	}
+
+	&-i {
+		.clearfix();
+		color: @ck-main;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		max-width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+
+		transition: width 0.3s ease;
+	}
+
+	&-o {
+		.clearfix();
+		color: #666;
+	}
+}

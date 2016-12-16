@@ -1,0 +1,2 @@
+#set($layout = "/layout/wx_layout.vm")
+<h1>处理中，请稍候...</h1>

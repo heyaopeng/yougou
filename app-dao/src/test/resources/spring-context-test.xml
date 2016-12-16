@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+		   http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context 
+		   http://www.springframework.org/schema/context/spring-context.xsd"
+		   >
+
+	<context:component-scan base-package="com.duobao.fundation.data.mybatis.dao">
+        <context:include-filter type="regex" expression=".*Service" />
+    </context:component-scan>
+	<!-- 自动扫描(自动注入) -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.duobao.fundation.data.mybatis.mapping" />
+	</bean>
+
+	<bean id="transactionManager " class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 
+			<property name="configLocation" value="classpath:sqlMapConfig.xml" />
+		-->
+	</bean>
+
+
+	<!-- more bean definitions go here -->
+
+</beans>

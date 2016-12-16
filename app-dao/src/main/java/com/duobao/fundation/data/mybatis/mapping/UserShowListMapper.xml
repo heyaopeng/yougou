@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.UserShowListMapper" >
+  <resultMap id="UserShowList" type="com.duobao.fundation.data.mybatis.model.UserShowList" >
+    <id column="show_id" property="showId" jdbcType="INTEGER" />
+    <result column="order_serialNum" property="orderSerialnum" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="product_title" property="productTitle" jdbcType="VARCHAR" />
+    <result column="product_image" property="productImage" jdbcType="VARCHAR" />
+    <result column="product_price" property="productPrice" jdbcType="DECIMAL" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="ip_addr" property="ipAddr" jdbcType="VARCHAR" />    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    show_id, user_id,product_id, product_title,product_image,product_price, order_id, title, time, is_active,ip_addr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="UserShowList" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_show_list
+    where show_id = #{showId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="UserShowList" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_show_list
+    where user_id = #{userId,jdbcType=INTEGER} order by time desc
+  </select>
+  <select id="selectAll" resultMap="UserShowList" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_user_show_list
+    <where>
+    	 <if test="productId != null" >
+	        product_id = #{productId,jdbcType=INTEGER}
+	      </if>
+    </where>
+    order by time desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_user_show_list
+    where show_id = #{showId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.UserShowList" useGeneratedKeys="true"
+    keyProperty="showId">
+    insert into db_user_show_list (show_id, user_id,product_id, product_title,product_image,product_price, 
+      order_id, title, time, 
+      is_active,ip_addr)
+    values (#{showId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{productTitle,jdbcType=VARCHAR}, #{productImage,jdbcType=VARCHAR}, #{productPrice,jdbcType=DECIMAL}, 
+      #{orderId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{isActive,jdbcType=BIT},#{ipAddr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.UserShowList" useGeneratedKeys="true"
+    keyProperty="showId">
+    insert into db_user_show_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="showId != null" >
+        show_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="productTitle != null" >
+        product_title,
+      </if>
+      <if test="productImage != null" >
+        product_image,
+      </if>
+      <if test="productPrice != null" >
+        product_price,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="showId != null" >
+        #{showId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+     <if test="productTitle != null" >
+        #{productTitle,jdbcType=VARCHAR}, 
+      </if>
+      <if test="productImage != null" >
+        #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productPrice != null" >
+        #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="ipAddr != null" >
+        #{ipAddr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.UserShowList" >
+    update db_user_show_list
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+       <if test="productTitle != null" >
+        product_title = #{productTitle,jdbcType=VARCHAR}, 
+      </if>
+      <if test="productImage != null" >
+        product_image = #{productImage,jdbcType=VARCHAR},
+      </if>
+      <if test="productPrice != null" >
+        product_price = #{productPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr = #{ipAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where show_id = #{showId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.UserShowList" >
+    update db_user_show_list
+    set user_id = #{userId,jdbcType=INTEGER},
+     product_id = #{productId,jdbcType=INTEGER},
+      product_title = #{productTitle,jdbcType=VARCHAR}, 
+      product_image = #{productImage,jdbcType=VARCHAR},
+      product_price = #{productPrice,jdbcType=DECIMAL},
+      order_id = #{orderId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      is_active = #{isActive,jdbcType=BIT},
+      ip_addr = #{ipAddr,jdbcType=VARCHAR}
+    where show_id = #{showId,jdbcType=INTEGER}
+  </update>
+</mapper>

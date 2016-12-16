@@ -1,0 +1,333 @@
+@cooka: #f6891c;
+@cooka_sub: #fbbb10;
+.my-cooka-main {
+    padding: 15px 0;
+}
+
+.apply-refund {
+    padding-bottom: 15px;
+    em {
+        color: @cooka;
+        font-style: normal;
+        font-weight: bold;
+    }
+    .orders {
+        margin-top: 15px;
+    }
+    .preview-control {
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    .preview-width {
+        width: 50%;
+    }
+    dt {
+        line-height: 25px;
+    }
+    .add-margin {
+        margin-bottom: 15px;
+    }
+    .cancel-and-return {
+        margin-left: 15px;
+    }
+    .long-string {
+        dt {
+            width: 300px;
+        }
+        dd {
+            margin-left: 320px;
+        }
+    }
+    .apply-refund .countdown {
+        color: @cooka;
+    }
+    //table样式，来自backend.css
+    .table th {
+        background-color: #eee;
+    }
+    .table > tbody > tr > td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table .form-group {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    .table .form-group .help-block {
+        text-align: left;
+        margin-bottom: 0;
+        margin-top: 3px;
+    }
+    //    steps来自frontend.css
+    .steps {
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+        background-color: #ecf0f1;
+        > li {
+            list-style-type: none;
+            display: block;
+            float: left;
+            text-align: center;
+            padding: 5px;
+        }
+        .active {
+            background-color: #f6891c;
+            color: #fff;
+            font-weight: bold;
+            position: relative;
+        }
+        .active:after {
+            content: "";
+            position: absolute;
+            left: 100%;
+            top: 5px;
+            border-width: 10px;
+            border-style: solid;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            border-left-color: #f6891c;
+        }
+        .active:last-child:after {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent;
+            ;
+        }
+        :before, :after {
+            content: "";
+            display: table;
+        }
+        :after {
+            clear: both;
+        }
+    }
+    //有修改
+    .steps {
+        border: none;
+        .active:before, .done:before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            z-index: 8;
+            top: 0;
+            left: 1px;
+            border-top: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #fff;
+        }
+        .done:first-child:before, li:first-child.active:before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            z-index: 8;
+            top: 0;
+            left: 1px;
+            border: transparent;
+        }
+        .done {
+            background: #f6aa75;
+            color: #fff;
+            position: relative;
+        }
+        .done:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            z-index: 9;
+            top: 0;
+            right: -30px;
+            border-top: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #f6aa75;
+        }
+    }
+}
+
+.refund-steps.steps > li {
+    width: 33.33%;
+}
+
+.return-steps.steps > li {
+    width: 25%;
+}
+
+.apply-re-form {
+    margin-top: 15px;
+    padding: 15px 0;
+    border: 1px solid @cooka;
+    .act {
+        position: relative;
+        border: 3px solid @cooka_sub;
+    }
+    .act:after {
+        content: "";
+        position: absolute;
+        right: -3px;
+        bottom: -3px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: @cooka_sub;
+        border-bottom-color: @cooka_sub;
+    }
+    .money-explain {
+        padding-top: 7px;
+    }
+    .non-refund {
+        display: none;
+    }
+}
+
+// 成功页
+.re-detail {
+    margin-top: 15px;
+    .re-success-title {
+        margin: 0;
+    }
+}
+
+// 处理页,买家
+.awaiting-handle-ul {
+    li {
+        line-height: 30px;
+    }
+}
+
+// 确认收货&拒绝退款页面
+.refuse-content {
+    display: none;
+}
+
+// 留言板（江吟）
+.message-board-list {
+    margin-top: 15px;
+    .head-figure {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.message-panel {
+    .panel-heading {
+        padding-bottom: 7px;
+        padding-top: 7px;
+        .head-title {
+            width: 50%;
+            float: left;
+            height: 29px;
+            line-height: 29px;
+        }
+        .head-btn {
+            float: right;
+            padding-bottom: 3px;
+            padding-top: 3px;
+            font-size: 14px;
+        }
+    }
+    .message-edit {
+        padding: 10px;
+        background-color: #f5f5f5;
+        display: none;
+        .btn-box {
+            margin-top: 15px;
+        }
+    }
+}
+
+.message-list {
+    .message-detail {
+        margin-top: 5px;
+        font-size: 16px;
+    }
+    .mess-table {
+        tr {
+            border-bottom: 1px solid #ddd;
+            td:nth-child(1) {
+                vertical-align: top;
+            }
+            td:nth-child(2) {
+                width: 100%;
+                padding-left: 1%;
+                vertical-align: top;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+// 来自backend.css
+.orders {
+    .order-heading .table {
+        margin-bottom: 10px;
+    }
+    .order-heading tr > th {
+        text-align: center;
+    }
+    .order-block .order-check {
+        margin: 0;
+        height: 20px;
+    }
+    .order-block tr > .order-product-name {
+        text-align: left;
+    }
+    .order-block .order-spec {
+        color: #999;
+    }
+    .order-block .order-total {
+        color: #f6891c;
+    }
+    .order-block .order-fare {
+        white-space: nowrap;
+    }
+    .order-block .order-close {
+        color: #999;
+    }
+    .order-block a:hover {
+        color: #f6891c;
+    }
+}
+
+// 来自frontend.css
+.btn-file .btn-file-item {
+    display: none;
+}
+
+// 来自frontend.css
+.ck-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.backend-refund-finance-ul{
+    margin-left: 30px;
+    li{
+        margin-right: 30px;
+        list-style: none;
+    }
+}
+.backend-refund-finance-h{
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}

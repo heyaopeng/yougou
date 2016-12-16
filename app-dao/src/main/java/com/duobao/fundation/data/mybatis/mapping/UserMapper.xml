@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.UserMapper" >
+  <resultMap id="User" type="com.duobao.fundation.data.mybatis.model.User" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="serial_num" property="serialNum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, parent_id, password,serial_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="User" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectBySerialNum" resultMap="User" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_users
+    where serial_num = #{serialNum,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.User" useGeneratedKeys="true"
+    keyProperty="userId">
+    insert into db_users (user_id, parent_id, password , serial_num
+      )
+    values (#{userId,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{serialNum,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.User" useGeneratedKeys="true"
+    keyProperty="userId">
+    insert into db_users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="serialNum != null" >
+        serial_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNum != null" >
+        #{serialNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.User" >
+    update db_users
+    <set >
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNum != null" >
+        serial_num = #{serialNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.User" >
+    update db_users
+    set parent_id = #{parentId,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR},
+      serial_num = #{serialNum,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

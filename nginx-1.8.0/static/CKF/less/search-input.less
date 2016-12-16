@@ -1,0 +1,48 @@
+// search
+@import "public.less";
+.search-input {
+    margin-top: 10px;
+    .input-group-addon {
+        padding: 0;
+
+        select {
+            padding: 6px 0;
+            border-width: 0;
+            outline: 0;
+        }
+    }
+
+    &-trend {
+    	.clearfix();
+
+    	> a {
+    		color: white;
+    		display: block;
+    		float: left;
+    		padding: 0 15px;
+    		margin-top: 5px;
+    		border-left: 1px solid darken(@ck-sub, 10%);
+
+    		&:first-child {
+    			border-left: none;
+    		}
+    	}
+    }
+
+    &.fixed {
+    	position: fixed;
+    	z-index: 999;
+    	width: 744px;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	margin-top: 0;
+    	margin-left: auto;
+    	margin-right: auto;
+    	box-shadow: 0 0 15px #333;
+
+    	.search-input-trend {
+    		display: none;
+    	}
+    }
+}

@@ -1,0 +1,32 @@
+<div class="form-group address-group">
+	<label for="" class="col-xs-3 control-label"><span class="star">*</span> #springMessage("address"): </label>
+	<div class="col-md-2">
+		<select class="form-control f-country address-select" data-level="0" data-parent="State" name="userProfile.country">
+			<option value="">-- Select--</option> #foreach($country in $countries)
+			<option value="$!country.country" data-parentid="$!country.countryId" #if($!{userProfile.userProfile.country}==$!{country.country})selected#end>$!country.country</option>
+			#end
+		</select>
+	</div>
+	<div class="col-md-2">
+		<select class="form-control f-state address-select" data-level="1" data-parent="City" name="userProfile.state" value="$!{userProfile.userProfile.state}">
+			<option value="">-- Select--</option> #foreach($state in $states)
+			<option value="$!{state.name}" data-parentid="$!{state.id}" #if($!{userProfile.userProfile.state}==$!{state.name}) selected #end>$!{state.name}</option> #end
+		</select>
+	</div>
+	<div class="col-md-2">
+		<select class="form-control f-city address-select" data-level="2" data-parent="Region" name="userProfile.city" value="$!{userProfile.userProfile.city}">
+			<option value="">-- Select--</option> #foreach($city in $cities)
+			<option value="$!{city.name}" data-parentid="$!{city.id}" #if($!{userProfile.userProfile.city}==$!{city.name}) selected #end>$!{city.name}</option> #end
+		</select>
+	</div>
+	<div class="col-md-2">
+		<select class="form-control f-region address-select" data-level="3" name="userProfile.region" value="$!{userProfile.userProfile.region}">
+			<option value="">-- Select--</option> #foreach($region in $regions)
+			<option value="$!{region.name}" data-parentid="$!{region.id}" #if($!{userProfile.userProfile.region}==$!{region.name}) selected #end>$!{region.name}</option>
+			#end
+		</select>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,33 @@
+@import "public";
+
+.pay-step {
+  &-img {
+    background-image: url(../images/pay/payStep.png);
+    background-repeat: no-repeat;
+  }
+  &-name {
+    width: 495px;
+    &-sub {
+      display: inline-block;
+      width: 31%;
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  &-order,&-payment,&-success {
+    width: 495px;
+    height: 43px;
+  }
+  &-order {
+    background-position: -5px -4px;
+  }
+
+  &-payment {
+    background-position: -5px -59px;
+  }
+
+  &-success {
+    background-position: -5px -108px;
+  }
+}

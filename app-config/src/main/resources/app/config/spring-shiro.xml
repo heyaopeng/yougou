@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd  
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd  
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- ========================================================= Shiro Components 
+		========================================================= -->
+
+
+
+	<bean id="redisManager" class="com.duobao.shiro.service.RedisManager">
+	    <!-- <property name="host" value="192.168.2.128" /> 	 -->
+        <property name="host" value="120.25.193.220"/>
+         <!-- <property name="host" value="192.168.11.212"/> -->
+		<!-- <property name="host" value="127.0.0.1" /> -->
+		<!-- <property name="host" value="192.168.11.212" /> -->
+        <!--<property name="host" value="128.199.123.86" />-->
+
+		<property name="port" value="6379" />
+		<property name="expire" value="1800" />
+		<!-- optional properties: <property name="timeout" value="10000"/--> 
+		<property name="password" value="nicaicai"/> 
+	</bean>
+
+
+	<!-- cacheManager -->
+	<bean id="cacheManager" class="com.duobao.shiro.service.RedisCacheManager">
+		<property name="redisManager" ref="redisManager" />
+	</bean>
+
+	<bean id="MonitorRealm" class="com.duobao.shiro.service.MonitorRealm"></bean>
+
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realms">
+			<list>
+				<ref bean="MonitorRealm" />
+			</list>
+		</property>
+
+		<property name="cacheManager" ref="cacheManager" />
+ 		<!-- <property name="sessionManager"     ref="sessionManager"/> -->
+		<!-- <property name="cacheManager"       ref="cacheManager" /> -->
+ 		<!-- <property name="sessionManager"     ref="sessionManager"/>   -->
+ 	</bean>
+
+	<!-- Shiro生命周期处理器 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- Shiro的Web过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<!-- 针对url的拦截 -->
+		<property name="loginUrl" value="/duobao-user-web/login" />
+		<property name="unauthorizedUrl" value="/unauthorized  " />
+		<property name="filters">
+			<util:map>
+				<entry key="authc">
+					<bean class="com.duobao.shiro.service.PassThruAuthenticationFilter" />
+				</entry> 
+				<entry key="back">
+                    <bean class="com.duobao.shiro.service.BackUrlFilter" />  <!-- 把当前url放入session中的拦截器，用于登录后跳回之前页面用 -->
+                </entry> 
+			</util:map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				/duobao-user-web/login = anon
+				/duobao-user-web/paymentHandler = anon
+				/duobao-user-web/getPaymentResult = anon
+				/duobao-user-web/alipayNotifyHandler = anon
+				/duobao-user-web/weiXinLogin = anon
+				/duobao-user-web/weiXinCallback = anon
+				/seller/WCNotifyHandler = anon
+				/duobao-user-web/isLogin = anon
+				/duobao-backend-web/** = anon			
+				#/duobao-user-web/logout = logout
+			</value>
+    </property>
+	</bean>
+
+	<!-- 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证 -->
+	<!-- 配置以下两个bean即可实现此功能 -->
+	<!-- Enable Shiro Annotations for Spring-configured beans. Only run after 
+		the lifecycleBeanProcessor has run -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<!-- 异常拦截 使用注解的时候用的 -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.apache.shiro.authz.UnauthorizedException">
+					unauthorized
+				</prop>
+				<prop key="org.apache.shiro.authz.UnauthenticatedException">
+				   /duobao-user-web/login
+				</prop>
+			</props>
+		</property>
+	</bean>
+</beans>  

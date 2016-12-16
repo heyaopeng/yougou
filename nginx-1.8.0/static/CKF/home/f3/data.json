@@ -1,0 +1,149 @@
+{
+    "f3": {
+        "src": "/CKF/images/home/101000000.jpg",
+        "link": "/cooka-search/searchProductFqs?ct=101000000",
+        "search": {
+            "101010010": "Áo phông",
+            "101010020": "Áo sơ mi",
+            "101010040": "Áo chiffon",
+            "101020010": "Quần Jean",
+            "101020000": "Quần",
+            "101080000": "Váy",
+            "101080010": "Váy liền"
+        },
+        "item": [
+            [
+                [
+                    {
+                        "title": "Áo sơ mi cổ lật dáng dài form rộng nữ",
+                        "score": 5,
+                        "price": "139.000 VND",
+                        "id": "4442",
+                        "src": "/CKF/images/home/f3/4442.jpg"
+                    },
+                    {
+                        "title": "Áo thun cộc tay nữ in họa tiết con mèo chữ cái mùa hè",
+                        "score": 5,
+                        "price": "80.000 VND",
+                        "id": "4477",
+                        "src": "/CKF/images/home/f3/4477.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Váy yếm jean rách mùa hè",
+                        "score": 5,
+                        "price": "141.000 VND",
+                        "id": "4526",
+                        "src": "/CKF/images/home/f3/4526.jpg"
+                    },
+                    {
+                        "title": "Áo sơ mi cổ đứng dài tay nữ tính xuân hè",
+                        "score": 5,
+                        "price": "99.000 VND",
+                        "id": "4565",
+                        "src": "/CKF/images/home/f3/4565.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo ren nữ cổ lật dáng dài chống nắng",
+                        "score": 5,
+                        "price": "92.000 VND",
+                        "id": "4569",
+                        "src": "/CKF/images/home/f3/4569.jpg"
+                    },
+                    {
+                        "title": "Áo chiffon cổ tròn tay lửng xuân hè nữ tính duyên dáng",
+                        "score": 5,
+                        "price": "107.000 VND",
+                        "id": "4586",
+                        "src": "/CKF/images/home/f3/4586.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo chiffon tay lửng cổ tròn xuân hè nữ tính duyên dáng",
+                        "score": 5,
+                        "price": "119.000 VND",
+                        "id": "4587",
+                        "src": "/CKF/images/home/f3/4587.jpg"
+                    },
+                    {
+                        "title": "Váy liền da hươu cổ tròn dài tay đuôi cá xuân thu",
+                        "score": 5,
+                        "price": "218.000 VND",
+                        "id": "4594",
+                        "src": "/CKF/images/home/f3/4594.jpg"
+                    }
+                ]
+            ],
+            [
+                [
+                    {
+                        "title": "Váy liền sát nách cổ tròn in họa tiết dân tộc, kiểu giả 2 chiếc",
+                        "score": 5,
+                        "price": "139.000 VND",
+                        "id": "4602",
+                        "src": "/CKF/images/home/f3/4602.jpg"
+                    },
+                    {
+                        "title": "Áo sơ mi chiffon cổ lật cộc tay nữ tính mùa hè",
+                        "score": 5,
+                        "price": "99.000 VND",
+                        "id": "4605",
+                        "src": "/CKF/images/home/f3/4605.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo thun nữ dài tay cổ tròn in họa tiết chữ cái xuân thu",
+                        "score": 5,
+                        "price": "143.000 VND",
+                        "id": "4607",
+                        "src": "/CKF/images/home/f3/4607.jpg"
+                    },
+                    {
+                        "title": "Áo thun nữ dài tay cổ tròn chấm bi dáng dài in họa tiết cậu bé",
+                        "score": 5,
+                        "price": "155.000 VND",
+                        "id": "4609",
+                        "src": "/CKF/images/home/f3/4609.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Bộ rời nữ mùa hè áo thun cộc tay cổ tròn in họa tiết chữ cái và chân váy dáng ôm",
+                        "score": 5,
+                        "price": "119.000 VND",
+                        "id": "4610",
+                        "src": "/CKF/images/home/f3/4610.jpg"
+                    },
+                    {
+                        "title": "Áo chiffon cộc tay cổ tròn nữ phối vải ren mùa hè",
+                        "score": 5,
+                        "price": "99.000 VND",
+                        "id": "4614",
+                        "src": "/CKF/images/home/f3/4614.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Váy liền chiffon sát nách mùa hè",
+                        "score": 5,
+                        "price": "88.000 VND",
+                        "id": "4618",
+                        "src": "/CKF/images/home/f3/4618.jpg"
+                    },
+                    {
+                        "title": "Váy liền sát nách phối màu in họa tiết hình học mùa hè",
+                        "score": 5,
+                        "price": "119.000 VND",
+                        "id": "4621",
+                        "src": "/CKF/images/home/f3/4621.jpg"
+                    }
+                ]
+            ]
+        ]
+    }
+}

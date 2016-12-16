@@ -1,0 +1,114 @@
+@import "public.less";
+
+.all-prod {
+	padding-top: 40px;
+	padding-bottom: 60px;
+	&-tab {
+		background-color: white;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 999;
+		.clearfix();
+
+		&-item {
+			float: left;
+			width: 25%;
+			text-align: center;
+			padding: 10px;
+
+			&.active {
+				color: @ck_sub;
+			}
+		}
+
+		&-price {
+			display: inline-block;
+			position: relative;
+			color: #333;
+
+			&-asc {
+				&:before {
+					border-color: @ck_sub;
+				}
+			}
+
+			&-desc {
+				&:after {
+					border-color: @ck_sub;
+				}
+			}
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+				border-width: 5px;
+				border-style: solid;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				left: 100%;
+			}
+
+			&:before {
+				border-top-color: transparent;
+				top: 0;
+			}
+
+			&:after {
+				border-bottom-color: transparent;
+				top: 12px;
+			}
+		}
+	}
+
+	&-items {
+		.clearfix();
+
+		.product-item {
+			float: left;
+			width: 50%;
+			border-bottom: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+		}
+	}
+
+	&-cats {
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.7);
+
+		&-wrap {
+			width: 35%;
+			overflow-y: scroll;
+			background-color: white;
+			height: 100%;
+			padding-bottom: 60px;
+			-webkit-overflow-scrolling: touch;
+			border-right: 1px solid #eee;
+		}
+	}
+
+	&-cat {
+		padding: 5px;
+		display: block;
+		// text-align: center;
+		color: #333;
+		border-bottom: 1px solid #eee;
+
+		&-icon {
+			color: @ck_sub;
+			display: inline-block;
+			font-size: 18px;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+.statistics-interval {
+	.clearfix();
+	padding: 0 12px;
+	display: block;
+	margin: 10px 20px;
+	border-bottom: 4px solid @ck-sub;
+			
+	li {
+		display: block;
+		float: left;
+		padding:6px 12px;
+		cursor: pointer;
+		& + li {
+			margin-left: 1px;
+		}
+		&.active {
+			background-color: @ck-sub;
+			color: #fff;
+		}
+		&:hover {
+			background-color: @ck-sub-light;
+			color: #fff;
+		}
+	}
+}

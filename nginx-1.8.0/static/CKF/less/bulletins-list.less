@@ -1,0 +1,42 @@
+@import "public.less";
+
+@thead-bg: #f2f4f6;
+.bulletins-list {
+	margin-top: 8px;
+	margin-bottom: 50px;
+	thead {
+		background: @thead-bg;
+	}
+
+	&-readding-col {
+		text-align: center;
+		font-size: 18px;
+	}
+	
+	&-theme-col {
+		a {
+			color: #333;
+			&:hover {
+				color: @ck-main;
+			}
+		}
+	}
+	.icon-email,
+	.icon-star-solid {
+		color: @ck-main;
+	}
+
+	.m-read,
+	.m-collect {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	tbody > tr > td,
+	tbody > tr > th {
+		border: 0;
+		vertical-align: middle;
+	}
+	
+}

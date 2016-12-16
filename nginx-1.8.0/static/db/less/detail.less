@@ -1,0 +1,423 @@
+@import "public.less";
+
+.detail {
+	&-hidden{
+		&-share{
+			position: fixed;
+			top:0;
+			left:0;
+			background-color: rgba(153, 153, 153, 0.8);
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+			&-image{
+				margin-top: 5px;
+				width: 100%
+			}
+		}
+		&-subscribe{
+			position: fixed;
+			top:0%;
+			left:0%;
+			z-index: 1002;
+			margin-top: 5px;
+			background-color: rgba(153, 153, 153, 0.6);
+			width: 100%;
+			height: 100%;
+			&-image{
+				position: fixed;
+				top:20%;
+				left:5%;
+				width: 90%
+			}
+			&-button{
+				background-color: #e65100;
+				border-color: #e65100;
+				position: fixed;
+				font-size: 18px;
+				color: white;
+				padding: 5px 20px;
+				top:70%;
+				left:36%;
+				text-align: center;
+				border-radius : 15px;
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: white;
+				}
+			}
+		}
+	}
+	padding-bottom: 98px;
+	&-carousel {
+		position: relative;
+
+		&-tag {
+			text-align: center;
+			background-color: #e1073b;
+			color: white;
+			white-space: normal;
+			width: 3.0em;
+			display: block;
+			padding: 0 0.2em;
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			font-size: 12px;
+			z-index: 999;
+
+			&:before {
+				content: "";
+				position: absolute;
+				border-color: #e1073b;
+				border-style: solid;
+				width: 0;
+				height: 0;
+				top: 100%;
+				left: 0;
+				border-width: 8px;
+				border-left-width: 18px;
+				border-right-width: 18px;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+			}
+		}
+
+		&-img {
+			width: 100%;
+		}
+
+		.slick-dots {
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+
+			> li {
+				display: inline-block;
+
+				> button {
+					background-color: rgba(239, 71, 58, 0.5);
+					border: none;
+					font-size: 0;
+					width: 12px;
+					height: 12px;
+					border-radius: 50%;
+					display: block;
+					outline: 0;
+				}
+			}
+
+			> li + li {
+				margin-left: 10px;
+			}
+
+			> .slick-active {
+				> button {
+					background-color: rgba(239, 71, 58, 1);
+				}
+			}
+		}
+	}
+
+	&-info {
+		background-color: white;
+		padding: 5px;
+
+		.count-down {
+			display: inline-block;
+		}
+
+		&-label {
+			display: inline-block;
+			padding: 3px;
+			border: 1px solid @ck_sub;
+			border-radius: 0 3px;
+			color: @ck_sub;
+			margin-right: 5px;
+		}
+
+		&-term {
+			display: inline-block;
+			margin-top: 5px;
+		}
+
+		&-percent {
+			background-color: #ddd;
+			border-radius: 2px;
+			margin: 5px 0;
+		}
+		
+		&-finish {
+			height: 5px;
+			background-color: #febd44;
+			border-radius: 2px;
+		}
+
+		&-share {
+			display: block;
+			float: right;
+			background-color: #4b7cbe;
+			color: white;
+			padding: 5px;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: white;
+			}
+		}
+
+		&-opening {
+			padding: 10px;
+			background-color: #ffebd6;
+			color: #C0392B;
+			position: relative;
+			margin: 10px 0;
+
+			&-btn {
+				color: #fff;
+				border: none;
+				border-radius: 3px;
+				padding: 10px;
+				background-color: #ef473a;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+		}
+
+		&-opened {
+			.clearfix();
+			background-color: #ffebd6;position: relative;
+			border-radius: 5px;
+			margin: 5px 0;
+			.blank{
+				padding: 0 12px;
+			}
+		}
+
+		&-avatar {
+			float: left;
+			padding: 5px;
+
+			> img {
+				border-radius: 50%;
+				border: 1px solid white;
+				margin-top: 20px;
+			}
+		}
+
+		&-user {
+			overflow: hidden;
+			padding: 5px;  
+		}
+
+		&-num {
+			.clearfix();
+			background-color: #ef473a;
+			&-text{
+				color: white;
+				padding: 10px;
+				float: left;
+			}
+			&-btn {
+				color: #fff;
+				border-radius: 3px;
+				padding: 5px;
+				border: 1px solid white;
+				float: right;
+				margin-right: 5px;
+				margin-top: 5px;
+			}
+		}
+		&-next {
+			
+			background-color: white;
+			border-radius: 5px;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			border: 1px solid @ck_sub;
+			.clearfix();
+			&-text{
+				padding: 10px;
+				float: left;
+			}
+			&-btn {
+				background-color: #ef473a;
+				color:white;
+				border-radius: 3px;
+				padding: 5px;
+				float: right;
+				margin-right: 5px;
+				margin-top: 5px;
+			}
+		}
+	}
+
+	&-join {
+		background-color: white;
+		padding: 10px;
+		text-align: center;
+		margin: 5px 0;
+		color: #555;
+		&-fulltime{
+			padding: 5px;
+			color:  @ck_sub;
+		}
+	}
+
+	&-link {
+		display: block;
+		background-color: white;
+		padding: 10px;
+		position: relative;
+		color: #555;
+
+		.fa {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 10px;
+			width: 14px;
+			height: 14px;
+			margin: auto;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #555;
+		}
+
+		& + & {
+			border-top: 1px solid #ddd;
+		}
+	}
+
+	&-recent {
+		background-color: white;
+		margin-top: 5px;
+
+		&-title {
+			padding: 10px;
+			border-bottom: 1px solid #ddd;
+			position: relative;
+		}
+
+		&-more {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			padding: 3px 5px;
+			border: 1px solid @ck_sub;
+			border-radius: 3px;
+			color: @ck_sub;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: @ck_sub;
+			}
+		}
+
+		&-items {
+			padding: 0 10px;
+		}
+
+		&-item {
+			border-bottom: 1px solid #ccc;
+			&-header {
+				.clearfix();
+				padding: 5px 0;
+				border-bottom: 1px solid #ccc;
+			}
+
+			&-person {
+				.clearfix();
+				padding: 5px 0;
+				border-bottom: 1px solid #ccc;
+			}
+
+			&-img {
+				float: left;
+				padding: 10px;
+				> img {
+					border-radius: 50%;
+				}
+			}
+
+			&-info {
+				overflow: hidden;
+				padding-left: 10px;
+				.blank{
+					padding: 0 14px;
+				}
+			}
+
+			&-check {
+				text-align: center;
+				color: @ck_sub;
+				display: block;
+				padding: 10px;			
+			}
+		}
+	}
+
+	&-cart {
+		.clearfix();
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		width: 100%;
+		background-color: white;
+		padding: 5px;
+
+		&-add {
+			background-color: transparent;
+			border: none;
+			padding: 0 6px;
+			outline: 0;
+			font-size: 25px;
+			&:active {
+				background-color: #eee;
+			}
+		}
+
+		&-btn {
+			background-color: @ck_sub;
+			color: white;
+			border: 1px solid @ck_sub;
+			padding: 5px 10px;
+			border-radius: 3px;
+
+			& + & {
+				margin-left: 5px;
+			}
+
+			&-re {
+				background-color: white;
+				color: @ck_sub;
+			}
+			
+			&-wrap {
+				float: left;
+				width: 85%;
+
+				&-sm {
+					text-align: right;
+					float: left;
+					width: 15%;
+				}
+			}
+		}
+
+	}
+}

@@ -1,0 +1,13 @@
+##### oauth config #######
+
+app.config.oauth.facebook.apikey=1074096109268788
+app.config.oauth.facebook.apisecret=4a3b78ad8e944e43ad218eae12e6c61a
+app.config.oauth.facebook.callback=http://cookabuy.com/cooka-user-web/facebookCallback
+
+app.config.oauth.twitter.apikey=yourapikey
+app.config.oauth.twitter.apisecret=yourapisecret
+app.config.oauth.twitter.callback=yourwebappcallbackurl
+
+app.config.oauth.google.apikey=273378174969-udjbrdf1uuh4gaefsumqbgh34en9bvu7.apps.googleusercontent.com
+app.config.oauth.google.apisecret=AESX7tnW2T52GiseT0q_vxFb
+app.config.oauth.google.callback=http://cookabuy.com/cooka-user-web/googleCallback

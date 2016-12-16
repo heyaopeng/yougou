@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.PaymentMapper" >
+  <resultMap id="Payment" type="com.duobao.fundation.data.mybatis.model.Payment" >
+    <id column="payment_id" property="paymentId" jdbcType="INTEGER" />
+    <result column="payment" property="payment" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="platform" property="platform" jdbcType="VARCHAR" />
+    <result column="is_online" property="isOnline" jdbcType="BIT" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="strategy_class_name" property="strategyClassName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    payment_id, payment, unit, platform, is_online, is_active, strategy_class_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Payment" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_payments
+    where payment_id = #{paymentId,jdbcType=INTEGER}
+  </select>
+  <select id="selectForPoint" resultMap="Payment" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_payments
+    where strategy_class_name = 'PointPaymentStrategy'
+  </select>
+  <select id="selectComissionPayByTermId" resultMap="Payment" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_payments
+    where payment_id = #{paymentId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllForPayment" resultMap="Payment" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_payments where is_active=1 and strategy_class_name != 'PointPaymentStrategy'
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_payments
+    where payment_id = #{paymentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Payment" >
+    insert into db_payments (payment_id, payment, unit, 
+      platform, is_online, is_active, 
+      strategy_class_name)
+    values (#{paymentId,jdbcType=INTEGER}, #{payment,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{isOnline,jdbcType=BIT}, #{isActive,jdbcType=BIT}, 
+      #{strategyClassName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Payment" >
+    insert into db_payments
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paymentId != null" >
+        payment_id,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="platform != null" >
+        platform,
+      </if>
+      <if test="isOnline != null" >
+        is_online,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="strategyClassName != null" >
+        strategy_class_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paymentId != null" >
+        #{paymentId,jdbcType=INTEGER},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null" >
+        #{isOnline,jdbcType=BIT},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="strategyClassName != null" >
+        #{strategyClassName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Payment" >
+    update db_payments
+    <set >
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null" >
+        is_online = #{isOnline,jdbcType=BIT},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="strategyClassName != null" >
+        strategy_class_name = #{strategyClassName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where payment_id = #{paymentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Payment" >
+    update db_payments
+    set payment = #{payment,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      is_online = #{isOnline,jdbcType=BIT},
+      is_active = #{isActive,jdbcType=BIT},
+      strategy_class_name = #{strategyClassName,jdbcType=VARCHAR}
+    where payment_id = #{paymentId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,70 @@
+@import "public.less";
+.pre-detail{
+	.clearfix();
+	&-image{
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+	&-text{
+		margin-top: 35%;
+		width: 100%;
+		text-align: center;
+		color: white;
+		font-size: 40px;
+		position: absolute;
+	}
+	&-button{
+		margin-top: 20px;
+		position: absolute;
+		padding: 10px;
+		background-color: #ffd440;
+		color: #72322b;
+		font-size: 20px;
+		font-weight:bold;
+		text-align: center;
+		left: 5%;
+		width: 90%;
+		border-radius : 15px;
+		border-color: #ffd440;
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			color: white;
+			background-color: #ffd440;
+		}
+	}
+
+	&-form{
+		margin-top: 60%;
+		margin-left: 5%;
+		width: 90%;
+		position: absolute;
+		&-control{
+			&-select{
+				width: 100/3%;
+				float: left;
+			}
+		}
+	}
+}
+
+.form-control {
+    border-radius: 50px;
+    height: 50px;
+    padding: 50px 10px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.form-horizontal .form-group {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

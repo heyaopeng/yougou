@@ -1,0 +1,61 @@
+@import "public.less";
+.user-dashboard {
+	&-figure {
+		// border-top: 1px solid @ck-sub;
+		height: 100px;
+		background-image: url(../images/user_dashboard_step.png);
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-color: #fbfbfb;
+	}
+
+	&-parts {
+		.clearfix();
+		background-color: #fbfbfb;
+	}
+
+	&-part {
+		width: 100/3%;
+		float: left;
+		padding-top: 15px;
+		padding-bottom: 30px;
+
+		& + & {
+			border-left: 1px solid #ddd;
+		}
+
+		&-title {
+			color: @ck-sub;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+
+	&-links {
+		margin: 0;
+		padding: 0;
+		> li {
+			list-style-type: none;
+			display: block;
+
+			> a {
+				color: #333;
+				display: block;
+				text-align: center;
+				padding: 10px;
+
+				&:first-letter {
+					text-transform: uppercase;
+				}
+
+				&:hover {
+					background-color: #f4f4f4;
+				}
+			}
+		}
+
+		&-num {
+			color: @ck-main;
+		}
+	}
+}

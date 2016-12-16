@@ -1,0 +1,94 @@
+@import "public.less";
+.product-detail-comment{
+	&-head{
+		height: 140px;
+		text-align: center;
+	}
+	&-rate{
+		font-size: 24px;
+		&-col{
+			margin-top: 40px;
+		}
+	}
+	&-progress{
+		display: inline-block;
+		margin-bottom: 0;
+		width: 40%;
+		float: left;
+		&-before{
+			display: inline-block;
+			width: 35%;
+			float: left;
+			text-align: right;
+			padding-right: 5px;
+		}
+		&-after{
+			width: 25%;
+			padding-left: 5px;
+		}
+		&-group{
+			height: 25px;
+			vertical-align: top;
+		}
+	}
+	&-btn{
+		margin-top: 40px;
+	}
+	&-link{
+		display: block;
+		margin-top: 5px;
+	}
+}
+
+.comment-communication{
+	padding-top: 15px;
+	border-top: solid 1px #ddd;
+
+	&-select{
+		width: 15%;
+		float: right;
+	}
+	&-logo{
+		width: 100%;
+		&-box{
+			position: relative;
+			width: 100%;
+		}
+	}
+	&-role{
+		// padding: 5px;
+		margin-bottom: 20px;
+	}
+	&-name{
+		display: block;
+		.one-line();
+		// margin-top: 5px;
+	}
+	&-col{
+		margin-bottom: 20px;
+	}
+	&-message{
+		padding: 15px;
+		background-color: #eee;
+	}
+	&-time{
+		text-align: right;
+		display: block;
+	}
+	&-seller{
+		.comment-communication-role{
+			text-align: left;
+		}
+		.comment-communication-col{
+			padding-right: 15px;
+		}
+	}
+	&-buyer{
+		.comment-communication-role{
+			text-align: right;
+		}
+		.comment-communication-col{
+			padding-left: 15px;
+		}
+	}
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="./images/favicon.ico">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+		<!--[if lt IE 9]>
+			<script src="./js/libs/html5shiv.min.js"></script>
+			<script src="./js/libs/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 trim-col">
+					<div class="admin-header">
+						<img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 trim-left">
+					<div class="admin-sidebar" id="admin-side-menu">
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+								店铺管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="store-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我要开店</a></li>
+									<li><a href="#">店铺装修</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+								产品管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="product-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我的产品</a></li>
+									<li><a href="#">产品上架</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="admin-main">
+						<div class="admin-breadcrumb">
+							<ol class="breadcrumb">
+								<li><a href="#">货运管理</a></li>
+								<li class="active">运费模板</li>
+							</ol>
+						</div>
+
+						<ul class="nav nav-tabs">
+						  <li role="presentation" class="active"><a href="#">运费模板</a></li>
+						  <li role="presentation"><a href="#">Tab2</a></li>
+						</ul>
+
+						<div class="freight-template-add">								
+							<button type="button" class="btn btn-default" data-toggle="modal" data-target="#freight-template-add-modal">添加运费模板</button>
+						</div>
+
+						<div class="freight-template-block" data-id="1">
+							<span>运费模块名称</span>
+							<span class="pull-right">
+								<a href="#">修改</a>
+								<a href="#" class="js-remove">删除</a>
+								<a href="#">关联商品</a>
+							</span>
+							<div class="freight-template-block-detail">									
+								<ul class="freight-template-block-ul list-inline">
+									<li>物流公司：AAA</li>
+									<li>联系电话：111</li>
+									<li>计费模式：梯度计费</li>
+									<li>发货地址：AAA</li>
+								</ul>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>收货地址</th>
+											<th>送达时间(天)</th>
+											<th>梯度区间(件)</th>
+											<th>价格</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td rowspan="2">Piking</td>
+											<td rowspan="2">2</td>
+											<td>
+												1-10
+											</td>
+											<td>10.00</td>
+										</tr>
+										<tr>
+											<td>
+												11-20
+											</td>
+											<td>10.00</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="freight-template-block" data-id="2">
+							<span>运费模块名称</span>
+							<span class="pull-right">
+								<a href="#">修改</a>
+								<a href="#" class="js-remove">删除</a>
+								<a href="#">关联商品</a>
+							</span>
+							<div class="freight-template-block-detail">									
+								<ul class="freight-template-block-ul list-inline">
+									<li>物流公司：AAA</li>
+									<li>联系电话：111</li>
+									<li>计费模式：续费计费</li>
+									<li>发货地址：AAA</li>
+								</ul>
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>收货地址</th>
+											<th>送达时间(天)</th>
+											<th>首重(kg)</th>
+											<th>首费(元)</th>
+											<th>续重</th>
+											<th>续费</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Piking</td>
+											<td>7</td>
+											<td>
+												1
+											</td>
+											<td>10.00</td>
+											<td>1</td>
+											<td>2.00</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="text-right">
+							<ul class="pagination">
+								<li class="disabled"><a href="#">&laquo;</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">&raquo;</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade freight-template-add-modal" tabindex="-1" id="freight-template-add-modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+							<button type="button" class="close" data-dismiss="modal"><span class="icon-close"></span></button>
+						<div class="modal-body">
+							<h4 class="text-center">请先选择计费方式</h4>
+							<a class="btn btn-default freight-template-add-modal-btn" href="#">梯度计费</a>
+							<a class="btn btn-default freight-template-add-modal-btn" href="#">续费计费</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="./js/libs/jquery-1.11.2.min.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+<!-- 		<script src="./js/libs/FV/formValidation.min.js"></script>
+		<script src="./js/libs/FV/bootstrap.min.js"></script> -->
+		<script src="./js/main.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				var $freightTemplateBlock = $('.freight-template-block');
+				var $remove = $freightTemplateBlock.find('.js-remove');
+				$remove.on('click',function(e){
+					var $this = $(this);
+					var $parent = $this.closest('.freight-template-block');
+					e.preventDefault();
+					var conf = confirm('确定删除该模板？');
+                    if (conf === true) {
+                        $.ajax({
+                            type: "post",
+                            url: "#",//change
+                            data: "itemId="+$parent.data('id'),
+                            dataType: "html",
+                            async: true,
+                            success: function(data) {
+                                console.log('success');
+                                $parent.remove();
+                            },
+                            error: function() {
+                            	console.log('error');
+                            }
+                        });
+                    }
+					
+				});
+
+			});
+		</script>
+	</body>
+</html>

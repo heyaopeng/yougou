@@ -1,0 +1,82 @@
+@import "public.less";
+.user-comment{
+	tbody>tr>td.media-middle{		
+		vertical-align: middle;
+	}
+	&-img{
+		margin: 0 auto;
+    	width: 100px;
+    	height: 150px;
+    	position: relative;    	
+	    img{
+	        width: 100%;
+	        display: block;
+	        position: absolute;
+	        top: 0;
+	        bottom: 0;
+	        left: 0;
+	        right: 0;
+	        margin: auto;
+	        max-width: 100%;
+	        max-height: 100%;
+	    }
+    }
+    &-info{
+    	position: relative;
+    }
+    &-title{
+    	max-width: 199px;
+    	.one-line();
+    	margin-top: 15px;
+    }
+    &-comb{       
+    	max-width: 199px;
+    	.one-line(); 
+        &-span{
+            margin-right: 15px;
+        }	
+    }
+    &-logo {
+	  position: absolute;
+	  left: 7px;
+	  bottom: 16px;
+	}
+    &-icon{
+        width:35px;
+        height: 35px;
+        border-radius: 35px;
+        border: solid 2px #ddd;
+        color: #999999;
+        font-size: 22px;
+        position: relative;
+        float: left;
+        cursor: pointer;
+        display: block;
+        margin-right: 30px;
+        [class*="icon-"]{
+            z-index: 4;
+            line-height: 22px;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            margin: auto;
+        }
+        &:hover{
+            color: @ck-main;
+            border-color: @ck-main;
+        }
+        &.active{
+            border-color: @ck-main;
+            background-color: @ck-main;
+            [class*="icon-"]{
+                color: #fff;
+            }
+        }
+    }
+    &-pagination{
+    	float: right;
+    	margin-right: 15px;
+    }
+}

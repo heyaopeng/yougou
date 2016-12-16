@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="./images/favicon.ico">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+		<!--[if lt IE 9]>
+			<script src="./js/libs/html5shiv.min.js"></script>
+			<script src="./js/libs/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 trim-col">
+					<div class="admin-header">
+						<img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 trim-left">
+					<div class="admin-sidebar" id="admin-side-menu">
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+								店铺管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="store-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我要开店</a></li>
+									<li><a href="#">店铺装修</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+								产品管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="product-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我的产品</a></li>
+									<li><a href="#">产品上架</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="admin-main">
+						<div class="admin-breadcrumb">
+							<ol class="breadcrumb">
+								<li><a href="#">订单收款</a></li>
+								<li class="active">收款记录</li>
+							</ol>
+						</div>
+
+						<div class="order-search">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<form action="" id="receivable-record-form">
+											<div class="row">
+												<div class="col-md-10 trim-right">
+													<div class="form-inline">
+														<div class="form-group">
+															<label>订单号码：</label>
+															<input type="text" class="form-control" placeholder="订单号" name="order_num">
+														</div>
+														<div class="form-group">
+															<label>付款用户：</label>
+															<input type="text" class="form-control" placeholder="货品名称" name="product_name">
+														</div>
+
+														<div class="form-group">
+															<label>收款人：</label>
+															<select class="form-control" name="trade_stat">
+																<option value="1">张三</option>
+																<option value="1">张三</option>
+																<option value="1">张三</option>
+															</select>
+														</div>
+														<div class="form-group has-float">
+															<label>收款时间：</label>
+															<div class="pull-right">
+																<div class="input-daterange input-group" id="deal-range">
+																	<input type="text" class="form-control" name="start" />
+																	<span class="input-group-addon">到</span>
+																	<input type="text" class="form-control" name="end" />
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<select class="form-control" name="trade_stat">
+																<option value="1">显示全部结果</option>
+																<option value="1">1</option>
+																<option value="1">1</option>
+															</select>
+														</div>
+														<!-- <div class="checkbox">
+															<label>
+																<input type="checkbox"> 只显示货款未回笼订单
+															</label>
+														</div> -->							
+													</div>
+												</div>
+												<div class="col-md-2 order-btn-holder">
+													<button type="submit" class="btn btn-primary btn-block order-btn">搜索</button>
+												</div>
+											</div>										
+										</form>
+									</div>
+								</div>
+						</div>
+
+						<ul class="nav nav-tabs">
+						  <li role="presentation" class="active"><a href="#">货款未回笼订单</a></li>
+						  <li role="presentation"><a href="#">货款已回笼订单</a></li>
+						</ul>
+						<form>
+							<table class="table receivable-record-table js-receivable-record-table">
+								<thead>
+									<tr>
+										<th width="5">
+											<input class="js-check-all" type="checkbox"> 序号
+										</th>
+										<th width="25">订单号</th>
+										<th width="20">订单金额</th>
+										<th width="10">付款用户</th>
+										<th width="25">收款时间</th>
+										<th width="10">收款人</th>
+										<th width="5">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="js-item">
+										<td width="5">
+											<input class="js-check-item" type="checkbox"> 1
+										</td>
+										<td width="25">1234567</td>
+										<td width="20" class="js-item-cost">303.22</td>
+										<td width="10">付款人</td>
+										<td width="25">2015-09-24 12:32:23</td>
+										<td width="10">张三</td>
+										<td width="5"><a href="#">查看</a></td>
+									</tr>
+									<tr class="js-item">
+										<td width="5">
+											<input class="js-check-item" type="checkbox"> 2
+										</td>
+										<td width="25">1234567</td>
+										<td width="20" class="js-item-cost">303.22</td>
+										<td width="10">付款人</td>
+										<td width="25">2015-09-24 12:32:23</td>
+										<td width="10">张三</td>
+										<td width="5"><a href="#">查看</a></td>
+									</tr>
+									<tr class="js-item">
+										<td width="5">
+											<input class="js-check-item" type="checkbox"> 3
+										</td>
+										<td width="25">1234567</td>
+										<td width="20" class="js-item-cost">303.22</td>
+										<td width="10">付款人</td>
+										<td width="25">2015-09-24 12:32:23</td>
+										<td width="10">张三</td>
+										<td width="5"><a href="#">查看</a></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<div class="receivable-record-handle">
+								操作：
+								<button type="submit" class="btn btn-primary">回笼提交</button>
+							</div>
+
+							<div class="receivable-record-total">
+								所选订单总额：
+								<span class="js-total-cost">0.00</span>
+								 VND
+							</div>
+
+						</form>
+
+						<div class="text-right">
+							<ul class="pagination">
+								<li class="disabled"><a href="#">&laquo;</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">&raquo;</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="./js/libs/jquery-1.11.2.min.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+<!-- 		<script src="./js/libs/FV/formValidation.min.js"></script>
+		<script src="./js/libs/FV/bootstrap.min.js"></script> -->
+		<script src="./js/main.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				var $receivableRecordTable = $('.js-receivable-record-table');
+				var $checkItem = $receivableRecordTable.find('.js-check-item');
+				var $checkAll = $receivableRecordTable.find('.js-check-all');
+
+			    $checkAll.on('change',function(){
+			    	var $this = $(this);
+			    	var val = $this.prop('checked');
+			    	$checkItem.prop('checked',val);
+			    	if(val){
+			    		var totalCost = 0;
+				    	$('.js-item').each(function(idx,ele){
+				    		var $ele = $(ele);
+				    		totalCost += $ele.find('.js-item-cost').text()*1;
+				    	});
+				    	$('.js-total-cost').text(totalCost.toFixed(2));
+			    	}
+			    	else{
+			    		$('.js-total-cost').text('0.00');
+			    	}
+			    });
+
+			    $checkItem.on('change',function(){
+			    	var $checkedItem = $receivableRecordTable.find('.js-check-item:checked');
+			    	var totalCost = 0;
+					if($checkItem.length===$checkedItem.length){
+						$checkAll.prop('checked',true);
+					}else{
+						$checkAll.prop('checked',false);
+					}
+			    	$checkedItem.each(function(idx,ele){
+			    		var $ele = $(ele);
+			    		totalCost += $ele.closest('.js-item').find('.js-item-cost').text()*1;
+			    	});
+			    	$('.js-total-cost').text(totalCost.toFixed(2));
+			    });
+
+			});
+		</script>
+	</body>
+</html>

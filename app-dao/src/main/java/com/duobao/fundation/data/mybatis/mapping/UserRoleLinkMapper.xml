@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.UserRoleLinkMapper" >
+  <resultMap id="UserRoleLink" type="com.duobao.fundation.data.mybatis.model.UserRoleLinkKey" >
+    <id column="role_id" property="roleId" jdbcType="INTEGER" />
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.UserRoleLinkKey" >
+    delete from db_user_role_link
+    where role_id = #{roleId,jdbcType=INTEGER}
+      and user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.UserRoleLinkKey" >
+    insert into db_user_role_link (role_id, user_id)
+    values (#{roleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.UserRoleLinkKey" >
+    insert into db_user_role_link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <delete id="batachDeleteUserRoles" parameterType="map" >
+    delete from ck_user_role_link
+    where
+      <foreach collection="roleIds" index="index" item="item"   open="(" separator="or" close=")"> 
+          user_id= #{userId} and  role_id=#{item}
+      </foreach>
+  </delete>
+  <insert id="batchAddUserRoles" parameterType="java.util.List">
+	    insert into ck_user_role_link(user_id,role_id) values
+	     <foreach collection="list" item="item" index="index" separator =",">
+	      (#{item.userId,jdbcType=INTEGER},#{item.roleId,jdbcType=INTEGER} )    
+	     </foreach >
+   </insert>
+   <select id="selectByUserId" resultMap="UserRoleLink" parameterType="java.lang.Integer" >
+    select 
+    role_id,user_id
+    from ck_user_role_link
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+</mapper>

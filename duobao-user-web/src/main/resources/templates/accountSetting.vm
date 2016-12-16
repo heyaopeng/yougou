@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Cooka | 市场运营商管理系统</title>
+<link rel="stylesheet"
+	href="$staticConfig.getPath()/ck_market/build/account_setting.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">#parse("/marketCenter_sidebar.vm")</div>
+			<div class="col-md-10">
+				#parse("/marketCenter_header.vm")
+				<div class="account-setting">
+					<form id="account-setting-form" class="form-horizontal" method="post" action="/cooka-user-web/center/updateUserAccount">
+						<div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">真实姓名</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control f-name" name="name" id="inputName"
+									placeholder="真实姓名" value="$!userProfile.getName()" >
+							</div>
+							<div class="col-sm-4 input-comment">请填写本人真实姓名</div>
+						</div>
+						<div class="form-group">
+							<label for="inputMobile" class="col-sm-2 control-label">手机</label>
+							<div class="col-sm-6">
+								<input type="mobile" class="form-control f-mobile"
+									value="$!userProfile.getPhone()" name="phone" id="inputMobile"
+									placeholder="手机" disabled>
+							</div>
+							<div class="col-sm-4 input-comment">请填写真实手机，用于找回密码</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control f-email"  name="email" id="inputEmail"
+									value="$!userProfile.getEmail()" placeholder="邮箱" disabled>
+							</div>
+							<div class="col-sm-4 input-comment">请填写真实邮箱，用于登陆</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="inputLoginPwd" class="col-sm-2 control-label">登陆密码</label>
+							<div class="col-sm-6">
+								<input type="password" class="form-control f-loginPwd"
+									id="inputLoginPwd" value="******" disabled>
+							</div>
+							<div class="col-sm-4">
+								<button class="btn btn-default" type="button" data-toggle="modal"
+									data-target=".change-loginPwd-form-modal" data-backdrop="static">点击修改密码</button>
+							</div>
+						</div>
+						
+						#if($!notSetPayPassword =="true")
+							
+							<div class="form-group">
+								<label for="inputWithdrawPwd" class="col-sm-2 control-label">提现密码</label>
+								<div class="col-sm-4">
+								$!notSetPayPassword 	您尚未设置支付密码　　<button class="btn btn-default" type="button" data-toggle="modal" data-target=".change-withdrawPwd-form-modal" data-backdrop="static">设置支付密码</button>
+								</div>
+							</div>
+						#else
+							<div class="form-group">
+								<label for="inputWithdrawPwd" class="col-sm-2 control-label">提现密码</label>
+								<div class="col-sm-6">
+									<input type="password" class="form-control f-withdrawPwd"
+										id="inputWithdrawPwd" value="******" disabled>
+								</div>
+								<div class="col-sm-4">
+									<button class="btn btn-default" type="button" data-toggle="modal"
+										data-target=".change-withdrawPwd-form-modal" data-backdrop="static">点击修改密码</button>
+								</div>
+							</div>
+						#end
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">保存</button>
+							</div>
+						</div>
+					</form>
+					
+ 					#springBind("user.*")
+					#if($status.errors.hasErrors())
+					<div class="alert alert-danger sign-errors">
+ 						#springBind("user.name")
+						#foreach($error in $status.errorMessages)
+					 		$error
+					 	#end
+					 	
+					 	#springBind("user.email")
+					 	#foreach($error in $status.errorMessages)
+					 		$error
+					 	#end
+					 	#springBind("user.phone")
+					 	#foreach($error in $status.errorMessages)
+					 		$error
+					 	#end
+					</div>
+					#end
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade change-loginPwd-form-modal" tabindex="-1"
+		role="dialog" aria-labelledby="changeLoginPwd">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="changeLoginPwd">修改登录密码</h4>
+				</div>
+				<div class="modal-body">
+					<div class="contain">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<form id="change-loginPwd-form"
+									class="form-horizontal change-loginPwd-form">
+									<div class="form-group">
+										<label for="inputOldPwd" class="col-sm-3 control-label">旧密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control f-oldPwd"
+												id="inputOldPwd" placeholder="旧密码" name="password">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputNewPwd" class="col-sm-3 control-label">新密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control f-newPwd"
+												id="inputNewPwd" placeholder="新密码" name="newPassword">
+											<div class="progress password-meter" id="passwordMeter">
+												<div class="progress-bar"></div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputConfPwd" class="col-sm-3 control-label">确认密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control f-confPwd"
+												id="inputConfPwd" placeholder="确认密码">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-9">
+											<button type="submit" class="btn btn-default">保存</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade change-withdrawPwd-form-modal" tabindex="-1"
+		role="dialog" aria-labelledby="changewithdrawPwd">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="changewithdrawPwd">修改提现密码</h4>
+				</div>
+				<div class="modal-body">
+					<div class="contain">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<form id="change-withdrawPwd-form"
+									class="form-horizontal change-withdrawPwd-form" method="post"
+									action="">
+									<div class="form-group">
+										<label for="inputMobile" class="col-sm-3 control-label">手机</label>
+										<div class="col-sm-9">
+											<input type="text" class="form-control f-mobile"
+												id="inputMobile" placeholder="手机" value="15626139118" disabled>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputCode" class="col-sm-3 control-label">验证码</label>
+										<div class="col-sm-5">
+											<input type="text" class="form-control f-code"
+												id="inputCode" placeholder="验证码">
+										</div>
+										<div class="col-sm-4">
+											<button class="btn btn-default get-message" type="button">获取验证码</button>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="inputNewPwd" class="col-sm-3 control-label">新密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control f-newPwd"
+												id="inputNewPwd" placeholder="新密码">
+											<div class="progress password-meter" id="passwordMeter">
+												<div class="progress-bar"></div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputConfPwd" class="col-sm-3 control-label">确认密码</label>
+										<div class="col-sm-9">
+											<input type="password" class="form-control f-confPwd"
+												id="inputConfPwd" placeholder="确认密码">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-9">
+											<button type="submit" class="btn btn-default">保存</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="$staticConfig.getPath()/ck_market/build/account_setting.js"></script>
+</body>
+
+</html>

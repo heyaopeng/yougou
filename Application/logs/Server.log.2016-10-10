@@ -1,0 +1,22 @@
+2016-10-10 13:17:10,249 - {dataSource-1} inited
+ 2016-10-10 13:17:30,831 - getServerName   localhost
+ 2016-10-10 13:17:31,108 - cookie[{"httpOnly":false,"maxAge":-1,"name":"LAST_LOGINING_USERNAME","secure":false,"value":"15902023879","version":0},{"httpOnly":false,"maxAge":-1,"name":"LS","secure":false,"value":"Y","version":0},{"httpOnly":false,"maxAge":-1,"name":"Visited_Prod","secure":false,"value":"658%2C770%2C1883%2C659%2C667%2C660","version":0},{"httpOnly":false,"maxAge":-1,"name":"menu","secure":false,"value":"http%3A//localhost%3A8080/legendshop/admin/returnProduct/query","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"4VB+kbU2+9dIDep9iRRfjI34/50HVLaGa0NOLizGUOho+3t5XYyj4vzH+xnRkw0uJ1fVtERA14ARH6Q5GOLWkE68q99q9ilJol9SYqZoaQKeX2Z/G1SM2xo2bB1wQVsBRkzB4wx2jZ385j7oOcarKUFLD5NyDz6/BZswsbM4l3JTNssrL9gIl35NjcqMu4MY7SXIZBm1ZQ11IWv2vWmuY5BaeW1W/SuDOYyBR4LEX2PC7QCEFW5tf592M60N+dZHVf9O+9URB4EpsHFkV0ZAEKuKM4rDuV4XB6H+fZOAQdKOFhNGGQuDbYeGFTqMpQo9PcCIESVuni+z0cSA0nNwV62CsTJgyrsvdBBERadaarrcsK2pcgFivUY5jJ+evg/24fOlnXu8nm/vVaovPkCGV2SPBZ8dmGIBF6TfXOTCJFZy8M9rKAptT1+INtt1aoQtTukcqYy7WC/25V63o7hjAw4ZUdmDBlcIyZQNDdRDID+Fm6sGRsDZdNAjX4mI5NmGEIgIvCdLMqofg2tbRntTvQ","version":0}]
+ 2016-10-10 13:17:36,865 - account 为cookabuy@163.com
+ 2016-10-10 13:17:36,868 - 默认为namecookabuy@163.com
+ 2016-10-10 13:17:36,915 - account为cookabuy@163.com
+ 2016-10-10 13:17:36,915 - 默认为namecookabuy@163.com
+ 2016-10-10 13:17:36,938 - 长度11
+ 2016-10-10 13:17:36,942 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-10-10 13:17:36,943 - inputPassword: "nicaicaia3+"
+ 2016-10-10 13:17:36,948 - Session默认超时时间为[3600000]毫秒
+ 2016-10-10 13:17:36,948 - Session默认超时时间为[3600000]毫秒
+ 2016-10-10 13:17:36,950 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-10-10 13:17:36,971 - userProfile: {"email":"cookabuy@163.com","image":"http://120.25.193.220/group1/M00/00/00/eBnB3FfeClKAXL_iAAF3jBR1AjU20.file","ipAddr":"广东 湛江","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名字","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-10-10 13:17:37,004 - 登陆成功----
+ 2016-10-10 13:17:37,050 - 登录名是cookabuy@163.com
+ 2016-10-10 13:17:37,051 - 默认为namecookabuy@163.com
+ 2016-10-10 13:17:37,103 - 用户ID为1拥有的所有角色：["超级管理员"]
+ 2016-10-10 13:17:37,104 - 用户ID为1拥有的所有权限：["backend:home","backend:permissionManage","backend:productManage","backend:userManage","backend:roleManage"]
+ 2016-10-10 13:17:37,578 - cookie[{"httpOnly":false,"maxAge":-1,"name":"LAST_LOGINING_USERNAME","secure":false,"value":"15902023879","version":0},{"httpOnly":false,"maxAge":-1,"name":"LS","secure":false,"value":"Y","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"5056c670-0e42-4d5f-ba23-2260a5bde016","version":0},{"httpOnly":false,"maxAge":-1,"name":"Visited_Prod","secure":false,"value":"658%2C770%2C1883%2C659%2C667%2C660","version":0},{"httpOnly":false,"maxAge":-1,"name":"menu","secure":false,"value":"http%3A//localhost%3A8080/legendshop/admin/returnProduct/query","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"4z4Xv89pEZt7IHtD43hebvuT1V2n3HOvNhq8dP1O1citojR7TFNV/64RJYiGw+GWX0055ppr+u+yIn5i2iBhldN0CaP3EzUpmTI8BN+ab+W4liLM+1LQCDBmOY1ByQZP1jq6IKEzLn85jcxEPLEJnLjUUdI9xvI9O+oEqHon4wCJeFxMezhRSkFXcxnySHcYFnvJlkIfC8Hok006MkmTTCZtWlIJ4SCNlqaf7HMeg+iJOZ1FOUDKo5lEWjabLma6WxxJBQbV6J54zGNCFobs0N1vsHRT2d7d2hlGET+LVv6+2mqWnMTguQMpRBkhASrkoitMT5q4SSzmko/SzF3Pnpxkur9VIA5SbCeJj8tWMe80EWxKMj16tSMdwZAfbBPy5uqrYpLPe2ZbVo6QzyhEEDaXILoeX6P4sRe9OCniC3AcmRbMZhNe50qqWspin9opXpU/P7+7IDmEf0bIJ/fvLp+rB2hAJE0KE0KsE3A4+skRXfz0IthCyGTzjwFs9nHokegksGHf5KUNV8fPjKBXcg","version":0}]
+ 2016-10-10 13:18:34,201 - {dataSource-1} inited
+ 

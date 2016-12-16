@@ -1,0 +1,66 @@
+@import "public.less";
+
+.bas-print {
+	background-color: #fff;
+	padding: 10px;
+
+	&-table {
+		margin-bottom: 0;
+	}
+
+	&-bill-table {
+		thead > tr > th,
+		tbody > tr > td {
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+
+	&-logo {
+		position: absolute;
+		top: 1em;
+		right: 2em;
+	}
+
+	&-sign {
+		display: none;
+	}
+}
+
+@media print {
+	body {
+		position: relative;
+		padding-bottom: 10em;
+	}
+	.bas-header {
+		display: none;
+	}
+	.bas-print {
+		&-btns {
+			display: none;
+		}
+
+		&-sign {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 10em;
+
+			&-left {
+				display: block;
+				position: absolute;
+				bottom: 3em;
+				left: 5em;
+			}
+
+			&-right {
+				display: block;
+				position: absolute;
+				bottom: 3em;
+				right: 10em;
+			}
+		}
+	}
+}

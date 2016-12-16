@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.CountryMapper" >
+  <resultMap id="Country" type="com.duobao.fundation.data.mybatis.model.Country" >
+    <id column="country_id" property="countryId" jdbcType="INTEGER" />
+    <result column="country_code" property="countryCode" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="SMALLINT" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    country_id, country_code, country, position, is_active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Country" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_countries
+    where country_id = #{countryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_countries
+    where country_id = #{countryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Country" >
+    insert into db_countries (country_id, country_code, country, 
+      position, is_active)
+    values (#{countryId,jdbcType=INTEGER}, #{countryCode,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{position,jdbcType=SMALLINT}, #{isActive,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Country" >
+    insert into db_countries
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="countryId != null" >
+        country_id,
+      </if>
+      <if test="countryCode != null" >
+        country_code,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="countryId != null" >
+        #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="countryCode != null" >
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Country" >
+    update db_countries
+    <set >
+      <if test="countryCode != null" >
+        country_code = #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+    </set>
+    where country_id = #{countryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Country" >
+    update db_countries
+    set country_code = #{countryCode,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      position = #{position,jdbcType=SMALLINT},
+      is_active = #{isActive,jdbcType=BIT}
+    where country_id = #{countryId,jdbcType=INTEGER}
+  </update>
+</mapper>

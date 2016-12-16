@@ -1,0 +1,66 @@
+<div class="top-bar" data-j="topBar">
+    <div class="top-bar-inner">
+        <span class="top-bar-welcome">#springMessage("welcome_to_duobaobuy")</span>
+        
+		<ul class="top-bar-links">
+			#if($shiro.isAuthenticated()) 
+			<li class="top-bar-user-name">
+				<a href="/duobao-user-web/center/home">
+				#if($request.getSession().getAttribute("userName"))
+                   $!request.getSession().getAttribute("userName")
+                #elseif($request.getSession().getAttribute("userAccount"))
+                   $!request.getSession().getAttribute("userAccount")
+                #end
+				</a>
+			</li>
+			<li class="top-bar-sign-out">
+				<a href="/duobao-user-web/logout">
+				#springMessage("sign_out")
+				</a>
+			</li>
+			<li class="top-bar-sign-in hide">
+				<a href="#" data-action="signin">
+					<span class="icon-user"></span>
+					#springMessage("sign_in")
+				</a>
+			</li>
+			<li class="top-bar-sign-up hide">
+				<a href="#" data-action="signup">
+					<span class="icon-register"></span>
+					#springMessage("sign_up")
+				</a>
+			</li>
+			#else
+			<li class="top-bar-user-name hide">
+				<a href="/duobao-user-web/center/home">
+				hello
+				</a>
+			</li>
+			<li class="top-bar-sign-out hide">
+				<a href="/duobao-user-web/logout">
+				#springMessage("sign_out")
+				</a>
+			</li>
+			<li class="top-bar-sign-in">
+				<a href="#" data-action="signin">
+					<span class="icon-user"></span>
+					 #springMessage("sign_in")
+				</a>
+			</li>
+			<li class="top-bar-sign-up">
+				<a href="#" data-action="signup">
+					<span class="icon-register"></span>
+					#springMessage("sign_up")
+				</a>
+			</li>
+			#end
+			
+			<li>
+				<a href="/duobao-user-web/center/favourite?type=product">
+					<span class="icon-star"></span>
+					#springMessage("favorite")
+				</a>
+			</li>
+		</ul>
+    </div>
+</div>

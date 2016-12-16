@@ -1,0 +1,41 @@
+@import "public.less";
+
+@title-bg: #f9f9f9;
+
+.applicant-info {
+	overflow-x: hidden;
+	&-title {
+		margin: 0;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		text-align: center;
+		background: @title-bg;
+		&:first-letter{
+            text-transform: uppercase;
+        }
+	}
+	&-table {
+		& > tbody > tr > th {
+			padding-top: 0;
+			padding-bottom: 0;
+			border: 0;
+			text-align: right;
+			width: 30%;
+		}
+		& > tbody > tr > td {
+			padding-top: 0;
+			padding-bottom: 0;
+			border: 0;
+			width: 70%;
+		}
+		& > tbody > tr > .applicant-info-img {
+			padding: 8px !important;
+			text-align: center;
+
+			img + img {
+				margin-left: 15px;
+			}
+		}
+
+	}
+}

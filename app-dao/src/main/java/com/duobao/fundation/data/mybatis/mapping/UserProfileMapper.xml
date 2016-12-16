@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.UserProfileMapper" >
+  <resultMap id="UserProfile" type="com.duobao.fundation.data.mybatis.model.UserProfile" >
+    <id column="profile_id" property="profileId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="login_count" property="loginCount" jdbcType="SMALLINT" />
+    <result column="regist_time" property="registTime" jdbcType="TIMESTAMP" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="ip_addr" property="ipAddr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    profile_id, user_id, image,email, phone, name, nick_name, login_count, regist_time, is_active,ip_addr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="UserProfile" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from db_user_profiles
+    where profile_id = #{profileId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="UserProfile" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from db_user_profiles
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_user_profiles
+    where profile_id = #{profileId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.UserProfile" >
+    insert into db_user_profiles (profile_id, user_id, image,email,
+      phone, name,ncik_name, login_count,
+      regist_time, is_active,ip_addr)
+    values (#{profileId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{ncikName,jdbcType=VARCHAR}, #{loginCount,jdbcType=SMALLINT},
+      #{registTime,jdbcType=TIMESTAMP}, #{isActive,jdbcType=BIT}, #{ipAddr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.UserProfile" >
+    insert into db_user_profiles
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="profileId != null" >
+        profile_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="loginCount != null" >
+        login_count,
+      </if>
+      <if test="registTime != null" >
+        regist_time,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="profileId != null" >
+        #{profileId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCount != null" >
+        #{loginCount,jdbcType=SMALLINT},
+      </if>
+      <if test="registTime != null" >
+        #{registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="ipAddr != null" >
+        #{ipAddr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.UserProfile" >
+    update db_user_profiles
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCount != null" >
+        login_count = #{loginCount,jdbcType=SMALLINT},
+      </if>
+      <if test="registTime != null" >
+        regist_time = #{registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr = #{ipAddr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where profile_id = #{profileId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.UserProfile" >
+    update db_user_profiles
+    set user_id = #{userId,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      login_count = #{loginCount,jdbcType=SMALLINT},
+      regist_time = #{registTime,jdbcType=TIMESTAMP},
+      is_active = #{isActive,jdbcType=BIT},
+      ip_addr = #{ipAddr,jdbcType=VARCHAR}
+    where profile_id = #{profileId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByUserProfile" resultMap="UserProfile" >
+      select
+      A.*
+      from db_user_profiles as A left join db_users as B on A.user_id = B.user_id
+      <where>
+        <if test="email != null">
+          A.email = #{email,jdbcType=VARCHAR}
+        </if>
+        <if test="phone != null" >
+          A.phone = #{phone,jdbcType=VARCHAR}
+        </if>
+        <if test="userId != null" >
+            A.user_id = #{userId,jdbcType=INTEGER}
+          </if>
+          <if test="profileId != null" >
+            A.profile_id = #{profileId,jdbcType=INTEGER}
+          </if>
+          <if test="name != null" >
+           A.name = #{name,jdbcType=VARCHAR}
+          </if>
+          <if test="serialNum != null" >
+           B.serial_num = #{serialNum,jdbcType=VARCHAR}
+          </if>
+      </where>
+    </select>
+
+    <select id="selectListByUserProfile" resultMap="UserProfile" >
+      select
+      <include refid="Base_Column_List" />
+      from db_user_profiles
+      <where>
+          <if test="phone != null" >
+          <bind name="test1" value="'%' + phone + '%'" />
+          and phone like #{test1,jdbcType=VARCHAR}
+        </if>
+      </where>
+    </select>
+
+    <select id="selectUserByRoleType" resultMap="UserProfile"  parameterType="java.lang.Integer" >
+      select
+      <include refid="Base_Column_List" />
+        from  db_user_profiles
+        where user_id in ( select  user_id from db_user_role_link where  role_id = #{roleId,jdbcType=INTEGER} )
+    </select>
+
+    <select id="selectUserListByParentId" resultMap="UserProfile"  parameterType="java.lang.Integer" >
+        select
+      <include refid="Base_Column_List" />
+        from  db_user_profiles
+        where user_id in ( select  user_id from db_users  where  parent_id = #{parentId,jdbcType=INTEGER} )
+    </select>
+</mapper>

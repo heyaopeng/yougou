@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.CashCouponMapper" >
+  <resultMap id="BaseResultMap" type="com.duobao.fundation.data.mybatis.model.CashCoupon" >
+    <id column="coupon_id" property="couponId" jdbcType="INTEGER" />
+    <result column="coupon_number" property="couponNumber" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="duobao_money" property="duobaoMoney" jdbcType="DECIMAL" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    coupon_id, coupon_number, create_time, is_active,money,duobao_money,url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_cash_coupons
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByNumber" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_cash_coupons
+    where coupon_number = #{couponNumber,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_cash_coupons
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.CashCoupon" useGeneratedKeys="true"
+    keyProperty="couponId" >
+    insert into db_cash_coupons (coupon_id, url,coupon_number, create_time, 
+      is_active,money,duobao_money)
+    values (#{couponId,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{couponNumber,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{isActive,jdbcType=BIT},#{money,jdbcType=DECIMAL},#{duobaoMoney,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.CashCoupon" useGeneratedKeys="true"
+    keyProperty="couponId" >
+    insert into db_cash_coupons
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="couponId != null" >
+        coupon_id,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="couponNumber != null" >
+        coupon_number,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="duobaoMoney != null" >
+        duobao_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="couponId != null" >
+        #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="couponNumber != null" >
+        #{couponNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="duobaoMoney != null" >
+        #{duobaoMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.CashCoupon" >
+    update db_cash_coupons
+    <set >
+      <if test="couponNumber != null" >
+        coupon_number = #{couponNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="duobaoMoney != null" >
+        duobao_money = #{duobaoMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.CashCoupon" >
+    update db_cash_coupons
+    set coupon_number = #{couponNumber,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      money = #{money,jdbcType=DECIMAL},
+      duobao_money = #{duobaoMoney,jdbcType=DECIMAL},
+      is_active = #{isActive,jdbcType=BIT}
+    where coupon_id = #{couponId,jdbcType=INTEGER}
+  </update>
+</mapper>

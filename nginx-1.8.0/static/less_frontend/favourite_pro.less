@@ -1,0 +1,227 @@
+@cooka: #f6891c;
+@cooka_sub: #fbbb10;
+/*no goods*/
+  .no-fav-goods {
+        margin-top: 20px;    
+        height: 400px;    
+        .icon {
+	        font-size:140px;
+	        color: @cooka;
+        }
+          }
+  .no-fav-style {
+        font-size: 25px;
+        color: @cooka;
+        font-weight: 700;
+
+    }
+.img-scale img{
+        max-height: 263px;
+}
+
+
+
+/*favourite goods*/
+        .trim-right {
+            padding-right: 0;
+        }
+
+        .collection-goods {
+      
+            .hover-color {
+                cursor: pointer;
+                &:hover {
+                    color: @cooka;
+                }
+            }
+            .hover-color.active {
+                font-weight: 700;
+            }
+            .hover-color .glyphicon-arrow-down,
+            .hover-color .glyphicon-arrow-up {
+                display: none;
+            }
+            .hover-color.desc .glyphicon-arrow-down {
+                display: inline-block;
+            }
+            .hover-color.asce .glyphicon-arrow-up {
+                display: inline-block;
+            }
+
+            .label-block {
+                width: 10%;
+                background-color: #f5f5f5;
+                height: 30px;
+                margin-top: 20px;
+                a {
+                    line-height: 30px;
+                    text-decoration: none;
+                    color: #000;
+                    font-weight: 700;
+                }
+                .badge{
+                    color: @cooka;
+                    background-color: transparent;
+                    font-size: 14px;
+                    padding: 0 0 0 7px;
+                }
+            }
+            .item-box {
+                padding: 0 8px;
+                &:hover {
+                     color: @cooka;
+                 }
+                a.item {
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+            .search-area {
+                background-color: #f5f5f5;
+                height: 40px;
+                margin-top: 30px;
+                line-height: 40px;
+                padding-left:15px;
+                padding-right: 15px;
+                .cookabuy-search {
+                    margin-top: 3px;
+                }
+                .form-control {
+                    float: right;
+                    width: 80%;
+                }
+                .cooka-search {
+                    width: 97px;
+                    color: #fff;
+                    margin-right: 3px;
+                }
+            }
+            .img-header {
+                height: 58px;
+                padding-top: 22px;
+                label {
+                    font-weight: 500;
+                }
+                .delete {
+                    line-height: 27px;
+                    margin-left: 8px;
+                }
+                .prev-page {
+                    margin-right: 8px;
+                }
+            }
+            .page-box {
+                a.disabled {
+                    color: #999 !important;
+                    text-decoration: none;
+                    cursor: default;
+                }
+            }
+            .buy-cart {
+                padding: 0 0;
+                button {
+                    background-color: @cooka;
+                    border-color: @cooka;
+                }
+                button:hover {
+                    background-color: @cooka_sub;
+                    border-color: @cooka_sub;
+                }
+                .favourites-delete {
+                    margin-left: 8px;
+                }
+                .glyphicon {
+                    top: 13px;
+                }
+            }
+            .img-scale {
+                position: relative;
+                    a.img {
+                        display: table-cell;
+                    }
+                .row-top {
+                    text-align: center;
+                    height: 30px;
+                    line-height: 30px;
+                    span {
+                        color: #fff;
+                    }
+                }
+                .cover-hover {
+                    position: absolute;
+                    bottom: 0;
+                    height: 65px;
+                    width: 100%;
+                    background-color: #333;
+                    display: none;
+                    background-color: rgba(0,0,0,0.5);
+                }
+                a.tip {
+                    display: inline-block;
+                    width: 85px;
+                    color: #fff;
+                    font-weight: 700;
+                    text-decoration: none;
+                    height: 23px;
+                    line-height: 23px;
+                }
+                a:hover {
+                    color: @cooka;
+                    text-decoration: underline;
+                }
+
+                .row-bottom {
+                    background-color:#000;
+                    color: #fff;
+                    text-align: center;
+                    background-color: rgba(0,0,0,0.5);
+                    height: 35px;
+                    line-height: 35px;
+                }
+                span {
+                    padding-right: 5px;
+                    margin-left: -6px;
+                }
+            }
+            .img-scale:hover {
+                .cover-hover {
+                    display: block;
+                }
+            }
+            .img-block {
+                margin-bottom: 25px;
+                .description {
+                    margin-top: 13px;
+                    max-width: 200px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .price {
+                    color: @cooka;
+                    padding: 6px 0;
+                    font-size: 16px;
+                }
+            }
+    
+
+         
+            .delete-modal {
+                top: 110px;
+                .modal-dialog {
+                    width: 400px;
+                }
+                .modal-header {
+                    background-color: @cooka;
+                    padding: 11px;
+                }
+                .modal-body {
+                    height: 60px;
+                    padding: 21px;
+                }
+                .modal-footer {
+                    padding: 5px 8px;
+                }
+            }
+            
+        }

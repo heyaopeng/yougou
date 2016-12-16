@@ -1,0 +1,132 @@
+<div class="col-md-2">
+    <div class="user-sidebar" data-j="userSidebar">
+        <div class="user-sidebar-info">
+            <div class="media">
+                <div class="media-left">
+                <a href="/duobao-user-web/center/home">
+                #set($imgUrl = $request.getSession().getAttribute("userPicture"))
+                #if("$!imgUrl"!="")
+                    <img class="media-object img-circle" src="$imgUrl" width="70" height="70" alt="$!name">
+                #else
+                    <img class="media-object img-circle" src="$staticConfig.getPath()/CKF/images/avatar.png" width="70" height="70" alt="$!name">
+                #end
+                </a>
+                </div>
+                <div class="media-body">
+                    <span class="user-sidebar-info-item">
+                        #springMessage("hello") 
+                        <strong>
+                        #if($request.getSession().getAttribute("userName"))
+                           $!request.getSession().getAttribute("userName")
+                        #elseif($request.getSession().getAttribute("userEmail"))
+                           $!request.getSession().getAttribute("userEmail")
+                        #end
+                         </strong>
+                     </span>
+                    <span class="user-sidebar-info-item">#springMessage("security_level"):
+                    #if($!securityLevel == 1)
+                    <span class="text-danger">#springMessage("low")</span>
+                    #elseif($!securityLevel == 2)
+                    <span class="text-warning">#springMessage("medium")</span>
+                    #else
+                    <span class="text-success">#springMessage("high")</span>
+                    #end
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <ul class="user-sidebar-menu">                       
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="#" data-toggle="submenu">
+                    <span class="icon-order-o"></span> 
+                    #springMessage("my_orders")
+                </a>
+                <ul class="user-sidebar-submenu">
+                    <li>
+                    <a href="/duobao-order-web/buyerOrderList.vm">#springMessage("all")</a></li>
+                    <li>
+                    <a href="/duobao-order-web/buyerOrderList.vm?tradeCode=$orderCode.getWaitpay()">#springMessage("awaiting_payment")</a></li>
+                    <li>
+                    <a href="/duobao-order-web/buyerOrderList.vm?tradeCode=$orderCode.getWaitship()">#springMessage("logistic_shipping") </a></li>
+                    <li>
+                    <a href="/duobao-order-web/buyerOrderList.vm?tradeCode=$orderCode.getWaitrec()">#springMessage("pending_confirmation")</a></li>
+                    <li>
+                    <a href="/duobao-order-web/buyerOrderList.vm?tradeCode=$orderCode.getTradesuccess()">#springMessage("trade_success") </a></li>
+                    <li>
+                    <a href="/duobao-order-web/buyerOrderList.vm?tradeCode=$orderCode.getTradesuccess()&isCommented=false">#springMessage("awaiting_evaluation")</a></li>    
+                   <!--  <li>
+                    <a href="/duobao-order-web/disputeList">#springMessage("dispute") </a></li> -->
+                </ul>
+            </li>
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="/duobao-cart-web/cart">
+                    <span class="icon-cart"></span>
+                    #springMessage("shopping_cart")
+                </a>
+            </li>
+            
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="#" data-toggle="submenu"><span class="icon-star"></span> #springMessage("my_favorites")</a>
+                <ul class="user-sidebar-submenu">
+                    <li><a href="/duobao-user-web/center/favourite">#springMessage("product")</a></li>
+                </ul>
+            </li>
+            
+            <!--li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="#"><span class="icon-coupon-o"></span> #springMessage("coupon")</a>
+            </li-->
+            
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="#" data-toggle="submenu"><span class="icon-horn-o"></span> #springMessage("system_announcement")</a>
+                <ul class="user-sidebar-submenu">
+                    <li><a href="/duobao-user-web/center/announcementList">#springMessage("all_announcement")</a></li>
+                    <li><a href="/duobao-user-web/center/announcementList?type=mark">#springMessage("start_announcement")</a></li>
+                    <li><a href="/duobao-user-web/center/announcementList?type=dustbin">#springMessage("trash")</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="#" data-toggle="submenu"><span class="icon-earset-o"></span> #springMessage("consultation_or_complaint")</a>
+                <ul class="user-sidebar-submenu">
+                    <li><a href="/duobao-user-web/feedback">#springMessage("feedback_center")</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="/duobao-product-web/myCommentList">
+                    <span class="icon-comment-o"></span>
+                    #springMessage("my_comment")
+                </a>
+            </li>
+            
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="#" data-toggle="submenu">
+                    <span class="icon-account-o"></span>
+                    #springMessage("account_setting")
+                </a>
+                <ul class="user-sidebar-submenu">
+                    <li><a href="/duobao-user-web/center/profile">#springMessage("profile")</a></li>
+                    <li><a href="/duobao-user-web/center/myAddress">#springMessage("address_manage")</a></li>
+                    <li><a href="/duobao-user-web/center/security">#springMessage("security_center")</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <span class="user-sidebar-menu-arrow icon-chevron-right"></span>
+                <a href="/duobao-finance-web/financialAccount">
+                    <span class="icon-currency-o"></span>
+                    #springMessage("financial_center")
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+#set($layout = "/layout/userAnnouncementDetail_layout.vm")
+ <input type="hidden" id="XToken" name="xToken" value="$csrfTool.getToken($request)"/>
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+            #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="bulletins-detail">
+                    <div class="bulletins-detail-opt bulletins-detail-opt-top" data-j="bulletinsDetailOpt">
+                        <a href="/cooka-user-web/center/announcementList"><span class="icon-back-circle-o bulletins-detail-backward"></span></a>
+                        <span class="icon-favourite-circle-o bulletins-detail-star" data-mid="$announcement.messageId"></span>
+                        <span class="icon-delete-circle-o bulletins-detail-remove" data-mid="$announcement.messageId"></span>
+                    </div>
+                    <div class="bulletins-detail-info">
+                        <div class="bulletins-detail-sender">
+                            #springMessage("sender"): <span>#springMessage("system")</span>
+                        </div>
+                        <!-- <div class="bulletins-detail-consignee">
+                            ##springMessage("consignee"): <span>dz0022</span>
+                        </div> -->
+                        <div class="bulletins-detail-data">
+                            #springMessage("date"): <span>$!date.format('yyyy-MM-dd HH:mm',$announcement.createTime)</span>
+                        </div>
+                    </div>
+                    <div class="bulletins-detail-theme">
+                        <span class="icon-circle"></span>
+                        $!announcement.title
+                    </div>
+                    <div class="bulletins-detail-content">
+                        $!announcement.messageUrl
+                    </div>
+
+                    <div class="bulletins-detail-opt bulletins-detail-opt-bottom">
+                    #if("$!nextId"!="")
+                    	<a href="/cooka-user-web/center/announcement?messageId=$nextId">
+	                        <div class="bulletins-detail-next">
+	                            #springMessage("next") <span class="icon-chevron-down"></span>
+	                        </div> 
+                        </a>
+                    #end
+                    #if("$!preId" != "")
+                    	<a href="/cooka-user-web/center/announcement?messageId=$preId">
+                        	<div class="bulletins-detail-previous">
+                            	#springMessage("previous") <span class="icon-chevron-up"></span>
+                        	</div>
+                        </a>
+                    #end    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

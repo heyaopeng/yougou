@@ -1,0 +1,41 @@
+@import "public.less";
+
+.home-widget {
+	background-color: @ck-main;
+	width: 200px;
+	height: 155px;
+	position: fixed;
+	bottom: 30%;
+	left: 0;
+	color: #fff;
+	padding: 5px 10px;
+
+	&-strong {
+		font-size: 24px;
+		font-weight: bold;
+		display: block;
+	}
+
+	&-remove {
+		cursor: pointer;
+		position: absolute;
+		top: 5px;
+		right: 5px;
+
+		&:hover {
+			color: #eee;
+		}
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		background-image: url(../images/ticket_side.png);
+		background-repeat: repeat-y;
+		position: absolute;
+		width: 15px;
+		height: 100%;
+		top: 0;;
+		right: -15px;
+	}
+}

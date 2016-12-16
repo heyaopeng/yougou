@@ -1,0 +1,21 @@
+@import "public.less";
+
+.bulletin-module {
+	.nav-tabs > li {
+		background-color: #f2f2f2;
+		text-align: center;
+		& > a {
+			min-width: 200px;
+			&:hover {
+				background-color: #ccc;
+			}
+		}
+
+		&.active > a {
+			&:hover,
+			&:focus {
+				background-color: @ck-main;
+			}
+		}
+	}
+}

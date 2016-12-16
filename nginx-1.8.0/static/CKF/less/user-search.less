@@ -1,0 +1,106 @@
+@import "public.less";
+
+.user-search {
+	&-filter {
+		padding: 15px;
+	}
+
+	.form-horizontal {
+		> .form-group {
+			margin-left: -10px;
+			margin-right: -10px;
+			margin-bottom: 15px;
+		}
+
+		div.col-md-1,
+		div.col-md-2,
+		div.col-md-3,
+		div.col-md-4,
+		div.col-md-5 {
+			padding: 0 10px;
+		}
+	}
+
+	&-link + &-link {
+		margin-left: 1em;
+	}
+
+	&-submit {
+		margin-left: 110px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	&-classify {
+		&-items {
+			.clearfix();
+			background-color: #f4f4f4;
+			padding-left: 10px;
+
+			> li {
+				display: block;
+				float: left;
+				position: relative;
+
+				> a {
+					display: block;
+					text-decoration: none;
+					padding: 6px 12px;
+					color: #333;
+					border-bottom: 2px solid transparent;
+					max-width: 200px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+
+					&:first-letter {
+						text-transform: uppercase;
+					}
+
+					&:hover {
+						color: @ck-main;
+					}
+				}
+			}
+
+			.active {
+				> a {
+					color: @ck-main;
+					border-color: @ck-main;
+
+					&:hover {
+						cursor: default;
+					}
+				}
+			}
+		}
+
+		&-num {
+			position: absolute;
+			top: -5px;
+			right: -10px;
+			z-index: 5;
+			display: block;
+			background-color: #F74D5A;
+			color: #fff;
+			padding: 0 5px;
+			border-radius: 10px;
+			font-size: 12px;
+		}
+	}
+
+	.input-daterange {
+		width: 100% !important;
+		.input-group-addon {
+			background-color: #fff;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+
+	.nav > li > a {
+		&:first-letter {
+			text-transform: uppercase;
+		}
+	}
+}

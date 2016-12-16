@@ -1,0 +1,251 @@
+2016-12-09 11:26:02,536 - {dataSource-1} inited
+ 2016-12-09 11:26:11,919 - 更新微信Token
+ 2016-12-09 11:26:11,973 - 自动1元购买
+ 2016-12-09 11:26:14,864 - 1元购买时间2891
+ 2016-12-09 11:27:21,580 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-09 11:27:21,581 - getServerName   localhost
+ 2016-12-09 11:27:21,804 - cookie[{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"w17cvFQMz2KikcS4cyaKSMdSGhzMMTpgXlEVA8FClY5RNcg/N9qjwo1X/gbRPQT/dlsR7n+3dZaPC4GNcoImd7W8d0YymmRL1Uzd3hjvHJjiJ/I9SuS6TRPzGqa6RY9HumoVCdSRbF35AX0NnS6cI9xAzIu4F2WgT6xZV4om9Jjn/451QF++5xtZi8AyqoF2TUzQoGD6AuZFHVvocCsNdIC7DWnT9XHHM2jtvY3Vr/2C0DcxNOAqSzrJm/t7YQCqUyzxiLhobnDUr8okSHOdGNMxHeR/lcBS8EEoAvgNprEYRImyeb42BMAWbQOlqXLuKwQKWn90GBpfj+1m5pEn0ndmDmqz1wZCCrc+VF6/PQ6eoJhG9LgHMjD5qP9tbjApUTK/kvmBFgCF74Vnw+0rzzhv7nFjd7dslk10D+5jxesh6voOZkzkFRnRZoWlOAh8PATbDMbMyqHV5GTaDACAkUX8hSq3SJVxnAv6Y6Ownf/Ya4IrVDm32oMC/Dpmq4F5EKRggokVipMTBTZ80dKXUQ","version":0}]
+ 2016-12-09 11:27:40,231 - account 为cookabuy@163.com
+ 2016-12-09 11:27:40,301 - account为cookabuy@163.com
+ 2016-12-09 11:27:40,406 - 长度11
+ 2016-12-09 11:27:40,410 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-12-09 11:27:40,411 - inputPassword: "nicaicaia3+"
+ 2016-12-09 11:27:40,417 - Session默认超时时间为[3600000]毫秒
+ 2016-12-09 11:27:40,417 - Session默认超时时间为[3600000]毫秒
+ 2016-12-09 11:27:40,419 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:27:40,481 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-12-09 11:27:40,597 - 登陆成功----
+ 2016-12-09 11:27:40,749 - 登录名是cookabuy@163.com
+ 2016-12-09 11:27:41,131 - 用户ID为1拥有的所有角色：["超级管理员","商家"]
+ 2016-12-09 11:27:41,132 - 用户ID为1拥有的所有权限：["customer:payment","backend:productManage","customer:paymentResult","backend:userManage","customer:choujiang","customer:winList","customer:commissionDetail","customer:userShowList","backend:permissionManage","customer:invitation","customer:addrList","customer:cart","customer:withdrawList","customer:annoucementList","store:couponWithdrawList","customer:recordList","backend:roleManage","store:coupon","customer:withdraw","store:couponBalanceDetail","backend:storeManage","customer:share","backend:home","customer:editAddr","customer:userCenter","customer:accountCenter","store:storeApplication","store:couponWithdraw","customer:getCouponDetail"]
+ 2016-12-09 11:27:42,436 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"120f1fc5-8e80-44b0-8951-292c9343405c","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"ArvmEe+LuQK1U2hDSsqqNPuA1m1uW8QcmErpHe5DbCERLCTYwnILrSU+Lwlo+i5c62AHzzebTeLRSbOeSzm16Bv9+rVE1PMPU8kvfNEVdC1QdyyY9qon/4kcW1zCXZ5pIJbKYz6jxQE3Cmifo8xpEJykdrgtaRvQpxfnIyIxdd2CqWCpiHpesDSb2ZSLryx9/xNeokwHaLA8fe9m+U5Rety9DGERQrTpoQ35KktgFgGCRJhVnIecx6cFa1dKwqTSEtQmBOutUADd6Wem8rWRJkdEFnrb8H/fK+CELYchJBIV/arFAmd8qozrTn7Tr7uZM7i5Rtf3A3ChbbmGHRLUuv3S6EuML5H+JiIaOQYDw1yrIJa6x4K7D/MdkKIx005HbYAiEfLNYjmnQ7M6mYPHsq/k5+ZamhbgbQYK5gs9Kh44HjhKrZlQojOQAIsXflsC0RSm/e+sHUXMMQ4SgIfZPLVEvsbRU/dPYhCYTMU/K0hlMCBmU2DRUR6F6/Z5dShjmQeg6S+JV4gOLPiO92Dbmw","version":0}]
+ 2016-12-09 11:27:43,754 - 请求方式：["Cookie","Accept","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-09 11:27:43,755 - getServerName   localhost
+ 2016-12-09 11:27:43,766 - cookie[{"httpOnly":false,"maxAge":-1,"name":"JSESSIONID","secure":false,"value":"lJ_q7HSljRt6QvoxlgQPkERi","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"120f1fc5-8e80-44b0-8951-292c9343405c","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"ArvmEe+LuQK1U2hDSsqqNPuA1m1uW8QcmErpHe5DbCERLCTYwnILrSU+Lwlo+i5c62AHzzebTeLRSbOeSzm16Bv9+rVE1PMPU8kvfNEVdC1QdyyY9qon/4kcW1zCXZ5pIJbKYz6jxQE3Cmifo8xpEJykdrgtaRvQpxfnIyIxdd2CqWCpiHpesDSb2ZSLryx9/xNeokwHaLA8fe9m+U5Rety9DGERQrTpoQ35KktgFgGCRJhVnIecx6cFa1dKwqTSEtQmBOutUADd6Wem8rWRJkdEFnrb8H/fK+CELYchJBIV/arFAmd8qozrTn7Tr7uZM7i5Rtf3A3ChbbmGHRLUuv3S6EuML5H+JiIaOQYDw1yrIJa6x4K7D/MdkKIx005HbYAiEfLNYjmnQ7M6mYPHsq/k5+ZamhbgbQYK5gs9Kh44HjhKrZlQojOQAIsXflsC0RSm/e+sHUXMMQ4SgIfZPLVEvsbRU/dPYhCYTMU/K0hlMCBmU2DRUR6F6/Z5dShjmQeg6S+JV4gOLPiO92Dbmw","version":0}]
+ 2016-12-09 11:27:52,686 - This is isLogin,用户已经登录
+ 2016-12-09 11:27:52,686 - 拿到的name 是何耀澎
+ 2016-12-09 11:27:53,131 - [{"isLuckyNumber":true,"number":10000004,"numberId":1621081,"orderId":164606,"rank":4,"termId":2949,"time":1481185898000,"timeSufix":".180","userId":208}]
+ 2016-12-09 11:27:56,539 - This is isLogin,用户已经登录
+ 2016-12-09 11:27:56,539 - 拿到的name 是何耀澎
+ 2016-12-09 11:27:56,785 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:29:22,042 - This is isLogin,用户已经登录
+ 2016-12-09 11:29:22,042 - 拿到的name 是何耀澎
+ 2016-12-09 11:29:22,482 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:29:29,800 - This is isLogin,用户已经登录
+ 2016-12-09 11:29:29,800 - 拿到的name 是何耀澎
+ 2016-12-09 11:29:30,019 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:29:44,518 - This is isLogin,用户已经登录
+ 2016-12-09 11:29:44,519 - 拿到的name 是何耀澎
+ 2016-12-09 11:29:44,736 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:30:22,160 - This is isLogin,用户已经登录
+ 2016-12-09 11:30:22,160 - 拿到的name 是何耀澎
+ 2016-12-09 11:30:22,404 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:31:07,153 - This is isLogin,用户已经登录
+ 2016-12-09 11:31:07,153 - 拿到的name 是何耀澎
+ 2016-12-09 11:31:07,380 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:31:21,634 - This is isLogin,用户已经登录
+ 2016-12-09 11:31:21,635 - 拿到的name 是何耀澎
+ 2016-12-09 11:31:21,874 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:31:32,223 - This is isLogin,用户已经登录
+ 2016-12-09 11:31:32,224 - 拿到的name 是何耀澎
+ 2016-12-09 11:31:32,458 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:31:39,192 - This is isLogin,用户已经登录
+ 2016-12-09 11:31:39,193 - 拿到的name 是何耀澎
+ 2016-12-09 11:31:39,400 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:32:16,190 - This is isLogin,用户已经登录
+ 2016-12-09 11:32:16,191 - 拿到的name 是何耀澎
+ 2016-12-09 11:32:30,830 - This is isLogin,用户已经登录
+ 2016-12-09 11:32:30,831 - 拿到的name 是何耀澎
+ 2016-12-09 11:32:31,061 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:32:42,863 - This is isLogin,用户已经登录
+ 2016-12-09 11:32:42,864 - 拿到的name 是何耀澎
+ 2016-12-09 11:32:43,088 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:33:03,213 - This is isLogin,用户已经登录
+ 2016-12-09 11:33:03,214 - 拿到的name 是何耀澎
+ 2016-12-09 11:33:03,469 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:33:13,851 - This is isLogin,用户已经登录
+ 2016-12-09 11:33:13,852 - 拿到的name 是何耀澎
+ 2016-12-09 11:33:14,061 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:33:23,420 - This is isLogin,用户已经登录
+ 2016-12-09 11:33:23,421 - 拿到的name 是何耀澎
+ 2016-12-09 11:33:23,640 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:33:29,312 - This is isLogin,用户已经登录
+ 2016-12-09 11:33:29,312 - 拿到的name 是何耀澎
+ 2016-12-09 11:33:29,541 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:33:37,896 - This is isLogin,用户已经登录
+ 2016-12-09 11:33:37,896 - 拿到的name 是何耀澎
+ 2016-12-09 11:33:38,350 - [{"isLuckyNumber":true,"number":10000004,"numberId":1621081,"orderId":164606,"rank":4,"termId":2949,"time":1481185898000,"timeSufix":".180","userId":208}]
+ 2016-12-09 11:34:17,259 - This is isLogin,用户已经登录
+ 2016-12-09 11:34:17,259 - 拿到的name 是何耀澎
+ 2016-12-09 11:34:17,480 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:34:36,612 - This is isLogin,用户已经登录
+ 2016-12-09 11:34:36,613 - 拿到的name 是何耀澎
+ 2016-12-09 11:34:36,964 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:34:46,463 - This is isLogin,用户已经登录
+ 2016-12-09 11:34:46,464 - 拿到的name 是何耀澎
+ 2016-12-09 11:34:46,724 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:35:11,098 - 自动1元购买
+ 2016-12-09 11:35:11,522 - 1元购买时间424
+ 2016-12-09 11:38:57,723 - {dataSource-1} inited
+ 2016-12-09 11:39:14,381 - This is isLogin,用户已经登录
+ 2016-12-09 11:39:14,382 - 拿到的name 是何耀澎
+ 2016-12-09 11:39:14,721 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:39:27,574 - This is isLogin,用户已经登录
+ 2016-12-09 11:39:27,575 - 拿到的name 是何耀澎
+ 2016-12-09 11:39:27,809 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:40:30,015 - This is isLogin,用户已经登录
+ 2016-12-09 11:40:30,016 - 拿到的name 是何耀澎
+ 2016-12-09 11:41:00,671 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:42:47,678 - {dataSource-1} inited
+ 2016-12-09 11:43:01,692 - This is isLogin,用户已经登录
+ 2016-12-09 11:43:01,693 - 拿到的name 是何耀澎
+ 2016-12-09 11:43:01,972 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:43:15,918 - This is isLogin,用户已经登录
+ 2016-12-09 11:43:15,919 - 拿到的name 是何耀澎
+ 2016-12-09 11:43:16,244 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:43:32,821 - 请求方式：["Cookie","Accept","Upgrade-Insecure-Requests","Connection","User-Agent","Host","Accept-Language","Accept-Encoding"]
+ 2016-12-09 11:43:32,821 - getServerName   localhost
+ 2016-12-09 11:43:33,332 - cookie[{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"KSqy6Dc/BShDRUk6FzGbsbyGOHQoTOnqCnZgp4ktU64TsO+1ua/ztYqjnV+OELiVQ3bucLyu8TEc39o/F2OgL3jFFfghsTw2ovlF70BvqlZ3u3YwEA6IFIUq6uNMEESLKbVIBfNN3uHqBjHpVwpgPSvyeb544kq+f5dDZ1+L9yFGT7q50xDzK3f93M2D6+P3WiCLjzX4gtrI+1lTWbxHUSJDxXxGCqOlC3QPTw2oOW8Ixp/kFMUpIJzBT3oufqjYhnHNRrrx3P+SBycQYXYqYbeKJmEyHqufmDKd7CkTBxj23BfQL/3E2MMVJZeIr2jOOrAhzkeJyG+iMotS7s9HYwQNyAVjPWiXoPuUCblPyRqlTPOuJTncAzoETT4NgwQLsQBt6gFKFTp3+JS08GCq171Itu3yTE+II7GwtWzDSgl3cN0dYfRg5jtrrDJzTlwuSMEhfqgmbOjwdRZOz2Ai2yIQYTIP5IBZWKjIjN+rI1RHOIvj2sFoPdpzV1ZXGcQOevUb0QOkiTClITsru+A4MQ","version":0}]
+ 2016-12-09 11:43:41,556 - account 为cookabuy@163.com
+ 2016-12-09 11:43:41,699 - account为cookabuy@163.com
+ 2016-12-09 11:43:41,997 - 长度11
+ 2016-12-09 11:43:42,002 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-12-09 11:43:42,002 - inputPassword: "nicaicaia3+"
+ 2016-12-09 11:43:42,010 - Session默认超时时间为[3600000]毫秒
+ 2016-12-09 11:43:42,010 - Session默认超时时间为[3600000]毫秒
+ 2016-12-09 11:43:42,012 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:43:42,078 - userProfile: {"email":"cookabuy@163.com","image":"http://wx.qlogo.cn/mmopen/Fm8JjDKl6ssGFhHiaZDibBd9fSY5Ufd0Uia1qHqGXFic5yMInv0HzzWhBdBJ8TB2MJQzA91FaZDLafnXo6sesgwomzSnOribf3Zqu/0","ipAddr":"","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-12-09 11:43:42,202 - 登陆成功----
+ 2016-12-09 11:43:43,545 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"3de730e5-bce3-4d60-96d9-8e57b9765b3b","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"4Fr+DBa9YMvckFXQynWpFrmF8v0TSzy9YP2ozLtb2MceTUg+xvR4K20snqlhzZqdguMB4f28YWbWh7vhh8bx1Ud9530s+zOg6updYwUNkRjnB5gmS3CaGcognVIC7GMQreS7kzWFf4r774NhOIDxtx7XZ81IAm6Z0zM2czUQ/9L6zguVub1dKJCF7Go/DJX0NRplFUpU6Wzi9cfa+t9fs4UkwhlOB0JjanPYHIrIhnbkohQ0ZJJcw5lOEssJyem0NWFRkcpkYuvG+8zHouja8vUK5Z5L/fBjL1mypDlYpTsyuWVp/hLt4wIo5Bc7pCTwVUiTGg3T/plOUjhxXI1J3sYnECqXPGPClJZfaxGfclRrfYTYHIiV81HbjWutWktQQqdoVfpJCUAaHxkT4qCsk4icD6hH73IJpE5tXKGB2Zdx2Xa1yjyD09jSfTsKAd1xzVp8UrdqjeCMePxRSv4BRbhFYehr6+xEzOHyr7/o3WyUUSIZKJ2zmfAVcDo//eDESyi90M1wYGDJJLXWzcsQPQ","version":0}]
+ 2016-12-09 11:43:48,291 - This is isLogin,用户已经登录
+ 2016-12-09 11:43:48,292 - 拿到的name 是何耀澎
+ 2016-12-09 11:43:48,638 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:43:59,270 - This is isLogin,用户已经登录
+ 2016-12-09 11:43:59,270 - 拿到的name 是何耀澎
+ 2016-12-09 11:43:59,499 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:45:38,410 - {dataSource-1} inited
+ 2016-12-09 11:45:47,361 - 自动1元购买
+ 2016-12-09 11:45:48,125 - 1元购买时间764
+ 2016-12-09 11:45:48,362 - This is isLogin,用户已经登录
+ 2016-12-09 11:45:48,362 - 拿到的name 是何耀澎
+ 2016-12-09 11:45:52,974 - This is isLogin,用户已经登录
+ 2016-12-09 11:45:52,974 - 拿到的name 是何耀澎
+ 2016-12-09 11:45:53,317 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:46:24,858 - {dataSource-1} inited
+ 2016-12-09 11:46:37,596 - This is isLogin,用户已经登录
+ 2016-12-09 11:46:37,597 - 拿到的name 是何耀澎
+ 2016-12-09 11:46:37,957 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:48:19,209 - {dataSource-1} inited
+ 2016-12-09 11:48:45,488 - This is isLogin,用户已经登录
+ 2016-12-09 11:48:45,488 - 拿到的name 是何耀澎
+ 2016-12-09 11:48:45,770 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:50:12,557 - {dataSource-1} inited
+ 2016-12-09 11:50:44,234 - This is isLogin,用户已经登录
+ 2016-12-09 11:50:44,237 - 拿到的name 是何耀澎
+ 2016-12-09 11:50:44,673 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:51:13,193 - This is isLogin,用户已经登录
+ 2016-12-09 11:51:13,194 - 拿到的name 是何耀澎
+ 2016-12-09 11:51:23,652 - This is isLogin,用户已经登录
+ 2016-12-09 11:51:23,652 - 拿到的name 是何耀澎
+ 2016-12-09 11:51:23,823 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:52:51,128 - This is isLogin,用户已经登录
+ 2016-12-09 11:52:51,129 - 拿到的name 是何耀澎
+ 2016-12-09 11:52:51,638 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-12-09 11:53:02,086 - This is isLogin,用户已经登录
+ 2016-12-09 11:53:02,087 - 拿到的name 是何耀澎
+ 2016-12-09 11:53:02,300 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:53:54,636 - This is isLogin,用户已经登录
+ 2016-12-09 11:53:54,639 - 拿到的name 是何耀澎
+ 2016-12-09 11:53:54,888 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:54:06,434 - This is isLogin,用户已经登录
+ 2016-12-09 11:54:06,435 - 拿到的name 是何耀澎
+ 2016-12-09 11:54:06,822 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:54:16,083 - This is isLogin,用户已经登录
+ 2016-12-09 11:54:16,084 - 拿到的name 是何耀澎
+ 2016-12-09 11:54:16,323 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 11:55:09,053 - 自动1元购买
+ 2016-12-09 11:55:09,389 - 1元购买时间336
+ 2016-12-09 11:55:10,511 - This is isLogin,用户已经登录
+ 2016-12-09 11:55:10,511 - 拿到的name 是何耀澎
+ 2016-12-09 11:55:10,740 - x-forwarded-for: 127.0.0.1
+ 2016-12-09 12:05:35,054 - 自动1元购买
+ 2016-12-09 12:05:35,608 - 1元购买时间554
+ 2016-12-09 12:15:24,164 - 自动1元购买
+ 2016-12-09 12:15:26,104 - 1元购买时间1940
+ 2016-12-09 12:24:46,130 - 自动1元购买
+ 2016-12-09 12:24:48,556 - 1元购买时间2426
+ 2016-12-09 12:33:39,052 - 自动1元购买
+ 2016-12-09 12:33:40,947 - 1元购买时间1895
+ 2016-12-09 12:43:05,058 - 自动1元购买
+ 2016-12-09 12:43:05,287 - 1元购买时间229
+ 2016-12-09 12:51:48,109 - 自动1元购买
+ 2016-12-09 12:51:48,414 - 1元购买时间305
+ 2016-12-09 13:01:08,061 - 自动1元购买
+ 2016-12-09 13:01:09,215 - 1元购买时间1154
+ 2016-12-09 13:11:39,097 - 自动1元购买
+ 2016-12-09 13:11:40,671 - 1元购买时间1574
+ 2016-12-09 13:21:18,208 - 自动1元购买
+ 2016-12-09 13:21:19,415 - 1元购买时间1207
+ 2016-12-09 13:26:19,628 - 更新微信Token
+ 2016-12-09 13:30:52,101 - 自动1元购买
+ 2016-12-09 13:30:53,577 - 1元购买时间1476
+ 2016-12-09 13:41:48,053 - 自动1元购买
+ 2016-12-09 13:41:49,038 - 1元购买时间985
+ 2016-12-09 13:51:28,054 - 自动1元购买
+ 2016-12-09 13:51:28,488 - 1元购买时间434
+ 2016-12-09 14:01:21,073 - 自动1元购买
+ 2016-12-09 14:01:22,298 - 1元购买时间1225
+ 2016-12-09 14:12:35,055 - 自动1元购买
+ 2016-12-09 14:12:35,516 - 1元购买时间461
+ 2016-12-09 14:21:58,052 - 自动1元购买
+ 2016-12-09 14:21:58,371 - 1元购买时间319
+ 2016-12-09 14:30:44,103 - 自动1元购买
+ 2016-12-09 14:30:45,255 - 1元购买时间1152
+ 2016-12-09 14:39:43,106 - 自动1元购买
+ 2016-12-09 14:39:44,589 - 1元购买时间1483
+ 2016-12-09 14:49:03,052 - 自动1元购买
+ 2016-12-09 14:49:04,875 - 1元购买时间1823
+ 2016-12-09 14:58:55,109 - 自动1元购买
+ 2016-12-09 14:58:55,557 - 1元购买时间449
+ 2016-12-09 15:09:42,106 - 自动1元购买
+ 2016-12-09 15:09:43,533 - 1元购买时间1427
+ 2016-12-09 15:20:50,107 - 自动1元购买
+ 2016-12-09 15:20:50,869 - 1元购买时间762
+ 2016-12-09 15:26:29,842 - 更新微信Token
+ 2016-12-09 15:30:33,051 - 自动1元购买
+ 2016-12-09 15:30:33,292 - 1元购买时间241
+ 2016-12-09 15:42:00,111 - 自动1元购买
+ 2016-12-09 15:42:00,718 - 1元购买时间607
+ 2016-12-09 15:50:41,052 - 自动1元购买
+ 2016-12-09 15:50:42,402 - 1元购买时间1350
+ 2016-12-09 16:00:32,054 - 自动1元购买
+ 2016-12-09 16:00:33,883 - 1元购买时间1829
+ 2016-12-09 16:01:17,348 - {dataSource-1} inited
+ 2016-12-09 16:12:04,104 - 自动1元购买
+ 2016-12-09 16:12:04,700 - 1元购买时间596
+ 2016-12-09 16:21:57,104 - 自动1元购买
+ 2016-12-09 16:21:58,758 - 1元购买时间1654
+ 2016-12-09 16:33:23,051 - 自动1元购买
+ 2016-12-09 16:33:23,560 - 1元购买时间509
+ 2016-12-09 16:41:56,054 - 自动1元购买
+ 2016-12-09 16:41:57,671 - 1元购买时间1617
+ 2016-12-09 16:50:19,106 - 自动1元购买
+ 2016-12-09 16:50:20,978 - 1元购买时间1872
+ 2016-12-09 16:59:29,051 - 自动1元购买
+ 2016-12-09 16:59:30,375 - 1元购买时间1324
+ 2016-12-09 17:08:23,055 - 自动1元购买
+ 2016-12-09 17:08:23,333 - 1元购买时间278
+ 2016-12-09 17:18:30,102 - 自动1元购买
+ 2016-12-09 17:18:30,818 - 1元购买时间716
+ 2016-12-09 17:26:34,496 - 更新微信Token
+ 2016-12-09 17:27:07,178 - 自动1元购买
+ 2016-12-09 17:27:09,108 - 1元购买时间1930
+ 2016-12-09 17:38:40,051 - 自动1元购买
+ 2016-12-09 17:38:41,125 - 1元购买时间1074
+ 2016-12-09 17:47:34,111 - 自动1元购买
+ 2016-12-09 17:47:35,005 - 1元购买时间895
+ 2016-12-09 17:56:28,101 - 自动1元购买
+ 2016-12-09 17:56:29,176 - 1元购买时间1075
+ 2016-12-09 18:06:12,053 - 自动1元购买
+ 2016-12-09 18:06:12,680 - 1元购买时间627
+ 

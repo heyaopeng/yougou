@@ -1,0 +1,35 @@
+{{#each this}}
+<div class="category">
+	<div class="category-heading">
+		<a href="/cooka-search/searchProductFqs?ct={{categoryId}}">{{name}}</a>
+	</div>
+
+	<div class="category-body">
+		{{#each trend}}
+		<a href="/cooka-search/searchProductFqs?ct={{@key}}" class="category-item" title="{{this}}">{{this}}</a>
+		{{/each}}
+	</div>
+
+	{{#if sub.length}}
+	<div class="category-x">
+		<ul class="category-list scroll-tt">
+			{{#each sub}}
+			<li>
+				<a href="/cooka-search/searchProductFqs?ct={{categoryId}}" title="{{name}}">{{name}}</a>
+				
+				{{#if sub.length}}
+				<div class="category-xx">
+					<ul class="category-xx-list">
+						{{#each sub}}
+						<li><a href="/cooka-search/searchProductFqs?ct={{categoryId}}" title="{{name}}">{{name}}</a></li>
+						{{/each}}
+					</ul>
+				</div>
+				{{/if}}
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+</div>
+{{/each}}

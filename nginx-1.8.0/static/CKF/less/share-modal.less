@@ -1,0 +1,39 @@
+@import "public.less";
+
+.share-modal {
+    &-header {
+        color: #f29724;
+        padding: 15px;
+        border-bottom: 1px solid #e5e5e5;
+        min-height: 16.42857143px;
+    }
+
+    &-list {
+        text-align: center;
+
+        > a[data-share] {
+            text-decoration: none;
+            font-size: 50px;
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+
+    &-facebook {
+        color: #3A5795;
+        &:hover,
+        &:focus,
+        &:active {
+            color: lighten(#3A5795, 10%);
+        }
+    }
+
+    &-googleplus {
+        color: #DB4437;
+        &:hover,
+        &:focus,
+        &:active {
+            color: lighten(#DB4437, 10%);
+        }
+    }
+}

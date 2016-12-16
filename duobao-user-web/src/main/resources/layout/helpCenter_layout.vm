@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="$staticConfig.getPath()/images/favicon.ico">
+		<link rel="apple-touch-icon" href="$staticConfig.getPath()/images/apple-touch-icon.png">
+
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/frontend.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/font-awesome.min.css">
+
+		<!--[if lt IE 9]>
+			<script src="./js/libs/html5shiv.min.js"></script>
+			<script src="./js/libs/respond.min.js"></script>
+		<![endif]-->
+
+		<script src="$staticConfig.getPath()/js/libs/less.min.js"></script>
+
+	</head>
+	<body>
+	#parse("top.vm")
+
+	<div class="container">
+		<!-- search header with only global search -->
+		#parse("header.vm")
+
+		<!-- help sidebar -->
+		<div class="row help-nav">
+			<div class="col-md-12 trim-col">
+				<ol class="breadcrumb help-breadcrumb">
+					<li><a href="#">#springMessage("home")</a></li>
+					<li>#springMessage("help_center")</li>
+				</ol>
+			</div>
+		</div>
+
+		<!-- help center index -->
+		<div class="row">
+			#parse("helpCenter_sidebar.vm")
+			<div class="col-md-10">
+				#parse("helpCenter_search.vm")
+
+				$screen_content
+		</div>
+
+		<!-- frontend page footer -->
+		#parse("footer.vm")
+	</div>
+		
+		<script src="$staticConfig.getPath()/js/libs/jquery-1.11.2.min.js"></script>
+		<!--helpSidebar only -->
+		<script src="js/helpSidebar.js"></script>
+		<!--helpCenter only -->
+		<script src="js/helpCenter.js"></script>
+
+	
+</body>
+</html>

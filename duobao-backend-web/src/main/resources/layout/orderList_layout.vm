@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="$staticConfig.getPath()/images/favicon.ico">
+		<link rel="apple-touch-icon" href="$staticConfig.getPath()/images/apple-touch-icon.png">
+
+		<title>#springMessage("order_management")</title>
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap-datepicker3.standalone.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/backend.css">
+
+		<!--[if lt IE 9]>
+			<script src="$staticConfig.getPath()/js/libs/html5shiv.min.js"></script>
+			<script src="$staticConfig.getPath()/js/libs/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		#parse("common.vm")
+		<script src="$staticConfig.getPath()/js/libs/jquery-1.11.2.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/bootstrap.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/FV/formValidation.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/FV/bootstrap.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/FV/i18n.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/bootstrap-datepicker.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/datepicker_locales/bootstrap-datepicker.zh_CN.min.js"></script>
+		<script src="$staticConfig.getPath()/js/getUrlArg.js"></script>
+
+		<script src="$staticConfig.getPath()/js/p_check_all.js"></script>
+		<script src="$staticConfig.getPath()/js/ck_page.js"></script>
+		<script src="$staticConfig.getPath()/js/ck_lang.js"></script>
+
+		#[[
+		<script>
+			$(document).ready(function (){
+				var lang = $.getUrlArg('org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE');
+				$('#deal-range').datepicker({
+					format: "yyyy/mm/dd",
+					orientation: "top right",
+					language: lang
+				})
+				.on('changeDate', function () {
+			    	$('#order-search-form').formValidation('revalidateField', 'f-time');
+			    });
+
+				$('.has-check-all').checkAll();
+				
+				$('#order-search-form').formValidation({
+			        framework: 'bootstrap',
+			        addOns: {
+			            i18n: {}
+			        },
+			        icon: {
+			            valid: 'glyphicon glyphicon-ok',
+			            invalid: 'glyphicon glyphicon-remove',
+			            validating: 'glyphicon glyphicon-refresh'
+			        },
+			        fields: {
+			            'f-time': {
+			            	selector: '.f-time',
+			                validators: {
+			                	date: {
+									format: 'YYYY/MM/DD',
+									message: {
+										en_US: 'Not a valid date',
+										zh_CN: '不是有效日期'
+									}
+								}
+			                }
+			            }
+			        }
+			    })
+			    .on('err.validator.fv', function(e, data) {
+		            data.element
+		                .data('fv.messages')
+		                .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+		                .filter('[data-fv-validator="' + data.validator + '"]').show();
+		        });
+				$('#order-search-form').formValidation('setLocale', lang);
+				
+				$('.btn-confirm-order').on('click', function (e) {
+					e.preventDefault();
+					var url=$(this).data('url');
+					$.ajax({
+						type: 'POST',
+						contentType: 'application/json;charset=utf-8',  
+						url: url,
+						dataType : "html",
+						success: function () {
+							console.log('success');
+							window.location.reload();
+						}
+					});
+					
+				});
+			});
+		</script>
+		]]#
+			
+	</body>
+</html>

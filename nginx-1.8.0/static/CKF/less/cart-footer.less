@@ -1,0 +1,42 @@
+@import "public.less";
+.cart-footer{
+    background-color: #fff;
+    z-index: 10;
+    width: 100%;
+    border-top: solid 1px #eee;
+    &-main{
+        padding: 5px 15px 10px 34px;
+        vertical-align: middle;
+    }
+    &-cost{
+        color: @ck-main;
+        font-weight: bold;
+    }
+    &-select{
+        margin-bottom: 0;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+    &-fixed{
+        position: fixed;
+        bottom: 0;
+    }
+    &-link{
+        margin-left: 15px;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+    .text-danger{
+        color: red;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+    .cart-submit{
+       &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+}

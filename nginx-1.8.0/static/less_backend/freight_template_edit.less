@@ -1,0 +1,66 @@
+@cooka: #f6891c;
+@cooka_sub: #fbbb10;
+.freight-template-edit{
+	&-form{
+		&-span{
+			line-height: 27px;
+			padding-top: 7px;
+		}
+		&-select{
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+		thead>tr>th{
+			text-align: center;
+		}
+		&-box{
+			padding: 0 15px 15px 15px;
+			.clone-table{
+				display: none;
+			}
+		}
+		&-select.tab-pane{
+			margin: 0;
+		}
+		&-money{
+			margin: 15px 0;
+		}
+		.clone-table{
+			display: none;
+		}
+		.clone-tr{
+			display: none;
+		}
+		.clone-add-select{
+			display: none;
+		}
+		table{
+			.has-address{
+				width: 100%;
+			}
+		}
+		.address-col-3 .form-control{
+			width: 27%;
+			float: left;
+		}
+	}
+	&-interval{
+		width: 100%;
+		margin-bottom: 0;
+		.clone{
+			display: none;
+		}
+		.with-errors{
+			color: red
+		}
+		.form-control{
+			display: inline;
+			padding: 0;
+		}
+	}
+}
+.freight-template-edit-select.tab-pane{
+	padding: 0;
+	// margin-right: -15px;
+	margin-left: -15px;
+}

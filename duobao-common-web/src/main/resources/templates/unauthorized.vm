@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<title>Cookabuy Error</title>
+<link rel="shortcut icon" href="/CKF/favicon.ico">
+<link rel="stylesheet" href="$staticConfig.getPath()/CKF/build/error.css?v=$!version.getNum()">
+</head>
+
+<!--[if lt IE 9]>
+	<script src="$staticConfig.getPath()/CKF/js/libs/html5shiv.min.js"></script>
+	<script src="$staticConfig.getPath()/CKF/js/libs/respond.min.js"></script>
+<![endif]-->
+
+<body>
+	#parse("/new/frontend_header_simple.vm")
+	
+	<div class="main">
+		<div class="container main-inner">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="error-sorry">
+						<img src="$staticConfig.getPath()/CKF/images/sorry.png" class="img-repsonsive center-block">
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="error-article">
+						<h2>Sorry, you have no permission to access this. $!exception</h2>
+						
+						<a href="/" class="btn btn-primary">Home</a>
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<a href="/duobao-cart-web/cart" class="btn btn-primary">Shopping Cart</a>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	#parse("/new/frontend_footer.vm")
+	<script src="$staticConfig.getPath()/CKF/build/$!{cookies.getLanguageCookie($request)}.error.js?v=$!version.getNum()"></script>
+</body>
+</html>

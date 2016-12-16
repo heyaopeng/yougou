@@ -1,0 +1,101 @@
+<h4>订单记录</h4>   
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="15%">订单号</th>
+            <th width="10%">货号</th>
+            <th width="20%">商品名称</th>
+            <th width="10%">下单时进货价(RMB)</th>
+            <th width="10%">当前进货价(RMB)</th>
+            <th width="15%">规格</th>
+            <th width="10%">数量</th>
+            <th width="10%">总额(RMB)</th>
+        </tr>
+    </thead>
+    <tbody>
+    #foreach($order in $item.orderInBill )
+        #foreach($productItem in $order.productItems)
+            #if($velocityCount == 1)                 <!-- 第一件商品 -->
+                       #foreach($orderItem in $productItem.orderItem)
+                             #if($velocityCount==1)         <!-- 第一个规格组合-->
+                               <tr>
+                                   <td rowspan="$!order.orderItemCount">   
+                                      $!order.orderSerialnum   
+                                   </td>
+                                   <td rowspan="$!productItem.orderItem.size()">  $!productItem.productNum</td>
+                                   <td rowspan="$!productItem.orderItem.size()">$!productItem.title</td>
+                                   <td rowspan="$!productItem.orderItem.size()">$!cookies.getFixLengthByLangZhCN($!productItem.purchasePrice) </td>
+                                   <td rowspan="$!productItem.orderItem.size()">$!cookies.getFixLengthByLangZhCN($!productItem.price)</td>
+                                   <td >
+                                       <ul class="list-inline">
+                                                 #foreach($param in ${orderItem.specificationValues.keySet()})
+                                                    <li>
+                                                        <span>$!param : </span>
+                                                        <span class="cart-pro-comb-val">${orderItem.specificationValues.get($param)}</span>
+                                                    </li>
+                                                  #end
+                                        </ul>
+                                   </td>
+                                   <td>$!productItem.amount </td>
+                                   <td rowspan="$!order.orderItemCount">$!cookies.getFixLengthByLangZhCN($!order.allMoney)</td>
+                               </tr>
+                               #else      <!-- 第二个规格组合-->
+                               <tr>
+                                   <td>
+                                       <ul class="list-inline">
+                                                 #foreach($param in ${orderItem.specificationValues.keySet()})
+                                                    <li>
+                                                        <span>$!param : </span>
+                                                        <span class="cart-pro-comb-val">${orderItem.specificationValues.get($param)}</span>
+                                                    </li>
+                                                  #end
+                                        </ul>
+                                   </td>
+                                   <td>$!productItem.amount</td>
+                               </tr>
+                               #end
+                           #end
+  
+   
+   #else
+                             #foreach($orderItem in $!productItem.orderItem)
+                                       #if($!velocityCount==1)         <!-- 第一个规格组合-->
+                                                    <tr>
+                                                         <td rowspan="$!productItem.orderItem.size()">$!productItem.productNum</td>
+                                                        <td rowspan="$!productItem.orderItem.size()">$!productItem.title</td>
+                                                        <td rowspan="$!productItem.orderItem.size()">$!cookies.getFixLengthByLangZhCN($!productItem.purchasePrice)</td>
+                                                        <td rowspan="$!productItem.orderItem.size()">$!cookies.getFixLengthByLangZhCN($!productItem.price)</td>
+                                                        <td>
+                                                            <ul class="list-inline">
+                                                                #foreach($param in ${orderItem.specificationValues.keySet()})
+                                                                 <li>
+                                                                     <span>$!param : </span>
+                                                                     <span class="cart-pro-comb-val">${orderItem.specificationValues.get($param)}</span>
+                                                                 </li>
+                                                               #end
+                                                            </ul>
+                                                        </td>
+                                                        <td>$!productItem.amount</td>
+                                                    </tr>
+                                                    #else
+                                                      <tr>
+                                                            <td>
+                                                                <ul class="list-inline">
+                                                                  #foreach($param in ${orderItem.specificationValues.keySet()})
+                                                                     <li>
+                                                                         <span>$!param : </span>
+                                                                         <span class="cart-pro-comb-val">${orderItem.specificationValues.get($param)}</span>
+                                                                     </li>
+                                                                    #end
+                                                                   </ul>
+                                                            </td>
+                                                            <td>$!productItem.amount</td>
+                                                        </tr>
+                                                    #end
+                                              
+                                           #end
+                     #end
+            #end
+        #end
+    </tbody>
+</table>

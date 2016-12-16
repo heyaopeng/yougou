@@ -1,0 +1,55 @@
+@import "public.less";
+
+.user-help-links {
+	&-title {
+		margin: 0;
+		padding: 10px;
+		border-bottom: 1px solid @ck-main;
+	}
+
+	&-text {
+		display: inline-block;
+		&:first-letter {
+			text-transform: uppercase;
+		}
+
+	}
+
+	&-items {
+		margin: 0;
+		padding: 0;
+		.clearfix();
+
+		> li {
+			display: block;
+			list-style-type: none;
+			float: left;
+			width: 100/4%;
+
+			> a {
+				display: block;
+				text-decoration: none;
+				color: @ck-sub;
+				text-align: center;
+				padding: 20px 0;
+
+				[class^="icon-"],
+				[class*=" icon-"] {
+					display: block;
+					font-size: 50px;
+				}
+
+			}
+
+		}
+
+		> li:nth-child(even) {
+			> a {
+				background-color: #f5f5f5;
+			}
+
+		}
+
+	}
+
+}

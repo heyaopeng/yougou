@@ -1,0 +1,23 @@
+server {
+    listen       80;
+    server_name  192.168.11.98;
+
+    #charset koi8-r;
+
+    #access_log  logs/host.access.log  main;
+
+    location / {
+    	root static/CKFM;
+	    try_files $uri $uri/ /index.html;
+	    index  index.html index.htm;
+	}
+    location ^~ /cooka {
+        proxy_pass http://localhost:8090 ;
+    }
+    location ^~ /cooka-search {
+        proxy_pass http://localhost:8089 ;
+    }
+    location ^~ /m/cooka {
+        proxy_pass http://localhost:8090 ;
+    }
+}

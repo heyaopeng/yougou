@@ -1,0 +1,108 @@
+@import "public.less";
+
+.user-sidebar {
+	&-info {
+		background-color: #fff;
+		padding: 10px;
+
+		&-item {
+			display: block;
+		}
+
+	}
+
+	&-menu {
+		margin: 0;
+		padding: 0;
+
+		> li {
+			display: block;
+			list-style-type: none;
+			position: relative;
+
+			> a {
+				text-decoration: none;
+				display: block;
+				padding: 10px;
+				padding-left: 40px;
+				padding-right: 20px;
+				border: 1px solid #ddd;
+				border-left: 5px solid @ck-sub;
+				position: relative;
+				text-transform: uppercase;
+
+				[class^="icon-"],
+				[class*=" icon-"] {
+					font-size: 20px;
+					position: absolute;
+					top: 8px;
+					left: 10px;
+				}
+
+			}
+
+		}
+
+		li.active {
+			> a {
+				border-left-color: @ck-main;
+			}
+
+			.user-sidebar-submenu {
+				display: block;
+			}
+
+		}
+
+		&-arrow {
+			position: absolute;
+			display: block;
+			width: 15px;
+			height: 15px;
+			top: 15px;
+			right: 5px;
+		}
+
+	}
+
+	&-submenu {
+		margin: 0;
+		padding: 0;
+		display: none;
+
+		> li {
+			display: block;
+			list-style-type: none;
+			position: relative;
+
+			> a {
+				display: block;
+				color: #333;
+				padding: 10px 25px;
+
+				&:first-letter {
+					text-transform: uppercase;
+				}
+
+				&:hover {
+					text-decoration: none;
+					background-color: @ck-sub-light;
+					color: #fff;
+				}
+
+			}
+
+		}
+
+		.active {
+			> a {
+				text-decoration: none;
+				background-color: @ck-sub-light;
+				color: #fff;
+			}
+
+		}
+
+	}
+
+}

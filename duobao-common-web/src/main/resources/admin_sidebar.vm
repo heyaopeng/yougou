@@ -1,0 +1,89 @@
+<div class="admin-sidebar" id="admin-side-menu">
+
+    <div class="panel sidebar-section">
+        <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#home-menu">
+            #springMessage("home")
+            <span class="pull-right glyphicon glyphicon-menu-right"></span>
+            <span class="pull-right glyphicon glyphicon-menu-down"></span>
+        </a>
+        <div id="home-menu" class="panel-collapse collapse">
+            <ul class="subside-menu">
+                <li><a href="/duobao-backend-web/admin">#springMessage("home")</a></li>
+            </ul>
+        </div>
+    </div>
+	
+	#if($shiro.hasPermission("menu:CategoryManage"))
+	<div class="panel sidebar-section">
+		<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#category-menu">
+			#springMessage("category_management")
+			<span class="pull-right glyphicon glyphicon-menu-right"></span>
+			<span class="pull-right glyphicon glyphicon-menu-down"></span>
+		</a>
+		<div id="category-menu" class="panel-collapse collapse">
+			<ul class="subside-menu">
+				<li><a href="/duobao-backend-web/categoryList">#springMessage("category_list")</a></li>
+				<li><a href="/duobao-backend-web/updateCategory">#springMessage("add_category")</a></li>
+			</ul>
+		</div>
+	</div>
+    #end
+	
+	
+	#if($shiro.hasPermission("backend:productManage"))
+	<div class="panel sidebar-section">
+		<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu"> #springMessage("products_management") <span
+			class="pull-right glyphicon glyphicon-menu-right"></span> <span class="pull-right glyphicon glyphicon-menu-down"></span>
+		</a>
+		<div id="product-menu" class="panel-collapse collapse">
+			<ul class="subside-menu">
+				<li><a href="/duobao-product-web/productManage">#springMessage("products_management")</a></li>
+				<li><a href="/duobao-product-web/addProduct">#springMessage("add_product")</a></li>
+			</ul>
+		</div>
+	</div>
+	#end
+	
+	
+	<div class="panel sidebar-section">
+          <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#administration-menu"> #springMessage("backend_management") <span
+                  class="pull-right glyphicon glyphicon-menu-right"></span> <span class="pull-right glyphicon glyphicon-menu-down"></span>
+          </a>
+          <div id="administration-menu" class="panel-collapse collapse">
+              <ul class="subside-menu">
+              
+              #if($shiro.hasPermission("backend:userManage"))
+              		<li><a href="/duobao-backend-web/addNewUser">#springMessage("add_new_user")</a></li>
+                  <li><a href="/duobao-backend-web/manageUsers">#springMessage("user_management")</a></li>
+                #end
+                
+              #if($shiro.hasPermission("backend:roleManage"))
+                  <li><a href="/duobao-backend-web/manageRoles">#springMessage("role_management")</a></li>
+              #end
+              
+              #if($shiro.hasPermission("backend:permissionManage"))                
+                  <li><a href="/duobao-backend-web/managePermission">#springMessage("authority_management")</a></li>
+               #end
+               
+              </ul>
+          </div>
+      </div> 
+  
+     
+       #if($shiro.hasPermission("menu:accountPawdManage"))
+      <div class="panel sidebar-section">
+          <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#duobao-management-menu">#springMessage("account_setting")<span
+                  class="pull-right glyphicon glyphicon-menu-right"></span> <span class="pull-right glyphicon glyphicon-menu-down"></span>
+          </a>
+          <div id="duobao-management-menu" class="panel-collapse collapse">
+              <ul class="subside-menu">
+               #if($shiro.hasPermission("duobao:employee:updateMyPwd"))
+                  <li><a href="/duobao-backend-web/updateMyPwd">#springMessage("reset_password")</a></li>
+                #end
+              </ul>
+          </div>
+      </div>
+      #end
+    
+                    
+</div>

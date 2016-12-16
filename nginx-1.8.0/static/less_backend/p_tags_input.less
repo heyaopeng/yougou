@@ -1,0 +1,62 @@
+/* =tags-input */
+.has-tags-input {
+	margin-bottom: 0;
+}
+
+.tags-input {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 4px;
+}
+
+.tags-input.active {
+	border-color: @cooka;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px lighten(@cooka, 10%);
+}
+
+.tags-input .tag {
+	background-color: #f6891c;
+	color: #fff;
+	padding: 3px 15px;
+	text-align: center;
+	display: inline-block;
+	float: left;
+	border-radius: 4px;
+	position: relative;
+	.transition(all .3s ease);
+}
+.tags-input .tag + .tag {
+	margin-left: 5px;
+}
+
+.tags-input .tag:hover {
+	padding-left: 10px;
+	padding-right: 20px;
+	background-color: #fbbb10;
+}
+.tags-input .exist {
+	background-color: #fbbb10;
+}
+
+.tags-input .tag .glyphicon-remove {
+	position: absolute;
+	top: 6px;
+	right: 5px;
+	display: none;
+	cursor: pointer;
+}
+
+.tags-input .tag:hover .glyphicon-remove {
+	display: inline-block;
+}
+
+.tags-input .tag-enter {
+	outline: 0;
+	border: none;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.tags-input .clone {
+	display: none;
+}

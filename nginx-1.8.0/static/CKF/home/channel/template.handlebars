@@ -1,0 +1,22 @@
+<div class="home-channel">
+	<div class="home-channel-inner">
+		{{#each channel}}
+		<div class="home-channel-block">
+			<a href="{{link}}" target="_blank">
+				<img src="{{src}}" class="home-channel-hero" width="300">
+			</a>
+			{{#each item}}
+			<div class="home-channel-item">
+				<div class="home-channel-item-thumb">
+					<a href="/cooka-productDetail-web/productDetail?productId={{id}}" target="_blank">
+						<img src="{{src}}" width="90"></a>
+				</div>
+				<div class="home-channel-item-text">
+					<a href="/cooka-productDetail-web/productDetail?productId={{id}}" target="_blank">{{title}}</a>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+		{{/each}}
+	</div>
+</div>

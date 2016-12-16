@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>appeal order</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+
+    <!--[if lt IE 9]>
+    <script src="./js/libs/html5shiv.min.js"></script>
+    <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/admin_mgr_logo.png" alt="admin manager logo" class="admin-logo" width="300" height="100">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 trim-col">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#order-receivable-menu">
+                        订单收款
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="order-receivable-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">订单收款</a></li>
+                            <li><a href="#">收款记录</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#load-return-menu">
+                        货款回笼
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="load-return-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">回笼记录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 trim-right">
+            <div class="order-search">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="" id="distribution-order-form">
+                            <div class="row">
+                                <div class="col-md-10 trim-right">
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <label>商家号：</label>
+                                            <input type="text" class="form-control" name="seller_num">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>商家名称：</label>
+                                            <input type="text" class="form-control" name="seller_name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 order-btn-holder">
+                                    <button type="submit" class="btn btn-primary btn-block order-btn">搜索</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-list">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>商家号</th>
+                        <th>商家名称</th>
+                        <th>交易总额</th>
+                        <th>交易订单数</th>
+                        <th>结算周期</th>
+                        <th>申诉内容</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>68578</td>
+                        <td>堡狮龙</td>
+                        <td>￥7483.80</td>
+                        <td>67</td>
+                        <td>2015年8月 上半月</td>
+                        <td>算错了，多给了钱给我</td>
+                        <td>
+                            <a href="#">查看订单</a>&nbsp;
+                            <a href="#">审核处理</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>68578</td>
+                        <td>堡狮龙</td>
+                        <td>￥7483.80</td>
+                        <td>67</td>
+                        <td>2015年8月 上半月</td>
+                        <td>算错了，多给了钱给我</td>
+                        <td>
+                            <a href="#">查看订单</a>&nbsp;
+                            <a href="#">审核处理</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>68578</td>
+                        <td>堡狮龙</td>
+                        <td>￥7483.80</td>
+                        <td>67</td>
+                        <td>2015年8月 上半月</td>
+                        <td>算错了，多给了钱给我</td>
+                        <td>
+                            <a href="#">查看订单</a>&nbsp;
+                            <a href="#">审核处理</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>68578</td>
+                        <td>堡狮龙</td>
+                        <td>￥7483.80</td>
+                        <td>67</td>
+                        <td>2015年8月 上半月</td>
+                        <td>算错了，多给了钱给我</td>
+                        <td>
+                            <a href="#">查看订单</a>&nbsp;
+                            <a href="#">审核处理</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>68578</td>
+                        <td>堡狮龙</td>
+                        <td>￥7483.80</td>
+                        <td>67</td>
+                        <td>2015年8月 上半月</td>
+                        <td>算错了，多给了钱给我</td>
+                        <td>
+                            <a href="#">查看订单</a>&nbsp;
+                            <a href="#">审核处理</a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>68578</td>
+                        <td>堡狮龙</td>
+                        <td>￥7483.80</td>
+                        <td>67</td>
+                        <td>2015年8月 上半月</td>
+                        <td>算错了，多给了钱给我</td>
+                        <td>
+                            <a href="#">查看订单</a>&nbsp;
+                            <a href="#">审核处理</a>&nbsp;
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+
+</body>
+</html>

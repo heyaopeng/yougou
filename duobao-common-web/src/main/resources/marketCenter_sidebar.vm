@@ -1,0 +1,58 @@
+	<div class="sidebar">
+		<ul>
+			<li>
+				信息管理
+				<ul class="sidebar-submenu">
+					<li><a href="/cooka-market-web/articleList?parentId=1">物业公告</a></li>
+					<li><a href="/cooka-market-web/articleList?parentId=2">赚钱秘籍</a></li>
+				</ul>
+			</li>
+			<li>
+				互动管理
+				<ul class="sidebar-submenu">
+					<li><a href="/cooka-market-web/articleList?parentId=3">互动交流</a></li>
+					<li><a href="/cooka-market-web/feedbackList?marketId=$!request.getSession().getAttribute("marketid")">咨询/投诉 </a></li>
+				</ul>
+			</li>
+			<li>
+				档口租赁
+				<ul class="sidebar-submenu">
+					<li><a href="/cooka-market-web/stallLeasesList">租赁信息审阅</a></li>
+				</ul>
+			</li>
+			<li>
+				商户管理
+				<ul class="sidebar-submenu">
+					<li><a href="/cooka-market-web/merchantsList?isAuthenticated=1">已入驻商户</a></li>
+					<li><a href="/cooka-market-web/merchantsList?isAuthenticated=0">待审核(不通过)商户</a></li>
+					<li><a href="/cooka-market-web/merchantsList?isInBlacklist=1">黑名单商户</a></li>
+				</ul>
+			</li>
+			<li>
+				财务管理
+				<ul class="sidebar-submenu">
+					<li><a href="/cooka-market-web/financialAccount">金融账号</a></li>
+					<li><a href="/cooka-market-web/electricRecord">电费转账记录</a></li>
+					<li><a href="/cooka-market-web/withdraw">提现</a></li>
+					<li><a href="/cooka-market-web/withdrawRecord">提现记录</a></li>
+					<li><a href="/cooka-market-web/rebateList">返利收益></li>
+				</ul>
+			</li>
+			<li>
+				账户管理
+				<ul class="sidebar-submenu">
+					<li><a href="/cooka-user-web/center/accountSetting">账户基本设置</a> </li>
+					<li><a href="/cooka-market-web/getSubUserList">子账户管理</a></li>
+					<li><a href="/cooka-market-web/addSubUser">添加子账户</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				银行卡管理
+				<ul class="sidebar-submenu">
+ 					<li><a href="/cooka-market-web/addBankCard">添加银行卡</a></li>
+					<li><a href="/cooka-market-web/myBankCard">我的银行卡</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>

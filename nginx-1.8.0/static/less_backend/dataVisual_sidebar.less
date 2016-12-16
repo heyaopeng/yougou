@@ -1,0 +1,29 @@
+.side-bar {
+	&-item {
+		text-decoration: none;
+		display: block;
+		cursor: pointer;
+		text-align: center;
+		background-color: @ck-sub;
+		h4 {
+			margin: 0;
+		}
+		i {
+			font-size: 50px;
+			padding-top: 30px;
+			padding-bottom: 10px;
+			color: #fff;
+		}
+		&.active {
+			background-color: @ck-sub-light;
+		}
+		&:hover {
+			background-color: @ck-sub-light;
+			text-decoration: none;
+		}
+	}
+	&-title {
+		color: #fff;
+		padding-bottom: 30px;
+	}
+}

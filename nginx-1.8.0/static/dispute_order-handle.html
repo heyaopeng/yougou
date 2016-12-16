@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>dispute order</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+
+    <!--[if lt IE 9]>
+    <script src="./js/libs/html5shiv.min.js"></script>
+    <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/admin_mgr_logo.png" alt="admin manager logo" class="admin-logo" width="300" height="100">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 trim-col">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#order-receivable-menu">
+                        订单收款
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="order-receivable-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">订单收款</a></li>
+                            <li><a href="#">收款记录</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#load-return-menu">
+                        货款回笼
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="load-return-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">回笼记录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 trim-right">
+            <div class="admin-breadcrumb">
+                <ol class="breadcrumb">
+                    <li>订单退货退款仲裁</li>
+                </ol>
+            </div>
+
+            <h4>1.订单信息</h4>
+            <div class="order-list">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>支付单号</th>
+                        <th>下单时间</th>
+                        <th>产品</th>
+                        <th>单价</th>
+                        <th>总金额</th>
+                        <th>交易状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>121334456677871</td>
+                        <td>#5666</td>
+                        <td>2016-05-05 10:10:10</td>
+                        <td>
+                            <a href="#"><img src="./images/7.jpg" width="60" height="60" class="order-list-img"></a>
+                            <div class="order-list-dispute">
+                                <a href="#">2015夏 碎衣连衣裙 2015夏 碎衣连衣裙 2015夏 碎衣连衣裙 2015夏 碎衣连衣裙</a>
+                                <div>color:blue  size:S 数量：5</div>
+                            </div>
+                        </td>
+                        <td>111.00</td>
+                        <td>333.00</td>
+                        <td>已发货</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>2.退货退款信息</h4>
+            <dl class="dl-horizontal order-list-unusual">
+              <dt>发起人：</dt>
+              <dd>是是是</dd>
+              <dt>发起时间：</dt>
+              <dd>2014-14-14 12:12:12</dd>
+              <dt>退款金额：</dt>
+              <dd>部分退款 12.11</dd>
+              <dt>退货退款原因：</dt>
+              <dd>人人人人人人人</dd>
+            </dl>            
+
+            <h4>3.商家审核</h4>
+            <dl class="dl-horizontal order-list-unusual">
+              <dt>商家：</dt>
+              <dd>是是是</dd>
+              <dt>审核时间：</dt>
+              <dd>2014-14-14 12:12:12</dd>
+              <dt>审核结果：</dt>
+              <dd>不同意退款</dd>
+              <dt>退货退款原因：</dt>
+              <dd>人人人人人人人</dd>
+            </dl>
+       
+
+            <h4>4.仲裁辅证信息</h4>
+            <div class="row">
+                <div class="col-md-1 text-right">证明：</div>
+                <div class="col-md-11">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>标题</th>
+                            <th>图片</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>文件的开始看的看看</td>
+                            <td>
+                                <img src="./images/7.jpg" width="60" height="60" class="order-list-img">
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#imgModal">
+                                  查看
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="modal fade" id="imgModal" tabindex="-1" role="dialog">
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">1.jpg</h4>
+                          </div>
+
+                          <div class="modal-body">
+                            <img src="./images/7.jpg" width="100%" height="100%">
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h4>5.仲裁</h4>
+            <form class="form-horizontal" action="" id="form">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">仲裁结果：</label>
+                    <div class="col-md-10">
+                      <label class="radio">
+                          <input type="radio" name="name" value="1" checked> <span>同意退货退款</span>
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="name" value="2"> <span>同意退款，不用退货</span>
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="name" value="3"> <span>不同意退款</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">原因：</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                      <button type="button" class="btn btn-primary" id="toggleSubModal">提交</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal fade" id="subModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">确认</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <h4 class="modal-title">请确认如下退货退款结果：</h4>
+
+                    <dl class="dl-horizontal order-list-unusual">
+                      <dt>订单号：</dt>
+                      <dd>122143243233</dd>
+                      <dt>退款金额：</dt>
+                      <dd>1000</dd>
+                      <dt>退货退款原因：</dt>
+                      <dd>看看对方开发的历史</dd>      
+                      <dt>仲裁结果：</dt>                                      
+                      <dd id="result">不同意退款</dd>
+                      <dt>退货退款原因：</dt>
+                      <dd id="reason">人人人人人人人</dd>
+                    </dl>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="sure">确认</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+<script src="./js/getUrlArg.js"></script>
+<script src="./js/ck_lang.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#sure').on('click', function () {
+        $('#form').trigger('submit');
+    });
+    $('#toggleSubModal').on('click', function () {
+        var result = $("#form input[type=radio]:checked").next().text();
+        var reason = $("#form textarea").val();
+        $('#result').text(result);
+        $('#reason').text(reason);
+        $('#subModal').modal('show');
+    });
+});
+</script>
+</body>
+</html>

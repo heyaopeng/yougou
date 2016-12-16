@@ -1,0 +1,186 @@
+#set($layout = "/layout/updateUser_layout.vm")
+#if($type=="editRole")
+<div class="admin-breadcrumb">
+    <ol class="breadcrumb">
+        <li ><a href="/duobao-backend-web/manageUsers.htm">#springMessage("user_management")</a></li>
+        <li class="active">#springMessage("update_user")</li>
+    </ol>
+</div>
+<form id="editUserForm"  method="post" action="addUserRoles"  class="form-horizontal role-choose-form">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+
+    <input type="hidden" name="userId" value="$user.userId" class="minus-hidden">
+    <!-- add new user start-->
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("account"):</label>
+        <div class="col-md-4 f-container">
+        #if("$!user.email"=="")
+            <input class="form-control f-email" disabled name="account" value="$!user.phone"/>
+        #else
+            <input class="form-control f-email" disabled name="account" value="$!user.email"/>
+        #end
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    
+     #if($shiro.hasPermission("user:system:changeRole"))
+    <div class="form-group common-manage-checkbox clearfix ajax-checkbox">
+        <label class="col-md-3 control-label">#springMessage("role"):</label>
+        <div class="col-md-6 f-container ">
+        #set($temp = 0)
+        #foreach($item in $roleUseNotHave)
+            #set($temp = $velocityCount - 1)
+	        <div class="checkbox usual-checkbox">
+	            <label><input type="checkbox"  name="roleList[$temp].roleId" value="$item.roleId" data-role="$item.roleId"> $item.role</label>
+	        </div>
+	        #end
+	       
+	       #foreach($item in $roles)
+	        <!-- minus button change to checkbox -->
+	        #set($temp = $velocityCount + $temp)
+	        <div class="roles unusual-checkbox per-box">
+				<div data-value="$item.roleId">
+					<i class="fa fa-minus-square minus-click minus-manage" title="#springMessage('delete')"></i> $item.role
+				</div>
+				<div class="checkbox hide update-checkbox">
+	                <label><input type="checkbox" name="roleList[$temp].roleId" class="input-select" value="" >$item.role</label>
+	            </div>
+	         </div>
+	       #end
+    	</div>
+    	<div class="col-md-9 col-md-offset-3 messageContainer"></div>
+ 	</div>
+ 	#end
+ 	
+    #if($needButton)
+    <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+        </div>
+    </div>
+    #end
+</form>
+
+#elseif($type=="editPaswd")
+<div class="admin-breadcrumb">
+    <ol class="breadcrumb">
+        <li ><a href="/duobao-backend-web/manageUsers.htm">#springMessage("user_management")</a></li>
+        <li class="active">#springMessage("update_user")</li>
+    </ol>
+</div>
+<form id="editUserForm"  method="post" action="updatePassword"  class="form-horizontal role-choose-form">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+
+    <input type="hidden" name="userId" value="$user.userId" class="minus-hidden">
+    <!-- add new user start-->
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("account"):</label>
+        <div class="col-md-4 f-container">
+         #if("$!user.email"=="")
+           <input class="form-control f-email" readonly name="account" value="$!user.phone"/>
+          #else
+            <input class="form-control f-email" readonly name="account" value="$!user.email"/>
+        #end            
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+   
+   #if($shiro.hasPermission("user:system:changePaswd")) 
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("password"):</label>
+        <div class="col-md-4 f-container">
+            <input type="password" class="form-control f-password" name="password" value="$!user.password"/>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("confirm_password"):</label>
+        <div class="col-md-4 f-container">
+            <input type="password" class="form-control f-confirm-psd" value="$!user.password"/>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div> 
+    #end
+    
+    <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+        </div>
+    </div>
+</form>
+
+
+#elseif($type=="add")
+<div class="admin-breadcrumb">
+    <ol class="breadcrumb">
+        <li ><a href="/duobao-backend-web/manageUsers.htm">#springMessage("user_management")</a></li>
+        <li class="active">#springMessage("update_user")</li>
+    </ol>
+</div>
+<form id="addNewUserForm"  method="post" action="doAddUser"  class="form-horizontal role-choose-form">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+
+    <!-- add new user start-->
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("name"):</label>
+        <div class="col-md-4 f-container">
+            <input type="text"   name="name" class="form-control f-name" value=""/>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    <div class="form-group js-email-input">
+        <label class="col-md-3 control-label">#springMessage("email"):</label>
+        <div class="col-md-4 f-container">
+            <input type="text" class="form-control f-email" name="account"/>
+            <!-- <span class="help-block validMessage hide f-notEmpty">#springMessage("you_must_enter_the_phone_number_or_email")</span> -->
+        </div>
+        <div class="col-md-3">
+           <a class="js-change-phone">use phone number</a>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+     <div class="form-group hide js-phone-input">
+        <label class="col-md-3 control-label">#springMessage("phone"):</label>
+        <div class="col-md-4 f-container intl-tel-input-update">
+            <input type="tel" class="form-control f-phone" name=""/>
+           <!-- <span class="help-block validMessage hide f-notEmpty">#springMessage("you_must_enter_the_phone_number_or_email")</span> -->
+        </div>
+        <div class="col-md-3">
+           <a class="js-change-email">use email</a>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("password"):</label>
+        <div class="col-md-4 f-container">
+            <input type="password" class="form-control f-password" name="password" />
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("confirm_password"):</label>
+        <div class="col-md-4 f-container">
+            <input type="password" class="form-control f-confirm-psd" value=""/>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    
+     <!-- add new user end-->
+    <div class="form-group  clearfix common-manage-checkbox  ajax-checkbox">
+        <label class="col-md-3 control-label">#springMessage("role"):</label>
+        <div class="col-md-6 ">
+        #foreach($item in $roles)
+         #set($temp = $velocityCount - 1)
+            <div class="checkbox usual-checkbox">
+                <label><input type="checkbox"  name="roleList[$temp].roleId" value="$item.roleId" data-role="$item.roleId" class="f-roles"> $item.role</label>
+            </div>
+            #end 
+           </div>   
+    </div>
+    <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+        </div>
+    </div>
+</form>
+#end

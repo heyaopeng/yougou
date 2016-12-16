@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="./images/favicon.ico">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+		<!--[if lt IE 9]>
+			<script src="./js/libs/html5shiv.min.js"></script>
+			<script src="./js/libs/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 trim-col">
+					<div class="admin-header">
+						<img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 trim-left">
+					<div class="admin-sidebar" id="admin-side-menu">
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+								店铺管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="store-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我要开店</a></li>
+									<li><a href="#">店铺装修</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+								产品管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="product-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我的产品</a></li>
+									<li><a href="#">产品上架</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="admin-main">
+						<div class="admin-breadcrumb">
+							<ol class="breadcrumb">
+								<li><a href="#">货运管理</a></li>
+								<li class="active">运费模板设置</li>
+							</ol>
+						</div>
+
+						<form class="form-horizontal freight-template-edit-form">
+							<div class="form-group">
+	                            <label class="col-md-2 control-label">模板名称 : </label>
+	                            <div class="col-md-3">
+	                            	<input type="text" class="form-control f-name"/>
+	                            </div>
+	                        </div>
+	                        <div class="form-group address-col-3">
+	                            <label class="col-md-2 control-label">发货地址 : </label>
+	                            <div class="col-md-10">	                            	
+									<select class="form-control f-address" data-level="0" data-parent="State">
+										<option value="">-- Select --</option>
+										<option value="中国" data-parentid="1">中国</option>
+										<option value="美国" data-parentid="2">美国</option>
+										<option value="越南" data-parentid="3" selected="">越南</option>
+									</select>
+	                            </div>
+	                        </div> 
+							<div class="form-group">
+	                            <label class="col-md-2 control-label">联系电话 : </label>
+	                            <div class="col-md-3">
+	                            	<input type="text" class="form-control f-phone"/>
+	                            </div>
+	                        </div>  
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">计费模式 : </label>
+	                            <div class="col-md-10">
+	                                <span class="freight-template-edit-form-span">梯度计费（续费计费）</span>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                        	<div class="col-md-10 col-md-offset-2 freight-template-edit-form-cost">
+	                            	<ul class=" list-inline">
+	                            		<li data-toggle="tab" href="#js-piece" class="active">	 
+		                                	<label class="radio-inline">
+		                                		<input type="radio" name="type" checked value='1'>按件计费
+		                                	</label>
+	                                	</li>
+	                                	<li data-toggle="tab" href="#js-weight" >	                                		
+		                                	<label class="radio-inline">
+		                                		<input type="radio" name="type" value="2">按重计费
+		                                	</label>
+	                                	</li>
+	                                	<li data-toggle="tab" href="#js-volume" >			                                		
+		                                	<label class="radio-inline">
+		                                		<input type="radio" name="type" value="3">按体积计费
+		                                	</label>
+	                                	</li>
+	                            	</ul>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                        	<label class="col-md-2 control-label">货币 : </label>
+	                            <div class="col-md-3">
+	                            	<select class="form-control f-cost">
+	                                    <option value="">---Select---</option>
+	                                    <option value="1">VND</option>
+	                                    <option value="2">$</option>
+	                                    <option value="3">RMB</option>
+	                                </select>
+	                            </div>
+	                        </div>
+	                        <div class="tab-content">
+	                        	<div class="tab-pane form-group" id="js-piece">
+                        			&nbsp;
+                        		</div>
+                        		<div class="form-group tab-pane freight-template-edit-select" id="js-weight">	                             		
+		                            <label class="col-md-2 control-label">计量单位 : </label>
+		                            <div class="col-md-3">
+		                            	<select class="form-control f-select">
+		                                    <option value="">---Select---</option>
+		                                    <option value="1">kg</option>
+		                                    <option value="2">g</option>
+		                                    <option value="3">吨</option>
+		                                </select>
+		                            </div>
+                             	</div>	                        		                             		
+                             	<div class="form-group tab-pane freight-template-edit-select" id="js-volume">	                             		
+		                            <label class="col-md-2 control-label">计量单位 : </label>
+		                            <div class="col-md-3">
+		                            	<select class="form-control f-select">
+		                                    <option value="">---Select---</option>
+		                                    <option value="2">升</option>
+		                                    <option value="3">毫升</option>
+		                                </select>
+		                            </div>
+                             	</div>	
+	                        </div>	  
+
+							<table class="table table-bordered freight-template-edit-interval">
+								<thead>
+									<tr>
+										<th width="25%">地区</th>
+										<th width="15%">送达时间（天）</th>
+										<th width="25%">梯度起点</th>
+										<th width="15%">价格（元）</th>
+										<th width="10%">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="interval-line first-line">
+										<td rowspan="50">
+											默认 : （除指定地区外，其余地区的运费采用默认）
+										</td>
+										<td rowspan="50">
+											<div class="form-group input-group">
+												<input type="text" class="form-control f-day">
+											</div>
+										</td>
+										<td>
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon">&ge;</span>
+													<input type="text" pattern="^[1-9]\d*$" class="form-control interval-input interval-amount f-range">
+													<div class="help-block with-errors"></div>
+												</div>
+													
+											</div>
+										</td>
+										<td>
+											<div class="form-group input-group">
+
+												<div class="input-group">
+													<input type="text" class="form-control interval-input interval-price f-price" pattern="^\d*(\.\d{1,2})?$">
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+										</td>
+										<td rowspan="50">
+											&nbsp;
+										</td>
+									</tr>
+
+									<tr class="clone">
+										<td>
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon">&ge;</span>
+													<input type="text" pattern="^[1-9]\d*$" class="form-control input-sm interval-input interval-amount">
+												</div>
+												<div class="help-block with-errors"></div>
+											</div>
+										</td>
+										<td>
+											<div class="form-group">
+												<div class="input-group">
+													<input type="text" class="form-control input-sm interval-input interval-price" pattern="^\d*(\.\d{1,2})?$">
+													<span class="input-group-btn">
+														<button class="btn btn-default btn-sm remove-interval" type="button">
+															<span class="glyphicon glyphicon-minus"></span>
+														</button>
+													</span>
+												</div>
+												<div class="help-block with-errors"></div>
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td colspan="2">
+											<div class="help-block interval-help"></div>
+											<a href="#" class="btn btn-primary btn-sm add-interval"><span class="glyphicon glyphicon-plus"></span> 添加价格区间</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<table class="table table-bordered freight-template-edit-interval clone-table">
+								<tbody>
+									<tr class="interval-line first-line">
+										<td width="25%" rowspan="50">
+											<div class="form-group input-group">
+											<input type="text" class="form-control f-address">
+											</div>
+										</td>
+										<td width="15%" rowspan="50">
+											<div class="form-group input-group">
+												<input type="text" class="form-control f-day">
+											</div>
+										</td>
+										<td width="25%">
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon">&ge;</span>
+													<input type="text" pattern="^[1-9]\d*$" class="form-control interval-input interval-amount f-range">
+												</div>
+												<div class="help-block with-errors"></div>
+											</div>
+										</td>
+										<td width="15%">
+											<div class="form-group">
+												<input type="text" class="form-control interval-input interval-price f-price" pattern="^\d*(\.\d{1,2})?$">
+												<div class="help-block with-errors"></div>
+											</div>
+										</td>
+										<td rowspan="50" width="10%">
+											<a href="#" class="js-area-remove">删除</a>
+										</td>
+									</tr>
+
+									<tr class="clone">
+										<td>
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon">&ge;</span>
+													<input type="text" pattern="^[1-9]\d*$" class="form-control input-sm interval-input interval-amount" >
+												</div>
+												<div class="help-block with-errors"></div>
+											</div>
+										</td>
+										<td>
+											<div class="form-group">
+												<div class="input-group">
+													<input type="text" class="form-control input-sm interval-input interval-price" pattern="^\d*(\.\d{1,2})?$">
+													<span class="input-group-btn">
+														<button class="btn btn-default btn-sm remove-interval" type="button">
+															<span class="glyphicon glyphicon-minus"></span>
+														</button>
+													</span>
+												</div>
+												<div class="help-block with-errors"></div>
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td colspan="2">
+											<div class="help-block interval-help"></div>
+											<a href="#" class="btn btn-primary btn-sm add-interval"><span class="glyphicon glyphicon-plus"></span> 添加价格区间</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<a href="#" class="js-add-block-btn"><span class="glyphicon glyphicon-plus"></span> 为指定地区设置运费</a>
+
+	                        <div class="form-group">
+	                        	<div class="col-md-6 col-md-offset-6">	                        		
+	                        		<button class="btn btn-primary js-submit"  name="submitButton" type="button">提交</button>
+	                        	</div>
+	                        </div>
+
+							<select class="form-control f-address clone-add-select has-address" data-level="1" data-parent="City">
+								<option value="">-- Select --</option>
+							</select>   
+						</form>						
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="./js/libs/jquery-1.11.2.min.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+		<script src="./js/libs/FV/formValidation.min.js"></script>	
+		<script src="./js/libs/FV/bootstrap.min.js"></script>
+		<script src="./js/libs/FV/i18n.min.js"></script>
+		<script src="./js/main.js"></script>
+		<script src="./js/p_freight_interval.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				var $form = $('.freight-template-edit-form');
+				var $addBtn = $form.find('.js-add-block-btn');
+				var $table =$('.freight-template-edit-interval');
+
+				$('.freight-template-edit-interval').freightInterval();
+				formValidateInit($('.freight-template-edit-form'));
+				$('body').on('click blur','.freight-template-edit-interval',function(){
+					$('.freight-template-edit-interval').freightInterval();
+					formValidateInit($('.freight-template-edit-form'));
+				});						
+					
+				$addBtn.on('click',function(e){
+					e.preventDefault();
+					var $clone = $form.find('.clone-table');
+					$clone.clone(true).insertBefore($addBtn).removeClass('clone-table');
+				});
+
+				$('.freight-template-edit-form-cost li').on('click', function(event) {
+					var $radio = $(this).find('input');
+					$radio.prop('checked',true);
+					$('.freight-template-edit-form').data('formValidation').resetField('f-select',true);
+				});
+
+				$('.js-area-remove').on('click',function(){
+					$(this).closest('table').remove();
+				});
+
+				function formValidateInit($elem) {
+					$elem.formValidation({
+						framework: 'bootstrap',
+						icon: {
+							valid: 'glyphicon glyphicon-ok',
+							invalid: 'glyphicon glyphicon-remove',
+							validating: 'glyphicon glyphicon-refresh'
+						},
+						addOns: {
+							i18n: {}
+						},
+						fields: {
+							'f-name': {
+								selector: '.f-name',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The name is required',
+											zh_CN: '请填写名称'
+										}
+									},
+									stringLength: {
+										max: 30,
+										message: {
+											en_US: 'The name must be less than 30 characters',
+											zh_CN: '名称过长'
+										}
+									}
+								}
+							},
+							'f-address': {
+								selector: '.f-address',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The address is required',
+											zh_CN: '请填写名称'
+										}
+									}
+								}
+							},
+							'f-select': {
+								selector: '.f-select',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The contains is required',
+											zh_CN: '请填写计量单位'
+										}
+									}
+								}
+							},
+							'f-cost': {
+								selector: '.f-cost',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The contains is required',
+											zh_CN: '请选择货币种类'
+										}
+									}
+								}
+							},
+							'f-day': {
+								selector: '.f-day',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The contains is required',
+											zh_CN: '请填写送达时间'
+										}
+									}
+								}
+							},
+							'f-range': {
+								selector: '.f-range',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The contains is required',
+											zh_CN: '请填写梯度'
+										}
+									}
+								}
+							},
+							'f-price': {
+								selector: '.f-price',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'The contains is required',
+											zh_CN: '请填写价钱'
+										}
+									},
+									regexp: {
+										regexp: /^\d*(\.\d{1,2})?$/,
+										message: {
+											en_US: 'Not a correct price,eg,12.00',
+											zh_CN: '价钱格式不正确,例如12.00'
+										}
+									}
+								}
+							},
+							'f-phone': {
+								selector: '.f-phone',
+								validators: {
+									notEmpty: {
+										message: {
+											en_US: 'Phone number is required',
+											zh_CN: '请填写电话号码'
+										}
+									},
+									regexp: {
+										regexp: /^[0-9]+([\-][0-9]+)*$/,
+										message: {
+											en_US: 'Not a correct phone number',
+											zh_CN: '电话号码格式不正确'
+										}
+									},
+									stringLength: {
+										max: 32,
+										message: {
+											en_US: 'Phone number is too long',
+											zh_CN: '电话号码过长'
+										}
+									}
+								}
+							}
+						}
+					}).on('err.validator.fv', function(e, data) {
+						data.element.data('fv.messages').find(
+							'.help-block[data-fv-for="' + data.field + '"]').hide().filter(
+							'[data-fv-validator="' + data.validator + '"]').show();
+					});
+					// $elem.formValidation('setLocale', lang);
+				}
+			});
+			var data = {
+				"url":"/cooka-user-web/center/selectcity",
+				"item":[
+						{
+							"name":"廣東省",
+							"id":"1",
+						}, {
+							"name":"貴州省",
+							"id":"2",
+						}, {
+							"name":"江西省",
+							"id":"3",
+						}, {
+							"name":"福建省",
+							"id":"4",
+						}
+					]
+			};
+		</script>
+	</body>
+</html>

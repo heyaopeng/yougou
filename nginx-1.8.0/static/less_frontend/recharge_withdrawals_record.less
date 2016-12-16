@@ -1,0 +1,67 @@
+/*页面records公用*/
+@cooka: #f6891c;
+@cooka_sub: #fbbb10;
+.record-search-box {
+    background-color: #f9f9f9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 1%;
+}
+
+
+/*页面records公用*/
+
+.record-sub-item {
+    padding-top: 10px;
+    li {
+        a {
+            color: #333;
+        }
+        a:hover {
+            color: @cooka;
+        }
+    }
+    li+li {
+        border-left: 1px solid #ddd;
+    }
+    li.active a {
+        color: @cooka;
+    }
+}
+
+/* withdrawls records*/
+/*页面records公用*/
+.trading-records {
+    margin-top: 20px;
+    .form-control {
+        width: auto;
+        height: auto;
+    }
+    .head-box {
+        border-bottom: 1px solid #ddd;
+        .current {
+            position: relative;
+            z-index: 2;
+            margin-bottom: -1px;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-top: 2px solid @cooka;
+            border-bottom: 1px solid #fff;
+            float: left;
+            padding: 5px 10px;
+            margin-left: 1%;
+        }
+    }
+     hr {
+    margin-top:0;
+    }
+    tr {
+    th,td {
+    	text-align: center;
+    }
+    }
+    .price-color {
+        color: @cooka;
+        font-weight: 700;
+    }
+}

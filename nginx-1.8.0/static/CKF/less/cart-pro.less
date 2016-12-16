@@ -1,0 +1,179 @@
+@import "public.less";
+.cart-pro{
+    border-top: 1px solid #c0c0c0;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    vertical-align: top;
+    text-align: center;
+    .checkbox-custom{
+        margin-bottom: 0;
+    }
+    &-row{
+        .clearfix();
+    }
+    &-head{
+        float: left;
+        width: 15%;
+        vertical-align: middle;
+        .checkbox-custom{
+        	height: 150px;
+        	float: left;
+        	width: 65px;
+        }
+        .checkbox-custom .icons{
+            position: absolute;
+            right: 10px;
+            top: 75px;
+            left: auto;
+        }
+        &-img{
+        	float: left;
+        	width: 100px;
+        	height: 150px;
+        	position: relative;
+        }
+        img{
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    &-title{
+        vertical-align: top;
+        text-align: left;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+        &-danger{
+            margin-left: 15px;
+            color: red;
+            [class*="icon-"]{
+                font-size: 18px;
+            }
+            &:first-letter{
+                text-transform: uppercase;
+            }
+        }
+        &-name{
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 15px;
+            margin: 5px 0;
+            color: #000;
+            .one-line();
+            width: 45%;
+            &:hover{
+                color: @ck-main;
+            }
+        }
+    }
+    &-comb{
+        &-specification{
+        	text-align: left;
+            .checkbox-custom .icons{
+                position: absolute;
+                right: 0;
+                top: 4px;
+                left: auto;
+            }
+            .checkbox-custom {
+                height: 22px;
+            }
+            ul{
+                display: inline;
+            }
+            li{
+                padding-right: 3px;
+            }
+        }
+        &-val{
+            border: 1px solid #c0c0c0;
+            padding: 1px 5px;
+        }
+        &-range{
+            text-align: right;
+            width: 50%;
+            float: left;
+        }
+        &-price{
+            text-align: left;
+            width: 50%;
+            float: left;
+        }
+        &-total{
+            color: @ck-main;
+            font-weight: bold;
+        }
+        &-handle{
+            &-icon{
+                width:35px;
+                height: 35px;
+                border-radius: 35px;
+                border: solid 2px #ccc;
+                color: #999999;
+                font-size: 22px;
+                position: relative;
+                float: left;
+                cursor: pointer;
+                display: block;
+                margin-right: 5px;
+                .icon-delete-o,.icon-star{
+                    z-index: 4;
+                    line-height: 22px;
+                    width: 22px;
+                    height: 22px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+                &:hover{
+                    color: @ck-main;
+                    border-color: @ck-main;
+                }
+                &.active{
+                    border-color: @ck-main;
+                    background-color: @ck-main;
+                    .icon-delete-o,.icon-star{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    td{
+        padding-bottom: 5px;
+    }
+    &.disabled{
+        background-color: #ddd;
+        .btn{
+            background-color: #ddd;
+            border-color: #fff;
+        }
+        input{
+            border-color: #fff;
+        }
+        .cart-pro-comb-total{
+            color: #000;
+            font-weight: normal;
+        }
+    }
+    &-below{
+        text-align: center;
+        color: red;
+    }
+    &-more{
+        text-align: left;
+        color: red;
+    }
+}

@@ -1,0 +1,155 @@
+@import "public.less";
+
+.pay-process{
+    margin-top: 40px;
+    &-total {
+      color: @ck-main-light;
+      font-size: 16px;
+    }
+    &-floor {
+      background-color: #fff;
+      padding-left: 1.2%;
+      padding-right: 1.2%;
+      &.is-open .pay-process-header-minus {
+          display: inline-block;
+      }
+      &.is-closed .pay-process-header-plus {
+          display: inline-block;
+      }
+      &+& {
+        margin-top: 20px;
+      }
+    }
+
+    &-header {
+      padding: 7px 0 7px 2px;
+      font-size: 16px;
+      &-minus,&-plus {
+        display:none;
+        width: 26px;
+        height: 26px;
+        border-radius: 13px;
+        color: #fff;
+        text-align: center;
+        padding-top: 5px;
+      }
+      &-minus {
+        background-color: #ccc;
+      }
+      &-plus {
+        background-color: @ck-main;
+      }
+      a {
+        color: transparent;
+      }
+    }
+    &-body {
+      padding-bottom: 20px;
+    }
+    &-line {
+      border-top: 2px solid #ddd;
+    }
+
+ 
+    &-table {
+
+      thead {
+        background-color: #f2f2f2;
+        tr th {
+          text-align: center;
+          border-bottom: 0;
+        }
+      }
+      tbody {
+        tr td {
+          text-align: center;
+          border-top: 0;
+          &.pay-process-table-sum {
+            vertical-align: middle;
+          }
+          &.pay-process-table-left {
+            text-align: left;
+          }
+          &.pay-process-firsttd {
+        vertical-align: middle;
+      }
+        }
+      }
+      &-price {
+        color: #c1272d;
+        font-weight: 700;
+      }
+
+    }
+ 
+    &-payment {
+      padding: 20px 3%;
+      &-price {
+        color: @ck-main;
+      }
+    }
+	&-content {
+	     	padding: 20px 3%;
+	     }
+    &-account {
+      .clearfix();
+      margin-top: 30px;
+      &-btn {
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-right: 2%;
+        margin-left: 2%;
+      }
+      &-box {
+        padding-top: 8px;
+        margin-left:10%;
+      }
+       &-psd {
+       	&-star {
+       		color: #FF0000;
+       	}
+    	}
+    }
+
+    &-help {
+      .clearfix();
+      &-ft {
+        background-image: url(../images/pay/ck-ft-pay.png);
+        background-repeat: no-repeat;
+        display: block;
+        &-jcb {
+          width: 60px;
+          height: 40px;
+          background-position: 0 0;
+        }
+
+        &-mastercard {
+          width: 60px;
+          height: 40px;
+          background-position: 0 -40px;
+        }
+
+        &-paypal {
+          width: 60px;
+          height: 40px;
+          background-position: -60px 0;
+        }
+
+        &-visa {
+          width: 60px;
+          height: 40px;
+          background-position: -60px -40px;
+        }
+      }
+    }
+
+    &-text {
+      padding-left: 1%;
+      color: #8c8c8c;
+    }
+    &-num {
+      color: @ck-main-light;
+      font-size: 16px;
+    }
+   
+}

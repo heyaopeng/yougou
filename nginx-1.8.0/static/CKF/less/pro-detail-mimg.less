@@ -1,0 +1,92 @@
+@import "public.less";
+.pro-detail{
+	&-row{
+        .clearfix();
+    }
+    &-col-s{
+        width: 16.7%;
+        float: left;
+    }
+    &-col-m{
+        width: 83.3%;
+        float: left;
+    }
+    &-mimg{
+        float: left;
+	    margin-top:0;
+        width: 100%;
+        height: 620px;
+        position: relative;
+        &-block{
+            position: relative;
+            height: 620px;
+        }
+        &-m{
+            cursor: zoom-in;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin: auto;
+            img{
+                // position: absolute;
+                // top: 0;
+                // bottom: 0;
+                // left: 0;
+                // right: 0;
+                width: 100%;
+                margin: auto;
+                max-height: 620px;
+            }
+        }
+        &-zoom{
+            position: absolute;
+            top:155px;
+            right: -315px;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            z-index: 0;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    &-block-title{
+        color: @ck-main;
+        font-size: 14px;
+        border-bottom: solid 2px @ck-main;
+        line-height: 30px;
+        padding-left: 15px;
+    }
+    &-link{
+        // min-height: 120px;
+        // width: 100%;
+        // margin:auto;
+        // line-height: 120px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.58);
+        color: #fff;
+        [class*='icon-']{
+            font-size: 24px;
+            line-height: 1;
+        }
+        .btn{
+            border: 0;
+            padding: 5px;
+            background-color: rgba(190, 190, 190, 0.58);
+            &:hover{
+                color: @ck-main;
+                background-color: rgba(190, 190, 190, 0);
+            }
+        }
+        .active{
+            color: @ck-main;
+        }
+    }
+}

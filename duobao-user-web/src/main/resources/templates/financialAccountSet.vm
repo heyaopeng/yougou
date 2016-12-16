@@ -1,0 +1,74 @@
+#set($layout = "/layout/financialAccountSet_layout.vm")
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<div class="my-cooka-main">
+				#if($message)
+				<div class="tp-result">
+					<p class="result-tip">
+						<span class=" glyphicon glyphicon-ok-sign success-icon"
+							aria-hidden="true"></span>
+						#springMessage("congratulations_you_have_successfully_reset_password")#springMessage("period")
+					</p>
+				</div>
+				#else
+				<div class="account-setting">
+					<form id="account-form" method="post" action="financialAccountSet" class="row">
+                        <input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+						<div class="col-md-12">
+							<span class="psd-info">
+								#springMessage("please_fill_in_the_required_information"): </span>
+						</div>
+						<div class="col-md-offset-1 col-md-11">
+							<div class="pw-strength-group form-horizontal">
+								<div class="form-group">
+									<label class="col-md-3 control-label"><span
+										class="required-star">* </span>#springMessage("payment_password")</label>
+									<div class="col-md-3">
+										<input type="password" name="payPassword"
+											class="form-control pw-in  input-sm f-payment-password" />
+									</div>
+									#springBind("financialAccount.payPassword") #foreach($error in
+									$status.errorMessages)
+									<div class="text-danger">$error</div>
+									#end
+								</div>
+
+								<div class="form-group psd-level">
+									<div class="col-md-3 col-md-offset-3 pw-strength">
+										<div class="pw-bar"></div>
+										<div class="pw-bar-on"></div>
+										<div class="pw-txt">
+											<span>#springMessage("weak")</span> <span>#springMessage("medium")</span>
+											<span>#springMessage("strong")</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-md-3 control-label"><span
+										class="required-star">* </span>#springMessage("reenter_password")</label>
+
+									<div class="col-md-3">
+										<input type="password"
+											class="form-control input-sm f-retype-password" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="dash col-md-11"></div>
+
+						<div class="col-md-offset-1 col-md-11">
+							<div class="form-group">
+								<div class="col-md-9 col-md-offset-3">
+									<button type="submit" class="btn btn-primary btn-sm">#springMessage("activate")</button>
+								</div>
+							</div>
+						</div>
+				</div>
+				</form>
+			</div>
+			#end
+		</div>
+	</div>
+</div>

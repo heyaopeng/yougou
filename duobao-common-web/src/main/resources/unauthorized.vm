@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" href="$staticConfig.getPath()/images/favicon.ico">
+	<link rel="apple-touch-icon" href="$staticConfig.getPath()/images/apple-touch-icon.png">
+	<title>#springMessage("error_page")</title>
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/frontend.css">		
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/forget_pwd.css">
+
+	<!--[if lt IE 9]>
+	<script src="$staticConfig.getPath()/js/libs/html5shiv.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="ck-header">
+					<img src="$staticConfig.getPath()/images/ck_logo.png" alt="cooka logo" class="admin-logo" width="200" height="50"></div>
+			</div>
+		</div>
+		<h1>This  is unauthorized page ,you didnot have permissions $!exception</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="ck-footer">
+				<p>&copy; #springMessage("cooka_all_rights")</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

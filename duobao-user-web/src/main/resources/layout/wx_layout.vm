@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>微信登录</title>
+</head>
+
+<body>
+	$screen_content
+	<script src="$staticConfig.getPath()/js/libs/jquery-1.11.2.min.js"></script>
+	#[[
+	<script>
+		$(function(){
+			var s = window.location.search;
+			if (s.length) {
+				s = s.slice(1);
+				var qs = s.split('&');
+				var qobj = {};
+				qs.forEach(function(item) {
+					var t = item.split('=');
+					qobj[t[0]] = t[1];
+				});
+				
+				if (qobj.code) {
+					$.get('/cooka-user-web/weiXinCallback', {code: qobj.code}, function(res) {
+						var d = null;
+						if (typeof res === 'string') {
+							d = JSON.parse(res);
+						}
+						else {
+							d =  res;
+						}
+						
+						localStorage.setItem('uid', d.account);
+						localStorage.setItem('c_user', d);
+						
+						if (d.result === 'firstLoginSuccess') {
+							window.location = '/wxsetphone';
+							return;
+						}
+						
+						window.location = '/';
+						
+						
+					});
+				}
+				
+			}
+		});
+	</script>
+	]]#
+</body>
+</html>

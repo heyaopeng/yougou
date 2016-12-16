@@ -1,0 +1,335 @@
+
+<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+<div class="header">
+	<div class="top-bar" data-j="topBar">
+		<div class="top-bar-inner">
+			<span class="top-bar-welcome">Chào mừng đến Cookabuy</span>
+
+			<ul class="top-bar-links">
+				<li class="top-bar-user-name hide">
+					<a href="/cooka-user-web/center/home">{{NAME}}</a>
+				</li>
+				<li class="top-bar-sign-out hide">
+					<a href="/cooka-user-web/logout">thoát</a>
+				</li>
+				<li class="top-bar-sign-in">
+					<a href="#" data-action="signin">
+						<span class="icon-user"></span>
+						đăng nhập
+					</a>
+				</li>
+				<li class="top-bar-sign-up">
+					<a href="#" data-action="signup">
+						<span class="icon-register"></span>
+						đăng ký
+					</a>
+				</li>
+				<li>
+					<a href="/cooka-user-web/center/favourite">
+						<span class="icon-star"></span>
+						thư mục yêu thích
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="header-inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2">
+					<div class="logo">
+						<a href="/"><img src="/CKF/images/logo.png" height="42" width="200" alt="Cookabuy Logo"></a>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="search-input will-fixed" data-j="searchInput">
+						<form name="searchform" action="/cooka-search/searchProductFqs" method="GET" class="form-horizontal">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<select>
+	                                    <option data-type="q" value="q">sản phẩm</option>
+	                                    <option data-type="pn" value="pn">chi tiết sản phẩm</option>
+	                                </select>
+								</span>
+								<input type="text" value="" class="form-control" name="q" placeholder="Từ khoá">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">
+										<span class="icon-search"></span>
+										Tìm kiếm
+									</button>
+								</span>
+							</div>
+
+							<div class="search-input-trend">
+								{{#each keywords}}
+								<a href="/cooka-search/searchProductFqs?q={{encodeUri this}}">{{this}}</a>
+								{{/each}}
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-xs-2">
+					<div class="header-btns">
+						<a href="/cooka-cart-web/cart" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-cart"></span>
+							<span class="header-btns-text">giỏ hàng</span>
+						</a>
+						<a href="#" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-search"></span>
+							<span class="header-btns-text">tìm kiếm</span>
+						</a>
+						<a href="http://www.cookabuy.com/helpcenter/index.php/page-1/" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-help"></span>
+							<span class="header-btns-text">hỗ trợ</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="header-nav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="category-all">
+						<a href="#">
+							<span class="icon-menu"></span>
+							Tất cả danh mục 					
+						</a>
+						<div class="category-wrapper" data-j="category">
+							loading
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<ul class="header-nav-items">
+						{{!-- <li>
+							<a href="#">Thương hiệu</a>
+						</li>
+						<li>
+							<a href="#">chế tạo tại Trung Quốc</a>
+						</li>
+						<li>
+							<a href="#">Học viện Kinh doanh</a>
+						</li> --}}
+						<li>
+							<a href="/cooka-productDetail-web/promotionProductsList?promotionSerialNum=14502021697432636">1000VND HÀNG MẪU</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade sign-modal" id="sign-modal" tabindex="-1" data-j="signModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal">
+					<span class="icon-close"></span>
+				</button>
+
+				<div class="modal-body">
+					<div class="sign-modal-content">
+						<img src="./CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+						<h4 class="sign-modal-title">Chào mừng đến Cookabuy</h4>
+						<div class="sign-modal-signin">
+
+							<div class="sign-switch-tab">
+								<span class="sign-switch-tab-item active" data-switch="s-email">
+									<span class="icon-envelope-o"></span>
+									Đăng nhập bằng hộp thư
+								</span>
+								<span class="sign-switch-tab-item" data-switch="s-phone">
+									<span class="icon-circle-mobile-o"></span>
+									Đăng nhập bằng số di động
+								</span>
+							</div>
+
+							<form class="form-horizontal" id="sign-in-form" mehtod="post">
+								<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+								<div class="alert alert-danger sign-modal-resend sign-modal-hide">
+									<span>You need to activate you account.</span>
+									<br>
+									<a href="/cooka-user-web/active?email=" class="btn btn-primary sign-modal-resend-link">Re-send Activate Email</a>
+								</div>
+
+								<div class="form-group sign-switch-target active" id="s-email">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-envelope-o"></span>
+										</span>
+										<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+								</div>
+								<div class="sign-switch-target" id="s-phone">
+									<div class="form-group">
+										<input type="text" name="account" class="form-control f-mobile" disabled></div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-lock-o"></span>
+										</span>
+										<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+								</div>
+								<div class="form-group sign-modal-captcha sign-modal-hide">
+									<div class="col-md-5">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-vertify-code-o"></span>
+											</span>
+											<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+									</div>
+									<div class="col-md-4">
+										<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+									<div class="col-md-1">
+										<a href="#" class="sign-modal-refresh">
+											<span class="icon-refresh"></span>
+										</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<a href="/cooka-user-web/resetOptions" class="pull-left">quên mật khẩu?</a>
+									<a href="#" class="pull-right" data-goto="signup">đăng ký</a>
+								</div>
+								<div class="form-group">
+
+									<button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-in-btn">
+										<span class="ladda-label">đăng nhập</span>
+									</button>
+								</div>
+								<div class="social-sign" data-j="socialSign">
+									<div class="social-sign-line">
+										<span>or</span>
+									</div>
+									<a href="/cooka-user-web/facebookLogin" class="social-sign-btn ssb-facebook">
+										<span class="icon-facebook"></span>
+										Sign in with Facebook
+									</a>
+									<a href="/cooka-user-web/googleLogin" class="social-sign-btn ssb-google">
+										<span class="icon-google-plus"></span>
+										Sign in with Google+
+									</a>
+								</div>
+							</form>
+							<p class="text-center">
+								chưa có  tài khoản cua Cookabuy?trở thành thành viên trong 30 giây .
+							</p>
+						</div>
+						<div class="sign-modal-signup">
+
+							<div class="sign-switch-tab">
+								<span class="sign-switch-tab-item active" data-switch="s-email2">
+									<span class="icon-envelope-o"></span>
+									Đăng ký bằng hộp thư
+								</span>
+								<span class="sign-switch-tab-item" data-switch="s-phone2">
+									<span class="icon-circle-mobile-o"></span>
+									Đăng ký bằng số di động
+								</span>
+							</div>
+
+							<form class="form-horizontal" id="sign-up-form">
+								<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+								<div class="form-group sign-switch-target active" id="s-email2">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-envelope-o"></span>
+										</span>
+										<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+								</div>
+								<div class="sign-switch-target" id="s-phone2">
+									<div class="form-group">
+										<input type="text" name="account" class="form-control f-mobile" disabled></div>
+									<div class="form-group">
+										<div class="col-md-7">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<span class="icon-vertify-code-o"></span>
+												</span>
+												<input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled></div>
+										</div>
+										<div class="col-md-3">
+											<button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-lock-o"></span>
+										</span>
+										<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-check-lock-o"></span>
+										</span>
+										<input type="password" class="form-control f-confirm-password" placeholder="Confirm Password"></div>
+								</div>
+								<div class="form-group sign-modal-captcha">
+									<div class="col-md-5">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-vertify-code-o"></span>
+											</span>
+											<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+									</div>
+									<div class="col-md-4">
+										<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+									<div class="col-md-1">
+										<a href="#" class="sign-modal-refresh">
+											<span class="icon-refresh"></span>
+										</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="checkbox">
+										<label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+											<input type="checkbox" value="" id="f-agree" class="f-agree">
+											<span class="icons">
+												<span class="icon-unchecked">
+													<span class="icon-square-o"></span>
+												</span>
+												<span class="icon-checked">
+													<span class="icon-square"></span>
+												</span>
+											</span>
+											tôi đồng ý điều khoản của Cookabuy
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-up-btn">
+										<span class="ladda-label">đăng ký</span>
+									</button>
+								</div>
+							</form>
+							<p class="text-center">
+								đã có tài khoản?
+								<a href="#" data-goto="signin">đăng nhập</a>
+							</p>
+						</div>
+						<div class="sign-modal-verify sign-modal-hide">
+							<img src="./CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+							<p class="text-center">
+								chúng tôi đã gửi email xác nhấn qua hộp thư bạn
+								<a href="#" class="sign-modal-email-link">someone@nowhere.com</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-block sign-modal-verify-btn">kích hoạt tài khoản</a>
+						</div>
+						<div class="sign-modal-verify-m sign-modal-hide">
+							<img src="./CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+							<h4 class="text-success text-center">Sign up Success, please sign in</h4>
+							<div class="text-center">
+								<a href="#" class="btn btn-primary mobile-to-sign-in">Sign In Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

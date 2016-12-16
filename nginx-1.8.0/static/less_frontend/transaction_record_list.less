@@ -1,0 +1,27 @@
+/*页面records公用以及audit页面三个页面公用*/
+.reco-decoration {
+    background-color: #FAF0E6;
+    vertical-align: middle;
+    .form-group {
+        margin-bottom: 0;
+    }
+    .time-box {
+        cursor: pointer;
+        a {
+            color: #333;
+        }
+        a:hover {
+            text-decoration: none;
+            color: @cooka;
+        }
+    }
+    .time-box .glyphicon-arrow-down, .time-box .glyphicon-arrow-up {
+        display: none;
+    }
+    .time-box.desc .glyphicon-arrow-down {
+        display: inline-block;
+    }
+    .time-box.asce .glyphicon-arrow-up {
+        display: inline-block;
+    }
+}

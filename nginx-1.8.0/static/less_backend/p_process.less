@@ -1,0 +1,90 @@
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1; /*For IE 6&7 only*/
+}
+.progress-status {
+    .current {
+        background: #f6891c;
+        color: #ffffff;
+    }
+    .step {
+        padding: 5px 0;
+        text-indent: -2%;
+        border: 1px solid #f6891c;
+        border-left: 0;
+        border-right: 0;
+        position: relative;
+    }
+    .first-step {
+        border-left: 1px solid #f6891c;
+        border-radius: 4px 0 0 4px;
+    }
+    .final-step {
+        border-right: 1px solid #f6891c;
+        border-radius: 0 4px 4px 0;
+    }
+    ol {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        li {
+            display: block;
+            float: left;
+            width: 33.33%;
+        }
+    }
+    .two-step {
+        width: 50%;
+    }
+    .four-step {
+        width: 25%;
+    }
+    .five-step {
+        width: 20%;
+    }
+}
+
+/* arrow公共样式 */
+.arrow {
+    position: absolute;
+    top: 0;
+    border-style: solid;
+    border-width: 15px;
+    height: 0;
+    width: 0;
+    font-size: 0;
+    _filter: chroma(color=tomato);
+}
+/* 产生左边三色箭头 */
+.left-mix-arrow {
+    left: -20px;
+    border-color: #f6891c #f6891c #f6891c transparent;
+    _border-color: #f6891c #f6891c #f6891c tomato;  
+}
+
+/* 产生白色三边，作用时遮罩层 */
+.right-mix-arrow {
+    right: -10px;
+    border-color: #ffffff #ffffff #ffffff transparent;
+    _border-color: #ffffff #ffffff #ffffff tomato;
+}
+
+/* 产生有色箭头 */
+.right-arrow {
+    right: -10px;
+    border-color: transparent transparent transparent #f6891c;
+    _border-color: tomato tomato tomato #f6891c;
+}
+/* 产生白色三边箭头  配合 .right-arrow 类产生 1px箭头 */
+.right-white-arrow {
+    right: -9px;
+    border-color: transparent transparent transparent #ffffff;
+    _border-color: tomato tomato tomato #ffffff;
+}

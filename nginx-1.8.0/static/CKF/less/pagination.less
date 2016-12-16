@@ -1,0 +1,85 @@
+@import "public.less";
+
+.pagination {
+	vertical-align: middle;
+	.pagination-prev > a,
+	.pagination-next > a {
+		background-color: @ck-sub;
+		color: #fff;
+		padding: 6px 10px;
+		border-color: @ck-sub;
+		&:hover,
+		&:focus {
+			background-color: @ck-sub-light;
+			border-color: @ck-sub;
+			color: #fff;
+		}
+	}
+	.pagination-ellipsis > a {
+		background-color: transparent;
+		color: #333;
+		border-color: transparent;
+		padding: 6px 0;
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			border-color: transparent;
+			color: #333;
+			cursor: default;
+		}
+	}
+	> li {
+		> a,
+		> span {
+			color: #333;
+			float: left;
+			text-decoration: none;
+			margin-left: 5px;
+		}
+	}
+	> li > a,
+	> li > span {
+		&:hover,
+		&:focus {
+			z-index: 3;
+			color: #333;
+		}
+	}
+	> .active > a,
+	> .active > span {
+		&,
+		&:hover,
+		&:focus {
+			z-index: 2;
+			color: #fff;
+			background-color: @ck-sub-light;
+			border-color: @ck-sub;
+		}
+	}
+
+	&-control {
+		display: inline-block;
+		margin: 20px 0;
+
+		> span {
+			vertical-align: middle;
+			display: inline-block;
+		}
+	}
+	&-input {
+		border: 1px solid #ccc;
+		width: 50px;
+		padding: 6px;
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	
+
+	// subclass
+	&-bill-history {
+		margin-right: 30px;
+	}
+}

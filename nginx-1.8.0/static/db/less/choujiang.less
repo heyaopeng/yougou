@@ -1,0 +1,114 @@
+@import "public.less";
+@transform-time: 4s !default;
+.rotate-transition {
+  -ms-transition: -ms-transform 1s ease;
+  -moz-transition: -moz-transform 2s ease;
+  -webkit-transition: -webkit-transform 2s ease;
+  -o-transition: -o-transform 2s ease;
+  transition: transform 2s ease;
+}
+
+.rotate-transform (@angle) {
+  transform-origin: 50% 64.4%;
+  -ms-transform: rotate(@angle);   /* IE 9 */
+  -moz-transform: rotate(@angle);  /* Firefox */
+  -webkit-transform: rotate(@angle); /* Safari 和 Chrome */
+  -o-transform: rotate(@angle);  /* Opera */
+  transform: rotate(@angle);
+}
+.choujiang{
+	background-color: white;
+	&-conversation{
+		margin-top: 10px;
+		&-image{
+			width: 100%;
+		}
+	}
+	&-qrcode{
+		width: 100%;
+		text-align: center;;
+		&-image{
+			width: 50%;
+		}
+	}
+	&-subc{
+		width: 100%;
+		text-align: center;
+
+		&-button{
+			padding: 5px 20px;
+			border-radius : 15px;
+			border: 1px solid #f77b10;
+			color: #f77b10;
+			font-size: 20px;
+			text-align: center; 
+		}
+	}
+	&-intro{
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 5px;
+		&-tag{
+			font-size: 20px;
+			margin-left: 10px;
+			margin-bottom: 10px;
+			width: 35%;
+			background-color: #f77b10;
+			color: white;
+			text-align: center;
+		}
+		&-text{
+			margin: 10px;
+			font-size: 18px;
+			text-indent : 2em;
+			letter-spacing : 5px;
+			line-height:25px;
+		}
+		&-end{
+			font-size: 20px;
+			color: red;
+			margin: 10px;
+			letter-spacing : 5px;
+			line-height:25px;
+		}
+	}
+	&-pan{
+		background-size: contain;
+	 	position: relative;
+	  	margin: 0 auto;
+	  	text-align: center;
+	  	&-body{
+	  		width: 100%;
+	  	}
+	  	&-head{
+	  		background-size: contain;
+   			position: absolute;
+   			left: 31%;
+    		top: 23.3%;
+    		width: 37%;
+    		
+	  	}
+		.rotate0 {
+			.rotate-transition;
+			.rotate-transform(0deg);
+		}
+		  .rotate3888 {
+		  	.rotate-transition;
+		    .rotate-transform(3888deg);
+		  }/*1元红包*/
+	}
+	&-result{
+		position: fixed;
+		top:0%;
+		left:0%;
+		z-index: 1002;
+		margin-top: 5px;
+		background-color: rgba(153, 153, 153, 0.6);
+		width: 100%;
+		height: 100%;
+		&-image{
+			position: fixed;
+			width: 100%
+		}
+	}
+}

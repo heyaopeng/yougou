@@ -1,0 +1,44 @@
+<div class="home-floor" id="home-floor-7" data-j="homeFloor">
+	<div class="home-floor-heading">
+		<div class="home-floor-title">
+			<span class="icon-weihuo"></span>
+			Hàng tồn kho
+		</div>
+
+		<div class="home-floor-aside"></div>
+	</div>
+
+	<div class="home-floor-body">
+		<div id="home-floor-carousel-7" class="carousel slide home-floor-carousel" data-ride="carousel" data-interval="7000">
+
+			<div class="carousel-inner" role="listbox">
+				{{#each f7}}
+				<div class="item home-floor-carousel-item{{#ifEq @index 0}} active{{/ifEq}}">
+					{{#each this}}
+					<div class="home-floor-carousel-col">
+						<div class="product product-may-like">
+							<a href="/cooka-productDetail-web/productDetail?productId={{id}}" target="_blank">
+								<img src="{{src}}" width="248" class="product-img"></a>
+							<div class="product-info">
+								<div class="product-title">{{title}}</div>
+								<div class="product-price">{{price}}</div>
+								<div class="product-rate">
+									<span class="product-rate-star{{#ifEq score 1}} active{{/ifEq}}"><span class="icon-star-solid"></span></span>
+									<span class="product-rate-star{{#ifEq score 2}} active{{/ifEq}}"><span class="icon-star-solid"></span></span>
+									<span class="product-rate-star{{#ifEq score 3}} active{{/ifEq}}"><span class="icon-star-solid"></span></span>
+									<span class="product-rate-star{{#ifEq score 4}} active{{/ifEq}}"><span class="icon-star-solid"></span></span>
+									<span class="product-rate-star{{#ifEq score 5}} active{{/ifEq}}"><span class="icon-star-solid"></span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/each}}
+			</div>
+
+			<a class="left carousel-control" href="#home-floor-carousel-7" role="button" data-slide="prev"></a>
+			<a class="right carousel-control" href="#home-floor-carousel-7" role="button" data-slide="next"></a>
+		</div>
+	</div>
+</div>

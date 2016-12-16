@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.AnnouncementMapper" >
+  <resultMap id="Announcement" type="com.duobao.fundation.data.mybatis.model.Announcement" >
+    <id column="message_id" property="messageId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="message_url" property="messageUrl" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="read_count" property="readCount" jdbcType="INTEGER" />
+    <result column="is_for_all" property="isForAll" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    message_id, title, message_url, create_time, read_count, is_for_all
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Announcement" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_announcements
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="Announcement" parameterType="java.lang.Integer" >
+    select 
+	A.*
+    from db_announcements as A left join db_announcement_user_link as B on A.message_id=B.message_id
+    where A.is_for_all=1 or B.user_id= #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_announcements
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Announcement" useGeneratedKeys="true"
+    keyProperty="messageId">
+    insert into db_announcements (message_id, title, message_url, 
+      create_time,
+      read_count, is_for_all)
+    values (#{messageId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{messageUrl,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, 
+      #{readCount,jdbcType=INTEGER}, #{isForAll,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Announcement" useGeneratedKeys="true"
+    keyProperty="messageId">
+    insert into db_announcements
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="messageId != null" >
+        message_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="messageUrl != null" >
+        message_url,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="readCount != null" >
+        read_count,
+      </if>
+      <if test="isForAll != null" >
+        is_for_all,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="messageId != null" >
+        #{messageId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="messageUrl != null" >
+        #{messageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readCount != null" >
+        #{readCount,jdbcType=INTEGER},
+      </if>
+      <if test="isForAll != null" >
+        #{isForAll,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Announcement" >
+    update db_announcements
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="messageUrl != null" >
+        message_url = #{messageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="readCount != null" >
+        read_count = #{readCount,jdbcType=INTEGER},
+      </if>
+      <if test="isForAll != null" >
+        is_for_all = #{isForAll,jdbcType=BIT},
+      </if>
+    </set>
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Announcement" >
+    update db_announcements
+    set title = #{title,jdbcType=VARCHAR},
+      message_url = #{messageUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      read_count = #{readCount,jdbcType=INTEGER},
+      is_for_all = #{isForAll,jdbcType=BIT}
+    where message_id = #{messageId,jdbcType=INTEGER}
+  </update>
+</mapper>

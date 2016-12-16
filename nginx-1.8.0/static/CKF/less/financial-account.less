@@ -1,0 +1,59 @@
+@import "public.less";
+
+@price-color: #f15a24;
+
+.financial-account {
+	background: #f9f9f9;
+	padding: 20px 20px 30px 50px;
+	margin-bottom: 10px;
+
+	&-balance {
+		font-size: 16px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		strong {
+			color: @price-color;
+		}
+	}
+	
+	&-available {
+		display: inline-block;
+		&:first-letter {
+			text-transform: uppercase;
+		}
+
+		strong {
+			color: @ck-main-light;
+		}
+	}
+
+	&-frozen {
+		margin-left: 40px;
+		strong {
+			color: @ck-main-light;
+		}
+	}
+	
+	a {
+		display: block;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	a + a {
+		margin-top: 10px;
+	}
+
+	.btn-withdraw {
+		background: #f2f2f2;
+		color: #333;
+		&:hover {
+			background: darken(#f2f2f2, 10%)
+		}
+	}
+
+	&-security-rate {
+		margin-top: 10px;
+	}
+}

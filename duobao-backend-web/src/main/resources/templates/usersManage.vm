@@ -1,0 +1,125 @@
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+#set($layout = "/layout/usersManage_layout.vm")
+<div class="admin-breadcrumb">
+    <ol class="breadcrumb">
+       <!--  <li ><a href="#">#springMessage("management")</a></li> -->
+        <li class="active">#springMessage("user_management")</li>
+    </ol>
+</div>
+<div class="top-tab">
+    <ul class="nav nav-tabs" role="tablist">
+    #foreach($item in $roles)   
+        #if($roleType == $item.roleId) 
+        <li role="presentation" class="active"><a href="/duobao-backend-web/manageUsers?roleType=$item.roleId" aria-controls="operation" role="tab" >$item.role</a></li>
+        #else
+        <li role="presentation" ><a href="/duobao-backend-web/manageUsers?roleType=$item.roleId" aria-controls="operation" role="tab">$item.role</a></li>
+        #end        
+    #end
+    </ul>
+</div>
+ #if($shiro.hasPermission("add:user"))
+        <div class="pull-right manage-add-btn">
+            <a href="/duobao-backend-web/addNewUser">
+                <button class="btn btn-default">
+                    <i class="fa fa-plus add-btn" title="add a user"> #springMessage("add")</i>
+                </button>
+            </a>
+        </div>
+     #end
+<div class="table-head">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active user-panel" id="operation">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th width="5%">#springMessage("id")</th>
+                    <th width="20%">账号</th>
+                   <!--  <th width="23%">#springMessage("role")</th> -->
+                    <th width="20%">
+                     #if($isDesc) 
+                    <a class="item" href="/duobao-backend-web/manageUsers?roleType=$!roleType">
+                    #else 
+                    <a class="item" href="/duobao-backend-web/manageUsers?roleType=$!roleType&isNeedDesc=true">
+                    #end 
+                 
+                    #springMessage("registration_date")
+                    
+                    </th>
+                    #if($shiro.hasPermission("disable:user"))
+                    <th width="15%">#springMessage("status")</th>
+                    #end
+                    
+                    #if($shiro.hasPermission("user:system:changePaswd"))
+                    <th width="7%">#springMessage("change_password")</th>
+                    #end
+                    
+                    #if($shiro.hasPermission("user:system:changeRole"))
+                    <th width="7%">#springMessage("change_roles")</th>
+                    #end
+                </tr>
+                </thead>
+                <tbody>
+                
+                #foreach($item in $users)
+                <tr>
+                    <td data-user="$item.userId">#set($initId = $initId + 1) $!initId</td>
+                    <td>
+                    #if("$!item.email"=="")
+                        $item.phone
+                    #else
+                        $!item.email
+                    #end
+                    
+                    </td>
+                    <td>$!date.format('yyyy-MM-dd HH:mm',$item.registTime)</td>
+                    #if($shiro.hasPermission("disable:user"))
+                    <td>
+                        <div>
+                             #if(!$item.isForbidden)
+                             <div>
+                            	<button type="button" class="btn btn-default urp-enable  action-btn"> #springMessage("enable")</button>
+                            	<button type="button" class="btn btn-default hide  action-btn">#springMessage("disable")  </button>  
+                            </div>
+                             #else
+                             <div>
+                            <button type="button" class="btn btn-default action-btn">  #springMessage("disable") </button> 
+                            <button type="button" class="btn btn-default hide  urp-enable action-btn"> #springMessage("enable") </button> 
+                            </div>   
+                              #end
+                          
+                        </div>
+                    </td>
+                    #end
+                    
+                     #if($shiro.hasPermission("user:system:changePaswd"))
+                    <td>            
+                       <div>
+                         	<a href="/duobao-backend-web/updateUserPaswd?userId=$item.userId" title="#springMessage('edit_roles')">
+                              <button type="button" class="btn btn-default btn-sm">
+                                  <i class="fa fa-unlock-alt manage-icon"></i>
+                              </button>                            
+                             </a>                             
+                         </div>                   
+                    </td>
+                    #end
+                    
+                    #if($shiro.hasPermission("user:system:changeRole"))
+                    <td>            
+                       <div>
+                            <a href="/duobao-backend-web/updateUserRole?userId=$item.userId" title="#springMessage('edit_roles')">
+                              <button type="button" class="btn btn-default btn-sm">
+                                  <i class="fa fa-cog manage-icon"></i>
+                              </button>                            
+                             </a>                             
+                         </div>                   
+                    </td>
+                    #end
+                </tr>
+                #end
+                </tbody>
+            </table>
+            $!pageDiv
+        </div>
+    </div>
+        </div>
+ 

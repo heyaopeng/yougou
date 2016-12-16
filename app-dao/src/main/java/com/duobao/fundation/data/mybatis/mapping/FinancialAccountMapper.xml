@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.FinancialAccountMapper" >
+  <resultMap id="FinancialAccount" type="com.duobao.fundation.data.mybatis.model.FinancialAccount" >
+    <id column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="balance" property="balance" jdbcType="DECIMAL" />
+    <result column="commission_money" property="commissionMoney" jdbcType="DECIMAL" />
+    <result column="cash_coupon" property="cashCoupon" jdbcType="DECIMAL" />
+    <result column="points" property="points" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    account_id, user_id, balance, commission_money,cash_coupon, points
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="FinancialAccount" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_financial_account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="FinancialAccount" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_financial_account
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_financial_account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.FinancialAccount" >
+    insert into db_financial_account (account_id, user_id, balance, 
+      commission_money,cash_coupon, points)
+    values (#{accountId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{balance,jdbcType=DECIMAL}, 
+      #{commissionMoney,jdbcType=DECIMAL},#{cashCoupon,jdbcType=DECIMAL}, #{points,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.FinancialAccount" >
+    insert into db_financial_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="commissionMoney != null" >
+        commission_money,
+      </if>
+      <if test="cashCoupon != null" >
+        cash_coupon,
+      </if>
+      <if test="points != null" >
+        points,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionMoney != null" >
+        #{commissionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="cashCoupon != null" >
+        #{cashCoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="points != null" >
+        #{points,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.FinancialAccount" >
+    update db_financial_account
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionMoney != null" >
+        commission_money = #{commissionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="cashCoupon != null" >
+        cash_coupon = #{cashCoupon,jdbcType=DECIMAL},
+      </if>
+      <if test="points != null" >
+        points = #{points,jdbcType=INTEGER},
+      </if>
+    </set>
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.FinancialAccount" >
+    update db_financial_account
+    set user_id = #{userId,jdbcType=INTEGER},
+      balance = #{balance,jdbcType=DECIMAL},
+      commission_money = #{commissionMoney,jdbcType=DECIMAL},
+       cash_coupon = #{cashCoupon,jdbcType=DECIMAL},
+      points = #{points,jdbcType=INTEGER}
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+</mapper>

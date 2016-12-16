@@ -1,0 +1,28 @@
+@import "public.less";
+
+.range {
+	&-input {
+		cursor: pointer;
+		position: relative;
+		height: 10px;
+		margin-bottom: 10px;
+	}
+	&-rail {
+		background: #e6e6e6;
+		height: 10px;
+	}
+	&-selection {
+		position: absolute;
+		background: @ck-main-light;
+		height: 10px;
+		top: 0;
+	}
+	&-handle {
+		display: block;
+		position: absolute;
+		top: 0px;
+		background: @ck-main;
+		width: 10px;
+		height: 10px;
+	}
+}

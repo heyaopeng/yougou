@@ -1,0 +1,550 @@
+#set($layout = "/layout/favouriteStore_layout.vm")
+<div class="my-cooka-main">
+<div class="collection-stores">
+    <!--中间内容部分-->
+<div class="cart-container clearfix">
+    <!--全部标签-->
+    
+    <div class="label-block text-center">
+        <a href="#">
+            #springMessage("all_labels")
+            <span class="badge">$!num</span>
+        </a>
+    </div>
+
+    <!-- 筛选菜单栏-->
+    <div class="search-area">
+        <div class="row search-sub">
+            <div class="col-md-6">
+                <div class="pull-left item-box on-click hover-color">
+                    <a class="item" href="#">#springMessage("all_sellers")</a>
+                </div>
+                <div class="split-line pull-left">|</div>
+                <div class="pull-left item-box hover-color desc active" data-text="col-time">
+                    <a class="item" href="/cooka-user-web/center/favourite?type=store&p=yes">
+                        #springMessage("collecting_time")
+                        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-5 trim-right">
+                <div class="input-group">
+                    <input type="text" class="form-control cookabuy-search" placeholder="#springMessage("search_for")">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary cooka-search">
+                            <span class="glyphicon glyphicon-search"></span>
+                            #springMessage("cookabuy")
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+     #if($message=="emptyFavouriteStore")
+    <div class="no-fav-stores text-center">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+            <img src="$staticConfig.getPath()/images/fav.jpg" alt="" width="100%"/>
+            </div>
+    </div>
+    <p class="no-fav-style">There are no stores in your favorites</p>
+        <div>
+            <a href="#">Go shopping</a>
+        </div>
+    </div>
+  #else 
+    <div class="main-box">
+        <div class="no-fav-stores text-center hide">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-5">
+                    <img src="$staticConfig.getPath()/images/fav.jpg" alt="" width="100%"/>
+                </div>
+            </div>
+            <p class="no-fav-style">There are no goods in your favorites</p>
+            <div>
+                <a href="#">Go shopping</a>
+            </div>
+        </div>
+    <div class="collect-img clearfix" data-config='{"messagePrev": "#springMessage("messagePrev")","messageAfter": "#springMessage("store_messageAfter")","messagePlease": "#springMessage("store_messagePlease")"}'>
+        <div class="img-header">
+            <div class="pull-left">
+                <label class="hover-color">
+                    <input class="select-all" type="checkbox">#springMessage("fav_all")</label>
+            </div>
+            <div class="pull-left delete hover-color">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                #springMessage("fav_delete")
+            </div>
+            <div class="pull-right page-box">
+                <a class="prev-page hover-color">#springMessage("fav_prev")</a>
+                <a class="hover-color disabled">#springMessage("fav_next")</a>
+            </div>
+        </div>
+
+        <!--Center block-->
+        <div class="stores-content clearfix" data-modal="delete-modal" data-config='{"messagePrev": "#springMessage("messagePrev")","messageAfter": "#springMessage("store_messageAfter")"}'>
+           #foreach($favStore in $favStore)
+            
+            <div class="store-block favorites-block row" data-del-id="$favStore.storeId">
+                <div class="col-md-3">
+                    <div class="ver-line"></div>
+                    <div class="info-icon">
+                        <input type="checkbox" class="select-sub">
+                        <span class="glyphicon glyphicon-pencil info-pencil hover-color" title="#springMessage("fav_label_title")" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash favorites-delete hover-color" title="#springMessage("fav_delete_title")" aria-hidden="true"></span>
+                    </div>
+                     <div class="store-logo text-center">
+                        <img src="$staticConfig.getPath()/images/store_logo.jpg" alt=""/>
+                    </div>
+                    <a class="store-name" href="#" >$!favStore.storeName</a>
+                    <div class="other-info">
+                        <span class="collection-sum">#springMessage("total_collection"):$!favStore.collectdStoreNum</span>
+                    </div>
+                </div>
+                <div class="store-goods col-md-9">
+                    <div class="top-area row">
+                        <ul class="goods-selector col-md-9 list-unstyled list-inline">
+                            <li class="active">#springMessage("new_goods")</li>
+                            <li>#springMessage("account_goods")</li>
+                        </ul>
+                        <div class="col-md-3">
+                            <a class="store-in" href="#">#springMessage("enter_store")</a>
+                        </div>
+                    </div>
+                    
+                    #if($null.isNull($favStore.pros))
+                        <h1>没有图片</h1>
+                    #else  
+                                                               
+                    <!--图片轮播-->
+                    <div class="ck-carousel active">
+                        <div id="carousel-generic1" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="row">
+                                     #foreach($pro in $favStore.pros)    
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="$pro.title" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$!pro.imgUrl" alt="$pro.title"></a>
+                                            <div class="goods-price">$!currency.getPricecurrencysymbol() $!pro.price</div>
+                                        </div>
+                                     #end
+                                    </div>
+                                </div>
+                               <!--  
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                            <div class="goods-price">$12</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                            <div class="goods-price">$32</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                            <div class="goods-price">$78</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                            <div class="goods-price">$90</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- Controls -->
+                            <a class="left ck_carousel-control" href="#carousel-generic1" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only"></span>
+                            </a>
+                            <a class="right ck_carousel-control" href="#carousel-generic1" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only"></span>
+                            </a>
+                        </div>
+                    </div>
+                    #end
+                    <div class="ck-carousel">
+                        <div id="carousel-generic11" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                            <div class="goods-price">$12</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                            <div class="goods-price">$32</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                            <div class="goods-price">$78</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                            <div class="goods-price">$90</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                            <div class="goods-price">$93</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                            <div class="goods-price">$89</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                            <div class="goods-price">$78</div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a class="img" href="#" title="some description" target="_blank">
+                                                <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                            <div class="goods-price">$78</div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <!-- Controls -->
+                            <a class="left ck_carousel-control" href="#carousel-generic11" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only"></span>
+                            </a>
+                            <a class="right ck_carousel-control" href="#carousel-generic11" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            #end
+<!-- 
+                                        <div class="store-block favorites-block row">
+                                            <div class="col-md-3">
+                                                <div class="ver-line"></div>
+                                                <div class="info-icon">
+                                                    <input type="checkbox" class="select-sub">
+                                                    <span class="glyphicon glyphicon-pencil info-pencil hover-color" title="#springMessage("fav_label_title")"  aria-hidden="true"></span>
+                                                    <span class="glyphicon glyphicon-trash favorites-delete hover-color" title="#springMessage("fav_delete_title")" aria-hidden="true"></span>
+                                                </div>
+                                                <a class="store-name" href="#">cooka store namesssssssssssssssssssss</a>
+                                                <div class="other-info">
+                                                    <span class="collection-sum">#springMessage("total_collection"):23</span>
+                                                </div>
+                                            </div>
+                                            <div class="store-goods col-md-9">
+                                                <div class="top-area row">
+                                                    <ul class="goods-selector col-md-9 list-unstyled list-inline">
+                                                        <li>#springMessage("new_goods")</li>
+                                                        <li class="active">#springMessage("account_goods")</li>
+                                                    </ul>
+                                                    <div class="col-md-3">
+                                                        <a class="store-in" href="#">#springMessage("enter_store")</a>
+                                                    </div>
+                                                </div>
+                                                图片轮播
+                                                <div class="ck-carousel">
+                                                    <div class="empty-box">
+                                                        <p>#springMessage("no_new_goods")</p>
+                                                        <a href="#">#springMessage("go_to_shop")</a>
+                                                    </div>
+                                                </div>
+                                                <div class="ck-carousel active">
+                                                    <div id="carousel-generic22" class="carousel slide" data-ride="carousel">
+                                                        Wrapper for slides
+                                                        <div class="carousel-inner">
+                                                            <div class="item active">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                                                        <div class="goods-price">$12</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                                                        <div class="goods-price">$32</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/5.jpg" alt=""></a>
+                                                                        <div class="goods-price">$90</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                                                        <div class="goods-price">$93</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                                                        <div class="goods-price">$89</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/6.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/7.jpg" alt=""></a>
+                                                                        <div class="goods-price">$12</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/7.jpg" alt=""></a>
+                                                                        <div class="goods-price">$32</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/7.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/7.jpg" alt=""></a>
+                                                                        <div class="goods-price">$90</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        Controls
+                                                        <a class="left ck_carousel-control" href="#carousel-generic22" role="button" data-slide="prev">
+                                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                                            <span class="sr-only"></span>
+                                                        </a>
+                                                        <a class="right ck_carousel-control" href="#carousel-generic22" role="button" data-slide="next">
+                                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                                            <span class="sr-only"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="store-block favorites-block row">
+                                            <div class="col-md-3">
+                                                <div class="ver-line"></div>
+                                                <div class="info-icon">
+                                                    <input type="checkbox" class="select-sub">
+                                                    <span class="glyphicon glyphicon-pencil info-pencil hover-color" title="#springMessage("fav_label_title")"  aria-hidden="true"></span>
+                                                    <span class="glyphicon glyphicon-trash favorites-delete hover-color" title="#springMessage("fav_delete_title")" aria-hidden="true"></span>
+                                                </div>
+                                                <a class="store-name" href="#">cooka store namesssssssssssssssssssss</a>
+                                                <div class="other-info">
+                                                    <span class="collection-sum">#springMessage("total_collection"):23</span>
+                                                </div>
+                                            </div>
+                                            <div class="store-goods col-md-9">
+                                                <div class="top-area row">
+                                                    <ul class="goods-selector col-md-9 list-unstyled list-inline">
+                                                        <li>#springMessage("new_goods")</li>
+                                                        <li class="active">#springMessage("account_goods")</li>
+                                                    </ul>
+                                                    <div class="col-md-3">
+                                                        <a class="store-in" href="#">#springMessage("enter_store")</a>
+                                                    </div>
+                                                </div>
+                                                图片轮播
+                                                <div class="ck-carousel">
+                                                    <div id="carousel-generic3" class="carousel slide" data-ride="carousel">
+                                                        Wrapper for slides
+                                                        <div class="carousel-inner">
+                                                            <div class="item active">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/4.jpg" alt=""></a>
+                                                                        <div class="goods-price">$12</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/4.jpg" alt=""></a>
+                                                                        <div class="goods-price">$32</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/4.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/4.jpg" alt=""></a>
+                                                                        <div class="goods-price">$90</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/2.jpg" alt=""></a>
+                                                                        <div class="goods-price">$93</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/2.jpg" alt=""></a>
+                                                                        <div class="goods-price">$89</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/2.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/2.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                                                        <div class="goods-price">$12</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                                                        <div class="goods-price">$32</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                                                        <div class="goods-price">$78</div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <a class="img" href="#" title="some description" target="_blank">
+                                                                            <img class="carousel-goods" width="100%" src="$staticConfig.getPath()/images/3.jpg" alt=""></a>
+                                                                        <div class="goods-price">$90</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        Controls
+                                                        <a class="left ck_carousel-control" href="#carousel-generic3" role="button" data-slide="prev">
+                                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                                            <span class="sr-only"></span>
+                                                        </a>
+                                                        <a class="right ck_carousel-control" href="#carousel-generic3" role="button" data-slide="next">
+                                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                                            <span class="sr-only"></span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="ck-carousel active">
+                                                    <div class="empty-box">
+                                                        <p>#springMessage("no_account_goods")</p>
+                                                        <a href="#">#springMessage("go_to_shop")</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    -->
+        </div>
+        <!--模态框-->
+        <div class="delete-modal modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">#springMessage("modal_delete_stores")</h4>
+                    </div>
+                    <div class="modal-body">
+                        <span class="pull-left glyphicon glyphicon-exclamation-sign"></span>
+                        <p class="pull-left"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-sm ensure-delete" data-dismiss="modal">#springMessage("modal_yes")</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">#springMessage("modal_no")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--分页-->
+                <div class="clearfix text-center">
+                    <div class="page-control clearfix">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="#">#springMessage("fav_prev")</a>
+                            </li>
+                            <li>
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">5</a>
+                            </li>
+                            <li>
+                                <a href="#">#springMessage("fav_next")</a>
+                            </li>
+                        </ul>
+                        <div class="jump-page">
+                            <span class="total-page">3 #springMessage("fav_page")&nbsp;</span>
+                            <span>
+                                <span>#springMessage("fav_page_to")</span>
+                                <input class="input-box" type="text"/>
+                            </span>
+                            <span>
+                                <button class="btn btn-default btn-sm" type="submit">#springMessage("fav_go")</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           #end
+            </div>
+        </div>
+    </div>
+</div>

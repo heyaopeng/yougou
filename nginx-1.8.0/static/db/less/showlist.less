@@ -1,0 +1,88 @@
+@import "public.less";
+
+.showlist {
+	.clearfix();
+
+	&-item {
+		.clearfix();
+		background-color: white;
+		margin-bottom: 3px;
+		border-bottom: 1px solid #CCCCCC;
+		&-thumb {
+			width: 50px;
+			border-radius : 50%;
+			padding: 5px;
+			display: block;
+			float: left;
+		}
+		&-title{
+			.clearfix();
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+		&-info {
+			.red{
+				color: red;
+			}
+			color: grey;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			> span  + span {
+				margin-left: 10px;
+			}
+
+			> span + a {
+				margin-left: 10px;
+			}
+		}
+		&-content {
+			overflow: hidden;
+			padding: 5px 15px 5px 15px;
+		}
+		&-nickname {
+			font-size: 20px;
+			color: #0066CC;
+			padding-bottom: 5px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		&-proc {
+			background-color: #ddd;
+			border-radius: 5px;
+			margin-top: 5px;
+			&-fill {
+				border-radius: 5px;
+				height: 5px;
+				background-color: orange;
+			}
+		}
+		&-rest{
+			color: grey;
+			padding-right: 10px;
+		}
+		&-btns {
+			text-align: center;
+			.btn {
+				width: 30%;
+				margin-top: 3px;
+				border-radius : 15px;
+				padding: 3px 20px;
+				margin-left: 5px;
+				color : red;
+				background-color: white;
+			}
+		}
+
+		&-images {
+			.clearfix();
+			&-col{
+				padding-top: 5px;
+				padding-bottom: 5px;
+				width: 100/3%;
+				float: left;
+			}
+		}
+	}
+}

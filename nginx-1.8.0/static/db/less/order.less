@@ -1,0 +1,100 @@
+@import "public.less";
+
+.order {
+	.clearfix();
+	background-color: #D7D7D7;
+	.first{
+		margin-top: 0;
+	}
+	&-item {
+		.clearfix();
+		background-color: white;
+		margin-top: 5px;
+
+		&-thumb {
+			padding: 5px;
+			display: block;
+			float: left;
+		}
+
+		&-info {
+			padding-bottom: 10px;
+			padding-top: 10px;
+			> span  + span {
+				margin-left: 10px;
+			}
+
+			> span + a {
+				margin-left: 10px;
+			}
+			.trash{
+				font-size: 25px;
+				position: absolute;
+				right: 5%;
+				color: grey;
+			}
+			.blank{
+				margin: 0 12px;
+			}
+		}
+		&-content {
+			overflow: hidden;
+			padding: 5px 8px 5px 8px;
+		}
+		&-title {
+			color: black;
+			padding-bottom: 5px;
+			padding-top: 5px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		&-rest{
+			.clearfix();
+			padding-bottom: 10px;
+			padding-top: 10px;
+			.blue{
+				color: #417ACF;
+			}
+		}
+	}
+
+	&-settlement{
+		position: fixed;
+		background-color: white;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: 999;
+		bottom: 0px;
+		border-top: 1px solid #ddd;
+		&-info{
+			padding: 10px 5px;
+			float: left;
+			&-row{
+				.red{
+					color: red;
+				}
+				.remind{
+					margin-left: 15px;
+				}
+			}
+		}
+		&-button{
+			background-color: red;
+			color: white;
+			margin: 8px 10px;
+			padding: 12px 20px;
+			float: right;
+			border-radius : 15px;
+			border: 0;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: red;
+				color: white;
+			}
+		}
+	}
+}

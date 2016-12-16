@@ -1,0 +1,89 @@
+@import "public.less";
+
+.withdraw {
+	.clearfix();
+	padding-top: 44px;
+	&-tab {
+		.clearfix();
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+
+		&-item {
+			display: block;
+			float: left;
+			width: 100/3%;
+			text-align: center;
+			cursor: pointer;
+			padding: 10px;
+			position: relative;
+
+			&.active {
+				color:red;
+				border-bottom: 1px solid red;
+			}
+
+			& + & {
+				&:before {
+					content: "";
+					position: absolute;
+					top: 5px;
+					bottom: 5px;
+					left: 0;
+					width: 1px;
+					background-color: #ddd;
+				}
+			}
+		}
+	}
+
+	&-info{
+		text-align: center;
+		color: grey;
+		padding-bottom: 10px;
+	}
+	&-button{
+		position: fixed;
+		padding: 10px;
+		background-color: #FF3300;
+		color: white;
+		text-align: center;
+		left: 5%;
+		right: 0;
+		width: 90%;
+		z-index: 999;
+		bottom: 60px;
+		border-radius : 15px;
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			color: white;
+			background-color: #FF3300;
+		}
+	}
+
+	&-form{
+		background-color: white;
+	}
+}
+
+.form-control {
+    border-radius: 15px;
+    height: 50px;
+}
+
+.form-horizontal .form-group {
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

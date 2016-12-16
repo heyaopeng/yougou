@@ -1,0 +1,53 @@
+@import "public.less";
+
+.sidebar {
+    background-color: #fff;
+    padding-left: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &-item {
+        .collapse.in {
+            -webkit-transition-duration: 5s;
+            transition-duration: 5s
+        }
+
+        .icon-caret-right,
+        .icon-caret-down {
+            display: none;
+        }
+
+        &.is-open .icon-caret-down {
+            display: inline-block;
+        }
+
+        &.is-closed .icon-caret-right {
+            display: inline-block;
+        }
+
+        a {
+            color: #666;
+        }
+
+        &-outer {
+            font-size: 17px;
+        }
+
+        &-inner {
+            padding-left: 16%;
+
+            ul li {
+                line-height: 28px;
+            }
+
+        }
+
+        &-number {
+            display: inline-block;
+            padding-left: 10px;
+            color: #fbb03b;
+        }
+
+    }
+
+}

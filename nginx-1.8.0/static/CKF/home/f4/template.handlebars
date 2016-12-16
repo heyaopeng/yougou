@@ -1,0 +1,92 @@
+<div class="home-floor home-floor-reverse" id="home-floor-4" data-j="homeFloor">
+	<div class="home-floor-heading">
+		<div class="home-floor-keyword">
+			<div class="home-floor-keyword-inner">
+				{{#each f4.search}}
+				<a href="/cooka-search/searchProductFqs?ct={{@key}}" target="_blank">{{this}}</a>
+				{{/each}}
+			</div>
+		</div>
+
+		<div class="home-floor-title">
+			<span class="icon-nanzhuang"></span>
+			<a href="/cooka-search/searchProductFqs?ct=102000000">Trang phục nam</a>
+		</div>
+	</div>
+
+	<div class="home-floor-body">
+		<div class="home-floor-col home-floor-col-80">
+			<div id="home-floor-carousel-4" class="carousel slide home-floor-carousel" data-ride="carousel" data-interval="7000">
+
+				<div class="carousel-inner" role="listbox">
+					{{#each f4.item}}
+					<div class="item home-floor-carousel-item{{#ifEq @index 0}} active{{/ifEq}}">
+						{{#each this}}
+						<div class="home-floor-carousel-col home-floor-carousel-col-25">
+							{{#each this}}
+							<div class="product">
+								<a href="/cooka-productDetail-web/productDetail?productId={{id}}" target="_blank">
+									<img src="{{src}}" class="product-img"></a>
+								<div class="product-info">
+									<div class="product-title">{{title}}</div>
+									<div class="product-price">{{price}}</div>
+									<div class="product-rate">
+										<span class="product-rate-star {{#ifEq score 1}} active{{/ifEq}}">
+											<span class="icon-star-solid"></span>
+										</span>
+										<span class="product-rate-star {{#ifEq score 2}} active{{/ifEq}}">
+											<span class="icon-star-solid"></span>
+										</span>
+										<span class="product-rate-star {{#ifEq score 3}} active{{/ifEq}}">
+											<span class="icon-star-solid"></span>
+										</span>
+										<span class="product-rate-star {{#ifEq score 4}} active{{/ifEq}}">
+											<span class="icon-star-solid"></span>
+										</span>
+										<span class="product-rate-star {{#ifEq score 5}} active{{/ifEq}}">
+											<span class="icon-star-solid"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+						{{/each}}
+					</div>
+					{{/each}}
+				</div>
+
+				<a class="left carousel-control" href="#home-floor-carousel-4" role="button" data-slide="prev">
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#home-floor-carousel-4" role="button" data-slide="next">
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="home-floor-col">
+			<div class="home-special" data-j="homeSpecial">
+				<img src="{{f4.src}}" alt="" class="home-special-img">
+
+				<div class="home-special-category open">
+					<ul class="home-special-category-items">
+						{{#each f4.search}}
+						<li><a href="/cooka-search/searchProductFqs?ct={{@key}}" target="_blank">{{this}}</a></li>
+						{{/each}}
+					</ul>
+				</div>
+
+				<div class="home-special-detail">
+					<div class="home-special-detail-block">
+						<h5 class="home-special-detail-title">Something</h5>
+						<ul class="home-special-detail-items">
+						</ul>
+					</div>
+				</div>
+
+				<span class="home-special-spin open"></span>
+			</div>
+		</div>
+	</div>
+</div>

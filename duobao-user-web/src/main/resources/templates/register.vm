@@ -1,0 +1,545 @@
+#set($layout = "/layout/register_layout.vm")
+#if($flag=="sendEmailToReg")
+<div class="main">
+	<div class="container main-inner">
+		<div class="col-md-10">
+			<div class="sign-email text-center" data-j="sign">
+				<img src="$staticConfig.getPath()/CKF/images/verify_email.png" width="250" height="130"/>
+				<p>#springMessage("we_had_sent_a_confirmation_mail_to_your_registered_email")</p>
+				<p class="sign-email-info">$message</p>
+				<div class="alert alert-warning sign-email-alert hide">
+					<strong>#springMessage("sorry").</strong>
+					#springMessage("we_can_not_resolve_your_email_automatically"),
+					#springMessage("please_check_out_your_in_box_manually").
+				</div>
+				<a href="#" class="btn btn-primary sign-email-btn">#springMessage("check_verification_email")</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+#elseif($flag=="regscussess")
+<div class="main">
+	<div class="container main-inner">
+		<div class="col-md-10">
+			<div class="text-center sign-email">
+				<img src="$staticConfig.getPath()/images/emoji/402.png" class="center-block">
+				<h1 class="text-success">#springMessage("congratulations_you_are_one_of_cooka_members_now")</h1>
+				<a href="/cooka-user-web/login" class="btn btn-primary">#springMessage("sign_in_now")</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+#elseif($flag=="isAlreadActive")
+<div class="main">
+	<div class="container main-inner">
+		<div class="col-md-10">
+			<div class="text-center sign-email">
+				<img src="$staticConfig.getPath()/images/emoji/402.png" class="center-block">
+				<h1 class="text-success"> #springMessage("the_account_has_already_been_actived_please_login_in")</h1>
+				<a href="/cooka-user-web/login" class="btn btn-primary">#springMessage("sign_in_now")</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+#elseif($flag=="failer")
+<div class="main">
+	<div class="container main-inner">
+		<div class="col-md-10">
+			<div class="text-center sign-email">
+				<img src="$staticConfig.getPath()/images/emoji/402.png" class="center-block">
+				<h1> #springMessage("link_has_expired")</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+#else
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="sign" data-j="sign">
+				<div class="sign-inner">
+					<div class="sign-navi">
+						<a href="/cooka-user-web/login">
+							<span class="icon-user"></span>
+							#springMessage("sign_in")
+						</a>
+						<a href="#" class="active">
+							<span class="icon-register"></span>
+							#springMessage("sign_up")
+						</a>
+					</div>
+
+					<img src="$staticConfig.getPath()/CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+					<h4 class="sign-title">#springMessage("welcome_to_cookabuy")</h4>
+					
+					<div class="sign-switch-tab">
+						#if("$!isPhone"=="")
+						<span class="sign-switch-tab-item active" data-switch="s-email">
+							<span class="icon-envelope-o"></span>
+							#springMessage("sign_up_by_email")
+						</span>
+						<span class="sign-switch-tab-item" data-switch="s-phone">
+							<span class="icon-circle-mobile-o"></span>
+							#springMessage("sign_up_by_phone_number")
+						</span>
+						#else
+						<span class="sign-switch-tab-item" data-switch="s-email">
+							<span class="icon-envelope-o"></span>
+							#springMessage("sign_up_by_email")
+						</span>
+						<span class="sign-switch-tab-item active" data-switch="s-phone">
+							<span class="icon-circle-mobile-o"></span>
+							#springMessage("sign_up_by_phone_number")
+						</span>
+						#end
+					</div>
+					
+					<form class="form-horizontal sign-form" id="sign-form-up" method="post" action="doregister">
+						<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+						
+						#if("$!isPhone"=="")
+						<div class="form-group sign-switch-target active" id="s-email">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-envelope-o"></span>
+								</span>
+								<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+						</div>
+						<div class="sign-switch-target" id="s-phone">
+							<div class="form-group">
+								<input type="text" name="account" class="form-control f-mobile" disabled>
+							</div>
+							<div class="form-group">
+								<div class="col-md-7">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-vertify-code-o"></span>
+										</span>
+										<input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+								</div>
+							</div>
+						</div>
+						#else
+						<div class="form-group sign-switch-target" id="s-email">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-envelope-o"></span>
+								</span>
+								<input type="text" name="account" class="form-control f-email" placeholder="Email" disabled></div>
+						</div>
+						<div class="sign-switch-target active" id="s-phone">
+							<div class="form-group">
+								<input type="text" name="account" class="form-control f-mobile">
+							</div>
+							<div class="form-group">
+								<div class="col-md-7">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-vertify-code-o"></span>
+										</span>
+										<input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+								</div>
+							</div>
+						</div>
+						#end
+						
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-lock-o"></span>
+								</span>
+								<input type="password" name="password" class="form-control f-password" placeholder="Password" value="$!user.password"></div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-check-lock-o"></span>
+								</span>
+								<input type="password" name="repetpassword" class="form-control f-confirm-password" placeholder="Confirm Password" value="$!user.password"></div>
+						</div>
+						<div class="form-group sign-captcha">
+							<div class="col-md-5">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<span class="icon-vertify-code-o"></span>
+									</span>
+									<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+							</div>
+							<div class="col-md-4">
+								<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+							<div class="col-md-1">
+								<a href="#" class="sign-refresh">
+									<span class="icon-refresh"></span>
+								</a>
+							</div>
+						</div>
+						<div class="form-group">
+                            <div class="checkbox">
+                                <label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+                                    <input type="checkbox" name="agree" value="agree" id="f-agree" class="f-agree">
+                                    <span class="icons">
+                                        <span class="icon-unchecked">
+                                            <span class="icon-square-o"></span>
+                                        </span>
+                                        <span class="icon-checked">
+                                            <span class="icon-square"></span>
+                                        </span>
+                                    </span>
+                                    #springMessage("i_agree_the_service_agreement_of_cookabuy")
+                                    <a href="#" data-toggle="modal" data-target="#agreement-modal">#springMessage("read_it")</a>	
+                                </label>
+                            </div>
+                        </div>
+
+						##if("$!status.errorMessages"!="")
+						<div class="alert alert-danger sign-errors hide">
+							#springBind("user.account")
+							#foreach($error in $status.errorMessages)
+						 		$error
+						 	#end
+						 	
+						 	#springBind("user.captcha")
+						 	#foreach($error in $status.errorMessages)
+						 		$error
+						 	#end
+						 	#springBind("user.phoneCode")
+						 	#foreach($error in $status.errorMessages)
+						 		$error
+						 	#end
+						</div>
+						##end
+						<div class="form-group">
+							<button class="btn btn-secondary-light btn-block sign-btn" type="submit">#springMessage("sign_up")</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="agreement-modal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal">
+				<span class="icon-close"></span>
+			</button>
+			<div class="modal-body">
+				<h3 class="text-center">THỎA THUẬN ĐĂNG KÝ NGƯỜI DÙNG COOKA</h3>
+				<h4>THỎA THUẬN ĐĂNG KÝ NGƯỜI DÙNG COOKA</h4>
+				<p>
+					Bản thỏa thuận này là hợp đồng được lập giữa bạn và chủ sở hữu (gọi tắt là “cooka”) của trang web cooka (gọi tắt là “trang web”, web site: cookabuy.com; cookabuy.vn) về các vấn đề có liên quan đến các dịch vụ tại trang web cooka, nếu như bạn truy cập vào cooka hoặc mua sắm tại cooka, hoặc với bất kỳ hành vi sử dụng thụ hưởng thực tế dịch vụ của cooka, cho thấy bạn chấp nhận thỏa thuận này và đồng ý bị ràng buộc bởi các điều khoản của bản thỏa thuận. Nếu như bạn không đồng ý với bất kỳ nội dung nào trong bản thỏa thuận này, bạn có thể lựa chọn không sử dụng dịch vụ của trang web. Vui lòng đọc kỹ bản thỏa thuận đăng ký này, sau khi bạn nhấn nút “đăng ký” xong, bản thỏa thuận này đã cấu thành dữ liệu pháp lý ràng buộc giữa các bên.
+				</p>
+
+				<h4>
+					I) XÁC NHẬN VÀ TIẾP NHẬN CÁC ĐIỀU KHOẢN DỊCH VỤ CỦA TRANG WEB
+				</h4>
+				<ol>
+					<li>
+						Quyền sở hữu và quyền hoạt động các dịch vụ điện tử tại trang web thuộc sở hữu của cooka. Sau khi bạn đồng ý với các điều khoản thỏa thuận đăng ký và hoàn thành các trình tự đăng ký, mới có thể trở thành người dùng chính thức của trang web. Đồng thời, bạn xác nhận: các điều khoản của bản thỏa thuận này là giao kèo xử lý quyền lợi nghĩa vụ giữa các bên, mãi luôn có hiệu lực, trường hợp pháp luật có những quy định mang tính cưỡng chế khác hoặc giữa các bên có thêm các thỏa thuận đặc biệt khác, thì sẽ lấy quy định đó làm căn cứ.
+					</li>
+					<li>
+						Việc bạn nhấp đồng ý bản thỏa thuận, coi như bạn xác nhận mình có năng lực quyền lợi và năng lực hành vi tương ứng để thụ hưởng các dịch vụ và đặt hàng tại trang web vv, có thể độc lập chịu trách nhiệm pháp lý.
+					</li>
+					<li>
+						Nếu bạn chưa đủ 18 tuổi, bạn chỉ có thể sử dụng trang web dưới sự tham gia giám hộ của bố mẹ hoặc người giám hộ.
+					</li>
+					<li>
+						Cooka giữ lại quyền lợi được độc lâp quyết định từ chối phục vụ, đóng tài khoản của bạn, xóa hoặc biên tập nội dụng hoặc hủy đơn hàng trong phạm vi luật pháp cho phép thực thi tại khu vực đại lục nước Cộng hòa Nhân dân Trung Hoa.
+					</li>
+				</ol>
+
+				<h4>
+					II)	ĐĂNG KÝ
+				</h4>
+				<h4>
+					1.	ĐỐI TƯỢNG SỬ DỤNG DỊCH VỤ
+				</h4>
+				<p>
+					Khi bạn sử dụng thực tế các dịch vụ sau khi hoàn thành trình tự đăng ký hoặc bằng các phương thức cho phép khác của cooka, bạn chắc hẳn là tự nhiên nhân, pháp nhân hoặc tổ chức khác có toàn bộ năng lực quyền lợi dân sự và năng lực hành vi tương ứng với hành vi dân sự đã thực hiện. Nếu như bạn không có tư cách như đã đề cập trên đây, vui lòng không sử dụng dịch vụ, nếu không bạn và người giám hộ của bạn phải chịu mọi hậu quả, đồng thời cooka có quyền xóa bỏ (đóng băng mãi mãi) tài khoản của bạn, đồng thời khiếu nại bồi thường đối với bạn và người giám hộ của bạn. Nếu như bạn đại diện cho một công ty hoặc một chủ thể pháp lý khác đăng ký tại cooka, thì bạn phải tuyên bố và bảo đảm: bạn có quyền làm cho công ty đó hoặc chủ thể pháp lý đó chịu sự ràng buộc của các điều khoản tại bản cam kết này.
+				</p>
+
+				<h4>
+					2.	ĐĂNG KÝ TÀI KHOẢN
+				</h4>
+				<p>
+					Sau khi bạn điền các thông tin theo gợi ý tại trang đăng ký, đọc và đồng ý với bản thỏa thuận, đồng thời hoàn thành toàn bộ các trình tự đăng ký; Hoặc sau khi bạn điền các thông tin theo gợi ý tại trang kích hoạt, đọc và đồng ý với bản thỏa thuận đồng thời hoàn thành toàn bộ các trình tự kích hoạt; Hoặc khi bạn sử dụng các dịch vụ thực tế tại cooka bằng các phương pháp cho phép khác của cooka, thì bạn đã chịu sự ràng buộc của bản thỏa thuận này. Bạn có thể sử dụng email, số điện thoại di động do bạn cung cấp và xác nhận hoặc bằng các cách thức khác được sự đồng ý của cooka để đăng nhập vào trang web cooka.
+				</p>
+				<p>
+					Bạn đã hiểu và đồng ý rằng, nếu như bạn đã hoàn thành các trình tự đăng ký của trang web, chỉ cần bạn đăng ký thành công, bạn có thể có được tên đăng nhập của bạn tại cooka. Tại đây một cách rõ ràng, bạn đã tiến hành ủy quyền, thông tin tài khoản của bạn tại thời điểm bạn đăng ký thành công, đã ủy quyền cho trang web công khai cho cả hệ thống cooka đồng thời ủy quyền cho cooka sử dụng, để bạn được sử dụng các dịch vụ của cooka nhanh chóng và tiện lợi hơn.
+				</p>
+
+				<h4>III) DỊCH VỤ CỦA TRANG WEB</h4>
+				<ol>
+					<li>
+						Cooka cung cấp dịch vụ thông tin internet hợp pháp thông qua internet, trường hợp bạn hoàn toàn đồng ý với thỏa thuận này và quy định của trang web, thì bạn có quyền sử dụng các dịch vụ có liên quan của trang web.
+					</li>
+					<li>
+						Bạn phải tự chuẩn bị các thiết bị và tự chịu những chi phí sau: (1) thiết bị lên mạng, bao gồm nhưng không giới hạn bởi máy tính hoặc những thiết bị đầu cuối lên mạng khác, modem và những trang thiết bị cần thiết để lên mạng khác; (2) chi phí lên mạng: Bao gồm nhưng không giới hạn với phí nối mạng, phí thuê thiết bị lên mạng, phí lưu lượng điện thoại động vv.
+					</li>
+				</ol>
+
+				<h4>IV) BẢO MẬT TÀI KHOẢN</h4>
+				<p>
+					Bạn phải tự chịu trách nhiệm bảo mật tên đăng nhập, nickname và mật khẩu của mình, đồng thời chịu trách nhiệm về tất cả các hoạt động phát sinh đối với tên đăng nhập, nickname và mật khẩu đó (bao gồm nhưng không giới hạn bởi: Thông tin bị tiết lộ, công bố thông tin, nhấp “đồng ý” trên mạng hoặc gửi tất cả các loại quy tắc thỏa thuận, ký tiếp thỏa thuận hoặc mua dịch vụ trên mạng vv).
+				</p>
+				<p>
+					a)	Trường hợp phát hiện thấy bất kỳ người nào sử dụng tên đăng nhập, nickname và mật khẩu của bạn khi chưa được ủy quyền, hoặc bất kỳ tình huống nào khác trái quy định bảo mật, bạn sẽ thông báo ngay với cooka, đồng thời ủy quyền cho cooka đồng bộ thông tin này cho website cooka;
+				</p>
+				<p>
+					b)	Hãy chắc chắn rằng sau mỗi khoảng thời gian lên mạng kết thúc, bạn sẽ thực hiện các bước chính xác để rời khỏi trang web. Cooka không thể và cũng không chịu trách nhiệm cho những tổn thất hoặc thiệt hại phát sinh do bạn không tuân thủ các quy định của điều khoản này. Bạn hiểu rằng yêu cầu của cooka đối với bạn là: hành động cần có thời gian hợp lý, cooka không chịu bất kỳ trách nhiệm nào về hậu quả đã phát sinh trước khi hành động (bao gồm nhưng không giới hạn bởi bất kỳ tổn thất nào của bạn). Trừ phi có quy định của pháp luật hoặc phán quyết của toàn án, và được sự đồng ý của cooka, nếu không, tên đăng nhập, nickname và mật khẩu của bạn không được chuyển nhượng, tặng hoặc thừa kế dưới bât kỳ hình thức nào (trừ các quyền và lợi ích tài sản gắn liền đến tài khoản)
+				</p>
+
+				<h4>
+					V)	THÔNG TIN NGƯỜI DÙNG
+				</h4>
+				<ol>
+					<li>
+						Bạn phải thành thực cung cấp các dữ liệu đăng ký cho trang web, dữ liệu đăng ký do bạn đồng ý cung cấp phải chân thực, chính xác, hoàn chỉnh, hợp lệ. Nếu dữ liệu đăng ký của bạn có thay đổi, phải kịp thời cập nhật các dữ liệu đăng ký đó. Nếu như dữ liệu đăng ký do bạn cung cấp không hợp pháp, không đúng sự thật, không chính xác, không đầy đủ, bạn phải chịu mọi trách nhiệm và hậu quả tương ứng do đó gây ra.
+					</li>
+					<li>
+						Khi bạn đang hoạt động duyệt web hay mua sắm trên trang web, những thông tin riêng tư của bạn như tên thật/tên gọi, địa chỉ thông tin, điện thoại liên hệ, hòm thư điện tử vv, sẽ được trang web bảo mật nghiêm ngặt. Trừ phi được sự ủy quyền của bạn hoặc pháp luật có những quy định khác, trang web sẽ không tiết lộ các thông tin riêng tư của bạn ra bên ngoài.
+					</li>
+					<li>
+						Bạn đồng ý rằng, cooka có quyền thông qua các hình thức email, tin nhắn điện thoại vv để gửi tin nhắn về đơn hàng, các hoạt động khuyến mại vv cho người dùng đã đăng ký, mua sắm tại trang web và người nhận hàng.
+					</li>
+					<li>
+						Bạn không được cho người khác mượn sử dụng tài khoản đã đăng ký tại trang web, nếu không bạn sẽ phải chịu toàn bộ trách nhiệm phát sinh, đồng thời chịu trách nhiệm liên đới với người sử dụng thực tế.
+					</li>
+					<li>
+						Bạn đồng ý rằng, cooka có quyền sử dụng các thông tin đăng ký, tên người dùng, mật khẩu vv của bạn, đăng nhập vào tài khoản đăng ký của bạn, tiến hành bảo quản bằng chứng, bao gồm nhưng không giới hạn bởi công chứng, chứng nhận vv.
+					</li>
+				</ol>
+
+				<h4>
+					VI)	CHẤM DỨT DỊCH VỤ
+				</h4>
+				<h4>
+					1.	CHẤM DỨT DỊCH VỤ
+				</h4>
+				<p>
+					1.1	Bạn đồng ý rằng trong trường hợp cooka không thu phí của bạn, cooka có thể tự ý toàn quyền quyết định chấm dứt mật khẩu, tài khoản “dịch vụ” (hoặc bất kỳ phần nào) hoặc quyền sử dụng “dịch vụ” của bạn với bất kỳ lý do nào (bao gồm nhưng không giới hạn bởi cooka cho rằng bạn đã làm trái với nghĩa đen và tinh thần của bản thỏa thuận này, hoặc bạn hành động theo cách thức không phù hợp với nghĩa đen và tinh thần của bản thỏa thuận này). Bạn đồng ý rằng trong trường hợp cooka có thu phí của bạn, cooka phải dựa trên cơ sở nghi ngờ hợp lý thông báo qua hòm thư điện tử để thực thi hành động chấm dứt dịch vụ nói trên. Bạn chấp nhận và đồng ý thêm nữa, là trong trường hợp cooka căn cứ theo quy định của bản thỏa thuận này chấm dứt dịch vụ của bạn, có thể ngay lập tức làm cho tài khoản của bạn bị vô hiệu, hoặc xóa bỏ tài khoản của bạn và tất cả file, dữ liệu có liên quan trong tài khoản của bạn, và/hoặc cấm bạn truy cập hơn nữa vào file đó hoặc “dịch vụ”. Sau khi chấm dứt dịch vụ, cooka không có nghĩa vụ bảo lưu bất kỳ thông tin nào trong tài khoản ban đầu và những thông tin có liên quan đến tài khoản đó, hoặc chuyển tiếp bất kỳ thông tin chưa đọc hoặc đã gửi cho bạn hoặc bên thứ ba. Ngoài ra, bạn đồng ý rằng cooka sẽ không chịu bất kỳ trách nhiệm nào đối với bạn hoặc bất kỳ bên thứ ba vì đã chấm dứt cung cấp dịch vụ cho bạn.
+				</p>
+				<p>
+					1.2	Bạn có quyền yêu cầu cooka xóa bỏ tài khoản của bạn, sau khi cooka đã thẩm duyệt đồng ý, cooka sẽ xóa bỏ tài khoản của bạn, từ đó, bạn và cooka sẽ chấm dứt quan hệ hợp đồng dựa trên cơ sở của bản thỏa thuận này. Sau khi tài khoản của bạn bị xóa bỏ, cooka không có nghĩa vụ bảo lưu hoặc tiết lộ cho bạn bất kỳ thông tin nào có trong tài khoản, cũng không có nghĩa vụ chuyển tiếp bất kỳ thông tin bạn chưa đọc hoặc đã gửi cho bạn hoặc bên thứ ba.
+				</p>
+				<p>
+					1.3	Bạn hiểu và đồng ý rằng, sau khi bạn và cooka chấm dứt quan hệ hợp đồng:
+				</p>
+				<ol>
+					<li>Cooka có quyền tiếp tục lưu trữ dữ liệu cuả bạn.</li>
+					<li>
+						Đối với những hành vi phạm pháp hoặc những hành vi làm trái với thỏa thuận này và/hoặc vi phạm quy tắc đã tồn tại trong thời gian bạn sử dụng dịch vụ, cooka vẫn có quyền đòi hỏi quyền lợi đối với bạn.
+					</li>
+					<li>
+						Trong thời gian sử dụng dịch vụ nếu có phát sinh quan hệ giữa bạn và những bạn khác, việc chấm dứt dịch vụ mà không phải chấm dứt vì bản thỏa thuận này,bạn khác vẫn có quyền đòi hỏi quyền lợi đối với bạn, bạn vẫn phải tiếp tục thực hiện nghĩa vụ như đã hứa hẹn.
+					</li>
+				</ol>
+
+				<h4>
+					VII)	VỀ CÁC CHI PHÍ
+				</h4>
+				<p>
+					Tất cả các loại thuế phải nộp phát sinh từ các giao dịch được trả tiền của bạn trên cooka, hoặc tiếp xúc với máy chủ của cooka, và cả những chi phí có liên quan đến phần cứng, phần mềm, thông tin liên lạc, các dịch vụ mạng cùng các phí khác đều do bạn tự chi trả. Cooka có quyền: sửa đổi hoặc chấm dứt tạm thời hoặc vĩnh viễn một phần hoặc tất cả dịch vụ mà không cần thông báo bằng văn bản, chỉ cần công khai trên website.
+				</p>
+
+				<h4>
+					VIII)	PHẠM VI SỬ DỤNG DỊCH VỤ
+				</h4>
+				<h4>
+					1.	NGUYÊN TẮC VỀ TÀI LIỆU CỦA BẠN
+				</h4>
+				<p>
+					1.1	Bạn đồng ý và cam kết, “dữ liệu của bạn”và bất kỳ “vật phẩm”bạn cung cấp để giao dịch trên trang web cooka (Chỉ mọi loại vật phẩm cụ thể cung cấp cho các giao dịch hợp pháp, hữu hình hoặc vô hình, tồn tại dưới mọi hình thức; hoặc một loại quyền lợi hoặc lợi ích; hoặc một loại chứng từ hoặc chứng khoán; hoặc một loại dịch vụ hoặc hành vi; Đều thuộc định nghĩa “vật phẩm” trong bản thỏa thuận này)
+				</p>
+				<ol>
+					<li>
+						Sẽ không có thành phần lừa đảo, gian lận hoặc bán hàng với giá quá đắt;
+					</li>
+					<li>
+						Sẽ không xâm phạm vật quyền hoặc bản quyền, bằng sáng chế, thương hiệu, bí mật thương mại hoặc các quyền sở hữu trí tuệ khác, hoặc quyền riêng tư, quyền danh dự vv đối với vật phẩm thuộc về bất kỳ bên thứ ba.
+					</li>
+					<li>
+						Sẽ không vi phạm bất kỳ luật, pháp quy, điều lệ hoặc quy định (bao gồm nhưng không giới hạn bởi luật, pháp quy, điều lệ hoặc quy định về quản lý xuất khẩu, giấy phép kinh doanh, quota thương mại, bảo vệ người tiêu dùng, cạnh tranh không lành mạnh hoặc quảng cáo không đúng sự thật), bản thỏa thuận này và các quy tắc có liên quan.
+					</li>
+					<li>
+						Sẽ không có những nội dung phỉ báng (bao gồm vu khống thương mại), hăm dọa phi pháp hoặc quấy rối phi pháp;
+					</li>
+					<li>
+						Sẽ không có các nội dung khiêu dâm, hoặc chứa bất kỳ nội dung khiêu dâm trẻ em;
+					</li>
+					<li>
+						Sẽ không có bất kỳ virus, chương trình phá hoại ngụy trang, sâu máy tính, bom chương trình hẹn giờ hoặc các chương trình máy tính khác hủy hoại có chủ ý, quấy rối ác ý, bí mật chặn hoặc xâm phạm bất kỳ hệ thống, dữ liệu hoặc thông tin cá nhân;
+					</li>
+					<li>
+						Sẽ không trực tiếp hoặc gián tiếp kết nối với các mục hàng hóa hoặc dịch vụ, hoặc chứa đựng mô tả các mục hàng hóa hoặc dịch vụ như sau: (1) các mục hàng hóa hoặc dịch vụ bị cấm; hoặc (2) các mục hàng hóa hoặc dịch vụ mà bạn không có quyền kết nối hoặc chứa đựng. Bạn đồng ý sẽ không: (3) sử dụng dịch vụ trên các phương diện có liên quan như gửi số lượng lớn email một cách bất cẩn, phát hành quá nhiều email hoặc bất kỳ thông tin coppy hoặc dư thừa cho hệ thống thư liên kết. (4) khi chưa được sự đồng ý của người khác, sử dụng “dịch vụ” để thu thập địa chỉ email và những thông tin khác của người khác; hoặc (5) sử dụng dịch vụ để ngụy tạo địa chỉ email giả, hoặc bằng các hình thức khác thực hiện ý đồ lừa gạt người khác bằng các khía cạnh nguồn gốc như thân phận hoặc thông tin của người gửi;
+					</li>
+					<li>
+						Không có các tuyên truyền hoặc giao dịch mà cooka cho rằng bị cấm hoặc không thích hợp thực hiện thông qua trang web cooka.
+					</li>
+				</ol>
+				<p>
+					1.2	Bạn đồng ý rằng, bạn sẽ không sử dụng bất kỳ thông tin dữ liệu nào phục vụ tính chất thương mại, bao gồm nhưng không giới hạn bởi trường hợp chưa có sự chấp thuận trước bằng văn bản của cooka, coppy bất kỳ dữ liệu nào được trình bày trên trang web cooka để sử dụng cho các mục đích thương mại.
+				</p>
+
+				<h4>
+					2.	VỀ QUY TẮC GIAO DỊCH
+				</h4>
+				<p>
+					2.1	Không được thao túng các giao dịch. Bạn đồng ý rằng không lợi dụng giúp đỡ những đối tác thực hiện ý đồ lừa đảo hoặc gian lận (dưới đây gọi là khách hàng hoặc bên thứ ba), thao túng kết quả tiến hành đàm pháp thương mại với bên giao dịch thứ ba.
+				</p>
+				<p>
+					2.2	Không được quấy rối hệ thống giao dịch. Bạn đồng ý rằng bạn không được sử dụng bất kỳ thiết bị, phần mềm hoặc đoạn chương trình để can dự hoặc cố can dự vào sự vận hành bình thường của cooka hoặc bất kỳ giao dịch đang tiến hành trên trang web cooka. Bạn không được có bất kỳ hành động gia tải quá lớn bất hợp lý hoặc không hợp tỉ lệ lên kết cấu trang web cooka.
+				</p>
+				<p>
+					2.3	Về những thông tin phản hồi trong giao dịch. Bạn không được thực hiện bất kỳ hành động có khả năng gây tổn hại đến tính hoàn chỉnh của hệ thống phản hồi thông tin, ví dụ: lợi dụng nhãn thân phận hội viên thứ 2 hoặc bên thứ 3 để lưu lại những phản hồi tích cực cho bản thân mình; lợi dụng nhãn thân phận hội viên thứ 2 hoặc bên thứ 3 để lưu lại những phản hồi tiêu cực cho bạn khác ( bom dữ liệu phản hồi); hoặc hành động nào đó bên ngoài phạm vi khi bạn không thể thực hiện giao dịch, như để lại những phản hồi tiêu cực (lưu lại phản hồi ác ý)
+				</p>
+				<p>
+					2.4	Về việc giải quyết tranh chấp trong giao dịch
+				</p>
+				<p>
+					2.4.1	Cooka không liên quan đến các mối quan hệ pháp lý và tranh chấp pháp lý phát sinh từ các giao dịch giữa những người dùng, sẽ không và không được liên quan vào các giao dịch giữa các bên tham gia giao dịch. Nếu như bạn cùng một hoặc nhiều hơn một người dùng, hoặc nhà cung cấp dịch vụ bên thứ 3 cùng người dùng đạt được dịch vụ khác thông qua trang web cooka có nảy sinh tranh chấp, thì bạn miễn trừ trách nhiệm của cooka (người đại diện cooka và nhân viên) trong những tranh chấp đó, hoặc trách nhiệm về bất kỳ những đòi hỏi quyền lợi, yêu cầu bồi thường thiệt hại vv (thực tế và mang tính hậu quả) có chủng loại và tính chất khác nhau gắn liền với tranh chấp đó ở bất kỳ phương diện nào.
+				</p>
+				<p>
+					2.4.2	Đối với bất kỳ những bất thường sảy ra từ các hành vi khác nhau trong khi bạn sử dụng dịch vụ của cooka, cooka có quyền thông qua các phương thức liên hệ như gửi thư điện tử vv cho bạn để tìm hiểu tình hình, bạn có nghĩa vụ phối hợp với công việc của cooka, nếu không, cooka có quyền làm ra kết quả xử lý bất lợi đối với bạn.
+				</p>
+
+				<h4>
+					IX)	 NGHĨA VỤ NGÔN LUẬN THEO PHÁP LUẬT CỦA NGƯỜI DÙNG
+				</h4>
+				<p>
+					Bản thỏa thuận này đặt ra những quy định dựa trên những quy định của luật pháp có liên quan, bạn đồng ý và nghiêm chỉnh thực hiện những nghĩa vụ sau đây:
+				</p>
+				<ol>
+					<li>
+						Không được đăng tải hoặc công bố: phát biểu kích động tranh cãi, phá hoại hiến pháp pháp luật và các quy định hành chính, phát biểu kích động lật đổ chính quyền quốc gia, phát biểu kích động chia cách đất nước, kích động phân biệt chủng tộc, thù hằn sắc tộc, phân biệt đối xử;
+					</li>
+					<li>
+						Từ đại lục Trung Quốc truyền thông tin dữ liệu ra nước ngoài, hoặc từ nước ngoài truyền thông tin dữ liệu đến đại lục Trung Quốc phải phù hợp với các quy định pháp luật có liên quan của Trung Quốc;
+					</li>
+					<li>
+						không được lợi dụng trang web để thực hiện các hoạt động phạm tội phi pháp như: rửa tiền, trôm cắp bí mật thương mại, trôm cắp thông tin cá nhân vv
+					</li>
+					<li>
+						Không được cản trở hoạt động bình thường của trang web, không được xâm phạm vào trang web;
+					</li>
+					<li>
+						Không được truyền tải hoặc phát biếu bất kỳ những thông tin dữ liệu phi pháp, có tính quấy rối, vu khống người khác,có tính nhục mạ, tính đe dọa, làm tổn hại, thô tục, khiêu dâm, thiếu văn minh và các thông tin khác.
+					</li>
+					<li>
+						Không được tiếp tay cho người khác thực hiện các hành vi bị cấm trong điều khoản này;
+					</li>
+					<li>
+						Không được sử dụng tài khoản đăng ký tại trang web để tiến hành các hoạt động kinh doanh mang tính chất sinh lời;
+					</li>
+					<li>
+						Không được đăng bất kỳ nội dung xâm phạm đến các quyền sở hữu trí tuệ như quyền tác giả, quyền nhãn hiệu thương mại vv hoặc những quyền lợi hợp pháp của người khác;Bạn nên thường xuyên theo dõi và thuân thủ theo các quy định quy tắc hợp pháp do trang web thường xuyên công bố hoặc sửa đổi. Trang web có quyền xóa bỏ các loại nội dung thông tin không phù hợp với chính sách pháp luật hoặc không chân thực mà không cần thông báo với bạn. Nếu bạn không tuân thủ theo các quy định trên, trang web có quyền đưa ra phán đoán độc lập đồng thời áp dụng các biện pháp tạm ngưng hoặc đóng tài khoản của bạn. Bạn phải chịu trách nhiệm pháp lý đối với mọi lời nói và hành vi của mình trên mạng.
+					</li>
+				</ol>
+				<h4>
+					X)	TRAO QUYỀN CHO PHÉP SỬ DỤNG CỦA NGƯỜI DÙNG
+				</h4>
+				<p>
+					Bạn hoàn toàn hiểu và đồng ý rằng không được hủy ngang những quyền lợi đã trao cho cooka và những công ty có liên quan như sau:
+				</p>
+				<ol>
+					<li>
+						Đối với những thông tin dữ liệu do bạn cung cấp, bạn đã trao quyền được phép sử dụng một cách độc quyền, thông dụng toàn cầu, vĩnh viễn, miễn phí cho cooka và những công ty có liên quan khác (đồng thời có quyền ủy quyền lại quyền này ở nhiều cấp độ) làm cho cooka và những công ty có liên quan khác có quyền (toàn bộ hoặc một phần) sử dụng, coppy, sửa đổi, chỉnh sửa, công bố, phiên dịch, phân phát, thực hiện và trình bày “dữ liệu của bạn” hoặc chế tác ra những tác phẩm bắt nguồn từ những dữ liệu đó, và/hoặc đưa “dữ liệu của bạn” vào trong những tác phẩm khác dưới bất kỳ hình thức, truyền thông hoặc kỹ thuật đã biết hôm nay hoặc phát triển trong tương lai.
+					</li>
+					<li>
+						Khi bạn vi phạm thỏa thuận này hoặc những cam kết khác ký với cooka, cooka có quyền thông báo cho những công ty liên quan bằng mọi hình thức, đồng thời công khai tình hình vi phạm của bạn trên bất kỳ trang web mà họ đang kinh doanh hoặc kiểm soát thực tế.
+					</li>
+					<li>
+						Tương tự như vậy, khi bạn đưa ra bất kỳ cam kết dưới mọi hình thức với các công ty có liên quan của cooka, mà những công ty đó đã xác nhận bạn vi phạm cam kết, thì cooka có quyền áp dụng biện pháp hạn chế ngay lập tức đối với tài khoản của bạn theo hình thức bạn đã cam kết, bao gồm nhưng không hạn chế bởi đình chỉ hoặc chấm dứt cung cấp dịch vụ cho bạn, đồng thời công khai tình hình vi phạm của bạn mà công ty liên quan đã xác nhận. Bạn hiểu và đồng ý, cooka không cần phải xác nhận điều tra thực tế với bạn, hoặc nhận được sự đồng ý của bạn, đồng thời cooka không cần phải chịu bất kỳ trách nhiệm nào với bạn về các biện pháp hạn chế này và việc công khai những hành vi này.
+					</li>
+				</ol>
+				<h4>
+					XI)	RIÊNG TƯ
+				</h4>
+				<p>
+					Mặc dù có điều thứ 10 đã quy định về quyền được phép sử dụng, nhưng bảo vệ quyền riêng tư cho bạn là một nguyên tắc cơ bản của cooka, bởi vậy cooka còn sẽ sử dụng “dữ liệu của bạn” theo nội dung tuyên bố riêng tư của cooka. Toàn bộ điều khoản trong nội dung tuyên bố riêng tư của cooka là một phần thuộc về bản thỏa thuận này, do đó, bạn phải đọc kỹ. Xin lưu ý rằng, nếu như bạn tự nguyện tiết lộ “dữ liệu của bạn” tại địa điểm giao dịch cooka, thì những dữ liệu đó có thể sẽ bị người khác lấy hoặc sử dụng.
+				</p>
+				<h4>
+					XII)	PHẠM VI TRÁCH NHIỆM VÀ HẠN CHẾ TRÁCH NHIỆM
+				</h4>
+				<p>
+					1.	Bạn hiểu rõ và đồng ý rằng, cooka không chịu trách nhiệm bồi thường bất kỳ thiệt hại phát sinh trong các trường hợp sau, bao gồm nhưng không giới hạn bởi việc bồi thường thiệt hại cho những tổn thất hoặc tổn thất vô hình khác về các phương diện lợi nhuận, uy tín đối với khách hàng, sử dụng, dữ liệu vv (bất luận là cooka đã được hay không được thông báo về khả năng bồi thường cho những thiệt hại đó):
+				</p>
+				<p>
+					1.1	Sử dụng hoặc không thể sử dụng “dịch vụ”
+				</p>
+				<p>
+					1.2	Thông qua hoặc từ “dịch vụ” mua được bất kỳ hàng hóa, hàng mẫu, dữ liệu, dữ liệu hoặc dịch vụ; Thông qua hoặc từ “dịch vụ” nhận được bất kỳ thông tin, hoặc chi phí thay thế cho hàng hóa và dịch vụ kiếm được phát sinh từ bất kỳ giao dịch đã ký kết;
+				</p>
+				<p>
+					1.3	Kết nối hoặc chỉnh sửa dữ liệu hoặc dữ liệu đăng tải của bạn khi chưa được chấp thuận
+				</p>
+				;
+				<p>
+					1.4	Lời tuyên bố đối với “dịch vụ” hoặc hành vi về “dịch vụ” của bất kỳ bên thứ ba;
+				</p>
+				<p>
+					1.5	Vì bất kỳ lý do nào phát sinh các vấn đề khác liên quan đến “dịch vụ”, bao gồm cả sơ xuất.
+				</p>
+				<p>
+					2.	Cooka sẽ cố gắng hết sức để làm cho bạn vui vẻ trong quá trình sử dụng trang web cooka. Điều đáng tiếc là, cooka không thể thường xuyên thấy trước được những vấn đề về kỹ thuật hoặc những khó khăn khác. Những vấn đề đó có khả năng gây tổn thất về dữ liệu hoặc gián đoạn các dịch vụ khác. Do vậy, bạn hiểu rõ và đồng ý rằng, những rủi ro khi bạn sử dụng dịch vụ đều do bạn tự gánh chịu, đồng thời “dịch vụ” được cung cấp theo “hiện trạng” và trạng thái “có thể đạt được”. Cooka tuyên bố rõ không đưa ra bất kỳ các loại cam đoan nào dù là rõ ràng hay ngụ ý. Bao gồm nhưng không giới hạn bởi cam đoan trên các phương diện về khả năng tiêu thụ, áp dụng cho một mục đích đặc biệt và hành vi không vi phạm bản quyền vv. Cooka chỉ đưa ra các cam đoan theo những nội dung sau:
+				</p>
+				<p>
+					2.1	“Dịch vụ” sẽ phù hợp theo yêu cầu của bạn
+				</p>
+				<p>
+					2.2	“Dịch vụ” sẽ không bị gián đoạn, luôn kịp thời, an toàn và không có bất kỳ sai sót nào;
+				</p>
+				<p>
+					2.3	Kết quả có khả năng đạt được thông qua sử dụng “dịch vụ” sẽ là kết quả chính xác hoặc đáng tin cậy;
+				</p>
+				<p>
+					2.4	Chất lượng của bất kỳ những sản phẩm, dịch vụ, dữ liệu, hoặc những vật liệu khác khi mua được hoặc có được thông qua “dịch vụ” đều sẽ đáp ứng mong đợi của bạn. Bất kỳ dữ liệu tải xuống hoặc có được bằng các hình thức khác thông qua “dịch vụ” đều do bạn tự toàn quyền quyết định tiến hành, do vậy bạn tự chịu những rủi ro có liên quan, Đối với bất kỳ những thiệt hại hoặc tổn thất dữ liệu gây ra cho hệ thống máy tính của bạn do bạn tải về bất kỳ các dữ liệu, bạn sẽ phải tự chịu trách nhiệm. Bất kỳ những ý kiến hoặc dữ liệu bằng miệng hoặc văn bản mà bạn nhận được từ cooka hoặc thông qua hoặc từ “dịch vụ”, đều không phát sinh bất kỳ trách nhiệm bảo đảm nào không được quy định rõ trong bản thỏa thuận này.
+				</p>
+				<h4>XIII) BẤT KHẢ KHÁNG</h4>
+				<p>
+					Đối với những nguyên nhân bên ngoài phạm vi kiểm soát hợp lý của cooka, bao gồm nhưng không giới hạn bởi thiên tai, bãi công hoặc bạo loạn, nguyên nhân thiếu hụt vật chất hoặc phân phối định lượng, bạo động, chiến tranh, hành động của chính phủ, sự cố về truyền thông hoặc các thiết bị khác hoặc tai nạn thương vong nghiêm trọng vv, làm cho cooka thực hiện giao kèo muộn hoặc không thể thực hiện, cooka sẽ không chịu bất kỳ trách nhiệm nào đối với bạn.
+				</p>
+				<h4>XIV) THẨM QUYỀN VÀ ÁP DỤNG LUẬT</h4>
+				<ol>
+					<li>
+						Hiệu lực, lời giải thích, thay đổi, thực hiện và giải quyết tranh chấp của bản cam kết này đều được áp dụng theo luật trong khu vực đại lục nước Cộng hòa Nhân dân Trung Hoa, nếu không có những quy định pháp luật tương quan, thì phải tham chiếu theo thông lệ thương mại quốc tế thông dụng và (hoặc) thông lệ ngành.
+					</li>
+					<li>
+						Nếu có mâu thuẫn giữa bản thỏa thuận này và các luật pháp áp dụng, thì những điều khoản này sẽ được giải thích lại hoàn toàn theo quy định của luật pháp, còn những điều khoản khác tiếp tục có hiệu lực. Nếu như các bên ký kết có sảy ra bất kỳ tranh chấp do nội dung của bản thỏa thuận này hoặc phát sinh do thực hiện thỏa thuận, thì hai bên cố gắng bàn bạc giải quyết trên tinh thần hợp tác hữu nghị, nếu đàm phán không thành, bất kỳ bên nào cũng có quyền khởi tố lên tòa án có thẩm quyền trong khu vực đại lục nước Cộng hòa Nhân dân Trung Hoa.
+					</li>
+					<li>
+						Mối quan hệ của bạn với cooka chỉ là bên ký hiệp ước độc lập. Bản thỏa thuận này không có ý nghĩa tạo nên hoặc xây dựng nên bất kỳ các mối quan hệ như đại lý, đối tác, liên doanh, tuyển dụng và được tuyển dụng hoặc ủy quyền và được ủy quyền.
+					</li>
+					<li>
+						Bạn đồng ý rằng cooka có quyền tiến hành chuyển nhượng một phần hoặc toàn bộ quyền lợi nghĩa vụ quy định trong bản thỏa thuận này để phục vụ nhu cầu kinh doanh, mà không cần phải thông báo cho bạn cũng như có được sự đồng ý của bạn. 
+					</li>
+				</ol>
+				<h4>XV)	CÁC ĐIỀU KHOẢN KHÁC</h4>
+				<ol>
+					<li>
+						Cooka tôn trọng quyền lợi chính đáng của bạn và người tiêu dùng, những nội dung khác như các quy định, thông báo được công bố tại bản thỏa thuận này và trên trang web, đều là để tốt hơn, để cung cấp dịch vụ cho bạn và người tiêu dùng được tiện lợi hơn. Trang web hoan nghênh bạn và cộng đồng đề xuất ý kiến, cooka sẽ khiêm tốn tiếp thu và kịp thời sửa đổi các quy định trong bản thỏa thuận cũng như trên trang web.
+					</li>
+					<li>
+						Trước khi bạn đăng ký trở thành hội viên của trang web cooka, việc đánh dấu vào “I agree the service agreement of cookabuy” được coi là bạn hoàn toàn chấp nhận bản thỏa thuận này, trước khi nhấp chuột, bạn vui lòng xác nhận một lần nữa là đã hoàn toàn hiểu rõ tất cả nội dung trong bản thỏa thuận này.
+					</li>
+				</ol>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">#springMessage("ok")</button>
+			</div>
+		</div>
+	</div>
+</div>
+#end

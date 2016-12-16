@@ -1,0 +1,31 @@
+@import "public.less";
+
+.bulletins {
+	&-all-module,
+	&-mark-module,
+	&-dustbin-module {
+		padding: 12px;
+	}
+	&-batch-opt {
+		.btn {
+			position: relative;
+			padding-left: 46px;
+			background: #fff;
+			min-width: 140px;
+			border: 1px solid @ck-main;
+			color: @ck-main;
+
+			text-align: left;
+
+			&:hover {
+				background: @ck-main;
+				color: #fff;
+			}
+		}
+		span {
+			position: absolute;
+			font-size: 19px;
+			left: 12px;
+		}
+	}
+}

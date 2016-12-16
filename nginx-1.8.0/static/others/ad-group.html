@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="./images/favicon.ico">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+		<title>添加广告组</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+		<!--[if lt IE 9]>
+			<script src="./js/libs/html5shiv.min.js"></script>
+			<script src="./js/libs/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 trim-col">
+					<div class="admin-header">
+						<img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 trim-left">
+					<div class="admin-sidebar" id="admin-side-menu">
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+								店铺管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="store-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我要开店</a></li>
+									<li><a href="#">店铺装修</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+								产品管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="product-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我的产品</a></li>
+									<li><a href="#">产品上架</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="admin-main">
+						<div class="admin-breadcrumb">
+							<ol class="breadcrumb">
+								<li><a href="#">广告管理</a></li>
+								<li class="active">添加广告组</li>
+							</ol>
+						</div>
+
+						<form class="form-horizontal ad-group-form">
+							<div class="form-group">
+	                            <label class="col-md-2 control-label">广告组名称 : </label>
+	                            <div class="col-md-3">
+	                            	<input type="text" class="form-control f-name"/>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">描述 : </label>
+	                            <div class="col-md-7">	                            	
+									<textarea class="form-control" rows="3"></textarea>
+	                            </div>
+	                        </div> 
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">分类选择 : </label>
+	                            <div class="col-md-10">	     
+									<div class="page-section active">
+										<div class="panel">
+											<div class="well">
+												<div class="node-pick clearfix" id="category-node-pick">
+													<ul class="node-wrap"></ul>
+													<ul class="node-wrap"></ul>
+													<ul class="node-wrap"></ul>
+													<input type="hidden" class="leaf-val">
+												</div>
+											</div>
+										</div>
+									</div>
+	                            </div>
+	                        </div> 
+
+	                        <table class="table table-bordered">
+	                        	<thead>
+	                        		<tr>
+	                        			<th class="text-center" width="15%">排序</th>
+	                        			<th class="text-center" width="30%">名字</th>
+	                        			<th class="text-center" width="20%">开始时间</th>
+	                        			<th class="text-center" width="20%">结束时间</th>
+	                        			<th class="text-center" width="15%">操作</th>
+	                        		</tr>
+	                        	</thead>
+	                        	<tbody>
+	                        		<tr>
+	                        			<td>
+	                        			<div class="form-group">	                        				
+	                        				<select class="form-control f-position">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+											</select>
+	                        			</div>
+	                        			</td>
+	                        			<td>name here name here name here </td>
+	                        			<td>2012-01-01</td>
+	                        			<td>2012-01-01</td>
+	                        			<td>
+	                        				<div class="btn-group">
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+													123
+													<span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu">
+													<li>
+														<a href="#">123</a>
+													</li>
+												</ul>
+											</div>
+	                        			</td>
+	                        		</tr>
+	                        	</tbody>
+	                        </table>
+
+
+							<div class="text-center">
+								<button id="next-step" type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="./js/libs/jquery-1.11.2.min.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+		<script src="./js/libs/FV/formValidation.min.js"></script>	
+		<script src="./js/libs/FV/bootstrap.min.js"></script>
+		<script src="./js/libs/FV/i18n.min.js"></script>
+		<script src="./js/p_ad_node_pick.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				var cdata = [
+					[],
+					[{
+						"category": "男装",
+						"categoryId": 1,
+						"isLeaf": false,
+						"level": 1,
+						"parentId": 0
+					}, {
+						"category": "女装",
+						"categoryId": 2,
+						"isLeaf": false,
+						"level": 1,
+						"parentId": 0
+					}],
+					
+					[{
+						"category": "上衣",
+						"categoryId": 3,
+						"isLeaf": false,
+						"level": 2,
+						"parentId": 2
+					}, {
+						"category": "内衣",
+						"categoryId": 4,
+						"isLeaf": false,
+						"level": 2,
+						"parentId": 2
+					}, {
+						"category": "上衣",
+						"categoryId": 7,
+						"isLeaf": false,
+						"level": 2,
+						"parentId": 1
+					}],
+
+					[{
+						"category": "T恤",
+						"categoryId": 5,
+						"isLeaf": true,
+						"level": 3,
+						"parentId": 3
+					}, {
+						"category": "大衣",
+						"categoryId": 6,
+						"isLeaf": true,
+						"level": 3,
+						"parentId": 3
+					}, {
+						"category": "T恤",
+						"categoryId": 8,
+						"isLeaf": true,
+						"level": 3,
+						"parentId": 7
+					}, {
+						"category": "抹胸",
+						"categoryId": 9,
+						"isLeaf": true,
+						"level": 3,
+						"parentId": 4
+					}]
+				];
+
+				$('#category-node-pick').nodePick(cdata);
+				$('#category-node-pick').on('leaf.selected', function () {
+					var html = '';
+					$(this).find('li.active').each(function (index, elem) {
+						html += '<li>' + $(elem).text() + '</li>';
+					});
+					$('#selected-category').html(html);
+				});
+				$('#category-node-pick').on('node.selected', function () {
+					$('#selected-category').empty();
+				});
+
+				$('form').formValidation({
+					framework: 'bootstrap',
+					addOns: {
+						i18n: {}
+					},
+					fields: {
+						'f-name': {
+							selector: '.f-name',
+							validators: {
+								notEmpty: {
+									message: {
+										en_US: 'The name is required',
+										zh_CN: '请填写名称'
+									}
+								},
+								stringLength: {
+									max: 30,
+									message: {
+										en_US: 'The name must be less than 30 characters',
+										zh_CN: '名称过长'
+									}
+								}
+							}							
+						},
+						'leaf-val': {
+							selector: '.leaf-val',
+							validators: {
+								notEmpty: {
+									message: {
+										en_US: 'The type is required',
+										zh_CN: '请选择分类'
+									}
+								}
+							}							
+						},
+						'f-position': {
+							selector: '.f-position',
+							validators: {
+								notEmpty: {
+									message: {
+										en_US: 'required',
+										zh_CN: '请选择排位'
+									}
+								}
+							}							
+						}
+					}
+				}).on('err.validator.fv', function(e, data) {
+					data.element.data('fv.messages').find(
+						'.help-block[data-fv-for="' + data.field + '"]').hide().filter(
+						'[data-fv-validator="' + data.validator + '"]').show();
+				});
+					// $elem.formValidation('setLocale', lang);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,144 @@
+{
+    "f5": {
+        "src": "/CKF/home/f5/raw/hero.jpg",
+        "search": {
+            "101030010": "Áo lót",
+            "101030140": "Quần lót nữ",
+            "102030000": "Đồ lót nam"
+        },
+        "item": [
+            [
+                [
+                    {
+                        "title": "Áo lót nữ thời trang",
+                        "score": 5,
+                        "price": "76.000 VND",
+                        "id": "3484",
+                        "src": "/CKF/home/f5/raw/3484.jpg"
+                    },
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "14.000 VND",
+                        "id": "3441",
+                        "src": "/CKF/home/f5/raw/3441.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "40.000 VND",
+                        "id": "2672",
+                        "src": "/CKF/home/f5/raw/2672.jpg"
+                    },
+                    {
+                        "title": "Áo ngực thời trang",
+                        "score": 5,
+                        "price": "35.000 VND",
+                        "id": "2659",
+                        "src": "/CKF/home/f5/raw/2659.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo ngực in họa tiết thời trang",
+                        "score": 5,
+                        "price": "19.000 VND",
+                        "id": "2629",
+                        "src": "/CKF/home/f5/raw/2629.jpg"
+                    },
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "14.000 VND",
+                        "id": "2682",
+                        "src": "/CKF/home/f5/raw/2682.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "10.000 VND",
+                        "id": "3398",
+                        "src": "/CKF/home/f5/raw/3398.jpg"
+                    },
+                    {
+                        "title": "Áo ngực",
+                        "score": 5,
+                        "price": "80.000 VND",
+                        "id": "2668",
+                        "src": "/CKF/home/f5/raw/2668.jpg"
+                    }
+                ]
+            ],
+            [
+                [
+                    {
+                        "title": "Áo ngực nữ thời trang",
+                        "score": 5,
+                        "price": "30.000 VND",
+                        "id": "3465",
+                        "src": "/CKF/home/f5/raw/3465.jpg"
+                    },
+                    {
+                        "title": "Quần lót nữ thời trang",
+                        "score": 5,
+                        "price": "24.000 VND",
+                        "id": "2647",
+                        "src": "/CKF/home/f5/raw/2647.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "32.000 VND",
+                        "id": "2676",
+                        "src": "/CKF/home/f5/raw/2676.jpg"
+                    },
+                    {
+                        "title": "Áo lót nữ thời trang",
+                        "score": 5,
+                        "price": "60.000 VND",
+                        "id": "3490",
+                        "src": "/CKF/home/f5/raw/3490.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Áo ngực nữ",
+                        "score": 5,
+                        "price": "29.000 VND",
+                        "id": "3390",
+                        "src": "/CKF/home/f5/raw/3390.jpg"
+                    },
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "40.000 VND",
+                        "id": "2656",
+                        "src": "/CKF/home/f5/raw/2656.jpg"
+                    }
+                ],
+                [
+                    {
+                        "title": "Quần lót nữ",
+                        "score": 5,
+                        "price": "28.000 VND",
+                        "id": "2669",
+                        "src": "/CKF/home/f5/raw/2669.jpg"
+                    },
+                    {
+                        "title": "Áo ngực, áo lót nữ thời trang",
+                        "score": 5,
+                        "price": "39.000 VND",
+                        "id": "3048",
+                        "src": "/CKF/home/f5/raw/3048.jpg"
+                    }
+                ]
+            ]
+        ]
+    }
+}

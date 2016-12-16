@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.RegionMapper" >
+  <resultMap id="Region" type="com.duobao.fundation.data.mybatis.model.Region" >
+    <id column="region_id" property="regionId" jdbcType="INTEGER" />
+    <result column="city_id" property="cityId" jdbcType="INTEGER" />
+    <result column="region" property="region" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="SMALLINT" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    region_id, city_id, region, position, is_active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Region" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_regions
+    where region_id = #{regionId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByRegion" resultMap="Region" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_regions
+    where region = #{region,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByRegionAndCityId" resultMap="Region" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_regions
+    where region = #{region,jdbcType=VARCHAR} and city_id=#{cityId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCityId" resultMap="Region" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_regions
+    where city_id = #{cityId,jdbcType=INTEGER} order by position desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_regions
+    where region_id = #{regionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Region" >
+    insert into db_regions (region_id, city_id, region, 
+      position, is_active)
+    values (#{regionId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{region,jdbcType=VARCHAR}, 
+      #{position,jdbcType=SMALLINT}, #{isActive,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Region" >
+    insert into db_regions
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="regionId != null" >
+        region_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="region != null" >
+        region,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="regionId != null" >
+        #{regionId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="region != null" >
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Region" >
+    update db_regions
+    <set >
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="region != null" >
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=SMALLINT},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+    </set>
+    where region_id = #{regionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Region" >
+    update db_regions
+    set city_id = #{cityId,jdbcType=INTEGER},
+      region = #{region,jdbcType=VARCHAR},
+      position = #{position,jdbcType=SMALLINT},
+      is_active = #{isActive,jdbcType=BIT}
+    where region_id = #{regionId,jdbcType=INTEGER}
+  </update>
+</mapper>

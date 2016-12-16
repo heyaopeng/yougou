@@ -1,0 +1,19 @@
+@import "public.less";
+
+.breadcrumb-product {
+	height: 40px;
+	margin-bottom: 0;
+	background-color: #ffffff;
+	border-bottom: 2px solid @ck-main;
+	& > li + li:before {
+		content: ">\00a0";
+	}
+	> li:nth-child(2):before {
+		content: "";
+	}
+	span {
+		font-size: 20px;
+		position: relative;
+		top: 3px;
+	}
+}

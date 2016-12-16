@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>chương trình dành cho áo khoác</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./build/channel2.css">
+</head>
+<body>
+<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+<div class="header">
+    <div class="top-bar" data-j="topBar">
+        <div class="top-bar-inner">
+            <span class="top-bar-welcome">Chào mừng đến Cookabuy</span>
+
+            <ul class="top-bar-links">
+                <li class="top-bar-user-name hide">
+                    <a href="/cooka-user-web/center/home">{{NAME}}</a>
+                </li>
+                <li class="top-bar-sign-out hide">
+                    <a href="/cooka-user-web/logout">thoát</a>
+                </li>
+                <li class="top-bar-sign-in">
+                    <a href="#" data-action="signin">
+                        <span class="icon-user"></span>
+                        đăng nhập
+                    </a>
+                </li>
+                <li class="top-bar-sign-up">
+                    <a href="#" data-action="signup">
+                        <span class="icon-register"></span>
+                        đăng ký
+                    </a>
+                </li>
+                <li>
+                    <a href="/cooka-user-web/center/favourite">
+                        <span class="icon-star"></span>
+                        thư mục yêu thích
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="header-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo">
+                    <a href="/">
+                        <img src="/CKF/images/logo.png" height="42" width="200" alt="Cookabuy Logo"></div>
+                        </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-input" data-j="searchInput">
+                        <form name="searchform" action="/cooka-search/searchProductFqs" method="GET" class="form-horizontal">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <select>
+                                        <option data-type="q" value="q">sản phẩm</option>
+                                        <option data-type="pn" value="pn">chi tiết sản phẩm</option>
+                                    </select>
+                                </span>                               
+                                <input type="text" value="" class="form-control" name="q">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">
+                                        <span class="icon-search"></span>
+                                        Tìm kiếm
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-btns">
+                        <a href="/cooka-cart-web/cart" class="header-btns-item">
+                            <span class="header-btns-icon header-btns-icon-cart"></span>
+                            <span class="header-btns-text">giỏ hàng</span>
+                        </a>
+                        <a href="#" class="header-btns-item">
+                            <span class="header-btns-icon header-btns-icon-search"></span>
+                            <span class="header-btns-text">tìm kiếm</span>
+                        </a>
+                        <a href="http://help.cookabuy.com/helpcenter" class="header-btns-item">
+                            <span class="header-btns-icon header-btns-icon-help"></span>
+                            <span class="header-btns-text">trung tâm hỗ trợ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="category-all" >
+                        <a href="#">
+                            <span class="icon-menu"></span>
+                            Tất cả danh mục                     
+                        </a>
+                        <div class="category-wrapper" data-j="category">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <ul class="header-nav-items">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade sign-modal" id="sign-modal" tabindex="-1" data-j="signModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="icon-close"></span>
+                </button>
+
+                <div class="modal-body">
+                    <div class="sign-modal-content">
+                        <img src="./images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+                        <h4 class="sign-modal-title">Chào mừng đến Cookabuy</h4>
+                        <div class="sign-modal-signin">
+
+                            <div class="sign-switch-tab">
+                                <span class="sign-switch-tab-item active" data-switch="s-email">
+                                    <span class="icon-envelope-o"></span>
+                                    Sign in by email
+                                </span>
+                                <span class="sign-switch-tab-item" data-switch="s-phone">
+                                    <span class="icon-circle-mobile-o"></span>
+                                    Sign in by phone number
+                                </span>
+                            </div>
+
+                            <form class="form-horizontal" id="sign-in-form" mehtod="post">
+                                <input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+                                <div class="alert alert-danger sign-modal-resend sign-modal-hide">
+                                    <span>You need to activate you account.</span>
+                                    <br>
+                                    <a href="/cooka-user-web/active?email=" class="btn btn-primary sign-modal-resend-link">Re-send Activate Email</a>
+                                </div>
+
+                                <div class="form-group sign-switch-target active" id="s-email">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-envelope-o"></span>
+                                        </span>
+                                        <input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+                                </div>
+                                <div class="sign-switch-target" id="s-phone">
+                                    <div class="form-group">
+                                        <input type="text" name="account" class="form-control f-mobile" disabled></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-lock-o"></span>
+                                        </span>
+                                        <input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+                                </div>
+                                <div class="form-group sign-modal-captcha sign-modal-hide">
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="icon-vertify-code-o"></span>
+                                            </span>
+                                            <input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+                                    <div class="col-md-1">
+                                        <a href="#" class="sign-modal-refresh">
+                                            <span class="icon-refresh"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <a href="/cooka-user-web/resetOptions" class="pull-left">quên mật khẩu?</a>
+                                    <a href="#" class="pull-right" data-goto="signup">đăng ký</a>
+                                </div>
+                                <div class="form-group">
+
+                                    <button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-in-btn">
+                                        <span class="ladda-label">đăng nhập</span>
+                                    </button>
+                                </div>
+                                <div class="social-sign" data-j="socialSign">
+                                    <div class="social-sign-line">
+                                        <span>or</span>
+                                    </div>
+                                    <a href="/cooka-user-web/facebookLogin" class="social-sign-btn ssb-facebook">
+                                        <span class="icon-facebook"></span>
+                                        Sign in with Facebook
+                                    </a>
+                                    <a href="/cooka-user-web/googleLogin" class="social-sign-btn ssb-google">
+                                        <span class="icon-google-plus"></span>
+                                        Sign in with Google+
+                                    </a>
+                                </div>
+                            </form>
+                            <p class="text-center">
+                                chưa có  tài khoản cua Cookabuy?trở thành thành viên trong 30 giây .
+                            </p>
+                        </div>
+                        <div class="sign-modal-signup">
+
+                            <div class="sign-switch-tab">
+                                <span class="sign-switch-tab-item active" data-switch="s-email2">
+                                    <span class="icon-envelope-o"></span>
+                                    Sign up by email
+                                </span>
+                                <span class="sign-switch-tab-item" data-switch="s-phone2">
+                                    <span class="icon-circle-mobile-o"></span>
+                                    Sign up by phone number
+                                </span>
+                            </div>
+
+                            <form class="form-horizontal" id="sign-up-form">
+                                <input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+                                <div class="form-group sign-switch-target active" id="s-email2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-envelope-o"></span>
+                                        </span>
+                                        <input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+                                </div>
+                                <div class="sign-switch-target" id="s-phone2">
+                                    <div class="form-group">
+                                        <input type="text" name="account" class="form-control f-mobile" disabled></div>
+                                    <div class="form-group">
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="icon-vertify-code-o"></span>
+                                                </span>
+                                                <input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-lock-o"></span>
+                                        </span>
+                                        <input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-check-lock-o"></span>
+                                        </span>
+                                        <input type="password" class="form-control f-confirm-password" placeholder="Confirm Password"></div>
+                                </div>
+                                <div class="form-group sign-modal-captcha">
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="icon-vertify-code-o"></span>
+                                            </span>
+                                            <input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+                                    <div class="col-md-1">
+                                        <a href="#" class="sign-modal-refresh">
+                                            <span class="icon-refresh"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+                                            <input type="checkbox" value="" id="f-agree" class="f-agree">
+                                            <span class="icons">
+                                                <span class="icon-unchecked">
+                                                    <span class="icon-square-o"></span>
+                                                </span>
+                                                <span class="icon-checked">
+                                                    <span class="icon-square"></span>
+                                                </span>
+                                            </span>
+                                            tôi đồng ý điều khoản của Cookabuy
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-up-btn">
+                                        <span class="ladda-label">đăng ký</span>
+                                    </button>
+                                </div>
+                            </form>
+                            <p class="text-center">
+                                đã có tài khoản?
+                                <a href="#" data-goto="signin">đăng nhập</a>
+                            </p>
+                        </div>
+                        <div class="sign-modal-verify sign-modal-hide">
+                            <img src="./images/verify_email.png" height="130" width="250" alt="" class="center-block">
+                            <p class="text-center">
+                                chúng tôi đã gửi email xác nhấn qua hộp thư bạn
+                                <a href="#" class="sign-modal-email-link">someone@nowhere.com</a>
+                            </p>
+                            <a href="#" class="btn btn-primary btn-block">kích hoạt tài khoản</a>
+                        </div>
+                        <div class="sign-modal-verify-m sign-modal-hide">
+                            <img src="./images/verify_email.png" height="130" width="250" alt="" class="center-block">
+                            <h4 class="text-success text-center">Sign up Success, please sign in</h4>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-primary mobile-to-sign-in">Sign In Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main main-inner">
+    <div class="channel2">
+       <!--  <a href="#" class="channel-top">
+            <img src="./images/top_channel2.png" width="100%">
+        </a> -->
+        <div id="carousel-channel-generic" class="carousel slide channel-top" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-channel-generic" data-slide-to="0" class="active"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+            <a href="/cooka-productDetail-web/productDetail?productId=834">
+                <img src="./images/ch2/1.jpg" alt="..." width="100%">
+            </a>
+              
+              <div class="carousel-caption">
+             
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-channel-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-channel-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <div class="channel2-yellow">
+        </div>
+        <div class="container">
+            <div class="channel2-f2">
+                <div class="channel2-f2-inner">
+                    <div class="channel2-f2-left">
+                        <a href="/cooka-productDetail-web/productDetail?productId=935">
+                            <img src="./images/ch2/2.jpg" alt="" width="225" height="338"/>
+                        </a>
+
+                        <div class="text-center channel2-f2-left-bottom">
+                            Xu hướng thịnh hành
+                        </div>
+                    </div>
+                    <div class="channel2-f2-right">
+                        <a href="/cooka-productDetail-web/productDetail?productId=2601">
+                            <img src="./images/ch2/3.jpg" alt="" width="765" height="675"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="channel2-f3">
+                <div class="channel2-f3-head">
+                    <div class="channel2-f3-head-name">
+                        <span class="channel2-f3-head-name-title">Ấm áp</span>
+                        <div class="channel2-f3-head-name-style">
+                            <span class="channel2-f3-head-name-line"></span>
+                            <span class="channel2-f3-head-name-dot"></span>
+                            <span class="channel2-f3-head-name-line"></span>
+                        </div>
+                    </div>
+                    <div class="channel2-f3-head-name">
+                        <span class="channel2-f3-head-name-title">Cá tính</span>
+                        <div class="channel2-f3-head-name-style">
+                            <span class="channel2-f3-head-name-line"></span>
+                            <span class="channel2-f3-head-name-dot"></span>
+                            <span class="channel2-f3-head-name-line"></span>
+                        </div>
+                    </div>
+                    <div class="channel2-f3-head-name">
+                        <span class="channel2-f3-head-name-title">Lông vũ ấm áp</span>
+                        <div class="channel2-f3-head-name-style">
+                            <span class="channel2-f3-head-name-line"></span>
+                            <span class="channel2-f3-head-name-dot"></span>
+                            <span class="channel2-f3-head-name-line"></span>
+                        </div>
+                    </div>
+                    <div class="channel2-f3-head-name">
+                        <span class="channel2-f3-head-name-title">Thoải mái dễ mix đồ</span>
+                        <div class="channel2-f3-head-name-style">
+                            <span class="channel2-f3-head-name-line"></span>
+                            <span class="channel2-f3-head-name-dot"></span>
+                            <span class="channel2-f3-head-name-line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel2-f3-body">
+                    <div class="channel2-f3-body-pro">
+                        <a href="/cooka-productDetail-web/productDetail?productId=922">
+                            <img src="./images/ch2/4.jpg" alt="" width="264" height="393"/>
+                        </a>
+                    </div>
+                    <div class="channel2-f3-body-pro channel2-f3-body-special">
+                        <a href="/cooka-productDetail-web/productDetail?productId=926">
+                            <img src="./images/ch2/5.jpg" alt="" width="264" height="393"/>
+                        </a>
+                        <div class="channel2-f3-body-special-tip">
+                            <span class="channel2-f3-body-special-tip-text">
+                                 Nơi tập<br/>trung hàng<br/>đẹp
+                            </span>
+                        </div>
+                    </div>
+                    <div class="channel2-f3-body-pro">
+                        <a href="/cooka-productDetail-web/productDetail?productId=898">
+                            <img src="./images/ch2/6.jpg" alt="" width="264" height="393"/>
+                        </a>
+                    </div>
+                    <div class="channel2-f3-body-pro">
+                        <a href="/cooka-productDetail-web/productDetail?productId=913">
+                            <img src="./images/ch2/7.jpg" alt="" width="264" height="393"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="channel2-f3-footer">
+                    <span class="channel2-f3-footer-line"></span>
+                    <span class="channel2-f3-footer-text">NEW ARRIVAL</span>
+                    <span class="channel2-f3-footer-line"></span>
+                </div>
+            </div>
+            <div class="channel2-f4">
+                <div class="channel2-f4-pro">
+                    <div class="channel2-f4-pro-fir">
+                        <div class="channel2-f4-pro-fir-tip">
+                            <span class="channel2-f4-pro-line channel2-f4-pro-line-one"></span>
+                            <span class="channel2-f4-pro-text">NEW <br/>&nbsp;&nbsp; COAT</span>
+                            <span class="channel2-f4-pro-line channel2-f4-pro-line-two"></span>
+                        </div>
+                        <a href="/cooka-productDetail-web/productDetail?productId=922">
+                            <img src="./images/ch2/8.jpg" alt="" width="440" height="658"/>
+                        </a>
+                    </div>
+                    <div class="channel2-f4-pro-sed">
+                        <div class="channel2-f4-pro-sed-tip">
+                            <span class="channel2-f4-pro-text">FASHION <br/>&nbsp;&nbsp; LEADER</span>
+                            <span class="channel2-f4-pro-line channel2-f4-pro-line-three"></span>
+                        </div>
+                        <a href="/cooka-productDetail-web/productDetail?productId=968"><img src="./images/ch2/9.jpg" alt="" width="440" height="658"/></a>
+                    </div>
+                    <div class="channel2-f4-pro-thr">
+                        <a class="channel2-f4-pro-thr-img" href="/cooka-productDetail-web/productDetail?productId=913">
+                            <img src="./images/ch2/10.jpg" alt="" width="738" height="490"/>
+                        </a>
+                        <div class="channel2-f4-pro-thr-text">
+                            <span class="channel2-f4-pro-thr-text-content">
+                                Nhẹ nhàng ấm áp, vượt qua sự hạn chế của thời tiết, phối hợp tự do
+                            </span>
+                        </div>
+                    </div>
+                    <div class="channel2-f4-pro-four text-right">
+                        <div class="channel2-f4-pro-four-left">
+                            <span class="channel2-f4-pro-four-left-title text-right">
+                                Hàng mới  ra mắt
+                            </span>
+                            <span class="channel2-f4-pro-four-left-tip text-right">
+                                Hàng mới mùa thu đông,chọn riêng cho bạn
+                            </span>
+                            <div class="channel2-f4-pro-four-left-img">
+                                <img src="./images/ch2/12.jpg" alt="" width="506" height="490"/>
+                            </div>
+                          <!--   <a href="/cooka-productDetail-web/productDetail?productId=913" class="channel2-f4-pro-four-left-img">
+                                <img src="./images/ch2/12.jpg" alt="" width="506" height="490"/>
+                            </a> -->
+                        </div>
+                        <a href="/cooka-productDetail-web/productDetail?productId=926" class="channel2-f4-pro-four-right">
+                            <img src="./images/ch2/11.jpg" alt="" width="556" height="834"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="channel-coupons">
+            <div class="container">
+                <a href="/cooka-user-web/register" class="channel-coupons-img"><img src="./images/ch2/13.jpg" alt="" width="537" height="208"/></a>
+                <span class="channel-coupons-text">Tất cả sản phẩm trong chương trình bán buôn được chiết khấu 10%~20%, 
+                    đồng thời được hưởng ưu đãi cao nhất đạt 700K.</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="channel2-f5">
+                <a href="/cooka-productDetail-web/productDetail?productId=989" class="channel2-f5-img1"><img src="./images/ch2/14.jpg" alt="" width="440" height="661"/></a>
+                <a href="/cooka-productDetail-web/productDetail?productId=834" class="channel2-f5-img2"><img src="./images/ch2/15.jpg" alt="" width="532" height="661"/></a>
+                <!-- <img src="./images/ch2/15.jpg" alt="" width="96" height="661"/> -->
+            </div>
+            <div class="channel2-f4-pro-four">
+                <div class="channel2-f4-pro-four-left channel2-f4-pro-four-left-special">
+                    <span class="channel2-f4-pro-four-left-tip channel2-f4-pro-four-left-special-tip">
+                       Áo khoác hot nhất, thời trang sang trọng, cổ điển lịch lãm, chất liệu cáo cấp, kết hợp với những yếu tố sang tạo
+                    </span>
+                    <div class="channel2-f4-pro-four-left-img">
+                        <img src="./images/ch2/16.jpg" alt="" width="506" height="490"/>
+                    </div>
+                    <!-- <a href="/cooka-productDetail-web/productDetail?productId=834" class="channel2-f4-pro-four-left-img">
+                        <img src="./images/ch2/16.jpg" alt="" width="506" height="490"/>
+                    </a> -->
+                </div>
+                <a href="/cooka-productDetail-web/productDetail?productId=960" class="channel2-f4-pro-four-right">
+                    <img src="./images/ch2/17.jpg" alt="" width="556" height="834"/>
+                </a>
+            </div>
+            <a href="/cooka-productDetail-web/productDetail?productId=934">
+                <img src="./images/ch2/18.jpg" alt="" width="100%" height="574"/>
+            </a>
+            <div class="channel-list channel-f">
+                <div class="channel-f-title">
+                    <h4 class="channel-f-title-text">DANH MỤC SẢN PHẨM</h4>
+                </div>
+                <div class="channel-f-separate"></div>
+                <div class="channel-list-pro">
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=985" title="Áo khoác dạ nỉ nữ form rộng thu đông, kiểu dáng dài, phong cách Hàn Quốc 108#">
+                            <img src="./images/ch2/waitao/108@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=985" title="Áo khoác dạ nỉ nữ form rộng thu đông, kiểu dáng dài, phong cách Hàn Quốc 108#" class="channel-list-pro-item-title">
+                            Áo khoác dạ nỉ nữ form rộng thu đông, kiểu dáng dài, phong cách Hàn Quốc 108#
+                        </a>
+                        <span class="channel-list-pro-item-price">278.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=968" title="Áo khoác dạ nỉ Houndstooth nữ kiểu dài thu đông, phong cách Hàn Quốc 283#">
+                            <img src="./images/ch2/waitao/283@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=968" title="Áo khoác dạ nỉ Houndstooth nữ kiểu dài thu đông, phong cách Hàn Quốc 283#" class="channel-list-pro-item-title">
+                            Áo khoác dạ nỉ Houndstooth nữ kiểu dài thu đông, phong cách Hàn Quốc 283#
+                        </a>
+                        <span class="channel-list-pro-item-price">278.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=972" title="Áo nỉ cổ tròn chui đầu nữ form rộng mùa thu, in họa tiết chữ cái, phong cách Hàn Quốc 392#">
+                            <img src="./images/ch2/waitao/392@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=972" title="Áo nỉ cổ tròn chui đầu nữ form rộng mùa thu, in họa tiết chữ cái, phong cách Hàn Quốc 392#" class="channel-list-pro-item-title">
+                            Áo nỉ cổ tròn chui đầu nữ form rộng mùa thu, in họa tiết chữ cái, phong cách Hàn Quốc 392#
+                        </a>
+                        <span class="channel-list-pro-item-price">60.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=866" title="Áo nỉ phối màu">
+                            <img src="./images/ch2/waitao/529@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=866" title="Áo nỉ phối màu" class="channel-list-pro-item-title">Áo nỉ phối màu</a>
+                        <span class="channel-list-pro-item-price">80.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=996" title="Áo nỉ tay dài nữ dáng ôm đính miếng lấp lánh, mẫu mã mới mùa thu  635#">
+                            <img src="./images/ch2/waitao/635@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=996" title="Áo nỉ tay dài nữ dáng ôm đính miếng lấp lánh, mẫu mã mới mùa thu  635#" class="channel-list-pro-item-title">
+                            Áo nỉ tay dài nữ dáng ôm đính miếng lấp lánh, mẫu mã mới mùa thu  635#
+                        </a>
+                        <span class="channel-list-pro-item-price">218.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=991" title="Áo bóng chày tay dài nữ kiểu ngắn, phong cách Hàn Quốc, dễ mix đồ 819">
+                            <img src="./images/ch2/waitao/819@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=991" title="Áo bóng chày tay dài nữ kiểu ngắn, phong cách Hàn Quốc, dễ mix đồ 819" class="channel-list-pro-item-title">
+                            Áo bóng chày tay dài nữ kiểu ngắn, phong cách Hàn Quốc, dễ mix đồ 819
+                        </a>
+                        <span class="channel-list-pro-item-price">115.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=2602" title="Áo nỉ nữ dài tay trơn màu">
+                            <img src="./images/ch2/waitao/345@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=2602" title="Áo nỉ nữ dài tay trơn màu" class="channel-list-pro-item-title">Áo nỉ nữ dài tay trơn màu</a>
+                        <span class="channel-list-pro-item-price">76.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=3323" title="Áo nỉ dài tay kẻ sọc phối cà vạt">
+                            <img src="./images/ch2/waitao/3323.jpg" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=3323" title="Áo nỉ dài tay kẻ sọc phối cà vạt" class="channel-list-pro-item-title">Áo nỉ dài tay kẻ sọc phối cà vạt</a>
+                        <span class="channel-list-pro-item-price">60.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=964" title="Áo gió nữ form rộng in họa tiết hình học trừu tượng, thiết kế cổ áo vest XY2872">
+                            <img src="./images/ch2/waitao/2872@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=964" title="Áo gió nữ form rộng in họa tiết hình học trừu tượng, thiết kế cổ áo vest XY2872" class="channel-list-pro-item-title">
+                            Áo gió nữ form rộng in họa tiết hình học trừu tượng, thiết kế cổ áo vest XY2872
+                        </a>
+                        <span class="channel-list-pro-item-price">179.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=873" title="Áo khoác dáng dài , chất liệu dày">
+                            <img src="./images/ch2/waitao/3201@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=873" title="Áo khoác dáng dài , chất liệu dày" class="channel-list-pro-item-title">Áo khoác dáng dài , chất liệu dày</a>
+                        <span class="channel-list-pro-item-price">337.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=913" title="Áo nỉ cổ tròn tay dài nữ phối tua rua và hoa xoắn, phong cách Hàn Quốc, mẫu mã mới thu 2015  3648#">
+                            <img src="./images/ch2/waitao/3648@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=913" title="Áo nỉ cổ tròn tay dài nữ phối tua rua và hoa xoắn, phong cách Hàn Quốc, mẫu mã mới thu 2015   3648#" class="channel-list-pro-item-title">
+                            Áo nỉ cổ tròn tay dài nữ phối tua rua và hoa xoắn, phong cách Hàn Quốc, mẫu mã mới thu 2015   3648#
+                        </a>
+                        <span class="channel-list-pro-item-price">103.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=951" title="Áo khoác da PU nam thu, phong cách Hàn Quốc 5013#">
+                            <img src="./images/ch2/waitao/5013@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=951" title="Áo khoác da PU nam thu, phong cách Hàn Quốc 5013#" class="channel-list-pro-item-title">Áo khoác da PU nam thu, phong cách Hàn Quốc 5013#</a>
+                        <span class="channel-list-pro-item-price">365.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=989" title="Áo khoác dày nữ thu đông, thiết kế khuy móc đôi, phong cách Hàn Quốc  5966#">
+                            <img src="./images/ch2/waitao/5966@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=989" title="Áo khoác dày nữ thu đông, thiết kế khuy móc đôi, phong cách Hàn Quốc  5966#" class="channel-list-pro-item-title">
+                            Áo khoác dày nữ thu đông, thiết kế khuy móc đôi, phong cách Hàn Quốc  5966#
+                        </a>
+                        <span class="channel-list-pro-item-price">317.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=980" title="Áo khoác  dạ nỉ cổ tròn nữ kiểu ngắn in họa tiết da beo, mẫu mã mới mùa thu">
+                            <img src="./images/ch2/waitao/8039@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=980" title="Áo khoác  dạ nỉ cổ tròn nữ kiểu ngắn in họa tiết da beo, mẫu mã mới mùa thu" class="channel-list-pro-item-title">
+                            Áo khoác  dạ nỉ cổ tròn nữ kiểu ngắn in họa tiết da beo, mẫu mã mới mùa thu
+                        </a>
+                        <span class="channel-list-pro-item-price">278.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=999" title="Áo da nữ kiểu ngắn dáng ôm mùa thu, phong cách Hàn Quốc 8174#">
+                            <img src="./images/ch2/waitao/_F0A2945.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=999" title="Áo da nữ kiểu ngắn dáng ôm mùa thu, phong cách Hàn Quốc 8174#" class="channel-list-pro-item-title">
+                            Áo da nữ kiểu ngắn dáng ôm mùa thu, phong cách Hàn Quốc 8174#
+                        </a>
+                        <span class="channel-list-pro-item-price">258.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=890" title="Áo khoác lông vũ cổ đứng nam dáng ôm, phong cách Hàn Quốc, mẫu mã  mới 2015 8803#">
+                            <img src="./images/ch2/waitao/8803@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=890" title="Áo khoác lông vũ cổ đứng nam dáng ôm, phong cách Hàn Quốc, mẫu mã  mới 2015 8803#" class="channel-list-pro-item-title">
+                            Áo khoác lông vũ cổ đứng nam dáng ôm, phong cách Hàn Quốc, mẫu mã  mới 2015 8803#
+                        </a>
+                        <span class="channel-list-pro-item-price">357.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=970" title="Áo nỉ bóng chày nữ form rộng mùa thu, thiết kế cổ tròn chui đầu, in họa tiết chim cú 8910">
+                            <img src="./images/ch2/waitao/8910@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=970" title="Áo nỉ bóng chày nữ form rộng mùa thu, thiết kế cổ tròn chui đầu, in họa tiết chim cú 8910" class="channel-list-pro-item-title">
+                            Áo nỉ bóng chày nữ form rộng mùa thu, thiết kế cổ tròn chui đầu, in họa tiết chim cú 8910
+                        </a>
+                        <span class="channel-list-pro-item-price">60.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=263" title="Áo khoác dạ nam mùa đông, thiết kế họa tiết kiểu dân tộc 9006#">
+                            <img src="./images/ch2/waitao/9006@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=263" title="Áo khoác dạ nam mùa đông, thiết kế họa tiết kiểu dân tộc 9006#" class="channel-list-pro-item-title">
+                            Áo khoác dạ nam mùa đông, thiết kế họa tiết kiểu dân tộc 9006#
+                        </a>
+                        <span class="channel-list-pro-item-price">298.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=975" title="Áo khoác len Cardigan nữ thu đông, kiểu dáng ngắn, in họa tiết gốm sứ dân tộc, thiết kế khóa kéo, phong cách cổ điển 9056">
+                            <img src="./images/ch2/waitao/9056@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=975" title="Áo khoác len Cardigan nữ thu đông, kiểu dáng ngắn, in họa tiết gốm sứ dân tộc, thiết kế khóa kéo, phong cách cổ điển 9056" class="channel-list-pro-item-title">
+                            Áo khoác len Cardigan nữ thu đông, kiểu dáng ngắn, in họa tiết gốm sứ dân tộc, thiết kế khóa kéo, phong cách cổ điển 9056
+                        </a>
+                        <span class="channel-list-pro-item-price">88.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=960" title="Áo phao gile lót cotton liền mũ nam thu đông, thiết kế dáng ôm, phong cách Hàn Quốc 9662">
+                            <img src="./images/ch2/waitao/9662@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=960" title="Áo phao gile lót cotton liền mũ nam thu đông, thiết kế dáng ôm, phong cách Hàn Quốc 9662" class="channel-list-pro-item-title">
+                            Áo phao gile lót cotton liền mũ nam thu đông, thiết kế dáng ôm, phong cách Hàn Quốc 9662
+                        </a>
+                        <span class="channel-list-pro-item-price">270.000 VND</span>
+                    </div>
+                    <div class="channel-list-pro-item">
+                        <a href="/cooka-productDetail-web/productDetail?productId=948" title="Áo gió liền mũ nam , thiết kế khóa kéo, phong cách trẻ trung 9901#">
+                            <img src="./images/ch2/waitao/9901@.JPG" alt="" width="288" height="432"></a>
+                        <a href="/cooka-productDetail-web/productDetail?productId=948" title="Áo gió liền mũ nam , thiết kế khóa kéo, phong cách trẻ trung 9901#" class="channel-list-pro-item-title">
+                            Áo gió liền mũ nam , thiết kế khóa kéo, phong cách trẻ trung 9901#
+                        </a>
+                        <span class="channel-list-pro-item-price">258.000 VND</span>
+                    </div>
+                </div>
+                <div class="text-center channel-list-link">
+                    <a href="/cooka-search/searchProductFqs?ct=101010200">Click để xem nhiều hơn nữa</a>
+                </div>
+            </div>
+            <div class="channel-special channel-f">
+                <div class="channel-f-title">
+                    <h4 class="channel-f-title-text">CHƯƠNG TRÌNH KHÁC</h4>
+                </div>
+                <div class="channel-special-pro">
+                    <div class="channel-special-pro-top">
+                        <a href="./channel2.html"> <img src="./images/ch4/14.jpg" alt="" width="100%" height="424"/></a>
+                    </div>
+                    <div class="channel-special-pro-bottom">
+                        <div class="channel-special-pro-bottom-img channel-special-pro-bottom-imgl">
+                        <a href="./channel1.html"><img src="./images/ch4/15.jpg" alt="" width="614" height="328"/></a>
+                        </div>
+                        <div class="channel-special-pro-bottom-img channel-special-pro-bottom-imgr">
+                        <a href="./channel3.html"><img src="./images/ch4/16.jpg" alt="" width="614" height="328"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel-attention channel-f">
+                <div class="channel-f-title">
+                    <h4 class="channel-f-title-text">TẤT CẢ MỌI NGƯỜI ĐỀU ĐANG QUAN TÂM</h4>
+                </div>
+                <div class="channel-attention-pro">
+                    <div class="channel-attention-pro-img">
+                    <img src="./images/ch4/17.jpg" alt="" width="233" heigth="233"/>
+                        <!-- <a href="#"><img src="http://placehold.it/233x233" alt="" width="233" heigth="233"/></a> -->
+                    </div>
+                    <div class="channel-attention-pro-img">
+                    <img src="./images/ch4/18.jpg" alt="" width="233" heigth="233"/>
+                        <!-- <a href="#"><img src="http://placehold.it/233x233" alt="" width="233" heigth="233"/></a> -->
+                    </div>
+                    <div class="channel-attention-pro-img">
+                    <img src="./images/ch4/19.jpg" alt="" width="233" heigth="233"/>
+                        <!-- <a href="#"><img src="http://placehold.it/233x233" alt="" width="233" heigth="233"/></a> -->
+                    </div>
+                    <div class="channel-attention-pro-img">
+                    <img src="./images/ch4/20.jpg" alt="" width="233" heigth="233"/>
+                        <!-- <a href="#"><img src="http://placehold.it/233x233" alt="" width="233" heigth="233"/></a> -->
+                    </div>
+                    <div class="channel-attention-pro-img">
+                    <img src="./images/ch4/21.jpg" alt="" width="233" heigth="233"/>
+                        <!-- <a href="#"><img src="http://placehold.it/233x233" alt="" width="233" heigth="233"/></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+	<div class="footer-inner">
+		<div class="footer-intro">
+			<h6 class="footer-intro-title">Cookabuy Market</h6>
+			<p>
+				Mạng Cooka thuộc top 100 doanh nghiệp kinh doanh internet đứng đầu Trung Quốc, đã có hơn 8000 nhà bán buôn quần áo, xưởng may mặc tham gia vào mạng Cooka, hơn 2 triệu nhà bán lẻ nhập hàng quần áo thông qua mạng Cooka. Cooka là một trong những nhà lãnh đạo mới của Trung Quốc thuộc lĩnh vực bán buôn quần áo. Mạng Cooka chính thức gia nhập thị trường Đông Nam Á vào năm 2015, là nền tảng internet (B2B) thu mua sỉ quần áo lớn nhất ở Đông Nam Á. Chuỗi cung ứng hàng hóa hoàn thiện của mạng Cooka có thể đảm bảo cho bạn mua được nguồn hàng chất lượng tốt nhất với giá cả phải chăng nhất, để thu được lợi nhuận lớn nhất. Chủng loại các mặt hàng bán chạy đầy đủ và đa dạng, có hơn 300 nghìn mẫu trang phục nam, nữ, trẻ em, đồ lót, giày dép túi xách vv với các hạng: cao cấp, trung cấp và bình dân. Mạng Cooka trang bị một hệ thống bảo vệ toàn diện, bạn có thể thanh toán trực tuyến tại mạng Cooka hoặc thanh toán tại cửa hàng, bảo đảm cho bạn được nhập hàng một cách an toàn. Dịch vụ logistics của mạng Cooka đã bao phủ thị trường trên 52 vùng, thành phố tại Đông Nam Á và Trung Quốc. Chu kỳ vận chuyển mất khoảng bảy đến mười ngày giúp cho bạn giảm đáng kể giá thành kinh doanh và rủi ro.
+			</p>
+		</div>
+
+		<div class="footer-row">
+			<div class="footer-col footer-col-large">
+				<div class="footer-sitemap">
+					<dl class="footer-sitemap-section">
+						<dt>trung tâm hỗ trợ</dt>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-6?stage=Stage">hướng dẫn mua hàng</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-14?stage=Stage">làm sao mua hàng online</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-10?stage=Stage">giỏ hàng</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-17?stage=Stage">kiểm tra đơn hàng</a>
+						</dd>
+					</dl>
+					<dl class="footer-sitemap-section">
+						<dt>thanh toán tiền hàng</dt>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-15/page-16?stage=Stage">chính sách thanh toán</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-15/page-5?stage=Stage">thanh toán offline</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-15/page-6?stage=Stage">thanh toán online</a>
+						</dd>
+					</dl>
+					<dl class="footer-sitemap-section">
+						<dt>vận chuyển hàng hóa</dt>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-11/page-2?stage=Stage">chính sách phí vận chuyển</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-11/page-3?stage=Stage">đảm bảo vận chuyển</a>
+						</dd>
+						<dd>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-11/page-0?stage=Stage">Về vận chuyển</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="footer-col">
+				<span>Hotline cửa hàng Việt Nam:</span>
+				<br> <strong>+84 988251998</strong>
+				<hr>
+				<span>Hotline nhà vận chuyển:</span>
+				<br> <strong>0913199024</strong>
+				<br> <strong>0912203013</strong>
+				<hr>
+				<span>Địa chỉ cửa hàng Việt Nam:</span>
+				<br> <strong>Ki ốt số 6- Dãy B- Bada- Chợ Ninh Hiệp- Hà Nội</strong>
+				<hr>
+				<span>Thời gian làm việc:</span>
+				<br> <strong>Thứ 2 - thứ 7</strong>
+				<br> <strong>9:00-12:00&nbsp;&nbsp;&nbsp;&nbsp;13:00-18:00</strong>
+			</div>
+		</div>
+
+		<ul class="footer-links">
+			<li>
+				<a href="http://www.cookabuy.com/helpcenter/index.php/gii-thiu-cong-ty?stage=Stage">Giới thiệu công ty</a>
+			</li>
+			<li>
+				<a href="http://www.cookabuy.com/helpcenter/index.php/page-2?stage=Stage">địa chỉ công ty</a>
+			</li>
+			<li>
+				<a href="http://www.cookabuy.com/helpcenter/index.php/page-1?stage=Stage">Sơ đồ trang web</a>
+			</li>
+			<li>
+				<a href="http://www.cookabuy.com/helpcenter/index.php/page-4/page-2?stage=Stage">hiệp định</a>
+			</li>
+			<li>
+				<a href="http://www.cookabuy.com/helpcenter/index.php/page-4/page-3?stage=Stage">tuyên bố miễn trách</a>
+			</li>
+			<li>
+				<a href="http://www.cookabuy.com/helpcenter/index.php/page-4/phm-vi-bo-v-quyn-li-ngi-tieu-dung?stage=Stage">bảo vệ người tiêu dùng</a>
+			</li>
+		</ul>
+		<p class="footer-copyright">&copy; 2015 Cooka All Rights Reserved</p>
+	</div>
+</div>
+
+<script src="./build/vi_VN.channel2.js"></script>
+</body>
+</html>

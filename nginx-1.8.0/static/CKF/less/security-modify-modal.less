@@ -1,0 +1,105 @@
+@import "public.less";
+
+.security-modify-modal {
+	&-title {
+		text-align: center;
+		color: @ck-main;
+		margin: 0;
+		padding: 12px;
+		border-bottom: 1px solid #ccc;
+		letter-spacing: 2px;
+		font-size: 18px;
+	}
+
+	&-form {
+		padding-left: 100px;
+		padding-right: 100px;
+		margin-bottom: 60px;
+
+		.form-group:last-child {
+			margin-top: 30px;
+		}
+		
+
+		a:hover {
+			text-decoration: none;
+		}
+
+		.btn {
+			width: 100%;
+		}
+
+		.input-group-addon {
+			background: @ck-main;
+			color: #fff;
+			font-weight: bold;
+			font-size: 18px;
+		}
+		.intl-tel-input {
+			display: table-cell;
+		}
+
+		.security-email-verification-form,
+		.security-mobile-verification-form {
+			p {
+				background: #f2f2f2;
+				text-align: center;
+				color: #f15a24;
+				margin-bottom: 0;
+				padding-top: 7px;
+				padding-bottom: 7px;
+			}
+		}
+		.security-reset-pwd-form {
+			p {
+				margin-bottom: 0;
+				color: #8dc21f;
+			}
+		}
+	}
+
+	&-success {
+		text-align: center;
+		color: #8dc21f;
+		margin-top: 60px;
+		margin-bottom: 30px;
+		
+		h5 {
+			font-size: 15px;
+			margin-bottom: 60px;
+		}
+
+		span {
+			position: relative;
+			top: 10px; 
+			font-size: 32px;
+			padding: 4px;
+			font-weight: 700;
+			border: 2px solid #8dc21f;
+			border-radius: 50%;
+		}
+
+		button {
+			width: 50%;
+		}
+	}
+
+	.password-meter {
+	    margin-top: 5px;
+	    margin-bottom: 5px;
+	}
+
+	.security-email-verification-form,	// 邮箱验证
+	.security-mobile-verification-form,	// 手机验证
+	.security-question-verification-form,	// 密保验证
+	.security-reset-email-form,
+	.security-reset-pwd-form,	// 重设密码
+	.security-reset-question-form,	// 重设密保
+	.security-reset-mobile-form,	// 重设手机
+	.security-reset-pay-form,
+	.security-modify-modal-success {	// 设置成功提示
+		display: none;
+	}
+
+
+}

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.OrderNumberMapper" >
+  <resultMap id="OrderNumber" type="com.duobao.fundation.data.mybatis.model.OrderNumber" >
+    <id column="number_id" property="numberId" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="term_id" property="termId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="rank" property="rank" jdbcType="INTEGER" />
+    <result column="is_lucky_number" property="isLuckyNumber" jdbcType="BIT" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="time_sufix" property="timeSufix" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    number_id, order_id, term_id, user_id, number,rank, is_lucky_number,time,time_sufix
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="OrderNumber" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where number_id = #{numberId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserIdAndTermId" resultMap="OrderNumber">
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where term_id = #{termId,jdbcType=INTEGER} and user_id=#{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByLuckyNumberByTermId" resultMap="OrderNumber" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where term_id = #{termId,jdbcType=INTEGER} and is_lucky_number=1
+  </select>
+  <select id="selectByNumberAndTermId" resultMap="OrderNumber">
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where term_id = #{termId,jdbcType=INTEGER} and number = #{number,jdbcType=INTEGER}
+  </select>
+  <select id="getTotalBuyCount" resultType="java.lang.Integer">
+    select 
+    count(*)
+    from db_order_numbers
+  </select>
+  <select id="selectPreAutoBuy" resultMap="OrderNumber" parameterType="java.lang.Integer">
+    select A.* from db_order_numbers as A left join db_orders as B on A.order_id=B.order_id where A.number_id &lt; #{numberId,jdbcType=INTEGER} and A.term_id= #{termId,jdbcType=INTEGER} and B.is_auto_buy=1 order by A.number_id desc limit 1
+  </select>
+  <select id="selectNextAutoBuy" resultMap="OrderNumber" parameterType="java.lang.Integer">
+    select A.* from db_order_numbers as A left join db_orders as B on A.order_id=B.order_id where A.number_id &gt; #{numberId,jdbcType=INTEGER} and A.term_id= #{termId,jdbcType=INTEGER} and B.is_auto_buy=1 order by A.number_id asc limit 1
+  </select>
+  <select id="selectLastFiftyForOpenning" resultMap="OrderNumber" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where term_id = #{termId,jdbcType=INTEGER} order by number_id desc limit 50
+  </select>
+  <select id="selectLatestNumberByTermId" resultMap="OrderNumber" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where term_id = #{termId,jdbcType=INTEGER}
+    order by number desc limit 1
+  </select>
+  <select id="selectByLuckyNumberByOrderId" resultMap="OrderNumber" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where order_id = #{orderId,jdbcType=INTEGER} and is_lucky_number=1
+  </select>
+  <select id="selectByOrderId" resultMap="OrderNumber" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_order_numbers
+    where order_id = #{orderId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_order_numbers
+    where number_id = #{numberId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.OrderNumber" >
+    insert into db_order_numbers (number_id, order_id, term_id, 
+      user_id, number, rank , is_lucky_number,time,time_sufix
+      )
+    values (#{numberId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{termId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, #{rank,jdbcType=INTEGER}, #{isLuckyNumber,jdbcType=BIT}, #{time,jdbcType=TIMESTAMP}, #{timeSufix,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into db_order_numbers (order_id, term_id, 
+      user_id, number, rank ,time,time_sufix
+      )
+    values 
+    <foreach collection="list" item="item" index="index" separator="," >  
+        (#{item.orderId,jdbcType=INTEGER}, #{item.termId,jdbcType=INTEGER}, 
+      #{item.userId,jdbcType=INTEGER}, #{item.number,jdbcType=INTEGER}, #{item.rank,jdbcType=INTEGER}, #{item.time,jdbcType=TIMESTAMP}, #{item.timeSufix,jdbcType=VARCHAR})  
+    </foreach>  
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.OrderNumber" >
+    insert into db_order_numbers
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="numberId != null" >
+        number_id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="termId != null" >
+        term_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="rank != null" >
+        rank,
+      </if>
+      <if test="isLuckyNumber != null" >
+        is_lucky_number,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="timeSufix != null" >
+        time_sufix,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="numberId != null" >
+        #{numberId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="termId != null" >
+        #{termId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="rank != null" >
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="isLuckyNumber != null" >
+        #{isLuckyNumber,jdbcType=BIT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeSufix != null" >
+        #{timeSufix,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.OrderNumber" >
+    update db_order_numbers
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="termId != null" >
+        term_id = #{termId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="rank != null" >
+        rank = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="isLuckyNumber != null" >
+        is_lucky_number = #{isLuckyNumber,jdbcType=BIT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeSufix != null" >
+        time_sufix = #{timeSufix,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where number_id = #{numberId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.OrderNumber" >
+    update db_order_numbers
+    set order_id = #{orderId,jdbcType=INTEGER},
+      term_id = #{termId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      rank = #{rank,jdbcType=INTEGER},
+      is_lucky_number = #{isLuckyNumber,jdbcType=BIT},
+      time = #{time,jdbcType=TIMESTAMP},
+      time_sufix = #{timeSufix,jdbcType=VARCHAR}
+    where number_id = #{numberId,jdbcType=INTEGER}
+  </update>
+</mapper>

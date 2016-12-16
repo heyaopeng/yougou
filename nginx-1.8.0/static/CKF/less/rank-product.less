@@ -1,0 +1,87 @@
+@import "public.less";
+
+.rank-product {
+    position: relative;
+    background-color: #fff;
+    .clearfix();
+    
+    &-info {
+      width: 52%;
+      &-middle {
+      padding-left:20%;
+      }
+      &-price {
+        color: #c1272d;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      &-title {                     
+        margin-bottom: 22px;
+        color: #fff;
+        .clearfix();       
+        &-num {
+        	width:23%;
+          padding: 2px 6% 2px 6%;         
+          font-size: 42px;
+           height:52px;
+        	line-height: 52px;
+          background-color: @ck-main-light;
+        }
+        &-name {     
+      	  display: inline-block;        
+          font-size: 16px;
+          height:52px;
+          line-height: 52px;
+          background-color:lighten(@ck-sub-light,20%);
+          padding-left:5%;
+          width: 77%;          
+          .one-line();
+          a {
+          color: #fff;
+          }     
+        }
+      }
+    }
+    &-score {      
+      padding-top: 10px;
+      margin-bottom: 20px;
+      &-sum {
+        display: inline-block;
+        padding-left: 4%;
+        font-size: 16px;
+      }
+    }
+
+  &-like {
+    display: none;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    &-icon {
+      font-size: 20px;
+    }
+    &-cart {
+      padding: 10px 30px;
+      background-color: #fbb03b;
+    }
+    &-fav {
+      padding: 10px 17px;
+      background-color: #f9d35a;
+    }
+    a:link,a:hover,a:visited,a:active {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+  &:hover {
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 0 0 2px @ck-main-light;
+    .rank-product-like {
+      display: block;
+    }
+  }
+}
+

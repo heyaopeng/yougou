@@ -1,0 +1,52 @@
+require('../css/bootstrap.css');
+require('../css/icons.css');
+require('./common_require.js');
+
+var header = require('./p_header.js');
+var footer = require('./p_footer.js');
+var topBar = require('./p_topBar.js');
+var logo = require('./p_logo.js');
+var ajaxLoading = require('./p_ajaxLoading.js');
+var category = require('./p_category.js');
+var searchInput = require('./p_searchInput.js');
+var signModal = require('./p_signModal.js');
+var socialSign = require('./p_socialSign.js');
+var buyerService = require('./p_buyerService.js');
+var homeBanner = require('./p_homeBanner.js');
+var homeChannel = require('./p_homeChannel.js');
+
+var homeFloor = require('./p_homeFloor.js');
+var homeCarousel = require('./p_homeCarousel.js');
+var homeSpecial = require('./p_homeSpecial.js');
+var homeScroll = require('./p_homeScroll.js');
+var homeWidget = require('./p_homeWidget.js');
+var product = require('./p_product.js');
+var productRate = require('./p_productRate.js');
+var fetchXToken = require('./p_fetchXToken.js');
+var signInCheck = require('./p_signInCheck.js');
+
+$(document).ready(function() {
+	header.init();
+	footer.init();
+	topBar.init();
+	logo.init();
+	ajaxLoading.init();
+	category.init();
+	searchInput.init();
+	signModal.init();
+	socialSign.init();
+
+	buyerService.init();
+	homeBanner.init();
+	homeChannel.init();
+
+	homeFloor.init();
+	homeCarousel.init();
+	homeSpecial.init();
+	homeScroll.init();
+	homeWidget.init();
+	product.init();
+	productRate.init();
+	fetchXToken.init();
+	signInCheck.init();
+});

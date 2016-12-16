@@ -1,0 +1,78 @@
+{
+    "f1": [
+        [
+            {
+                "title": "Quần short nữ mùa hè",
+                "score": 5,
+                "price": "60.000 VND",
+                "id": "4419",
+                "src": "/CKF/images/home/4419.jpg"
+            },
+            {
+                "title": "Áo thun sát nách in họa tiết chữ cái, lọ nước hoa, đôi môi",
+                "score": 5,
+                "price": "56.000 VND",
+                "id": "4455",
+                "src": "/CKF/images/home/4455.jpg"
+            },
+            {
+                "title": "Quần short nữ mùa hè",
+                "score": 5,
+                "price": "60.000 VND",
+                "id": "4417",
+                "src": "/CKF/images/home/4417.jpg"
+            },
+            {
+                "title": "Váy liền sát nách kẻ sọc mùa hè",
+                "score": 5,
+                "price": "60.000 VND",
+                "id": "4456",
+                "src": "/CKF/images/home/4456.jpg"
+            },
+            {
+                "title": "Áo thun tay lửng nữ kẻ sọc form rộng",
+                "score": 5,
+                "price": "68.000 VND",
+                "id": "4460",
+                "src": "/CKF/images/home/4460.jpg"
+            }
+        ],
+        [
+            {
+                "title": "Váy liền sát nách kẻ caro",
+                "score": 5,
+                "price": "64.000 VND",
+                "id": "4470",
+                "src": "/CKF/images/home/4470.jpg"
+            },
+            {
+                "title": "Áo thun cộc tay nữ in họa tiết Mickey mouse mùa hè",
+                "score": 5,
+                "price": "64.000 VND",
+                "id": "4487",
+                "src": "/CKF/images/home/4487.jpg"
+            },
+            {
+                "title": "Áo chiffon sát nách cổ lật kẻ sọc nữ mùa hè",
+                "score": 5,
+                "price": "40.000 VND",
+                "id": "4613",
+                "src": "/CKF/images/home/4613.jpg"
+            },
+            {
+                "title": "Áo thun cộc tay cổ tròn nữ in họa tiết ngôi sao mùa hè",
+                "score": 5,
+                "price": "64.000 VND",
+                "id": "4493",
+                "src": "/CKF/images/home/4493.jpg"
+            },
+            {
+                "title": "Áo chiffon hở vai cổ tròn nữ tính ngọt ngào",
+                "score": 5,
+                "price": "40.000 VND",
+                "id": "4617",
+                "src": "/CKF/images/home/4617.jpg"
+            }
+        ]
+    ]
+}

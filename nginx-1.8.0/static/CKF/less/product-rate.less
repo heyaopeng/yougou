@@ -1,0 +1,25 @@
+@import "public.less";
+.product-rate {
+    .clearfix();
+    display: inline-block;
+    vertical-align: middle;
+    &-star {
+        float: left;
+        color: @ck-main;
+
+        & + & {
+            padding-left: 3px;
+        }
+
+        &.active ~ & {
+            color: #ccc;
+        }
+
+        &.hovering ~ & {
+            color: #ccc;
+        }
+        &.hovering {
+            cursor: pointer;
+        }
+    }    
+}

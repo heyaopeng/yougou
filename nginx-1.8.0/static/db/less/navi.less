@@ -1,0 +1,40 @@
+@import "public.less";
+
+.navi {
+	.clearfix();
+	position: fixed;
+	background-color: white;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1000;
+	bottom: 0;
+	border-top: 1px solid #ddd;
+
+	&-item {
+		display: block;
+		padding-top: 6px;
+		float: left;
+		text-align: center;
+		width: 100/4%;
+		color: #333;
+		font-size: small;
+
+		&.active {
+			color: @ck_sub;
+		}
+
+		.fa {
+			display: block;
+			font-size: x-large;
+			margin-bottom: 2px;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #aaa;
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,91 @@
+@import "public.less";
+
+@success-tip-color: #93c94a;
+.security-modal {
+	&-title {
+		text-align: center;
+		color: @ck-main;
+		margin: 0;
+		padding: 12px;
+		border-bottom: 1px solid #ccc;
+		letter-spacing: 2px;
+		font-size: 18px;
+	}
+	&-refresh {
+        font-size: 20px;
+        color: #333;
+
+        &:hover,
+        &:active,
+        &:focus, {
+            text-decoration: none;
+            color: #333;
+        }
+    }
+
+	&-success {
+		text-align: center;
+		color: @success-tip-color;
+		margin-top: 60px;
+		margin-bottom: 30px;
+		
+		h5 {
+			font-size: 15px;
+			margin-bottom: 60px;
+		}
+
+		span {
+			position: relative;
+			top: 10px;
+			font-size: 32px;
+			padding: 4px;
+			font-weight: 700;
+			border: 2px solid @success-tip-color;
+			border-radius: 50%;
+		}
+
+		button {
+			width: 50%;
+		}
+	}
+
+	&-form {
+		padding-left: 100px;
+		padding-right: 100px;
+		margin-bottom: 60px;
+
+		.form-group:last-child {
+			margin-top: 30px;
+		}
+		
+
+		a:hover {
+			text-decoration: none;
+		}
+	}
+	
+	.input-group-addon {
+		background: @ck-main;
+		color: #fff;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.intl-tel-input {
+		display: table-cell;
+	}
+	.f-confirm-code {
+		z-index: 0;
+	}
+}
+// .security-pwd-verification-form,
+.security-question-confirm,	//安全问题
+.security-question-form,	// 安全问题表单
+.security-email-bind-form,	// 手机号码
+.security-mobile-bind-form,	// 手机号码
+.security-verification-form,	// 身份认证：邮箱
+.security-modal-success {
+	display: none;
+	button {
+		width: 100%;
+	}
+}

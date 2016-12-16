@@ -1,0 +1,32 @@
+@import "public.less";
+.use-coupons {
+  &-orderProcedure {
+    margin-top: 8px;
+  }
+  padding-left: 15px;
+  &-all {
+    display: block;
+  }
+  &-list {
+
+    &-item {
+      display: inline-block;
+      width: 47%;
+      &+& {
+        margin-left: 1%;
+      }
+      &.active {
+        .form-control {
+          color: @ck-main;
+          border-color:@ck-main;
+        }
+      }
+    }
+    .form-control {
+      display: inline-block;
+      width: 50%;
+      height: 30px;
+      padding: 4px 7px;
+    }
+  }
+}

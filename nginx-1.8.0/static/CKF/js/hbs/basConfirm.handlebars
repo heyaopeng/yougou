@@ -1,0 +1,79 @@
+{{#each this}}
+{{#ifEq @index 0}}
+{{#each this}}
+{{#ifEq @index 0}}
+<div class="bas-modal-order-header">
+	<span>订单号：{{orderSerialnum}}</span>
+	<span>下单时间：{{createTime}}</span>
+</div>
+<input type="hidden" name="orderSerialnum" value="{{this.orderSerialnum}}">
+{{/ifEq}}
+{{/each}}
+{{/ifEq}}
+{{/each}}
+
+<table class="table bas-thead">
+	<thead>
+		<tr>
+			<th width="15%">货号</th>
+			<th width="20%">商品名称</th>
+			<th width="25%">规格</th>
+			<th width="10%">卖出数量</th>
+			<th width="15%">库存</th>
+			<th width="15%">操作</th>
+		</tr>
+	</thead>
+</table>
+{{#each this}}
+	<table class="table bas-table">
+		<tbody>
+		{{#each this}}
+			{{#ifEq @index 0}}
+				<tr>
+					<td width="15%" rowspan="{{../this.length}}">{{this.productNumber}}</td>
+					<td width="20%" rowspan="{{../this.length}}">{{this.productName}}</td>
+					<td width="25%">
+						{{#each this.productSpec}}
+							<span class="bas-modal-order-spec">{{@key}} : {{this}}</span>
+						{{/each}}
+					</td>
+					<td width="10%">{{this.orderQuantity}}</td>
+					<td width="15%">{{this.stock}}</td>
+					<td width="15%">
+						<select class="form-control" name="isInStock['{{this.itemSerialNum}}']">
+							{{#if this.inStock}}
+							<option value="1" selected>有货</option>
+							<option value="0">无货</option>
+							{{else}}
+							<option value="1">有货</option>
+							<option value="0" selected>无货</option>
+							{{/if}}
+						</select>
+					</td>
+				</tr>
+			{{else}}
+				<tr>
+					<td width="25%">
+						{{#each this.productSpec}}
+						<span class="bas-modal-order-spec">{{@key}} : {{this}}</span>
+						{{/each}}
+					</td>
+					<td width="10%">{{this.orderQuantity}}</td>
+					<td width="15%">{{this.stock}}</td>
+					<td width="15%">
+						<select class="form-control" name="isInStock['{{this.itemSerialNum}}']">
+							{{#if this.inStock}}
+							<option value="1" selected>有货</option>
+							<option value="0">无货</option>
+							{{else}}
+							<option value="1">有货</option>
+							<option value="0" selected>无货</option>
+							{{/if}}
+						</select>
+					</td>
+				</tr>
+			{{/ifEq}}
+		{{/each}}
+		</tbody>
+	</table>
+{{/each}}

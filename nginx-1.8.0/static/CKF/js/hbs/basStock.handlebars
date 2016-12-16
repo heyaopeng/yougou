@@ -1,0 +1,33 @@
+<table class="table bas-table">
+	<tbody>
+	{{#each this}}
+		{{#ifEq @index 0}}
+			<tr>
+				<td width="15%" rowspan="{{../this.length}}">{{productNumber}}</td>
+				<td width="20%" rowspan="{{../this.length}}">{{productName}}</td>
+				<td width="10%" rowspan="{{../this.length}}">{{category}}</td>
+				<td width="10%" rowspan="{{../this.length}}">{{brand}}</td>
+				<td width="30%">
+					{{#each productSpec}}
+						<span class="bas-modal-order-spec">{{@key}} : {{this}}</span>
+					{{/each}}
+				</td>
+				<td width="15%">
+					<input type="text" class="form-control f-inventory" value="{{stock}}">
+				</td>
+			</tr>
+		{{else}}
+			<tr>
+				<td width="30%">
+					{{#each productSpec}}
+					<span class="bas-modal-order-spec">{{@key}} : {{this}}</span>
+					{{/each}}
+				</td>
+				<td width="15%">
+					<input type="text" class="form-control f-inventory" value="{{stock}}">
+				</td>
+			</tr>
+		{{/ifEq}}
+	{{/each}}
+	</tbody>
+</table>

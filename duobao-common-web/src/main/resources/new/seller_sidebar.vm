@@ -1,0 +1,40 @@
+<div class="col-md-2">
+	<div class="bas-sidebar">
+		<ul class="bas-menu" data-j="basMenu">
+			<li>
+				<a href="#" class="bas-menu-toggle">
+					<span class="bas-menu-icon"><span class="icon-user"></span></span>
+					#springMessage("order_management")
+					<span class="icon-chevron-right bas-menu-arrow"></span>
+				</a>
+				<ul class="bas-menu-x">
+					#if($shiro.hasPermission("store:confirmOrders"))
+					<li><a href="/duobao-store-web/unconfirmedOrders">#springMessage("unconfirmed_orders")</a></li>
+					#end
+					#if($shiro.hasPermission("store:deliverOrders"))
+					<li><a href="/duobao-store-web/waitingStoreDeliveringOrders">#springMessage("unshipped_orders")</a></li>
+					#end
+				</ul>
+			</li>
+			<li>
+				#if($shiro.hasPermission("store:bill:manageBillAccount"))
+				<a href="#" class="bas-menu-toggle">
+					<span class="bas-menu-icon"><span class="icon-user"></span></span>
+					#springMessage("financial_management")
+					<span class="icon-chevron-right bas-menu-arrow"></span>
+				</a>
+				#end
+				
+				<ul class="bas-menu-x">
+					#if($shiro.hasPermission("store:bill:viewBillList"))
+					<li><a href="/duobao-store-web/billList?type=awating">#springMessage("awaiting_settlement")</a></li>
+					<li><a href="/duobao-store-web/billList?type=finished">#springMessage("settlement_history")</a></li>
+					#end
+					#if($shiro.hasPermission("store:manageWithdraw"))
+					<li><a href="/duobao-store-web/withdraw">账单提现</a></li>
+					#end
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>

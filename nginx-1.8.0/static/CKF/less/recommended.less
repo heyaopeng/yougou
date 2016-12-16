@@ -1,0 +1,54 @@
+@import "public.less";
+.recommended{
+    padding: 15px 2px 67px 0;
+    background-color: #EAEAE7;
+    &-img{
+        margin: 0 auto;
+        width: 100%;
+    }
+    &-col{
+        width: 50%;
+        float: left;
+        text-align: center;
+    }
+    &-carousel{
+        padding: 0 auto;
+    }
+    &-item{
+        &-name{
+            padding-left: 3px;
+            width: 106px;
+            display: block;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        a&-a{
+            display: inline-block;
+            color: #798a9b;
+            padding-bottom: 15px;
+            width: 103px;
+            height:155px;
+        }
+    }
+    &-control{
+        margin-top: 28px;
+        margin-left: 60%;
+
+        &-icon{
+            background-color: @ck-main;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            &:hover{
+
+            }
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            padding: 6px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.userData-analysis {
+	&-module {
+		background-color: #fff;
+		border: 12px solid rgba(52,77,103,0.4);
+		border-radius: 5px;
+		margin-bottom: 30px;
+		h4 {
+			background-color: rgba(52,77,103,0.4);
+			margin: 0;
+			padding: 12px;
+			padding-top: 0;
+			color: #fff;
+		}
+	}
+
+	&-register,
+	&-login {
+		margin: 0 20px;
+		overflow: hidden;
+		svg {
+			.x-axis,
+			.y-axis {
+				path {
+				    fill: none;
+				    stroke: #000;
+				    shape-rendering: crispEdges;
+				}
+			}
+			g.tick {
+				line {
+					fill: none;
+				    stroke: #000;
+				    shape-rendering: crispEdges;
+				}
+				line.grid-line {
+				    stroke-opacity:.2;
+				}
+			}
+			.target-line {
+				fill: none;
+				stroke: teal;
+			}
+			.overlay {
+			  	fill: none;
+			  	pointer-events: all;
+			}
+			.focus {
+				border: 1px solid teal;
+			}
+		}
+	}
+}

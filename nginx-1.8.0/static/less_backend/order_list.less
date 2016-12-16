@@ -1,0 +1,39 @@
+@cooka: #f6891c;
+@cooka_sub: #fbbb10;
+.order-list {
+  &-sum {
+    margin-bottom: 2px;
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    font-size: 20px;
+    &-price {
+      color: @cooka;
+    }
+  }
+  &-warning {
+    color: #E54724;
+  }
+  table{
+    >thead>tr>th{
+      text-align: center;
+      vertical-align: middle;
+      background-color: #f5f5f5;
+    }
+  }
+  &-dispute {
+    display: inline-block;
+    text-align: left;
+    width: 68%;
+  }
+  &-img {
+    vertical-align: top;
+  }
+  &-unusual {
+    background-color: #f5f5f5;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    dd,dt {
+      line-height: 30px;
+    }
+  }
+}

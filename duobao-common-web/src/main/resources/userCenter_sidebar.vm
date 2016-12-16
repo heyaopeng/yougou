@@ -1,0 +1,64 @@
+<div class="my-cooka-sidebar">
+    <ul class="my-cooka-sidebar-list">
+        <li class="has-sub-side">
+            <a href="#" class="sub-side-title">#springMessage("my_favourite")</a>
+            <ul class="sub-side">
+                <li><a href="/cooka-user-web/center/favourite?type=product">#springMessage("favourite_products")</a></li>
+                
+            </ul>
+        </li>
+         <li class="has-sub-side">
+            <a href="#" class="sub-side-title">#springMessage("system_announcement")</a>
+            <ul class="sub-side">
+                <li><a href="/cooka-user-web/center/announcementList">#springMessage("all_announcement")</a></li>
+                <li><a href="/cooka-user-web/center/announcementList?type=mark">#springMessage("start_announcement")</a></li>
+                <li><a href="/cooka-user-web/center/announcementList?type=dustbin">#springMessage("trash")</a></li>
+            </ul>
+        </li>   
+        
+        <li class="has-sub-side">
+             <a href="/cooka-user-web/feedback" >#springMessage("feedback_center")</a>
+        </li>
+        
+         <li class="has-sub-side">
+            <a href="/cooka-cart-web/cart" >#springMessage("shopping_cart")</a>
+        </li>
+        <li class="has-sub-side">
+            <a href="#" class="sub-side-title">#springMessage("account_setting")</a>
+            <ul class="sub-side">
+                <li><a href="/cooka-user-web/center/profile">#springMessage("profile")</a></li>
+                <li><a href="/cooka-user-web/center/myAddress">#springMessage("address_manage")</a></li>
+            </ul>
+        </li>
+        <li class="has-sub-side">
+            <a href="#" class="sub-side-title">#springMessage("financial_center")</a>
+            <ul class="sub-side">
+                <li><a href="/cooka-finance-web/financialAccount">#springMessage("financial_account")</a></li>
+                <li><a href="/cooka-finance-web/transactionHistory">#springMessage("transaction_history")</a></li>
+            </ul>
+        </li>
+        <li class="has-sub-side">
+            <a href="#" class="sub-side-title">#springMessage("order")</a>
+            <ul class="sub-side">
+            	<li><a href="/cooka-order-web/buyerOrderList">#springMessage("all_orders")</a></li>
+                <li><a href="/cooka-order-web/buyerOrderList.vm?tradeCode=waitPay">#springMessage("awaiting_payment")</a></li>
+                <li><a href="/cooka-order-web/buyerOrderList.vm?tradeCode=waitShip">#springMessage("awaiting_shipment")</a></li>
+                <li><a href="/cooka-order-web/buyerOrderList.vm?tradeCode=waitRec">#springMessage("awaiting_reception")</a></li>
+                <li><a href="/cooka-order-web/buyerOrderList.vm?tradeCode=tradeClose">#springMessage("close")</a></li>
+                <li><a href="/cooka-order-web/buyerOrderList.vm?tradeCode=tradeSuccess">#springMessage("complete")</a></li>
+            </ul>
+        </li>
+        <li class="has-sub-side">
+            <a href="#" class="sub-side-title">#springMessage("trade_dispute")</a>
+            <ul class="sub-side">
+            	<li><a href="/cooka-order-web/disputeList">#springMessage("all_trade_dispute")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=1">#springMessage("return_handling")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=2">#springMessage("refund_handling")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=3">#springMessage("return_success")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=4">#springMessage("refund_success")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=5">#springMessage("return_close")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=6">#springMessage("refund_close")</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

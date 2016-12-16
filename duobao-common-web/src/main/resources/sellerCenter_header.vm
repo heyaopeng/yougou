@@ -1,0 +1,17 @@
+<div class="admin-header">
+	<img src="$staticConfig.getPath()/images/ck_logo.png" alt="admin manager logo" class="admin-logo" width="300" height="100">
+	#if($shiro.isAuthenticated()) 
+	<span id="admin-header-link">
+		#if($request.getSession().getAttribute("userName"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userName")</strong>
+			</span>
+		#elseif($request.getSession().getAttribute("userEmail"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userEmail")</strong>
+			</span>
+	    #end
+		<a href="/cooka-user-web/logout">Sign Out</a>
+	</span>
+	#end
+</div>

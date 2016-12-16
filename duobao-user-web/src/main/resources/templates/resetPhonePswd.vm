@@ -1,0 +1,165 @@
+#set($layout = "/layout/resetpaswd_layout.vm")
+
+#if($!type == "inputPhone")
+<div class="main">
+    <div class="container">
+        <div class="col-md-10">
+            <div class="reset-pw" data-j="resetPw">
+                <div class="reset-pw-inner">
+                    <div class="reset-pw-header">#springMessage("reset_password")</div>
+                    <div class="reset-pw-body">
+                        <ul class="reset-pw-steps reset-pw-steps-phone">
+                            <li class="done">
+                                <span class="reset-pw-step-text">#springMessage("enter_phone_number")</span>
+                                <span class="reset-pw-step-num">1</span>
+                            </li>
+                            <li>
+                                <span class="reset-pw-step-text">#springMessage("reset_password")</span>
+                                <span class="reset-pw-step-num">2</span>
+                            </li>
+                            <li>
+                                <span class="reset-pw-step-text">#springMessage("complete")</span>
+                                <span class="reset-pw-step-num">3</span>
+                            </li>
+                        </ul>
+
+                        <p class="text-center">#springMessage("enter_phone_number").</p>
+
+                        <div class="reset-pw-form-wrapper">
+                            <form action="toSetPhonePaswd" class="form-horizontal" method="post" id="reset-pw-form">
+                             <input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+                                <div class="alert alert-danger reset-pw-errors hide">
+                                #if("$!phoneCode" !="")
+                                     #springMessage("phoneCode_is_wrong")
+                                #end
+                                    <!-- put some error here -->
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="phone" class="form-control f-mobile" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="icon-vertify-code-o"></span>
+                                            </span>
+                                            <input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-secondary-light btn-block reset-pw-btn" type="submit">#springMessage("submit")</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+#elseif($!type=="inputNewPswd")
+<div class="main">
+    <div class="container">
+        <div class="col-md-10">
+            <div class="reset-pw" data-j="resetPw">
+                <div class="reset-pw-inner">
+                    <div class="reset-pw-header">#springMessage("reset_password")</div>
+                    <div class="reset-pw-body">
+                        <ul class="reset-pw-steps reset-pw-steps-phone">
+                            <li class="done">
+                                <span class="reset-pw-step-text">#springMessage("enter_phone_number")</span>
+                                <span class="reset-pw-step-num">1</span>
+                            </li>
+                            <li class="done">
+                                <span class="reset-pw-step-text">#springMessage("reset_password")</span>
+                                <span class="reset-pw-step-num">2</span>
+                            </li>
+                            <li>
+                                <span class="reset-pw-step-text">#springMessage("complete")</span>
+                                <span class="reset-pw-step-num">3</span>
+                            </li>
+                        </ul>
+
+                        <p class="text-center">#springMessage("please_enter_new_password_and_click_continue")</p>
+
+                        <div class="reset-pw-form-wrapper">
+                            <form action="doresetpaswd" class="form-horizontal" id="reset-pw-form" method="post">
+                               <input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+                            
+                                <div class="alert alert-danger reset-pw-errors hide">
+                                    #springBind("user.password")
+                                    #foreach($error in $status.errorMessages)
+                                        $error<br>
+                                    #end
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-lock-o"></span>
+                                        </span>
+                                        <input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="icon-check-lock-o"></span>
+                                        </span>
+                                        <input type="password" class="form-control f-confirm-password" placeholder="Confirm Password"></div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-secondary-light btn-block reset-pw-btn" type="submit">#springMessage("submit")</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+#elseif($!type=="resetSuccess")
+<div class="main">
+    <div class="container">
+        <div class="col-md-10">
+            <div class="reset-pw" data-j="resetPw">
+                <div class="reset-pw-inner">
+                    <div class="reset-pw-header">#springMessage("reset_password")</div>
+                    <div class="reset-pw-body">
+                        <ul class="reset-pw-steps reset-pw-steps-phone">
+                            <li class="done">
+                                <span class="reset-pw-step-text">#springMessage("enter_phone_number")</span>
+                                <span class="reset-pw-step-num">1</span>
+                            </li>
+                            <li class="done">
+                                <span class="reset-pw-step-text">#springMessage("reset_password")</span>
+                                <span class="reset-pw-step-num">2</span>
+                            </li>
+                            <li class="done">
+                                <span class="reset-pw-step-text">#springMessage("complete")</span>
+                                <span class="reset-pw-step-num">3</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="reset-pw-article">
+                            <div class="reset-pw-success">
+                                <span class="icon-check-circle-o"></span>
+                               #springMessage("finish_reset_password")!
+                            </div>
+                            <a href="/" class="btn btn-secondary-light reset-pw-btn">#springMessage("back_home")</a>
+                            <br>
+                            <br>
+                            <a href="/cooka-user-web/login">#springMessage("go_login") >></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+#end
+

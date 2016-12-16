@@ -1,0 +1,55 @@
+#set($layout = "/layout/helpCenter_layout.vm")
+<a href="#" class="help-choose-box credit-card-group">
+		<i class="fa fa-credit-card fa-5x credit-card1"></i>
+		<i class="fa fa-credit-card fa-5x credit-card2"></i>
+		<i class="fa fa-credit-card fa-5x credit-card3"></i>
+		<h5 class="help-choose-title">#springMessage("which_payment_methods_does_cooka_offer") ? </h5>
+	</a>
+
+	<a href="#" class="help-choose-box truck-group hide-spin">
+		<i class="fa fa-truck fa-5x truck1"></i>
+		<i class="fa fa-refresh fa-3x truck2 is-spin"></i>
+		<h5 class="help-choose-title">#springMessage("how_do_i_return_an_item") ? </h5>
+	</a>
+
+	<a href="#" class="help-choose-box cancel-order-group">
+		<i class="fa fa-file-text-o cancel-order1 fa-5x"></i>
+		<i class="fa fa-times cancel-order2 fa-3x"></i>
+		<h5 class="help-choose-title">#springMessage("how_do_i_cancel_an_order") ? </h5>
+	</a>
+
+	<a href="#" class="help-choose-box register-group">
+		<i class="fa fa fa-user-secret register1 fa-5x"></i>
+		<i class="fa fa-user register2 fa-5x"></i>
+		<i class="fa fa-check register3 fa-2x"></i>
+		<h5 class="help-choose-title">#springMessage("how_do_i_register_for_a_cooka_account") ? </h5>
+	</a>
+
+	<a href="#" class="help-choose-box register-group">
+		<i class="fa fa-comments register1 fa-5x"></i>
+		<i class="fa fa-comments-o register2 fa-5x"></i>
+		<h5 class="help-choose-title">#springMessage("how_do_i_contact_cooka_customer_service") ? </h5>
+	</a>
+
+	<a href="#" class="help-choose-box change-information-group hide-spin">
+		<i class="fa fa-user change-information1 fa-5x"></i>
+		<i class="fa fa-cogs change-information2 fa-2x is-spin"></i>
+		<h5 class="help-choose-title">#springMessage("how_do_i_change_the_information_in_my_account") ? </h5>
+	</a>
+	<a href="#" class="help-choose-box calendar-group">
+		<i class="fa fa-calendar calendar1 fa-5x"></i>
+		<i class="fa fa-plane calendar2 fa-3x"></i>
+		<h5 class="help-choose-title">#springMessage("when_will_i_receive_my_order") ? </h5>
+	</a>
+	<a href="#" class="help-choose-box logistics-group">
+		<i class="fa fa-ship logistics1 fa-5x"></i>
+		<i class="fa fa-question logistics2 fa-3x"></i>
+		<h5 class="help-choose-title">#springMessage("what_does_cooka_logistics_offer_me") ? </h5>
+	</a>
+	<a href="#" class="help-choose-box forgot-password-group">
+		<i class="fa fa-key forgot-password1 fa-2x"></i>
+		<i class="fa fa-lock forgot-password2 fa-5x"></i>
+		<i class="fa fa-unlock-alt forgot-password3 fa-rotate-90 fa-5x"></i>
+		<h5 class="help-choose-title">#springMessage("what_can_i_do_if_i_forgot_my_password") ? </h5>
+	</a>
+</div>

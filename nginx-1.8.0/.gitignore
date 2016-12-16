@@ -1,0 +1,86 @@
+/target
+/target/
+target/
+/bin
+/bin/
+bin/
+.conf
+.settings
+.project
+.classpath
+cooka.log
+.idea/
+.log
+node_modules
+config.codekit
+build
+cooka-common-web/src/main/resources/static/js/build/*.js
+cooka-common-web/src/main/resources/static/CKF/build/
+/cooka-common-web/src/main/resources/static/CKF/build/
+/cooka-common-web/src/main/resources/static/CKF/build
+search.log
+Application/cooka.log.1
+*.log
+.DS_Store
+.AppleDouble
+.LSOverride
+logs/*.pid
+logs/*.log
+conf/ip.conf
+
+homemgr/public/build
+#nginx-1.8.0/static/CKF/homemgr/public/uploads/*.jpg
+#nginx-1.8.0/static/CKF/homemgr/public/uploads/*.*
+#nginx-1.8.0/static/CKF/homemgr/data/*.json
+#nginx-1.8.0/static/index.html
+
+# app-util/src/main/java/com/cooka/velocity/StaticConfig.java
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# mac os
+/Users/hit/Documents/workspace-sts-3.6.4.RELEASE/app-parent/finance-service/src/main/java/com/cooka/finance/strategy/trustSwift/config/*
+
+# CKFM index.html
+/static/CKFM/index.html
+/static/ck_seller/index.html
+/conf/ip.conf

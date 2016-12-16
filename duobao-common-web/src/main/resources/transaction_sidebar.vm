@@ -1,0 +1,28 @@
+<div class="my-cooka-sidebar">
+	<ul class="my-cooka-sidebar-list">
+		<li class="has-sub-side">
+		<a href="#">#springMessage("transactions")</a>
+            <ul class="sub-side">
+               	<li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory">#springMessage("all_orders")</a></li>
+                <li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory?status=1">#springMessage("awaiting_payment")</a></li>
+                <li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory?status=2">#springMessage("awaiting_payment_by_logistic_company")</a></li>
+                <li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory?status=3">#springMessage("awaiting_shipment")</a></li>
+                <li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory?status=4">#springMessage("awaiting_reception")</a></li>
+                <li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory?status=7">#springMessage("close")</a></li>
+                <li><a href="https://cookabuy.com/cooka-finance-web/transactionHistory?status=5">#springMessage("complete")</a></li>
+            </ul>
+        </li>
+        <li class="has-sub-side">
+            <a href="#">#springMessage("trade_dispute")</a>
+            <ul class="sub-side">
+            	<li><a href="/cooka-order-web/disputeList">#springMessage("all_trade_dispute")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=1">#springMessage("return_handling")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=2">#springMessage("refund_handling")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=3">#springMessage("return_success")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=4">#springMessage("refund_success")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=5">#springMessage("return_close")</a></li>
+                <li><a href="/cooka-order-web/disputeList?status=6">#springMessage("refund_close")</a></li>
+            </ul>
+        </li>
+	</ul>
+</div>

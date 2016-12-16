@@ -1,0 +1,14 @@
+<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+<div class="header">
+	<div class="header-inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="logo">
+						<a href="/"><img src="$staticConfig.getPath()/CKF/images/logo.png" alt="Cookabuy Logo" width="200" height="42"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

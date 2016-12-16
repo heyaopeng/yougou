@@ -1,0 +1,99 @@
+<div class="row">
+	<div class="col-xs-2">
+		<div>
+			{{#each category}}
+			<div class="category">
+				<div class="category-heading">
+					<span class="icon-category-{{@index}}"></span>
+					{{#if id}}
+					<a href="/cooka-search/searchProductFqs?ct={{id}}" target="_blank">{{name}}</a>
+					{{else}}
+					<a href="#">{{name}}</a>
+					{{/if}}
+				</div>
+
+				<div class="category-body" style="height:{{height}}">
+					{{#each trend}}
+					<a href="/cooka-search/searchProductFqs?ct={{@key}}" class="category-item" target="_blank" title="{{this}}">
+						{{this}}
+					</a>
+					{{/each}}
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	<div class="col-xs-6">
+		<div class="home-hero">
+			<div id="home-hero-carousel" class="carousel slide home-carousel" data-ride="carousel" data-interval="7000">
+				<div class="carousel-inner" role="listbox">
+					{{#each carousel}}
+					<div class="item {{#ifEq @index 0}} active{{/ifEq}}">
+						<a href="{{link}}" target="_blank">
+							<img src="{{src}}" width="744" height="405">
+						</a>
+					</div>
+					{{/each}}
+				</div>
+
+				<a class="left carousel-control" href="#home-hero-carousel" role="button" data-slide="prev"></a>
+				<a class="right carousel-control" href="#home-hero-carousel" role="button" data-slide="next"></a>
+			</div>
+		</div>
+	</div>
+
+	{{!-- buyer service --}}
+	<div class="col-xs-2">
+		<div class="buyer-service">
+			<div class="buyer-service-heading">dịch vụ và đảm bảo</div>
+			<div class="buyer-service-body">
+				<ul class="buyer-service-items">
+					<li class="buyer-service-item">
+						<a href="http://www.cookabuy.com/helpcenter/index.php/page-12/page-5?stage=Stage" target="_blank">
+							Tìm kiếm sản phẩm như thế nào?
+						</a>
+					</li>
+					<li class="buyer-service-item">
+						<a href="http://www.cookabuy.com/helpcenter/index.php/page-12/page-0?stage=Stage" target="_blank">
+							Dịch vụ địa phương hóa
+						</a>
+					</li>
+					<li class="buyer-service-item">
+						<a href="http://www.cookabuy.com/helpcenter/index.php/page-12/page-2?stage=Stage" target="_blank">
+							Đảm bảo 100% nhập khẩu
+						</a>
+					</li>
+					<li class="buyer-service-item">
+						<a href="http://www.cookabuy.com/helpcenter/index.php/page-12/page-3?stage=Stage" target="_blank">
+							Đảm bảo chụp hình thật
+						</a>
+					</li>
+					<li class="buyer-service-item">
+						<a href="http://www.cookabuy.com/helpcenter/index.php/page-12/page-4?stage=Stage" target="_blank">
+							Đảm bảo vận chuyển 
+						</a>
+					</li>
+				</ul>
+
+				<a href="{{aside.link}}">
+					<img src="{{aside.src}}" class="buyer-service-img" width="100%">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	{{!-- home djb --}}
+	<div class="col-xs-8">
+		<div class="home-djb">
+			{{#each smallAd}}
+			<a href="/cooka-search/searchProductFqs?ct={{category}}" target="_blank">
+				<img src="{{src}}" width="248">
+			</a>
+			{{/each}}
+		</div>
+	</div>
+</div>
+<!-- home banner -->
+<div class="home-banner">
+	<img src="{{banner}}">
+</div>

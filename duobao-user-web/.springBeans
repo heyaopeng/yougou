@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.6.4.201503051146-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+<<<<<<< HEAD
+=======
+		<config>java:com.cooka.web.user.controller.DeliverAddrMgrController</config>
+		<config>java:com.cooka.web.user.controller.DeliverAddrMgrHandler</config>
+>>>>>>> story_00004
+	</configs>
+	<autoconfigs>
+		<config>java:com.cooka.web.user.controller.LoginAndRegisterController</config>
+		<config>java:com.cooka.web.user.controller.UserProfileHandler</config>
+		<config>java:com.cooka.web.user.controller.FavouriteHandler</config>
+		<config>java:com.cooka.web.user.controller.UserProfileController</config>
+		<config>java:com.cooka.web.user.controller.FavouriteController</config>
+		<config>java:com.cooka.web.user.Application</config>
+		<config>java:com.cooka.web.user.controller.UserSecurityCenterHandler</config>
+		<config>java:com.cooka.web.user.controller.LoginAndRegisterHandler</config>
+		<config>java:com.cooka.web.user.controller.ResetPasswordController</config>
+		<config>java:com.cooka.web.user.controller.UserSecurityCenterController</config>
+		<config>java:com.cooka.web.user.controller.ResetPasswordHandler</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

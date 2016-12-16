@@ -1,0 +1,64 @@
+/*评论主页和产品详情页公用*/
+
+.product-interval-table {
+    width: 100%;
+    tr {
+        th {
+            width: 1%;
+            text-align: right;
+            padding: 5px 10px;
+            background-color: #f8a34d;
+            color: #fff;
+        }
+        td {
+            background-color: #f6891c;
+            color: #fff;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        td:nth-child(2) {
+            background-color: #f8a34d;
+        }
+        td:nth-child(3) {
+            background-color: #f79635;
+        }
+    }
+    .price-row > td {
+        font-size: large;
+    }
+}
+
+.cumulative-eval-block {
+    margin-top: 20px;
+    .panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .cumulative-number {
+        font-weight: 700;
+        color: @cooka;
+    }
+    .left-eval {
+        height: 100px;
+        border-right: 1px dotted @cooka_sub;
+        text-align: center;
+        .score-style {
+            display: block;
+            font-weight: 700;
+            font-size: 38px;
+            color: @cooka;
+        }
+    }
+    .eval-progress {
+        margin-top: 35px;
+        margin-bottom: 14px;
+    }
+    .level-label {
+        li {
+            float: left;
+            width: 20%;
+        }
+    }
+}

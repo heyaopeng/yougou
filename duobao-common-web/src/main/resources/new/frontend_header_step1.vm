@@ -1,0 +1,28 @@
+<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+<div class="header">
+   	#parse("/new/frontend_top_bar.vm")
+
+    <div class="header-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo">
+                        <a href="/"><img src="$staticConfig.getPath()/CKF/images/logo.png" alt="Cookabuy Logo" width="200" height="42"></a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="pay-step">
+                        <div class="pay-step-img pay-step-order"></div>
+                        <div class="pay-step-name">
+                        	<span  class="pay-step-name-sub">#springMessage("order")</span>
+                        	<span  class="pay-step-name-sub">#springMessage("payment")</span>
+                        	<span  class="pay-step-name-sub">#springMessage("success")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    #parse("/new/frontend_sign_modal.vm")
+</div>

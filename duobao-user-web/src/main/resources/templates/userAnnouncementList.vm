@@ -1,0 +1,238 @@
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+#set($layout = "/layout/userAnnouncementList_layout.vm")
+#if($listType=="all")
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+            #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="bulletin-module">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a href="/cooka-user-web/center/announcementList">#springMessage("all_announcements")</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/announcementList?type=mark">#springMessage("mark_announcementlist")</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/announcementList?type=dustbin">#springMessage("delete_messages")</a>
+                        </li>
+                    </ul>
+                    <div class="bulletins-module bulletins-all-module">
+                        <div class="bulletins-batch-opt" data-j="bulletinsBatchOpt">
+                            <button class="btn btn-del-batch"><span class="icon-delete-o"></span> #springMessage("delete")</button>
+                            <button class="btn btn-col-batch"><span class="icon-star"></span>#springMessage("mark")</button>
+                            <button class="btn btn-read-batch"><span class="icon-email-o"></span>#springMessage("read")</button>
+                        </div>
+                        <table class="table bulletins-list" data-j="bulletinsList">
+                            <thead>
+                                <tr>
+                                    <th><span class="sr-only"></span></th>
+                                    <th class="bulletins-list-checkbox-col">
+                                        <input type="checkbox" class="all-select" />
+                                    </th>
+                                    <th class="bulletins-list-readding-col"></th>
+                                    <th class="bulletins-list-sender-col">#springMessage("business")</th>
+                                    <th class="bulletins-list-theme-col">#springMessage("theme")</th>
+                                    <th class="bulletins-list-date-col letter-upper">#springMessage("time")</th>
+                                    <th class="bulletins-list-star-col">#springMessage("mark")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            #foreach($item in $announcementList.list)
+                                <tr>
+                                    <td><span class="sr-only msg-id">$item.messageId</span></td>
+                                    <td class="bulletins-list-checkbox-col">
+                                        <input type="checkbox" class="select" />
+                                    </td>
+                                    <td class="bulletins-list-readding-col">
+                                    #if($!item.isRead) 
+                                        <span class="icon-email-o m-read"></span>
+                                     #else 
+                                        <span class="icon-email m-read"></span>
+                                     #end 
+                                    </td>
+                                    <td class="bulletins-list-sender-col">Cooka Business</td>
+                                    <td class="bulletins-list-theme-col"><a href="/cooka-user-web/center/announcement?messageId=$item.messageId">$!item.title </a></td>
+                                    <td class="bulletins-list-date-col">$date.format('yyyy-MM-dd HH:mm',$item.createTime)</td>
+                                    <td class="bulletins-list-star-col">
+                                    #if($!item.isMarked) 
+                                        <span class="icon-star-solid m-collect"></span>
+                                    #else
+                                        <span class="icon-star m-collect"></span>
+                                    #end
+                                    </td>
+                                </tr>
+                              #end
+                            </tbody>
+                        </table>
+                        <div class="pull-right">
+                         $!pageDiv
+                        </div>
+                    </div>
+                    <div class="no-message text-center" data-j="noMessage">
+					  	<img src="/CKF/images/message.png" alt=""> #springMessage("there_is_no_bulletin")...
+				    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+#elseif($listType=="dustbin")
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+            #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="bulletin-module">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/announcementList">#springMessage("all_announcements")</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/announcementList?type=mark">#springMessage("mark_announcementlist")</a>
+                        </li>
+                        <li role="presentation" class="active">
+                            <a href="/cooka-user-web/center/announcementList?type=dustbin">#springMessage("delete_messages")</a>
+                        </li>
+                    </ul>
+                    <div class="bulletins-module bulletins-dustbin-module">
+                        <div class="bulletins-batch-opt" data-j="bulletinsBatchOpt">
+                            <button class="btn btn-recovery-batch"><span class="icon-cancel-delete-o"></span> #springMessage("restore")</button>
+                            <button class="btn btn-cancelCol-batch"><span class="icon-cancel-favourite-o"></span>#springMessage("cancel_mark")</button>
+                            <button class="btn btn-del-complete-batch"><span class="icon-completely-delete-o"></span> #springMessage("completely_remove")</button>
+                        </div>
+                        <table class="table bulletins-list" data-j="bulletinsList">
+                            <thead>
+                                <tr>
+                                    <th><span class="sr-only"></span></th>
+                                    <th class="bulletins-list-checkbox-col">
+                                        <input type="checkbox" class="all-select" />
+                                    </th>
+                                    <th class="bulletins-list-readding-col"></th>
+                                    <th class="bulletins-list-sender-col">#springMessage("business")</th>
+                                    <th class="bulletins-list-theme-col">#springMessage("theme")</th>
+                                    <th class="bulletins-list-date-col">#springMessage("time")</th>
+                                    <th class="bulletins-list-star-col">#springMessage("mark")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            #foreach($item in $announcementList.list)
+                                <tr>
+                                    <td><span class="sr-only msg-id">$item.messageId</span></td>
+                                    <td class="bulletins-list-checkbox-col">
+                                        <input type="checkbox" class="select" />
+                                    </td>
+                                    <td class="bulletins-list-readding-col">
+                                    #if($!item.isRead) 
+                                        <span class="icon-email-o m-read"></span>
+                                     #else 
+                                        <span class="icon-email m-read"></span>
+                                     #end 
+                                    </td>
+                                    <td class="bulletins-list-sender-col">Cooka Business</td>
+                                    <td class="bulletins-list-theme-col"><a href="/cooka-user-web/center/announcement?messageId=$item.messageId">$!item.title </a></td>
+                                    <td class="bulletins-list-date-col">$date.format('yyyy-MM-dd HH:mm',$item.createTime)</td>
+                                    <td class="bulletins-list-star-col">
+                                    #if($!item.isMarked) 
+                                        <span class="icon-star-solid m-collect"></span>
+                                    #else
+                                        <span class="icon-star m-collect"></span>
+                                    #end
+                                    </td>
+                                </tr>
+                              #end
+                            </tbody>
+                        </table>
+                        <div class="pull-right">
+                         $!pageDiv                        
+                         </div>
+                    </div>
+                    <div class="no-message text-center" data-j="noMessage">
+					  	<img src="/CKF/images/message.png" alt="">#springMessage("there_is_no_bulletin")...
+				    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+#elseif($listType=="mark")
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+            #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="bulletin-module">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/announcementList">#springMessage("all_announcements")</a>
+                        </li>
+                        <li role="presentation" class="active">
+                            <a href="/cooka-user-web/center/announcementList?type=mark">#springMessage("mark_announcementlist")</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/announcementList?type=dustbin">#springMessage("delete_messages")</a>
+                        </li>
+                    </ul>
+                    <div class="bulletins-module bulletins-mark-module">
+                        <div class="bulletins-batch-opt" data-j="bulletinsBatchOpt">
+                            <button class="btn btn-del-batch"><span class="icon-delete-o"></span> #springMessage("delete")</button>
+                            <button class="btn btn-cancelCol-batch"><span class="icon-cancel-favourite-o"></span>#springMessage("cancel_mark")</button>
+                            <button class="btn btn-read-batch"><span class="icon-email-o"></span> #springMessage("read")</button>
+                        </div>
+                        <table class="table bulletins-list" data-j="bulletinsList">
+                            <thead>
+                                <tr>
+                                    <th><span class="sr-only"></span></th>
+                                    <th class="bulletins-list-checkbox-col">
+                                        <input type="checkbox" class="all-select" />
+                                    </th>
+                                    <th class="bulletins-list-sender-col">#springMessage("business")</th>
+                                    <th class="bulletins-list-theme-col">#springMessage("theme")</th>
+                                    <th class="bulletins-list-date-col">#springMessage("time")</th>
+                                    <th class="bulletins-list-star-col">#springMessage("mark")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            #foreach($item in $announcementList.list)
+                                <tr>
+                                    <td><span class="sr-only msg-id">$item.messageId</span></td>
+                                    <td class="bulletins-list-checkbox-col">
+                                        <input type="checkbox" class="select" />
+                                    </td>
+                                    <td class="bulletins-list-readding-col">
+                                    #if($!item.isRead) 
+                                        <span class="icon-email-o m-read"></span>
+                                     #else 
+                                        <span class="icon-email m-read"></span>
+                                     #end 
+                                    </td>
+                                    <td class="bulletins-list-sender-col">Cooka Business</td>
+                                    <td class="bulletins-list-theme-col"><a href="/cooka-user-web/center/announcement?messageId=$item.messageId">$!item.title </a></td>
+                                    <td class="bulletins-list-date-col">$date.format('yyyy-MM-dd HH:mm',$item.createTime)</td>
+                                    <td class="bulletins-list-star-col">
+                                    #if($!item.isMarked) 
+                                        <span class="icon-star-solid m-collect"></span>
+                                    #else
+                                        <span class="icon-star m-collect"></span>
+                                    #end
+                                    </td>
+                                </tr>
+                              #end
+                            </tbody>
+                        </table>
+                        <div class="pull-right">
+                         $!pageDiv                        
+                        </div>
+                    </div>
+                    <div class="no-message text-center" data-j="noMessage">
+					  	<img src="/CKF/images/message.png" alt="">#springMessage("there_is_no_bulletin")...
+				    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+#end

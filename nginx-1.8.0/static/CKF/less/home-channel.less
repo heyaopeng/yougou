@@ -1,0 +1,56 @@
+@import "public.less";
+
+.home-channel {
+	.clearfix();
+	padding-left: 5px;
+	padding-right: 5px;
+
+	&-inner {
+		.clearfix();
+		margin-left: -5px;
+		margin-right: -5px;
+		background: white;
+	}
+
+	&-block {
+		float: left;
+		width: 25%;
+		padding-left: 5px;
+		padding-right: 5px;
+		position: relative;
+	}
+
+	&-hero {
+		max-width: 100%;
+	}
+
+	&-item {
+		.clearfix();
+		
+		margin-top: 10px;
+
+		&-thumb {
+			float: left;
+			width: 30%;
+		}
+
+		&-text {
+			float: left;
+			width: 70%;
+			padding: 10px;
+
+			> a {
+				display: block;
+				color: #333;
+				text-decoration: none;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: #aaa;
+				}
+			}
+		}
+	}
+
+}

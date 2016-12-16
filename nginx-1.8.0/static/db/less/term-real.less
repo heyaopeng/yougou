@@ -1,0 +1,101 @@
+@import "public.less";
+
+.term-real {
+	&-top{
+		background-color: #cc3333;
+		padding: 10px;
+		color: white;
+		&-number{
+			font-size: 18px;
+		}
+		border-bottom: 5px solid #B8B8B8 ;
+	}
+
+	&-formula{
+		background-color: white;
+		padding: 10px;
+		&-text{
+			margin-top: 5px;
+			color: #cc0000;
+		}
+		border-bottom: 1px solid #B8B8B8 ;
+	}
+
+	&-numberA{
+		background-color: white;
+		padding: 10px;
+		.clearfix();
+		&-number{
+			margin-top: 5px;
+			color: #cc0000;
+		}
+		&-button{
+			margin-top: -18px;
+			color: #0033ff;
+		}
+		border-bottom: 1px solid #B8B8B8 ;
+	}
+	.active{
+			display: none;
+	}
+	&-numberAList{
+
+		background-color: white;
+		.clearfix();
+		&-meta{
+			.clearfix();
+			padding: 10px 10px 0 10px;
+			color: #949494;
+			text-align: center;
+			&-name{
+				float: left;
+				width: 20%;
+			}
+			&-time{
+				float: left;
+				width: 60%;
+			}
+			&-data{
+				float: left;
+				width: 20%;
+			}
+		}
+		&-item{
+			.clearfix();
+			padding: 10px 10px;
+			text-align: center;
+			&-name{
+				float: left;
+				width: 20%;
+			}
+			&-time{
+				float: left;
+				width: 60%;
+			}
+			&-data{
+				color: #cc0000;
+				float: left;
+				width: 20%;
+			}
+		}
+		border-bottom: 1px solid #B8B8B8 ;
+	}
+
+	&-numberB{
+		.red{
+			color: #cc0000;
+			font-size: 18px;
+		}
+		background-color: white;
+		padding: 10px;
+		margin-bottom: 50px;
+		&-number{
+			margin-top: 5px;
+			color: #cc0000;
+		}
+		&-caipiao{
+			margin-top: 5px;
+		}
+		border-bottom: 1px solid #B8B8B8 ;
+	}
+}

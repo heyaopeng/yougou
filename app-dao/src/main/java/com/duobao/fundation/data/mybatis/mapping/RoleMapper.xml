@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.RoleMapper" >
+  <resultMap id="Role" type="com.duobao.fundation.data.mybatis.model.Role" >
+    <id column="role_id" property="roleId" jdbcType="INTEGER" />
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+     <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+     <result column="new_parent_id" property="newParentId" jdbcType="INTEGER" />
+    <result column="role" property="role" jdbcType="VARCHAR" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="is_in_list" property="isInList" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    role_id, role, is_active, parent_id,parent_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Role" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_roles
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectUserRoles" resultMap="Role" parameterType="java.lang.Integer" >
+    select 
+   <include refid="Base_Column_List" />
+    from db_roles
+     <if test="userId != null" >
+         where role_id  IN 
+      (select role_id FROM db_user_role_link where user_id = #{userId,jdbcType=INTEGER})
+      and  is_in_list = 1
+      </if>
+  </select>
+  
+  <select id="getUserRoles" resultMap="Role" parameterType="java.lang.Integer" >
+    select 
+   <include refid="Base_Column_List" />
+    from db_roles
+     <if test="userId != null" >
+         where role_id  IN 
+      (select role_id FROM db_user_role_link where user_id = #{userId,jdbcType=INTEGER})
+      and  is_in_list =  #{isInList,jdbcType=BIT}
+      </if>
+  </select>
+  
+  <select id="selectSubUserRoles" resultMap="Role" parameterType="java.lang.Integer" >
+    select 
+   <include refid="Base_Column_List" />
+    from db_roles
+     <if test="userId != null" >
+         where role_id  IN  (select role_id FROM db_user_role_link where user_id = #{userId,jdbcType=INTEGER})
+      </if>
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_roles
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Role" >
+   insert into db_roles (role_id, role, parent_id, 
+      is_active, is_in_list)
+    values (#{roleId,jdbcType=INTEGER}, #{role,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{isActive,jdbcType=BIT}, #{isInList,jdbcType=BIT})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Role" >
+    insert into db_roles
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="isInList != null" >
+        is_in_list,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="isInList != null" >
+        #{isInList,jdbcType=BIT},
+      </if>
+    </trim>
+     <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="roleId" >  
+          SELECT LAST_INSERT_ID()  
+        </selectKey> 
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Role" >
+    update db_roles
+    <set >
+      <if test="role != null" >
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+       <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="isInList != null" >
+        is_in_list = #{isInList,jdbcType=BIT},
+      </if>
+    </set>
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateRoleParentId" parameterType="com.duobao.fundation.data.mybatis.model.Role" >
+    update db_roles
+    <set >
+        parent_id = #{newParentId,jdbcType=INTEGER},
+    </set>
+    where parent_id = #{parentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Role" >
+     update db_roles
+    set role = #{role,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      is_active = #{isActive,jdbcType=BIT},
+      is_in_list = #{isInList,jdbcType=BIT}
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </update>
+</mapper>

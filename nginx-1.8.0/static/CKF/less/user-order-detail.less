@@ -1,0 +1,158 @@
+@import "public.less";
+
+.user-order-detail {
+    &-status {
+        margin: 50px 0;
+    }
+
+    &-steps {
+        margin: 0 100px;
+        padding: 0;
+        .clearfix();
+
+        > li {
+            display: block;
+            list-style-type: none;
+            float: left;
+            width: 33%;
+            position: relative;
+
+            &:first-child,
+            &:last-child {
+                width: 17%;
+            }
+
+            &:first-child {
+                .user-order-detail-dot {
+                    margin: auto;
+                    right: auto;
+                }
+                .user-order-detail-text {
+                    text-align: left;
+                    left: -30px;
+                }
+            }
+
+            &:last-child {
+                .user-order-detail-dot {
+                    margin: auto;
+                    left: auto;
+                }
+                .user-order-detail-text {
+                    text-align: right;
+                    right: -30px;
+                }
+            }
+        }
+    
+        .done {
+            .user-order-detail-dot,
+            .user-order-detail-line {
+                background-color: @ck-main;
+            }
+        }
+    }
+
+    &-text {
+        display: block;
+        position: absolute;
+        top: -30px;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    &-dot {
+        border-radius: 50%;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #ddd;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: -7px;
+    }
+
+    &-line {
+        background-color: #ddd;
+        display: block;
+        height: 5px;
+    }
+
+    &-action {
+        margin: 15px 0;
+        .btn {
+            padding: 6px 25px;
+        }
+    }
+
+    &-cancel {
+        color: #333;
+        display: inline-block;
+        margin-left: 15px;
+    }
+
+    &-panel {
+        &-heading {
+            padding: 15px;
+            color: @ck-main;
+            border-bottom: 1px solid @ck-main;
+        }
+
+        &-body {
+            background-color: #f9f9f9;
+            padding: 15px;
+            line-height: 2em;
+        }
+    }
+
+    // subclass
+    &-panel-info {
+        .user-order-detail-panel-heading {
+            border-color: #aaa;
+        }
+        .user-order-detail-panel-body {
+            background-color: #fff;
+            padding: 0;
+        }
+    }
+
+    &-item {
+        &-heading {
+            background-color: #f9f9f9;
+            padding: 10px;
+        }
+
+    }
+
+    &-num {
+        display: inline-block;
+        margin-left: 2em;
+    }
+
+    &-table {
+        margin: 10px 0;
+        tbody > tr > td {
+            &.td-center {
+                text-align: center;
+            }
+            
+            border-top: none;
+            padding: 5px;
+            vertical-align: middle;
+        }
+
+        &-total {
+            border-left: 1px solid #ddd;
+        }
+    }
+
+    &-summary {
+        text-align: right;
+        font-size: 18px;
+        margin: 30px;
+        line-height: 1.5em;
+    }
+}

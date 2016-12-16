@@ -1,0 +1,3 @@
+<div class="ck-header">
+    <a href="http://www.cookabuy.com"><img src="$staticConfig.getPath()/images/ck_logo.png" alt="cooka logo" class="admin-logo" width="200" height="50"></a>
+</div>

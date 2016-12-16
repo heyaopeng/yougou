@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.OauthLoginMapper" >
+  <resultMap id="OauthLogin" type="com.duobao.fundation.data.mybatis.model.OauthLogin" >
+    <id column="login_id" property="loginId" jdbcType="INTEGER" />
+    <result column="oauth_id" property="oauthId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="oauth_name" property="oauthName" jdbcType="VARCHAR" />
+    <result column="oauth_access_token" property="oauthAccessToken" jdbcType="VARCHAR" />
+    <result column="oauth_expires" property="oauthExpires" jdbcType="VARCHAR" />
+    <result column="is_subcribe" property="isSubcribe" jdbcType="BIT" />
+    <result column="is_subscribe_show" property="isSubscribeShow" jdbcType="BIT" />
+    <result column="is_point_send" property="isPointSend" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    login_id, oauth_id, user_id, oauth_name, oauth_access_token, oauth_expires,is_subcribe,is_subscribe_show,is_point_send
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="OauthLogin" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_oauth_login
+    where login_id = #{loginId,jdbcType=INTEGER}
+  </select>
+  <select id="selectForSchedule" resultMap="OauthLogin" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_oauth_login
+    where is_subcribe=0  order by login_id desc
+  </select>
+  <select id="selectNotSendPoint" resultMap="OauthLogin" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_oauth_login
+    where is_point_send=0  order by login_id desc
+  </select>
+  <select id="selectByUserId" resultMap="OauthLogin" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_oauth_login
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_oauth_login
+    where login_id = #{loginId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.OauthLogin" >
+    insert into db_oauth_login (login_id, oauth_id, user_id, 
+      oauth_name, oauth_access_token, oauth_expires,is_subcribe,is_subscribe_show,is_point_send
+      )
+    values (#{loginId,jdbcType=INTEGER}, #{oauthId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{oauthName,jdbcType=VARCHAR}, #{oauthAccessToken,jdbcType=VARCHAR}, #{oauthExpires,jdbcType=VARCHAR}, #{isSubcribe,jdbcType=BIT}, #{isSubscribeShow,jdbcType=BIT}, #{isPointSend,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.OauthLogin" >
+    insert into db_oauth_login
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="loginId != null" >
+        login_id,
+      </if>
+      <if test="oauthId != null" >
+        oauth_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="oauthName != null" >
+        oauth_name,
+      </if>
+      <if test="oauthAccessToken != null" >
+        oauth_access_token,
+      </if>
+      <if test="oauthExpires != null" >
+        oauth_expires,
+      </if>
+      <if test="isSubcribe != null" >
+        is_subcribe,
+      </if>
+      <if test="isSubscribeShow != null" >
+        is_subscribe_show,
+      </if>
+      <if test="isPointSend != null" >
+        is_point_send,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="loginId != null" >
+        #{loginId,jdbcType=INTEGER},
+      </if>
+      <if test="oauthId != null" >
+        #{oauthId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="oauthName != null" >
+        #{oauthName,jdbcType=VARCHAR},
+      </if>
+      <if test="oauthAccessToken != null" >
+        #{oauthAccessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="oauthExpires != null" >
+        #{oauthExpires,jdbcType=VARCHAR},
+      </if>
+      <if test="isSubcribe != null" >
+        #{isSubcribe,jdbcType=BIT},
+      </if>
+      <if test="isSubscribeShow != null" >
+        #{isSubscribeShow,jdbcType=BIT},
+      </if>
+      <if test="isPointSend != null" >
+        #{isPointSend,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.OauthLogin" >
+    update db_oauth_login
+    <set >
+      <if test="oauthId != null" >
+        oauth_id = #{oauthId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="oauthName != null" >
+        oauth_name = #{oauthName,jdbcType=VARCHAR},
+      </if>
+      <if test="oauthAccessToken != null" >
+        oauth_access_token = #{oauthAccessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="oauthExpires != null" >
+        oauth_expires = #{oauthExpires,jdbcType=VARCHAR},
+      </if>
+      <if test="isSubcribe != null" >
+        is_subcribe = #{isSubcribe,jdbcType=BIT},
+      </if>
+      <if test="isSubscribeShow != null" >
+        is_subscribe_show = #{isSubscribeShow,jdbcType=BIT},
+      </if>
+      <if test="isPointSend != null" >
+        is_point_send = #{isPointSend,jdbcType=BIT},
+      </if>
+    </set>
+    where login_id = #{loginId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.OauthLogin" >
+    update db_oauth_login
+    set oauth_id = #{oauthId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      oauth_name = #{oauthName,jdbcType=VARCHAR},
+      oauth_access_token = #{oauthAccessToken,jdbcType=VARCHAR},
+      oauth_expires = #{oauthExpires,jdbcType=VARCHAR},
+       is_subcribe = #{isSubcribe,jdbcType=BIT},
+       is_subscribe_show = #{isSubscribeShow,jdbcType=BIT},
+       is_point_send = #{isPointSend,jdbcType=BIT}
+    where login_id = #{loginId,jdbcType=INTEGER}
+  </update>
+  <select id="getOauthLoginInfoByOauthId" resultMap="OauthLogin" parameterType="String" >
+   	select 
+    	<include refid="Base_Column_List" />
+    	from db_oauth_login
+    	where oauth_id = #{oauthId,jdbcType=VARCHAR}
+   </select>
+  
+   <select id="getOauthLoginInfoByUserId" resultMap="OauthLogin" parameterType="Integer" >
+   	select 
+    	<include refid="Base_Column_List" />
+    	from db_oauth_login
+    	where user_id = #{userId,jdbcType=INTEGER}
+   </select>
+</mapper>

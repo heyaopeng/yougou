@@ -1,0 +1,69 @@
+@import "public.less";
+
+.user-order {
+
+	&-item {
+		border-top: 1px solid @ck-main;
+
+		.table {
+			> tbody > tr > td {
+				border-top: none;
+				vertical-align: middle;
+			}
+
+			> tbody > tr + tr > td {
+				border-top: 1px solid #bbb;
+			}
+		}
+
+		ul {
+			padding-left: 10px;
+		}
+		ul > li {
+			list-style: none;
+		}
+	}
+
+	&-spec {
+		display: inline-block;
+
+		& + & {
+			margin-left: 1em;
+		}
+	}
+
+	&-total,
+	&-status,
+	&-action {
+		border-left: 1px solid #bbb;
+	}
+
+	&-cancel {
+		display: inline-block;
+		margin-top: 10px;
+	}
+
+	&-info {
+		padding: 10px;
+	}
+
+	.td-center {
+		text-align: center;
+	}
+
+	&-pagination {
+		float: right;
+		margin-right: 30px;
+	}
+
+	td > span,
+	td > a, {
+		&:first-letter {
+			text-transform: uppercase;
+		}
+	}
+
+	td > span {
+		display: inline-block;
+	}
+}

@@ -1,0 +1,35 @@
+@import "public.less";
+
+.application-result {
+	&-text{
+
+		text-align: center;
+		font-size: 20px;
+		margin-top: 30%;	
+		color:red;
+		&-row{
+			border: 2px solid red;
+			padding: 10px;
+			border-radius : 10px;
+		}
+	}
+	&-button{
+		position: fixed;
+		padding: 10px;
+		background-color: #FF3300;
+		color: white;
+		text-align: center;
+		left: 5%;
+		right: 0;
+		width: 90%;
+		z-index: 999;
+		bottom: 60px;
+		border-radius : 15px;
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			color: white;
+		}
+	}
+}

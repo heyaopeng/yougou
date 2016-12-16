@@ -1,0 +1,13 @@
+<form class="help-search form-horizontal">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+		<div class="input-group col-md-9">
+			<input size="12" type="text" class="form-control" placeholder=" #springMessage('please_enter_the_key_words')... ">
+
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-search"></span>
+					#springMessage("search_help")
+				</button>
+			</span>
+		</div>
+</form>

@@ -1,0 +1,329 @@
+#set($layout = "/layout/addProduct_layout.vm")
+<div class="admin-main">
+	<div class="admin-breadcrumb">
+		<ol class="breadcrumb">
+			<li><a href="#">#springMessage("add_product")</a></li>
+			<li class="active">#springMessage("add_product")</li>
+		</ol>
+	</div>
+
+	<div class="admin-steps">
+		<ol class="steps" id="add-product-step">
+			<li class="active">1 . #springMessage("product_feature")</li>
+			<li>2 . #springMessage("fill_in_information")</li>
+		</ol>
+	</div>
+	<form action="/duobao-product-web/doUpdateProductHandler.do" id="add-product-form" method="post" enctype="multipart/form-data">
+		<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)" />
+		<input type="hidden"  name="productId" value="$product.productId" />
+		<div class="page-group">
+
+			<div class="page-section active">
+				
+				<div class="pau-nav">
+					<a href="#pau-1">基本信息</a>
+					<a href="#pau-2">产品属性</a>
+					<a href="#pau-3">产品规格</a>
+					<a href="#pau-4">匹配图片</a>
+					<a href="#pau-5">销售信息</a>
+					<a href="#pau-6">上架日期</a>
+					<a href="#pau-7">产品描述</a>
+				</div>
+			
+				<div class="panel panel-default" id="pau-1">
+					<div class="panel-heading">
+						<strong>#springMessage("product_basic_information")</strong>
+					</div>
+					<div class="panel-body">
+						<div class="form-horizontal">
+							<div class="form-group has-feedback">
+								<label for="" class="col-md-2 control-label">#springMessage("product_title"): </label>
+								<div class="col-md-7 trim-left">
+									<input type="text" class="form-control f-title" id="title" value="$!product.title"  name="title"> 
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="" class="col-md-2 control-label">分类: </label>
+								<div class="col-md-7 trim-left">
+									<select name="categoryId" id="measurement-unit" class="form-control">
+									   	#foreach($item in $cat)
+										<option value="$!item.categoryId" #if($velocityCount == 1)selected#end >$item.category</option>
+										#end
+									</select>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+
+				
+				<!-- image pick modal -->
+				<div class="modal fade" id="match-img-modal">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title">选择图片</h4>
+							</div>
+							<div class="modal-body">
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="active"><a href="#my-gallery" data-toggle="tab">从图片空间</a></li>
+									<li><a href="#my-pc" data-toggle="tab">从我的电脑</a></li>
+								</ul>
+
+								<div class="tab-content preview-upload-tab">
+									<div class="tab-pane active" id="my-gallery">
+										<div class="form-horizontal">
+											<div class="form-group">
+												<label for="" class="col-md-2 control-label">选择相册</label>
+												<div class="col-md-4">
+													<input class="filterAlbumInput" type="text" value="">
+													<input type="hidden" id="choosed-album">
+													<ul data-albumid="" id="choose-gallery" class="album-list" style="max-height: 300px;overflow: scroll;">
+														
+													</ul>
+												</div>
+												<div class="col-md-6">
+													<button type="button" class="btn btn-default" id="go-parent" data-aid="-1">返回</button>
+													<a href="/cooka-store-web/imageZone" class="btn btn-primary pull-right" target="_blank">去上传</a>
+												</div>
+											</div>
+											<div class="gallery-block">
+												<ul class="gallery-list clearfix" id="gallery-list">
+
+												</ul>
+											</div>
+
+										</div>
+									</div>
+									<div class="tab-pane" id="my-pc">
+										<div class="pc-block">
+											<button class="btn btn-primary" type="button" id="pc-choose">选择一张图片</button>
+											<input type="file" name="file" value="" class="hidden" id="pc-file" accept="image/*">
+											<br>
+											<img src="$staticConfig.getPath()/images/default_img.jpg" width="200" alt="" id="pc-match-preview">
+										</div>
+									</div>
+								</div>
+
+								<div class="choosed-match">
+									<div class="choosed-fig">
+										<span>已选择：</span>
+										<img src="$staticConfig.getPath()/images/default_img.jpg" width="256" id="choosed-img">
+										<button type="button" class="btn btn-default" id="reset-img">重置</button>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal" id="insert-confirm">确认</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+
+				<div class="panel panel-default" id="pau-5">
+					<div class="panel-heading">
+						<strong>#springMessage("sales_information")</strong>
+					</div>
+					<div class="panel-body">
+						<div class="form-horizontal">	
+							<div class="form-group has-feedback">
+								<label for="" class="col-md-2 control-label">市场价: </label>
+								<div class="col-md-2 trim-left">
+									<input type="text" class="form-control f-title" id="title" value="$!product.marketPrice" name="marketPrice"> 
+								</div>
+							</div>
+							<div class="form-group has-feedback">
+								<label for="" class="col-md-2 control-label">夺宝价: </label>
+								<div class="col-md-2 trim-left">
+									<input type="text" class="form-control f-title" id="title" value="$!product.price" name="price"> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default" id="pau-7">
+					<div class="panel-heading">
+						<strong>#springMessage("product_description")</strong>
+					</div>
+					<div class="panel-body">
+						<div class="form-horizontal">
+							<div class="form-group" id="prod-pic-upload">
+								<label for="" class="col-md-2 control-label">#springMessage("product_image"): </label>
+								<div class="col-md-10">
+									<span class="help-block">至少上传 3 张图片</span>
+									<div class="match-imgs clearfix">
+										<div class="match-block" data-mid="pp1">
+											<div class="match-inner">
+												<div class="match-fig">
+													<img src="$!link[0].imageUrl">
+												</div>
+												<button class="btn btn-default btn-block btn-choose-match" type="button" data-toggle="modal" data-target="#match-img-modal">#springMessage("product_image") 1</button>
+												<input type="hidden" class="image-url" id="product-pic-1" name="images[0]" value="$!link[0].imageUrl">
+											</div>
+										</div>
+										<div class="match-block" data-mid="pp2">
+											<div class="match-inner">
+												<div class="match-fig">
+													#if($link.size()>=2)
+													<img src="$!link[1].imageUrl">
+													#end
+												</div>
+												<button class="btn btn-default btn-block btn-choose-match" type="button" data-toggle="modal" data-target="#match-img-modal">
+													#springMessage("product_image") 2</button>
+												<input type="hidden" class="image-url" id="product-pic-2" name="images[1]" #if($link.size()>=2) value="$!link[1].imageUrl" #end>
+											</div>
+										</div>
+										<div class="match-block" data-mid="pp3">
+											<div class="match-inner">
+												<div class="match-fig">
+													#if($link.size()>=3)
+													<img src="$!link[2].imageUrl">
+													#end
+												</div>
+												<button class="btn btn-default btn-block btn-choose-match" type="button" data-toggle="modal" data-target="#match-img-modal">
+													#springMessage("product_image") 3</button>
+												<input type="hidden" class="image-url" id="product-pic-3" name="images[2]" #if($link.size()>=3) value="$!link[2].imageUrl" #end>
+											</div>
+										</div>
+										<div style="clear: both"></div>
+										<div class="match-block" data-mid="pp4">
+											<div class="match-inner">
+												<div class="match-fig">
+													<img src="$staticConfig.getPath()/images/default_img.jpg">
+												</div>
+												<button class="btn btn-default btn-block btn-choose-match" type="button" data-toggle="modal" data-target="#match-img-modal">
+													#springMessage("product_image") 4</button>
+												<input type="hidden" class="image-url" id="product-pic-4" name="images[3]">
+											</div>
+										</div>
+										<div class="match-block" data-mid="pp5">
+											<div class="match-inner">
+												<div class="match-fig">
+													<img src="$staticConfig.getPath()/images/default_img.jpg">
+												</div>
+												<button class="btn btn-default btn-block btn-choose-match" type="button" data-toggle="modal" data-target="#match-img-modal">
+													#springMessage("product_image") 5</button>
+												<input type="hidden" class="image-url" id="product-pic-5" name="images[4]">
+											</div>
+										</div>
+										<div class="match-block" data-mid="pp6">
+											<div class="match-inner">
+												<div class="match-fig">
+													<img src="$staticConfig.getPath()/images/default_img.jpg">
+												</div>
+												<button class="btn btn-default btn-block btn-choose-match" type="button" data-toggle="modal" data-target="#match-img-modal">
+													#springMessage("product_image") 6</button>
+												<input type="hidden" class="image-url" id="product-pic-5" name="images[5]">
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="" class="col-md-2 control-label">#springMessage("product_description"): </label>
+								<div class="col-md-10 trim-left">
+									<p class="text-info">
+										<img src="/images/emoji/519.png" width="32px" height="32px">
+										此编辑框的宽度与详情页面一致(782px)，全屏预览并非最终效果
+									</p>
+								</div>
+								<div class="clearfix"></div>	
+								<div style="width:784px;margin-left:90px">
+									<div id="summernote">$!description</div>
+									<input type="hidden" id="rich-content" name="description" value=""/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- multiple pick modal -->
+				<div class="modal fade" id="mul-img-modal">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title">选择图片</h4>
+							</div>
+							<div class="modal-body">
+								<ul class="nav nav-tabs" role="tablist" id="mul-nav">
+									<li class="active"><a href="#mul-gallery" data-toggle="tab">从相册空间</a></li>
+									<li><a href="#mul-pc" data-toggle="tab">从我的电脑</a></li>
+								</ul>
+
+								<div class="tab-content preview-upload-tab">
+									<div class="tab-pane active" id="mul-gallery">
+										<div class="form-horizontal">
+											<div class="form-group">
+												<label for="" class="col-md-2 control-label">选择相册</label>
+												<div class="col-md-4">
+													<select name="" id="mul-choose-gallery" class="form-control">
+														
+													</select>
+												</div>
+												<div class="col-md-6">
+													<button type="button" class="btn btn-default" id="mul-go-parent" data-aid="-1">返回</button>
+													<a href="/cooka-store-web/imageZone" class="btn btn-primary pull-right" target="_blank">去上传</a>
+												</div>
+											</div>
+											<div class="mul-gallery-block">
+												<ul class="gallery-list clearfix" id="mul-gallery-list">
+
+												</ul>
+											</div>
+
+										</div>
+									</div>
+									<div class="tab-pane" id="mul-pc">
+										<div class="pc-block">
+											<button class="btn btn-primary" type="button" id="mul-pc-choose">选择一张图片</button>
+											<input type="file" name="file" value="" class="hidden" id="mul-pc-file" accept="image/*"> <br> 
+										</div>
+									</div>
+								</div>
+
+								<div class="choosed-match" id="mul-choosed-match">
+									<span>从相册空间:</span>
+									<div class="choosed-fig" id="mul-chosen-imgs">
+										
+									</div>
+								</div>
+								
+								<div class="choosed-match hide" id="pc-choosed-match">
+									<span>从我的电脑: </span>
+									<div class="choosed-fig" id="pc-chosen-imgs">
+										
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal" id="mul-confirm">确认</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group text-center add-or-preview">
+					<div class="btn-group btn-group">
+						<button type="submit" id="submit-p" class="btn btn-primary">#springMessage("submit")</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>

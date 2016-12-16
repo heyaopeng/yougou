@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>商家管理系统</title>
+    <link rel="stylesheet" href="$staticConfig.getPath()/CKF/build/mBasSign.css?v=$!version.getNum()">
+    <!--[if lt IE 9]>
+		<script src="$staticConfig.getPath()/CKF/js/libs/html5shiv.min.js"></script>
+		<script src="$staticConfig.getPath()/CKF/js/libs/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="col-xs-10">
+            <div class="m-bas-sign" data-j="mBasSign">
+                <img src="$staticConfig.getPath()/CKF/images/m_bas_logo.png" width="100%" class="m-bas-sign-logo">
+
+				<div class="sign-switch-tab">
+					<span class="sign-switch-tab-item active" data-switch="s-email">
+						<span class="icon-envelope-o"></span>
+						邮箱登录
+					</span>
+					<span class="sign-switch-tab-item" data-switch="s-phone">
+						<span class="icon-circle-mobile-o"></span>
+						手机登录
+					</span>
+				</div>
+				
+                <div class="m-bas-sign-inner">
+                    <form action="dologin" method="post" id="m-bas-sign-in-form">
+                    	<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+                    
+                        <div class="form-group sign-switch-target active" id="s-email">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<span class="icon-envelope-o"></span>
+								</span>
+								<input type="text" name="account" class="form-control f-email" placeholder="邮箱"></div>
+						</div>
+						<div class="form-group sign-switch-target" id="s-phone">
+							<input type="tel" name="account" class="form-control f-mobile" placeholder="手机号码" disabled>
+						</div>
+						
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="icon-lock-o"></span>
+                                </span>
+                                <input type="password" name="password" class="form-control f-password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="$staticConfig.getPath()/CKF/build/zh_CN.mBasSign.js?v=$!version.getNum()"></script>
+</body>
+</html>

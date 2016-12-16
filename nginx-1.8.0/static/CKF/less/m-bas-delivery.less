@@ -1,0 +1,74 @@
+@import "public.less";
+
+.m-bas-delivery {
+	&-table {
+		background-color: #fff;
+		margin-bottom: 0;
+		> thead > tr > th {
+			text-align: center;
+			border-width: 1px;
+			width: 100/3%;
+		}
+
+	}
+
+	&-info {
+		position: relative;
+		display: table;
+		width: 100%;
+		background-color: #fff;
+		table-layout: fixed;
+
+		> span {
+			display: table-cell;
+			width: 100/3%;
+			text-align: center;
+			padding: 10px;
+			vertical-align: middle;
+			word-wrap: break-word;
+		}
+	}
+
+	&-arrow {
+		position: absolute;
+		font-size: 24px;
+		width: 24px;
+		height: 24px;
+		top: 0;
+		bottom: 0;
+		margin-top: auto;
+		margin-bottom: auto;
+		right: 10px;
+		transition: all 0.3s ease;
+	}
+
+	&-detail {
+		display: none;
+		.table {
+			margin-bottom: 0;
+
+			> tbody > tr > td {
+				border: none;
+			}
+		}
+	}
+
+	&-dheading {
+		padding: 10px;
+		border-bottom: 1px solid #bcbcbc;
+	}
+
+	&-item.open {
+		.m-bas-delivery-arrow {
+			transform: rotate(90deg);
+		}
+
+		.m-bas-delivery-info {
+			background-color: #F7F0E8;
+		}
+
+		.m-bas-delivery-detail {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,198 @@
+.my-cooka-nav-list {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #ddd;
+	background-color: @cooka;
+	> li {
+		list-style-type: none;
+		display: block;
+		float: left;
+		> a {
+			display: block;
+			color: #fff;
+			padding: 10px 20px;
+			text-decoration: none;
+			.transition(all 0.3s ease);
+			&:hover {
+				font-weight: bold;
+				background-color: @cooka_sub;
+			}
+		}
+	}
+	.active {
+		> a {
+			font-weight: bold;
+			background-color: @cooka_sub;
+		}
+	}
+}
+
+.my-cooka-sidebar {
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	margin-top: 15px;
+}
+
+.my-cooka-sidebar-list {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style-type: none;
+		display: block;
+		> a {
+			display: block;
+			color: #333;
+			&:hover {
+				color: @cooka;
+			}
+		}
+	}
+	.has-sub-side {
+		> a {
+			border-bottom: 1px solid @cooka;
+			padding: 5px 10px;
+			font-weight: bold;
+			text-decoration: none;
+		}
+	}
+	.sub-side {
+		display: none;
+		margin-top: 10px;
+		> li {
+			padding: 5px 15px;
+		}
+	}
+}
+
+.my-cooka-orders {
+	margin-top: 15px;
+}
+
+.my-order-table {
+	border: 1px solid #ddd;
+	thead:first-child > tr:first-child > th {
+		border: 1px solid #ddd;
+	}
+	thead > tr > th {
+		background-color: #eee;
+		text-align: center;
+	}
+	.my-order-action {
+		> a {
+			display: inline-block;
+			margin-top: 5px;
+		}
+		vertical-align: middle;
+	}
+	.order-item {
+		border-top: 1px solid #ddd;
+		padding-top: 5px;
+		margin-top: 5px;
+		.order-spec {
+			margin-top: 5px;
+			color: #999;
+		}
+	}
+	.order-items {
+		border-right: 1px solid #ddd;
+	}
+}
+
+.my-cooka-avatar {
+	background-color: #eee;
+	border-top: 1px solid @cooka;
+	border-bottom: 1px solid @cooka;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	.img-avatar {
+		box-shadow: 0 5px 10px -5px;
+	}
+}
+
+/* fuck yaopeng */
+.order-status {
+	padding-top: 10px;
+	border-top: 1px solid #ddd;
+	padding-bottom: 5px;
+	.order-status-title {
+		margin-top: 5px;
+	}
+}
+
+.order-status-list {
+	margin-left: 5px;
+	> li > a {
+		padding: 5px 10px;
+		&:hover {
+			background-color: #ddd;
+		}
+	}
+}
+.orders {
+	.order-heading {
+		.table {
+			margin-bottom: 10px;
+		}
+		tr > th {
+			text-align: center;
+		}
+	}
+	.order-info {
+		margin: 0;
+		padding: 0;
+
+		> li {
+			list-style-type: none;
+			float: left;
+
+			> a {
+				display: block;
+				max-width: 200px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+		li + li {
+			margin-left: 10px;
+			padding-left: 10px;
+			border-left: 1px solid #ddd;
+		}
+	}
+	.order-options {
+		padding: 0 15px;
+		margin-bottom: 10px;
+
+		.combine-pay {
+			padding: 4px 10px;
+		}
+	}
+	.order-block {
+		.order-check {
+			margin: 0;
+			height: 20px;
+		}
+		tr > .order-product-name {
+			text-align: left;
+		}
+		.order-spec {
+			color: #999;
+		}
+		.order-total {
+			color: @cooka;
+		}
+		.order-fare {
+			white-space: nowrap;
+		}
+		.order-close {
+			color: #999;
+		}
+		a {
+			&:hover {
+				color: @cooka;
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+@import "public.less";
+
+.m-bas-tab {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: @ck-sub;
+	color: #fff;
+	.clearfix();
+
+	> a {
+		display: block;
+		float: left;
+		width: 100/2%;
+		color: #fff;
+		text-decoration: none;
+		padding-top: 2px;
+		transition: all .3s ease;
+
+		&:active {
+			background-color: lighten(@ck-main, 5%);
+		}
+	}
+
+	> .active {
+		background-color: @ck-main;
+		&:active {
+			background-color: @ck-main;
+		}
+	}
+
+	&-icon {
+		display: block;
+		text-align: center;
+		font-size: 28px;
+	}
+
+	&-text {
+		display: block;
+		text-align: center;
+	}
+}
+
+.m-bas-main {
+	padding-bottom: 50px;
+}

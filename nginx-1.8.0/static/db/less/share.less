@@ -1,0 +1,136 @@
+.share{
+	&-hidden{
+		&-subscribe{
+			position: fixed;
+			top:0%;
+			left:0%;
+			z-index: 1002;
+			margin-top: 5px;
+			background-color: rgba(153, 153, 153, 0.6);
+			width: 100%;
+			height: 100%;
+			&-image{
+				position: fixed;
+				top:25%;
+				left:15%;
+				width: 70%
+			}
+			&-button{
+				background-color: #e65100;
+				border-color: #e65100;
+				position: fixed;
+				font-size: 18px;
+				color: white;
+				padding: 5px 20px;
+				top:65%;
+				left:35%;
+				text-align: center;
+				border-radius : 15px;
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: white;
+				}
+			}
+		}
+	}
+	&-top{
+		position: relative;
+		&-image{
+			width: 100%;
+		}
+		&-link{
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+				color: white;
+			}
+			width: 100%;
+			background-color: #666666;
+    		opacity:0.8;
+			text-align: right;
+			padding: 8px;
+			color: white;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	&-data{
+		&-info{
+			font-size: 40px;
+			color: red;
+			text-align: center;
+			&-item{
+				background-color: white;
+				width: 50%;
+				float: left;
+			}
+		}
+		&-title{
+			font-size:15px;
+			text-align: center;
+			margin: 0;
+			&-item{
+				background-color: white;
+				width: 50%;
+				float: left;
+				padding-bottom: 8px;
+				border-bottom: 1px solid #ddd;
+			}
+		}
+	}
+
+	&-option{
+		margin-top: 87px;
+		padding-bottom:50px;
+		background-color: white;
+		border-bottom: 1px solid transparent;
+		font-size: 15px;
+		&-text{
+			padding: 15px;
+			border-bottom: 1px solid #ddd;
+			display: block;
+			color: #999999;
+
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+				color: #999999;
+			}
+			&-right{
+				display: block;
+				float: right;
+			}
+		}
+		&-button{
+			border-radius : 15px;
+			padding: 15px;
+			background-color: red;
+			text-align: center;
+			color: white;
+			margin: 10px;
+		}
+		&-hidden{
+			position: fixed;
+			top:0;
+			left:0;
+			background-color: rgba(153, 153, 153, 0.8);
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+			&-image{
+				margin-top: 5px;
+				width: 100%
+			}
+		}
+
+	}
+
+
+
+}

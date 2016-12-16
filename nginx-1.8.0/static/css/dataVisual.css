@@ -1,0 +1,257 @@
+body {
+  font-family: 'proxima_nova_rgregular', 'Microsoft Yahei', Helvetica, Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+.trim-left {
+  padding-left: 0;
+}
+.trim-right {
+  padding-right: 0;
+}
+.header {
+  background: #344d67;
+}
+.header img {
+  padding: 20px 40px;
+  margin: 0 auto;
+}
+.header span {
+  color: #fff;
+}
+.header .login-info {
+  float: right;
+  padding: 16px;
+}
+.side-bar-item {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  background-color: #344d67;
+}
+.side-bar-item h4 {
+  margin: 0;
+}
+.side-bar-item i {
+  font-size: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  color: #fff;
+}
+.side-bar-item.active {
+  background-color: #657a92;
+}
+.side-bar-item:hover {
+  background-color: #657a92;
+  text-decoration: none;
+}
+.side-bar-title {
+  color: #fff;
+  padding-bottom: 30px;
+}
+.vistor-trends {
+  background-color: #fff;
+  border: 12px solid rgba(52, 77, 103, 0.4);
+  border-radius: 5px;
+}
+.vistor-trends h4 {
+  background-color: rgba(52, 77, 103, 0.4);
+  margin: 0;
+  padding: 12px;
+  padding-top: 0;
+  color: #fff;
+}
+.vistor-trends-period ul {
+  padding: 0 12px;
+}
+.vistor-trends-period-select {
+  display: block;
+  margin: 10px 20px;
+  border-bottom: 4px solid #344d67;
+}
+.vistor-trends-period-select:before,
+.vistor-trends-period-select:after {
+  content: "";
+  display: table;
+}
+.vistor-trends-period-select:after {
+  clear: both;
+}
+.vistor-trends-period li {
+  display: block;
+  float: left;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.vistor-trends-period li + li {
+  margin-left: 1px;
+}
+.vistor-trends-period li.active {
+  background-color: #344d67;
+  color: #fff;
+}
+.vistor-trends-period li:hover {
+  background-color: #657a92;
+  color: #fff;
+}
+.canvas1 {
+  margin: 0 20px 20px 20px;
+  overflow: hidden;
+}
+.canvas1 text {
+  font: 10px sans-serif;
+}
+.canvas1 svg {
+  margin-right: 40px;
+}
+.canvas1 svg .axis path,
+.canvas1 svg .axis line {
+  fill: none;
+  stroke: #000;
+  opacity: 0.1;
+  shape-rendering: crispEdges;
+}
+.canvas1 svg .overlay {
+  fill: none;
+  pointer-events: all;
+}
+.canvas1 svg .line {
+  fill: none;
+  stroke: teal;
+  stroke-width: 1px;
+}
+.canvas1 svg .focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+.userData-analysis-module {
+  border: 12px solid #344d67;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+.userData-analysis-module h4 {
+  margin: 0;
+  padding: 0px 12px 12px 12px;
+  background-color: #344d67;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.userData-chart {
+  margin-top: 10px;
+  padding: 12px;
+  min-width: 700px;
+  height: 500px;
+}
+.userData-search {
+  margin-left: 20px;
+}
+.tradingData-analysis-module {
+  border: 12px solid #344d67;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+.tradingData-analysis-module h4 {
+  margin: 0;
+  padding: 0px 12px 12px 12px;
+  background-color: #344d67;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.tradingData-analysis-module .totalSale-search,
+.tradingData-analysis-module .totalOrderNum-search,
+.tradingData-analysis-module .averageSales-search {
+  margin-left: 20px;
+}
+.tradingData-chart {
+  margin-top: 10px;
+  padding: 12px;
+  min-width: 700px;
+  height: 500px;
+}
+.rankingData-analysis-module {
+  border: 12px solid #344d67;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+.rankingData-analysis-module h4 {
+  margin: 0;
+  padding: 0px 12px 12px 12px;
+  background-color: #344d67;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.rankingData-analysis-module .totalSale-search,
+.rankingData-analysis-module .totalOrderNum-search,
+.rankingData-analysis-module .averageSales-search {
+  margin-left: 20px;
+}
+.rankingData-search {
+  margin-left: 20px;
+}
+.rankingData-table {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+.rankingData-table thead > tr > th {
+  text-align: center;
+}
+.productData-analysis-module {
+  border: 12px solid #344d67;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+.productData-analysis-module h4 {
+  margin: 0;
+  padding: 0px 12px 12px 12px;
+  background-color: #344d67;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.productData-chart {
+  margin-top: 10px;
+  padding: 12px;
+  min-width: 700px;
+  height: 500px;
+}
+.productData-search {
+  margin-left: 20px;
+}
+.period-select {
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+.period-select .btn:focus {
+  outline: none;
+}
+.period-select .active {
+  background: #344d67;
+  color: #fff;
+}
+.pagination {
+  vertical-align: middle;
+}
+.pagination-control {
+  display: inline-block;
+  margin: 20px 0;
+}
+.pagination-control > span {
+  vertical-align: middle;
+  display: inline-block;
+}
+.pagination-input {
+  border: 1px solid #ccc;
+  width: 50px;
+  padding: 6px;
+}
+.pagination-input:focus {
+  outline: 0;
+}
+.pagination-go {
+  background: #337ab7;
+  color: #fff;
+}
+.main {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

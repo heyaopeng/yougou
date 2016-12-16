@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.TermGroupMapper" >
+  <resultMap id="TermGroup" type="com.duobao.fundation.data.mybatis.model.TermGroup" >
+    <id column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="display_type" property="displayType" jdbcType="VARCHAR" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="position" property="position" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    group_id, group_name, tag,display_type, is_active,position
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="TermGroup" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_term_groups
+    where group_id = #{groupId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTags" resultMap="TermGroup" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_term_groups
+    where tag in
+    <foreach collection="array" item="item" index="index" 
+		open="(" separator="," close=")">#{item}
+	</foreach>
+	and is_active=1
+	order by position
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_term_groups
+    where group_id = #{groupId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.TermGroup" >
+    insert into db_term_groups (group_id, group_name, tag, display_type,
+      is_active,position)
+    values (#{groupId,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{displayType,jdbcType=VARCHAR}, 
+      #{isActive,jdbcType=BIT},#{position,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.TermGroup" >
+    insert into db_term_groups
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="displayType != null" >
+        display_type,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="displayType != null" >
+        #{displayType,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.TermGroup" >
+    update db_term_groups
+    <set >
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="displayType != null" >
+        display_type = #{displaTYpe,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=INTEGER},
+      </if>
+    </set>
+    where group_id = #{groupId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.TermGroup" >
+    update db_term_groups
+    set group_name = #{groupName,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      display_type = #{displayType,jdbcType=VARCHAR},
+      is_active = #{isActive,jdbcType=BIT},
+      position = #{isActive,jdbcType=INTEGER}
+    where group_id = #{groupId,jdbcType=INTEGER}
+  </update>
+</mapper>

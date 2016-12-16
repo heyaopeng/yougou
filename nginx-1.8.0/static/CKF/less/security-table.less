@@ -1,0 +1,68 @@
+@import "public.less";
+
+@success-color: #8cc63f;
+@fail-color: #f15a24;
+@security-method-icon-size: 40px;
+
+.security-table {
+	tbody > tr {
+        &:nth-of-type(odd) {
+            background-color: #f9f9ff;
+        }
+		& > th, 
+		& > td {
+			vertical-align: middle;
+			border-top: 0;
+		}
+	}
+	tbody > tr > th:first-child {
+		padding-left: 30px;
+	}
+	tbody > tr > td:last-child {
+		padding-left: 30px;
+		padding-right: 30px;
+		text-align: center;
+	}
+
+    .no-opt {
+        color: #ccc;
+        cursor: not-allowed;
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+
+    .icon-circle {
+        &-evelope-o,
+        &-lock-o,
+        &-mobile-o,
+        &-shield-o,
+        &-calculator-o {
+            font-size: @security-method-icon-size;
+            color: @ck-main;
+        }
+    }
+    .icon {
+    	&-check-bold,
+    	&-failed-bold {
+    		font-size: 25px;
+    	}
+    	&-check-bold {
+    		color: @success-color;
+    	}
+    	&-failed-bold {
+    		color: @fail-color;
+    	}
+    }
+    .btn-verification {
+    	border: 1px solid @ck-main;
+    	border-radius: 5px;
+    	background: #fff;
+        color: @ck-main;
+        outline: none;
+    	&:hover {
+    		background: @ck-main;
+    		color: #fff;
+    	}
+    }
+}

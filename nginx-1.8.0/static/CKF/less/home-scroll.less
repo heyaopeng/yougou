@@ -1,0 +1,65 @@
+@import "public.less";
+// scroll
+.home-scroll {
+    position: fixed;
+    width: 40px;
+    background-color: #fff;
+    right: -40px;
+    top: 30%;
+    transition: all 0.3s ease;
+    
+    &.open {
+        right: 10px;
+    }
+
+    &-items {
+        margin: 0;
+        padding: 0;
+
+        > li {
+            list-style-type: none;
+            display: block;
+            border-width: 1px;
+            border-color: #ddd;
+            border-left-style: solid;
+            border-right-style: solid;
+            border-top-style: solid;
+            &:last-child {
+                border-bottom-style: solid;
+            }
+
+            > a {
+                display: block;
+                width: 40px;
+                height: 40px;
+                font-size: 25px;
+                text-align: center;
+                text-decoration: none;
+                position: relative;
+                color: #bbb;
+
+                &:hover {
+                    color: @ck-main;
+                }
+            }
+        }
+
+        > .active {
+            > a {
+                color: @ck-main;
+            }
+        }
+
+        [class^="icon-"], [class*="icon-"] {
+            display: block;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+}

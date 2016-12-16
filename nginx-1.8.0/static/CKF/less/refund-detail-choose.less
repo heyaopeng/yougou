@@ -1,0 +1,44 @@
+@import "public.less";
+.refund-detail{
+	&-choose{
+		margin: 30px 0;
+		text-align: center;
+		&-box{
+			width: 47%;
+			padding: 30px;
+			text-align: center;
+			border: solid 1px #000;
+			display: inline-block;
+			margin-bottom: 30px;
+			cursor: pointer;
+			a&{
+				text-decoration:none;
+				color: #000;
+			}
+			&+&{
+				margin-left: 30px;
+			}
+
+			[class*="icon-"]{
+				font-size: 60px;
+			}
+		}
+		&-explain{
+			display: block;
+		}
+		.checkbox-custom{
+			font-weight: normal;
+			color: @ck-main;
+		}
+		.alert-dismissible .close {
+			right: 0;
+		}
+		&-label{
+			display: block;
+			.clearfix();
+		}
+	}
+	.popover{
+		color: red;
+	}
+}

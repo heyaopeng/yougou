@@ -1,0 +1,90 @@
+.buyer-bulletin-list {
+    .bulletin-operation {
+        margin-bottom: 10px;
+    }
+    .checkbox-col, .readding-col, .star-col, .date-col, .title-col, .trash-col {
+        vertical-align: middle;
+        text-align: center;
+    }
+    .checkbox-col {
+        width: 10px;
+    }
+    .readding-col {}
+    .star-col {
+        width: 50px;
+    }
+    .trash-col {
+        width: 50px;
+    }
+    .fa-envelope-o {
+        color: #333;
+    }
+    .fa-envelope {
+        color: @cooka;
+    }
+    .delete-icon {
+        cursor: pointer;
+        &:hover {
+            color: @cooka;
+        }
+    }
+}
+
+
+
+
+.buyer-bulletin-detail {
+    .bulletin-sender, .bulletin-title, .bulletin-date, .bulletin-content {
+        padding: 8px 15px;
+        font-size: 18px;
+    }
+    .bulletin-content {
+        margin-top: 20px;
+    }
+    .label-primary {
+        background: @cooka;
+    }
+    .sender-head-logo {
+        width: 12%;
+        float: left;
+        margin-right: 2%;
+    }
+    .content-detail {
+        position: relative;
+        width: 86%;
+        float: left;
+        padding: 10px;
+        border: 1px solid @cooka;
+        border-radius: 4px;
+        min-height: 100px;
+        /*arrow component*/
+        .arrow-contentBox {
+            position: absolute;
+            top: 20px;
+            z-index: 9;
+            left: -30px;
+            border-style: solid;
+            border-width: 15px;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            border-color: transparent #f6891c transparent transparent;
+            _border-color: tomato #f6891c tomato tomato;
+            _filter: chroma(color=tomato);
+        }
+        .arrow-contentBox-white {
+            position: absolute;
+            top: 21px;
+            z-index: 999;
+            left: -27px;
+            border-style: solid;
+            border-width: 14px;
+            height: 0;
+            width: 0;
+            font-size: 0;
+            border-color: transparent #ffffff transparent transparent;
+            _border-color: tomato #ffffff tomato tomato;
+            _filter: chroma(color=tomato);
+        }
+    }
+}

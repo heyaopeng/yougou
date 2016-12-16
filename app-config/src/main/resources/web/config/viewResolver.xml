@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.1.xsd
+">
+
+	<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">  
+	    <property name="resourceLoaderPath" value="/"></property>  
+	    <property name="velocityProperties">    
+	        <props>    
+	            <prop  key="input.encoding">UTF-8</prop>    
+	            <prop  key="output.encoding">UTF-8</prop>      
+	         </props>    
+	     </property>                    
+	  </bean>  
+  
+	<bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+		<property name="cache" value="false" />
+		<property name="layoutUrl" value="/layout/default.vm" />
+		<property name="prefix" value="/templates/" />
+		<property name="suffix" value=".vm" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="viewClass" value="org.springframework.web.servlet.view.velocity.VelocityLayoutView" />
+		<!-- <property name="toolboxConfigLocation" value="classpath:web/config/toolbox.xml" /> <property name="exposeSessionAttributes" value="true" /> -->
+		<property name="attributesMap">
+			<map>
+				<entry key="csrfTool">
+					<bean class="com.duobao.filter.service.CSRFTool" />
+				</entry>
+				<entry key="shiro">
+					<bean class="com.duobao.velocity.Permission" />
+				</entry>
+				<entry key="currency">
+					<bean class="com.duobao.velocity.Currency" />
+				</entry>
+				<entry key="paymentMethod">
+					<bean class="com.duobao.velocity.PaymentMethod" />
+				</entry>
+				<entry key="esc">
+					<bean class="org.apache.velocity.tools.generic.EscapeTool" />
+				</entry>
+				<entry key="math">
+					<bean class="org.apache.velocity.tools.generic.MathTool" />
+				</entry>
+				<entry key="version">
+					<bean class="com.duobao.velocity.Version" />
+				</entry>
+				<entry key="refundVel">
+					<bean class="com.duobao.velocity.RefundStatusVelocity" />
+				</entry>
+				<entry key="returnRefundVel">
+					<bean class="com.duobao.velocity.ReturnRefundStatusVelocity" />
+				</entry>
+				<entry key="orderVel">
+					<bean class="com.duobao.velocity.OrderStatusVelocity" />
+				</entry>
+				<entry key="orderCode">
+					<bean class="com.duobao.velocity.OrderCode" />
+				</entry>
+				<entry key="cookies">
+					<bean class="com.duobao.model.CookieVelocity" />
+				</entry>
+				<entry key="disputeProgress">
+					<bean class="com.duobao.velocity.DisputeProgressVelocity" />
+				</entry>
+				<entry key="returnVel">
+					<bean class="com.duobao.velocity.ReturnStatusVelocity" />
+				</entry>
+				<entry key="dateTool">
+					<bean class="com.duobao.velocity.DateTools" />
+				</entry>
+				<entry key="staticConfig">
+					<bean class="com.duobao.velocity.StaticConfig" />
+				</entry>
+				<entry key="imageUtil">
+                    <bean class="com.duobao.fundation.dfs.fastdfs.FDFSFileUpload"/>
+                </entry>
+			</map>
+		</property>
+	</bean>
+</beans>

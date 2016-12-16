@@ -1,0 +1,139 @@
+@import "public.less";
+
+// Reset 
+ol {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+@normal-line-color: #999;
+@normal-point-color: @normal-line-color;
+@ui-step-text-color: @normal-line-color;
+
+.ui-step {
+	&-flow {
+	    padding: 0 90px;
+	    margin-top: 35px;
+	    margin-bottom: 35px;
+	    position: relative;
+
+	    &:after {
+		    display: block;
+		    content: "";
+		    height: 0;
+		    font-size: 0;
+		    clear: both;
+		    overflow: hidden;
+		    visibility: hidden;
+	    }
+
+	    li {
+		    float: left;
+		    position: relative;
+	    }
+		
+		// 最后步骤
+		.ui-step-end {
+		    width: 1px;
+		    position: absolute;
+		    top: 0;
+		    right: 90px;	// padding: 60px;
+			
+			.ui-step-line {
+			    display: none;
+			}
+		}
+	}
+
+	&-line {
+		height: 2px;
+    	background-color: @normal-line-color;
+    	margin-top: 15px;
+	}
+
+	&-cons {
+		width: 180px;
+	    position: absolute;
+	    left: -15px;
+	    top: 0;
+	    text-align: center;
+
+		// 点：根据需要修改添加数字
+		&-number {
+		    display: inline-block;
+		    *zoom: 1;
+		    position: absolute;
+		    left: 12px;
+		    top: 9px;
+		    width: 14px;
+		    height: 14px;
+		    line-height: 10px;
+		    color: #fff;
+		    background: #fff;
+		    border-radius: 50%;
+		    border-left: 2px solid #fff;
+		    border-right: 2px solid #fff;
+		    border: 2px solid #fff;
+		    font-family: tahoma;
+		    font-weight: bold;
+		    background-color: @normal-point-color;
+		}
+	    
+		// 文字
+		&-text {
+		    position: relative;
+		    top: -20px;
+		    left: -72px;
+		    font-size: 14px;
+		    color: @ui-step-text-color;
+		}
+	}
+}
+
+// 自定义步骤数量
+.ui-step-3 li {
+    width: 50%;
+}
+
+.ui-step-4 li {
+    width: 33.3%;
+}
+
+.ui-step-5 li {
+    width: 25%;
+}
+
+.ui-step-6 li {
+    width: 20%;
+}
+
+// 根据需要用到的 done 样式
+.ui-step-done {
+	.ui-step-cons-number {
+	    background-color: @ck-main;
+	}
+
+	.ui-step-cons-text {
+	    color: @ck-main;
+	}
+
+	.ui-step-line {
+	    background-color: @ck-main;
+	}
+}
+
+
+// 当前所处 active
+.ui-step-active {
+	.ui-step-cons-number {
+	    background-color: @ck-main;
+	}
+	.ui-step-cons-text {
+	    color: @ck-main-light;
+	}
+	.ui-step-line {
+	    background-color: @normal-line-color;
+	}
+}
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>Delivery Order</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+    <link rel="stylesheet" type="text/css" href="./CKF/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+    <!--[if lt IE 9]>
+        <script src="./js/libs/html5shiv.min.js"></script>
+        <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 trim-left">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+                        店铺管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="store-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我要开店</a></li>
+                            <li><a href="#">店铺装修</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+                        产品管理
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="product-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">我的产品</a></li>
+                            <li><a href="#">产品上架</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="admin-main">
+                <div class="admin-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a href="#">货物配送</a></li>
+                        <li class="active">配送异常</li>
+                    </ol>
+                </div>
+                <div class="delivery-exception-module">
+                    <form class="form-horizontal" id="delivery-excepetion-form">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">异常情况：</label>
+                            <div class="col-md-7">
+                                <label class="radio-inline">
+                                    <input type="radio" class="f-excepetion" name="excepetion" value="1"> 联系收货人失败
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" class="f-excepetion" name="excepetion" value="2"> 客户拒收
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" class="f-excepetion" name="excepetion" value="3"> 货物遗失
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" class="f-excepetion" name="excepetion" value="4"> 货物损毁
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" class="f-excepetion" name="excepetion" value="5"> 其他
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">其他原因：</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control f-otherEx" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">备注：</label>
+                            <div class="col-md-6">
+                                <textarea type="text" class="form-control f-note" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary center-block">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+<script src="./js/libs/FV/formValidation.min.js"></script>
+<script src="./js/libs/FV/bootstrap.min.js"></script>
+<script src="./js/libs/FV/i18n.min.js"></script>
+<script src="./js/getUrlArg.js"></script>
+<script src="./js/ck_lang.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        var lang = $.getUrlArg('language');
+
+        $('#delivery-excepetion-form')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'f-excepetion': {
+                    selector: '#delivery-excepetion-form .f-excepetion',
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select a excepetion'
+                        }
+                    }
+                },
+                'f-otherEx': {
+                    selector: '#delivery-excepetion-form .f-otherEx',
+                    validators: {
+                        stringLength: {
+                            max: 100,
+                            message: 'The excepetion must be less than %s characters long'
+                        },
+                        callback: {
+                            message: 'Please specific the excepetion',
+                            callback: function(value, validator, $field) {
+                                var exception = $('#delivery-excepetion-form').find('.f-excepetion:checked').val();
+                                return (exception !== '5') ? true : (value !== '');
+                            }
+                        }
+                    }
+                },
+                'f-note': {
+                    selector: '#delivery-excepetion-form .f-note',
+                    validators: {
+                        stringLength: {
+                            max: 700,
+                            message: 'The note must be less than %s characters long'
+                        }
+                    }
+                }
+            }
+        })
+        .on('change', '.f-excepetion', function(e) {
+            $('#delivery-excepetion-form').formValidation('revalidateField', 'f-otherEx');
+        })
+        .on('success.field.fv', function(e, data) {
+            if (data.field === 'f-otherEx') {
+                var excepetion = $('#surveyForm').find('.f-excepetion:checked').val();
+                if (excepetion !== '5') {
+                    // Remove the success class from the container
+                    data.element.closest('.form-group').removeClass('has-success');
+
+                    // Hide the tick icon
+                    data.element.data('fv.icon').hide();
+                }
+            }
+        });
+
+
+        $('#delivery-excepetion-form').formValidation('setLocale',lang);
+
+        //---------------------------------------------------------------------------------------------
+    });
+</script>
+</body>
+</html>

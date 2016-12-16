@@ -1,0 +1,144 @@
+@import "public.less";
+
+.treasure-rec {
+	.clearfix();
+	padding-top: 45px;
+	&-tab {
+		.clearfix();
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+
+		&-item {
+			display: block;
+			float: left;
+			width: 100/3%;
+			text-align: center;
+			cursor: pointer;
+			padding: 10px;
+			position: relative;
+
+			&.active {
+				color:red;
+				border-bottom: 1px solid red;
+			}
+
+			& + & {
+				&:before {
+					content: "";
+					position: absolute;
+					top: 5px;
+					bottom: 5px;
+					left: 0;
+					width: 1px;
+					background-color: #ddd;
+				}
+			}
+		}
+
+	}
+
+	&-item {
+		.clearfix();
+		background-color: white;
+		margin-bottom: 5px;
+		border-bottom: 1px solid #ddd;
+		&-thumb {
+			padding: 5px;
+			display: block;
+			float: left;
+		}
+		&-time{
+			.clearfix();
+		}
+		&-info {
+			.red{
+				color: red;
+			}
+			color: grey;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			> span  + span {
+				margin-left: 10px;
+			}
+
+			> span + a {
+				margin-left: 10px;
+			}
+		}
+		&-content {
+			overflow: hidden;
+			padding: 5px 15px 5px 15px;
+		}
+		&-title {
+			color: black;
+			padding-bottom: 5px;
+			padding-top: 5px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		&-countdown-text{
+			color:grey;
+		}
+
+		&-proc {
+			background-color: #ddd;
+			border-radius: 5px;
+			margin-top: 5px;
+			&-fill {
+				border-radius: 5px;
+				height: 5px;
+				background-color: orange;
+			}
+		}
+		&-rest{
+			color: grey;
+			padding-right: 10px;
+		}
+		&-btns {
+			text-align: center;
+			.btn {
+				width: 45%;
+				margin-top: 3px;
+				border-radius : 15px;
+				padding: 3px 20px;
+				margin-left: 5px;
+				color : red;
+				background-color: white;
+			}
+			.btn-primary{
+				border-color: red;
+			}
+		}
+
+		&-win {
+			width: 100%;
+			border-top: 1px solid #ddd;
+			&-cell {
+				font-size: 12px;
+				float: left;
+				width: 100/3%;
+				padding: 5px 0;
+				&-left{
+					padding-left: 10px;
+					text-align: left;
+				}
+				&-right{
+					padding-right: 10px;
+					text-align: right;
+				}
+				&-center{
+					&-text{
+						color: red;
+					}
+					text-align: center;
+				}
+			}
+		}
+	}
+}

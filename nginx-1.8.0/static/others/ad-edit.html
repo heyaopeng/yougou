@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="./images/favicon.ico">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+		<title>广告编辑</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-datepicker3.standalone.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+		<!--[if lt IE 9]>
+			<script src="./js/libs/html5shiv.min.js"></script>
+			<script src="./js/libs/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 trim-col">
+					<div class="admin-header">
+						<img src="./images/ck_logo.png" alt="cooka logo" class="admin-logo" width="180" height="50">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 trim-left">
+					<div class="admin-sidebar" id="admin-side-menu">
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#store-menu">
+								店铺管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="store-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我要开店</a></li>
+									<li><a href="#">店铺装修</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel sidebar-section">
+							<a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#product-menu">
+								产品管理
+								<span class="pull-right glyphicon glyphicon-menu-right"></span>
+								<span class="pull-right glyphicon glyphicon-menu-down"></span>
+							</a>
+							<div id="product-menu" class="panel-collapse collapse">
+								<ul class="subside-menu">
+									<li><a href="#">我的产品</a></li>
+									<li><a href="#">产品上架</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="admin-main">
+						<div class="admin-breadcrumb">
+							<ol class="breadcrumb">
+								<li><a href="#">广告管理</a></li>
+								<li class="active">广告编辑</li>
+							</ol>
+						</div>
+
+						<form class="form-horizontal ad-edit-form">
+							<div class="form-group">
+	                            <label class="col-md-2 control-label">广告名称 : </label>
+	                            <div class="col-md-3">
+	                            	<input type="text" class="form-control f-name"/>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">广告位 : </label>
+	                            <div class="col-md-3">	                            	
+									<select class="form-control f-ad-area">
+										<option value="">---Select---</option>
+										<option value="21">121</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">广告组 : </label>
+	                            <div class="col-md-3">	                            	
+									<select class="form-control f-ad-group">
+										<option value="">---Select---</option>
+									</select>
+	                            </div>
+	                        </div> 	                        
+							<div class="form-group">
+	                            <label class="col-md-2 control-label">广告链接 : </label>
+	                            <div class="col-md-3">
+	                            	<input type="text" class="form-control f-url"/>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">排位 : </label>
+	                            <div class="col-md-3">	                            	
+									<select class="form-control f-position">
+										<option value="">---Select---</option>
+										<option value="1">---Select---</option>
+									</select>
+	                            </div>
+	                        </div> 
+	                        <div class="form-group has-float">
+								<label class="col-md-2 control-label">展示时间：</label>
+								<div class="col-md-7">		
+									<div class="input-daterange input-group" id="deal-range">
+										<input type="text" class="form-control js-start" name="start" required/>
+										<span class="input-group-addon">到</span>
+										<input type="text" class="form-control js-end" name="end" required/>
+									</div>
+								</div>
+								<div class="col-md-3 text-danger hidden js-conf">日期与其他广告冲突</div>
+							</div>
+	                        <table class="table table-bordered append-table hidden">
+	                        	<thead>
+	                        		<tr>
+	                        			<th class="text-center" width="15%">排序</th>
+	                        			<th class="text-center" width="30%">名字</th>
+	                        			<th class="text-center" width="20%">开始时间</th>
+	                        			<th class="text-center" width="20%">结束时间</th>
+	                        			<th class="text-center" width="15%">状态</th>
+	                        		</tr>
+	                        	</thead>
+
+	                        	<tbody>
+	                        	</tbody>
+	                        </table>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">广告类型：</label>
+	                        	<div class="col-md-10"> 
+                                	<label class="radio-inline">
+                                		<input class="js-type is-image" type="radio" name="type" checked value='1'>image
+                                	</label>	                                		
+                                	<label class="radio-inline">
+                                		<input class="js-type is-text" type="radio" name="type" value="2">text
+                                	</label>			                                		
+                                	<label class="radio-inline">
+                                		<input class="js-type is-flash" type="radio" name="type" value="3">flash
+                                	</label>
+	                            </div>
+	                        </div> 	                        
+							<div class="form-group">
+	                            <label class="col-md-2 control-label">广告内容 : </label>
+	                            <div class="col-md-10">
+	                            	<input type="file" class="form-control f-image js-contain" />
+	                            	<textarea class="form-control hidden f-text js-contain" rows="3"></textarea>
+	                            	<input type="file" class="form-control f-flash hidden js-contain" />
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">跳转方式 : </label>
+	                            <div class="col-md-3">	                            	
+									<select class="form-control f-position">
+										<option value="1">本页跳转</option>
+										<option value="2">新页跳转</option>
+									</select>
+	                            </div>
+	                        </div> 
+	                        <div class="form-group">
+	                            <label class="col-md-2 control-label">描述 : </label>
+	                            <div class="col-md-7">	                            	
+									<textarea class="form-control" rows="3"></textarea>
+	                            </div>
+	                        </div> 
+
+							<div class="text-center">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="./js/libs/jquery-1.11.2.min.js"></script>
+		<script src="./js/libs/bootstrap.min.js"></script>
+		<script src="./js/libs/FV/formValidation.min.js"></script>	
+		<script src="./js/libs/FV/bootstrap.min.js"></script>
+		<script src="./js/libs/FV/i18n.min.js"></script>		
+		<script src="./js/libs/bootstrap-datepicker.min.js"></script>
+		<script src="./js/libs/datepicker_locales/bootstrap-datepicker.zh-CN.min.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				function timeStamp2String(time){  
+				    var datetime = new Date();  
+				    datetime.setTime(time);  
+				    var year = datetime.getFullYear();  
+				    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;  
+				    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate(); 
+				    return year + "-" + month + "-" + date;  
+				}  
+				var data = {
+				    "adAmount": 4,
+				    "adGroups": [
+				        {
+				            "adAmount": 4,
+				            "description": "详情页（默认）",
+				            "groupId": 20,
+				            "isDefault": true,
+				            "name": "详情页默认组",
+				            "positionId": 21,
+				            "positionName": "详情页"
+				        },
+				        {
+				            "adAmount": 4,
+				            "description": "哈哈哈",
+				            "groupId": 22,
+				            "isDefault": false,
+				            "name": "详情页2号",
+				            "positionId": 21,
+				            "positionName": "详情页"
+				        }
+				    ]
+				};
+				var data1 =  [
+				        {
+					        "adName": "详情页广告1",
+					        // "endTime": 1444147200000,
+					        "isActive": false,
+					        "isDefault": true,
+					        "position": 2,
+					        // "startTime": 1443628800000
+					    },
+				        {
+					        "adName": "详情页广告",
+					        "endTime": 1444147200000,
+					        "isActive": false,
+					        "isDefault": false,
+					        "position": 1,
+					        "startTime": 1443628800000
+					    }
+				    ];
+
+				$('#deal-range').datepicker({
+					format: "yyyy/mm/dd",
+					orientation: "top right",
+					language: 'zh-CN'
+				}).on('changeDate change', function(e) {
+		            $('.ad-edit-form').formValidation('revalidateField', 'endDate');
+		            $('.ad-edit-form').formValidation('revalidateField', 'startDate');		          	
+                    // if($('.f-position').find('option:selected').val()!=='' && $('.f-ad-group').find('option:selected').val()!==''){	
+	                    var value ='groupId='+$('.f-ad-group').find('option:selected').val()+
+	                    '&positionId = '+ $('.f-position').find('option:selected').val()+'&'+$('.js-end').attr('name')+'='+
+	                    $('.js-start').val()+'&'+$('.js-start').attr('name')+'='+$('.js-end').val();
+	                    console.log(value);
+	                    $.ajax({
+	                        type: "post",
+	                        url: 'isCorrectedTime',
+	                        data: value,
+	                        async: true,
+	                        success: function(data) {
+	                    		if(data){  	 	
+	                    			$('.js-conf').addClass('hidden');
+			                        $('.ad-edit-form').data('formValidation').disableSubmitButtons(true);
+			                    }
+			                    else{
+	                    			$('.js-conf').removeClass('hidden');
+			                    	$('.ad-edit-form').data('formValidation').disableSubmitButtons(false);
+			                    }
+	                        },
+	                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+	                            console.log("gg");
+	                        },
+	                    });
+                    // }
+		        });
+				$('.f-ad-area').on('change',function() {
+                    var $this = $(this);
+                    var value ='positionId = '+ $this.find('option:selected').val();
+                    var html = '';
+                    var position = '';
+                    $('.f-ad-group').empty();
+                    $.ajax({
+                        type: "post",
+                        url: 'selectAdGroup',
+                        data: value,
+                        async: true,
+                        success: function(data) {                            
+		                    if(data){ 
+		                        $.each(data.adGroups, function(index, elem) {
+		                            html += '<option value="' + elem.groupId + '">' + elem.name + '</option>\n';
+		                        });
+		                        for(var i = 1;i<=data.adAmount;i++){
+									position += '<option value="' + i + '">' + i + '</option>\n';
+		                        }
+		                        $('.f-ad-group').length = 1;
+		                        $('.f-ad-group').append(html);
+		                        $('.f-position').append(position);
+		                    }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            console.log("gg");
+                        },
+                    });
+                    // $form.data('formValidation').revalidateField($(this));
+                });
+				$('.f-position').on('change',function() {
+                    var $this = $(this);
+                    if($this.find('option:selected').val()!=='' && $('.f-ad-group').find('option:selected').val()!==''){	
+	                    var value ='groupId='+$('.f-ad-group').find('option:selected').val()+
+	                    '&positionId = '+ $this.find('option:selected').val();
+	                    var html = '';
+	                    var position = '';
+	                    $('.append-table tbody').empty();
+	                    $.ajax({
+	                        type: "post",
+	                        url: 'selectAdsByPosition',
+	                        data: value,
+	                        async: true,
+	                        success: function(data) {
+	                    		if(data){  	 	
+			                        $.each(data, function(index, elem) {
+			                        	if(!elem.isDefault){	                        		
+				                            html += '<tr><td>'+elem.position+'</td><td>' + elem.adName +
+				                            '</td><td>'+timeStamp2String(elem.startTime)+'</td><td>'+timeStamp2String(elem.endTime)+
+				                            '</td><td>'+elem.isActive+ '</td></tr>\n';
+			                        	}
+			                        	else{	                        		
+				                            html += '<tr><td>'+elem.position+'</td><td>' + elem.adName +
+				                            '</td><td>-</td><td>-</td><td>'+
+				                            elem.isActive+ '</td></tr>\n';	                        		
+			                        	}
+			                        });
+			                        $('.append-table tbody').length = 0;
+			                        $('.append-table').removeClass('hidden');
+			                        $('.append-table tbody').append(html);
+			                    }
+			                    else{
+			                    	$('.append-table').addClass('hidden');
+			                    }
+	                        },
+	                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+	                            console.log("gg");
+	                        },
+	                    });
+                    }
+                    // $form.data('formValidation').revalidateField($(this));
+                });
+				$('.js-type').on('change',function(){
+					var $this=$(this);
+					$('.ad-edit-form').data('formValidation').resetField('f-text',true);
+					$('.ad-edit-form').data('formValidation').resetField('f-flash',true);
+					$('.ad-edit-form').data('formValidation').resetField('f-image',true);
+					$('.js-contain').addClass('hidden');					
+					if($this.hasClass('is-text')){
+						$('.f-text').removeClass('hidden');
+					}
+					if($this.hasClass('is-flash')){
+						$('.f-flash').removeClass('hidden');
+					}
+					if($this.hasClass('is-image')){
+						$('.f-image').removeClass('hidden');
+					}
+				});
+				$('.ad-edit-form').formValidation({
+					framework: 'bootstrap',
+					addOns: {
+						i18n: {}
+					},
+					fields: {
+						'f-name': {
+							selector: '.f-name',
+							validators: {
+								notEmpty: {
+									message: {
+										en_US: 'The name is required',
+										zh_CN: '请填写名称'
+									}
+								},
+								stringLength: {
+									max: 30,
+									message: {
+										en_US: 'The name must be less than 30 characters',
+										zh_CN: '名称过长'
+									}
+								}
+							}							
+						},
+						'f-position': {
+							selector: '.f-position',
+							validators: {
+								notEmpty: {
+									message: {
+										en_US: 'required',
+										zh_CN: '请选择排位'
+									}
+								}
+							}							
+						},
+						'f-url': {
+							selector: '.f-url',
+			                validators: {
+								notEmpty: {
+									message: {
+										en_US: 'required',
+										zh_CN: '请选择排位'
+									}
+								},
+			                    uri: {
+			                        message: {
+			                        	en_US:'The website address is not valid',
+			                        	zh_CN: '请输入链接地址'
+			                        }
+			                    }
+			                }
+			            },
+						'f-date': {
+							selector: '.f-date',
+			                validators: {
+			                    notEmpty: {
+			                        message: {
+			                        	en_US:'The contains is require',
+			                        	zh_CN: '请选择日期'
+			                        }
+			                    }
+			                }
+			            },
+						'f-image': {
+							selector: '.f-image',
+			                validators: {
+			                    notEmpty: {
+			                        message: {
+			                        	en_US:'The contains is require',
+			                        	zh_CN: '请添加内容'
+			                        }
+			                    },
+			                    file: {
+			                        extension:'jpeg,jpg,png,gif,bmp',
+			                        type: 'image/jpeg,image/png,image/gif,image/x-ms-bmp', 
+			                        maxSize: 2097152,   // 2048 * 1024
+			                        message: 'The selected file is not image'
+			                    }
+			                }
+			            },
+						'f-flash': {
+							selector: '.f-flash',
+			                validators: {
+			                    notEmpty: {
+			                        message: {
+			                        	en_US:'The contains is require',
+			                        	zh_CN: '请添加内容'
+			                        }
+			                    },
+			                    file: {
+			                    	extension:'swf',
+			                        type: 'application/x-shockwave-flash',
+			                        maxSize: 209715200000000,   // 2048 * 1024
+			                        message: 'The selected file is not flash'
+			                    }
+			                }
+			            },
+						'f-text': {
+							selector: '.f-text',
+			                validators: {
+			                    notEmpty: {
+			                        message: {
+			                        	en_US:'The contains is require',
+			                        	zh_CN: '请添加内容'
+			                        }
+			                    }
+			                }
+			            },
+						'f-ad-area': {
+							selector: '.f-ad-area',
+			                validators: {
+			                    notEmpty: {
+			                        message: {
+			                        	en_US:'The contains is require',
+			                        	zh_CN: '请选择'
+			                        }
+			                    }
+			                }
+			            },
+						'f-ad-group': {
+							selector: '.f-ad-group',
+			                validators: {
+			                    notEmpty: {
+			                        message: {
+			                        	en_US:'The contains is require',
+			                        	zh_CN: '请选择'
+			                        }
+			                    }
+			                }
+			            },
+		                'startDate': {
+							selector: '.js-start',
+		                    validators: {
+		                        notEmpty: {
+		                            message: 'The start date is required'
+		                        },
+		                        date: {
+		                            format: 'YYYY/MM/DD',
+		                            max: 'endDate',
+		                            message: 'The start date is not a valid'
+		                        }
+		                    }
+		                },
+		                'endDate': {
+							selector: '.js-end',
+		                    validators: {
+		                        notEmpty: {
+		                            message: 'The end date is required'
+		                        },
+		                        date: {
+		                            format: 'YYYY/MM/DD',
+		                            min: 'startDate',
+		                            message: 'The end date is not a valid'
+		                        }
+		                    }
+		                }
+					}
+				}).on('err.validator.fv', function(e, data) {
+					data.element.data('fv.messages').find(
+						'.help-block[data-fv-for="' + data.field + '"]').hide().filter(
+						'[data-fv-validator="' + data.validator + '"]').show();
+				});
+					// $elem.formValidation('setLocale', lang);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" href="$staticConfig.getPath()/images/favicon.ico">
+<link rel="apple-touch-icon" href="$staticConfig.getPath()/images/apple-touch-icon.png">
+<title>#springMessage("buyer_personal_information")</title>
+<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/frontend.css">		
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/font-awesome.min.css">
+<!--[if lt IE 9]>
+	<script src="$staticConfig.getPath()/js/libs/html5shiv.min.js"></script>
+	<script src="$staticConfig.getPath()/js/libs/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	#parse("top.vm")
+	<div class="container">
+		#parse("header.vm")
+		<div class="row">
+			<div class="col-md-12 trim-col">
+				#set($navigator=2)
+				#parse("userCenter_navigate.vm")
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 trim-col">
+				#parse("userCenter_sidebar.vm")
+			</div>
+			<div class="col-md-10">
+				$screen_content
+			</div>
+		</div>
+		 #parse("footer.vm")
+	</div>
+	<script src="$staticConfig.getPath()/js/ckLoadScript.js"></script>
+	<script type="text/javascript">
+	    ckLoadScript('userProfile');
+	</script>
+
+</body>
+
+</html>

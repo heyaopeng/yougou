@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.WithdrawMapper" >
+  <resultMap id="Withdraw" type="com.duobao.fundation.data.mybatis.model.Withdraw" >
+    <id column="withdraw_id" property="withdrawId" jdbcType="INTEGER" />
+    <result column="withdraw_serialNum" property="withdrawSerialnum" jdbcType="VARCHAR" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="account_type" property="accountType" jdbcType="TINYINT" />
+    <result column="account_num" property="accountNum" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="bank" property="bank" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="handling_charge" property="handlingCharge" jdbcType="DECIMAL" />
+    <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="deal_time" property="dealTime" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="remittance_num" property="remittanceNum" jdbcType="VARCHAR" />
+    <result column="evidence_url" property="evidenceUrl" jdbcType="VARCHAR" />
+    <result column="reject_reason" property="rejectReason" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    withdraw_id, withdraw_serialNum, account_id, account_type, account_num,name,bank, money, handling_charge, 
+    apply_time, deal_time, operator, remittance_num, evidence_url, reject_reason, status,type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Withdraw" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_withdraw
+    where withdraw_id = #{withdrawId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByWithdraw" resultMap="Withdraw">
+    select 
+    <include refid="Base_Column_List" />
+    from db_withdraw
+     <where>
+    	 <if test="accountId != null" >
+    	  and account_id = #{accountId,jdbcType=INTEGER}
+	      </if>
+    	 <if test="status != null" >
+	      and  status = #{status,jdbcType=TINYINT}
+	      </if>
+	      <if test="type != null" >
+	      and  type = #{type,jdbcType=TINYINT}
+	      </if>
+    </where>
+  </select>
+  <select id="selectLatestBankWithdraw" resultMap="Withdraw" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_withdraw
+    where bank != '' order by withdraw_id desc limit 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_withdraw
+    where withdraw_id = #{withdrawId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Withdraw" >
+    insert into db_withdraw (withdraw_id, withdraw_serialNum, account_id, 
+      account_type, account_num,name,bank money, 
+      handling_charge, apply_time, deal_time, 
+      operator, remittance_num, evidence_url, 
+      reject_reason, status,type)
+    values (#{withdrawId,jdbcType=INTEGER}, #{withdrawSerialnum,jdbcType=VARCHAR}, #{accountId,jdbcType=INTEGER}, 
+      #{accountType,jdbcType=TINYINT}, #{accountNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, 
+      #{handlingCharge,jdbcType=DECIMAL}, #{applyTime,jdbcType=TIMESTAMP}, #{dealTime,jdbcType=TIMESTAMP}, 
+      #{operator,jdbcType=VARCHAR}, #{remittanceNum,jdbcType=VARCHAR}, #{evidenceUrl,jdbcType=VARCHAR}, 
+      #{rejectReason,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{type,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Withdraw" >
+    insert into db_withdraw
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="withdrawId != null" >
+        withdraw_id,
+      </if>
+      <if test="withdrawSerialnum != null" >
+        withdraw_serialNum,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="accountType != null" >
+        account_type,
+      </if>
+      <if test="accountNum != null" >
+        account_num,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="bank != null" >
+        bank,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="handlingCharge != null" >
+        handling_charge,
+      </if>
+      <if test="applyTime != null" >
+        apply_time,
+      </if>
+      <if test="dealTime != null" >
+        deal_time,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="remittanceNum != null" >
+        remittance_num,
+      </if>
+      <if test="evidenceUrl != null" >
+        evidence_url,
+      </if>
+      <if test="rejectReason != null" >
+        reject_reason,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="withdrawId != null" >
+        #{withdrawId,jdbcType=INTEGER},
+      </if>
+      <if test="withdrawSerialnum != null" >
+        #{withdrawSerialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=TINYINT},
+      </if>
+      <if test="accountNum != null" >
+        #{accountNum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null" >
+        #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="handlingCharge != null" >
+        #{handlingCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealTime != null" >
+        #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="remittanceNum != null" >
+        #{remittanceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="evidenceUrl != null" >
+        #{evidenceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectReason != null" >
+        #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Withdraw" >
+    update db_withdraw
+    <set >
+      <if test="withdrawSerialnum != null" >
+        withdraw_serialNum = #{withdrawSerialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="accountType != null" >
+        account_type = #{accountType,jdbcType=TINYINT},
+      </if>
+      <if test="accountNum != null" >
+        account_num = #{accountNum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null" >
+        bank = #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="handlingCharge != null" >
+        handling_charge = #{handlingCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTime != null" >
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealTime != null" >
+        deal_time = #{dealTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="remittanceNum != null" >
+        remittance_num = #{remittanceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="evidenceUrl != null" >
+        evidence_url = #{evidenceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectReason != null" >
+        reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+    </set>
+    where withdraw_id = #{withdrawId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Withdraw" >
+    update db_withdraw
+    set withdraw_serialNum = #{withdrawSerialnum,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=INTEGER},
+      account_type = #{accountType,jdbcType=TINYINT},
+      account_num = #{accountNum,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      bank = #{bank,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL},
+      handling_charge = #{handlingCharge,jdbcType=DECIMAL},
+      apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      deal_time = #{dealTime,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      remittance_num = #{remittanceNum,jdbcType=VARCHAR},
+      evidence_url = #{evidenceUrl,jdbcType=VARCHAR},
+      reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      type = #{type,jdbcType=TINYINT}
+    where withdraw_id = #{withdrawId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,32 @@
+@import "public.less";
+
+.m-bas-confirm {
+	&-table {
+		margin-bottom: 0;
+
+		> thead > tr > th {
+			text-align: center;
+		}
+
+		> tbody > tr > td {
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+
+	&-link {
+		color: #333;
+		display: block;
+
+		&:active {
+			background-color: #FCF8F5;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #333;	
+			text-decoration: none;	
+		}
+	}
+}

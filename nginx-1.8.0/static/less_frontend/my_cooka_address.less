@@ -1,0 +1,54 @@
+.address-mgr {
+	margin-top: 15px;
+
+	&-item {
+		padding: 10px;
+		border: 1px solid #ccc;
+		position: relative;
+		margin-bottom: 15px;
+	}
+
+	&-info {
+		margin-bottom: 5px;
+	}
+
+	&-option {
+		position: absolute;
+		right: 5px;
+		bottom: 5px;
+	}
+
+	&-delete {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+
+	&-default {
+		display: none;
+		background-color: @cooka_sub;
+		padding: 5px;
+		color: #fff;
+		position: absolute;
+		top: -1px;
+		left: -1px;
+	}
+
+	&-new {
+		margin-bottom: 10px;
+	}
+
+	.is-default {
+		.address-mgr-default {
+			display: inline-block;
+		}
+		
+		.address-mgr-set-default {
+			display: none;
+		}
+
+		.address-mgr-delete {
+			display: none;
+		}
+	}
+}

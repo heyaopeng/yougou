@@ -1,0 +1,256 @@
+#set($layout = "/layout/withdrawList_layout.vm")
+<div class="admin-main">
+	<div class="admin-breadcrumb">
+		<ol class="breadcrumb">
+			<!-- <li>
+				<a href="#">#springMessage("withdrawals")</a>
+			</li> -->
+			<li class="active">#springMessage("withdrawals_audit")</li>
+		</ol>
+	</div>
+</div>
+<div class="record-search-box">
+	<form action="/duobao-backend-web/withdrawList" method="get" id="with-list-form">
+	<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+		<div class="form-horizontal">
+			<!-- <div class="form-group">
+				<div class="pull-right">
+					<div class="input-daterange input-group" id="with-list-range">
+						<input type="text" class="form-control f-time" name="timeStart" />
+						<span class="input-group-addon">#springMessage("to")</span>
+						<input type="text" class="form-control f-time" name="timeEnd" />
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="form-group">
+				<label class="col-md-2 contorl-label">开始时间：</label>
+				<div class="col-md-5">
+					<div id="timeStartInput" class="input-append date input-group">
+					  <input id="timeStartValue" data-format="yyyy/MM/dd hh:mm:ss" type="text" class="form-control add-on" name="timeStart"/>
+					  <span class="input-group-addon add-on"><i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 contorl-label">结束时间：</label>
+				<div class="col-md-5">
+					<div id="timeEndInput" class="input-append date input-group">
+					  <input id="timeEndValue" data-format="yyyy/MM/dd hh:mm:ss" type="text" class="form-control add-on" name="timeEnd"/>
+					  <span class="input-group-addon add-on"><i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-2 contorl-label">时间段：</label>
+				<div class="col-md-5">
+					<select class="form-control" id="month-select">
+						<option value="1" #if($preMonth == 1 || !$preMonth)selected#end>#springMessage("lastest_month")</option>
+						<option value="2" #if($preMonth == 2)selected#end>#springMessage("two_months_ago")</option>
+						<option value="3" #if($preMonth == 3)selected#end>#springMessage("three_months_ago")</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-3 col-md-offset-2">
+					<button type="submit" class="btn btn-warning">#springMessage("search")</button>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-3 col-md-offset-2">
+					<a id="excelUrl" href="/duobao-backend-web/withdrawToExcel"><button type="button" class="btn btn-warning">导出报表</button></a>
+				</div>
+			</div>
+			
+				
+		</div>
+	</form>
+</div>
+<div class="withdralws-audit withdrawls-common">
+			<form>
+			<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+				<table class="table table-hover">
+					<thead class="reco-decoration">
+						<tr>
+							<th wdith="10%">
+								<div class="time-box $!class">
+									<a href="#">
+										#springMessage("time")
+										<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+										<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+									</a>
+								</div>
+							</th>
+							<th width="10%">#springMessage("withdraw_money")</th>
+							<th width="8%">#springMessage("handling_charge")</th>
+							<th width="8%">#springMessage("the_actual_money_to_account")</th>
+							<th width="8%">提现前账户余额</th>
+							<th width="10%">市场--档口</th>
+							<th width="8%">手机号</th>
+							<th width="8%">#springMessage("status")</th>
+							#if($shiro.hasPermission("system:withDraw:check"))
+							<th width="10%">操作</th>
+							#end
+							<th width="10%">查看详情</th>
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($item in $withdraws.list)
+							<tr>
+								<td>$date.format('yyyy-MM-dd HH:mm:ss',$item.applyTime)</td>
+								<td><span class="price-color">$!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($!item.money)</span></td>
+								<td>$!currency.getPricecurrencysymbol() $!item.handlingCharge</td>
+								<td><span class="price-color">$!currency.getPricecurrencysymbol()   $!cookies.getFixLengthByLang($!item.realWithdrawMoney) </span></td>
+								<td><span class="price-color">$!currency.getPricecurrencysymbol()   $!cookies.getFixLengthByLang($!item.preBalance) </span></td>
+								<td><span class=""> $!item.stall </span></td>
+								<td><span class=""> $!item.phone </span></td>
+								<td>
+								#if($item.status == 1)
+									<span>处理中</span>
+								#elseif($item.status == 2)
+									<span>已处理</span>
+								#elseif($item.status == 3)
+									<span>拒绝</span>
+								#end
+								</td>
+								
+								 #if($shiro.hasPermission("system:withDraw:check"))
+								<td>
+									<div class="btn-group status-action">
+										#if($item.status==1)
+										<button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											
+												<span>选择操作</span>
+											
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="" data-toggle="modal" data-target="#withdraw-modal" class="approve-link" data-value="$item.withdrawSerialnum">通过</a>
+											</li>
+											<li>
+												<a href="" class="disapprove-link" data-toggle="modal" data-target="#withdraw-disapprove-modal" data-value="$item.withdrawSerialnum">不通过</a>
+											</li>
+										</ul>
+										#elseif($item.status==3)
+										<a href="" class="view-reason-link" data-toggle="modal" data-target="#view-reason-modal" data-value="$item.withdrawSerialnum">#springMessage("view_reject_reason")</a>
+										#elseif($item.status==2)
+										<!-- a href="" class="view-evidence-link" data-toggle="modal" data-target="#view-evidence-modal" data-value="$item.withdrawSerialnum">#springMessage("view_remit_evidence")</a -->
+										#end
+									</div>
+								</td>
+								#end
+								<td><a href="/duobao-backend-web/withdrawDetail?withdrawSerialnum=$item.withdrawSerialnum">查看详情</a></td>
+							</tr>
+						#end
+					</tbody>
+				</table>
+				<div class="text-right">
+			$!pageDiv
+			</div>
+			</form>
+</div>
+	
+<div class="modal fade" id="withdraw-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="/duobao-backend-web/withdrawApprove" method="post">
+			<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">确认通过？</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<input type="hidden" class="withdrawSerialNum" name="withdrawSerialnum" />
+							<input type="hidden" class="page" name="page" value="$!page"/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="submit" class="btn btn-primary">提交</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="withdraw-disapprove-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="/duobao-backend-web/withdrawDisApprove" method="post" id="withdraw-disapprove-form">
+			<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">不通过</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-md-4">不通过原因:</label>
+							<div class="col-md-7">
+								<textarea name="reason" rows="5" class="form-control f-disapprove"></textarea>
+							</div>
+							<input type="hidden" class="withdrawSerialNum" name="withdrawSerialnum" />
+							<input type="hidden" class="page" name="page" value="$!page"/>
+						</div>
+						<div class="form-group">
+							<div class="col-md-7 col-md-offset-4">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="view-reason-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">#springMessage("reason")</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-md-4">#springMessage("reason"):</label>
+							<div class="col-md-7">
+								<textarea name="reason" value="" rows="5" class="form-control f-disapprove reason-text" disabled></textarea>
+							</div>
+							<input type="hidden" class="withdrawSerialNum" name="withdrawSerialnum" />
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="view-evidence-modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">凭证</h4>
+				</div>
+				<div class="modal-body">
+					<img class="evidence-image" src="" width="100%">
+				</div>
+			
+		</div>
+	</div>
+</div>

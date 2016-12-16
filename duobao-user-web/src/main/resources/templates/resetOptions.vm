@@ -1,0 +1,31 @@
+#set($layout = "/layout/forgetpaswd_layout.vm")
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="reset-pw" data-j="resetPw">
+				<div class="reset-pw-inner">
+					<div class="reset-pw-header">#springMessage("reset_password")</div>
+					<div class="reset-pw-body">
+						<h4 class="text-center">Choose the way you want to reset your password.</h4>
+						<div class="reset-pw-options">
+							<div class="row">
+								<div class="col-md-5">
+									<a href="/cooka-user-web/resetEmailPswd" class="reset-pw-options-item">
+										<img src="$staticConfig.getPath()/images/emoji/596.png" alt="via Email" class="reset-pw-options-icon">
+										<span class="reset-pw-options-text">#springMessage("email")</span>
+									</a>
+								</div>
+								<div class="col-md-5">
+									<a href="/cooka-user-web/resetPhonePswd" class="reset-pw-options-item">
+										<img src="$staticConfig.getPath()/images/emoji/600.png" alt="via Message" class="reset-pw-options-icon">
+										<span class="reset-pw-options-text">#springMessage("message") </span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+// colors
+@ck-main: #F29724;
+@ck-main-light: #FFC183;
+// @ck-sub: #006DA5;
+@ck-sub: #344D67;
+@ck-sub-light: #657A92;
+// mixins
+.container() {
+	margin: 0 auto;
+	@media (min-width: 768px) {
+		width: 720px;
+	}
+	@media (min-width:992px) {
+		width: 940px;
+	}
+	@media (min-width:1200px) {
+		// change to 1240px;
+		width: 1240px;
+	}
+}
+
+.clearfix() {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.one-line() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

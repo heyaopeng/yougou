@@ -1,0 +1,14 @@
+#if($n3 == 128)
+ true
+#else
+ false
+#end 
+
+
+==================
+
+#if($n3 == $n4)
+ true
+#else
+ false
+#end 

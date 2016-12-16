@@ -1,0 +1,22 @@
+<div class="admin-header">
+	<a href="/duobao-backend-web/admin"><img src="$staticConfig.getPath()/images/admin_mgr_logo.png" alt="admin manager logo" class="admin-logo" width="150" height="50"></a>
+	<span>
+		<a href="#" data-lang="vi_VN">Vietnamese</a>
+		|
+		<a href="#" data-lang="zh_CN">Chinese</a>
+	</span>
+	#if($shiro.isAuthenticated()) 
+	<span id="admin-header-link">
+		#if($request.getSession().getAttribute("userName"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userName")</strong>
+			</span>
+		#elseif($request.getSession().getAttribute("userEmail"))
+			<span>Hello, 
+				<strong>$!request.getSession().getAttribute("userEmail")</strong>
+			</span>
+	    #end
+		<a href="/duobao-user-web/logout">LogOut</a>
+	</span>
+	#end
+</div>

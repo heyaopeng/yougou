@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<title>Cookabuy.com: Bán buôn quần áo trên mạng Cookabuy</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="/CKF/build/hd1.css">
+	<style type="text/css">
+		.container {
+			width: 1240px !important;
+		}
+
+		.main {
+			background-color: #8b021b;
+		}
+
+		.hd-hero {
+			position: relative;
+		}
+
+		.hd-hero-text {
+			text-transform: uppercase;
+			width: 960px;
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			border: 3px solid #fff;
+			color: white;
+			padding: 20px 30px;
+			font-size: 24px;
+			text-align: center;
+		}
+
+		.hd-block {
+			background-repeat: no-repeat;
+			background-size: 100%;
+			height: 565px;
+			margin-bottom: 30px;
+		}
+
+		.hd-block:before,
+		.hd-block:after {
+			content: "";
+			display: table;
+		}
+		.hd-block:after {
+			clear: both;
+		}
+
+		.hd-block-1 {
+			background-image: url(images/hd1/p1.png);
+		}
+		.hd-block-2 {
+			background-image: url(images/hd1/p2.png);
+			height: 610px;
+		}
+		.hd-block-3 {
+			background-image: url(images/hd1/p3.png);
+			height: 620px;
+		}
+		.hd-block-4 {
+			background-image: url(images/hd1/p4.png);
+			height: 677px;
+		}
+		.hd-block-5 {
+			background-image: url(images/hd1/p5.png);
+			height: 620px;
+		}
+
+		.hd-block-aside {
+			float: left;
+			width: 35%;
+			position: relative;
+			height: 100%;
+			background-image: url(images/hd1/box.png);
+			background-position: center center;
+			background-repeat: no-repeat;
+			text-align: center;
+			text-transform: uppercase;
+			color: #e1022b;
+			font-weight: bold;
+			font-size: 24px;
+		}
+		.hd-block-aside-title {
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+		.hd-block-main {
+			float: left;
+			width: 58%;
+			position: relative;
+		}
+
+		.hd-text-bg {
+			background-color: #a40035;
+			color: white;
+			font-size: 24px;
+			text-transform: uppercase;
+			display: inline-block;
+			padding: 0 5px;
+			margin: 15px 0;
+		}
+
+		.hd-text-ul {
+			color: #f2022e;
+			font-size: 24px;
+			text-transform: uppercase;
+			text-decoration: underline;
+			display: inline-block;
+			padding: 0 5px;
+		}
+
+		a.hd-link {
+			background-color: #a40035;
+			border-radius: 30px;
+			padding: 10px 20px;
+			color: #fff;
+			font-size: 18px;
+			text-decoration: none;
+			margin-top: 15px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+	<div class="header">
+		<div class="top-bar" data-j="topBar">
+			<div class="top-bar-inner">
+				<span class="top-bar-welcome">Chào mừng đến Cookabuy</span>
+
+				<ul class="top-bar-links">
+					<li class="top-bar-user-name hide">
+						<a href="/cooka-user-web/center/home"></a>
+					</li>
+					<li class="top-bar-sign-out hide">
+						<a href="/cooka-user-web/logout">thoát</a>
+					</li>
+					<li class="top-bar-sign-in">
+						<a href="#" data-action="signin">
+							<span class="icon-user"></span>
+							đăng nhập
+						</a>
+					</li>
+					<li class="top-bar-sign-up">
+						<a href="#" data-action="signup">
+							<span class="icon-register"></span>
+							đăng ký
+						</a>
+					</li>
+					<li>
+						<a href="/cooka-user-web/center/favourite">
+							<span class="icon-star"></span>
+							thư mục yêu thích
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="header-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div class="logo">
+							<a href="/">
+								<img src="/CKF/images/logo.png" height="42" width="200" alt="Cookabuy Logo"></a>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="search-input" data-j="searchInput">
+							<form name="searchform" action="/cooka-search/searchProductFqs" method="GET" class="form-horizontal">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<select>
+											<option data-type="q" selected>sản phẩm</option>
+											<option data-type="pn">chi tiết sản phẩm</option>
+										</select>
+									</span>
+									<input type="text" value="" class="form-control" name="q" placeholder="Từ khoá">
+									<span class="input-group-btn">
+										<button class="btn btn-primary" type="submit">
+											<span class="icon-search"></span>
+											Tìm kiếm
+										</button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="header-btns">
+							<a href="/cooka-cart-web/cart" class="header-btns-item">
+								<span class="header-btns-icon header-btns-icon-cart"></span>
+								<span class="header-btns-text">giỏ hàng</span>
+							</a>
+							<a href="#" class="header-btns-item">
+								<span class="header-btns-icon header-btns-icon-search"></span>
+								<span class="header-btns-text">tìm kiếm</span>
+							</a>
+							<a href="http://www.cookabuy.com/helpcenter/index.php/page-1/" class="header-btns-item">
+								<span class="header-btns-icon header-btns-icon-help"></span>
+								<span class="header-btns-text">hỗ trợ</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="header-nav">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="category-all">
+							<a href="#">
+								<span class="icon-menu"></span>
+								Tất cả danh mục
+							</a>
+							<div class="category-wrapper" data-j="category">loading</div>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<ul class="header-nav-items"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade sign-modal" id="sign-modal" tabindex="-1" data-j="signModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<button type="button" class="close" data-dismiss="modal">
+						<span class="icon-close"></span>
+					</button>
+
+					<div class="modal-body">
+						<div class="sign-modal-content">
+							<img src="/CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+							<h4 class="sign-modal-title">Chào mừng đến Cookabuy</h4>
+							<div class="sign-modal-signin">
+
+								<div class="sign-switch-tab">
+									<span class="sign-switch-tab-item active" data-switch="s-email">
+										<span class="icon-envelope-o"></span>
+										Đăng nhập bằng hộp thư
+									</span>
+									<span class="sign-switch-tab-item" data-switch="s-phone">
+										<span class="icon-circle-mobile-o"></span>
+										Đăng nhập bằng số di động
+									</span>
+								</div>
+
+								<form class="form-horizontal" id="sign-in-form" mehtod="post">
+									<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+									<div class="alert alert-danger sign-modal-resend sign-modal-hide">
+										<span>You need to activate you account.</span>
+										<br>
+										<a href="/cooka-user-web/active?email=" class="btn btn-primary sign-modal-resend-link">Re-send Activate Email</a>
+									</div>
+
+									<div class="form-group sign-switch-target active" id="s-email">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-envelope-o"></span>
+											</span>
+											<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+									</div>
+									<div class="sign-switch-target" id="s-phone">
+										<div class="form-group">
+											<input type="text" name="account" class="form-control f-mobile" disabled></div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-lock-o"></span>
+											</span>
+											<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+									</div>
+									<div class="form-group sign-modal-captcha sign-modal-hide">
+										<div class="col-md-5">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<span class="icon-vertify-code-o"></span>
+												</span>
+												<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+										</div>
+										<div class="col-md-4">
+											<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+										<div class="col-md-1">
+											<a href="#" class="sign-modal-refresh">
+												<span class="icon-refresh"></span>
+											</a>
+										</div>
+									</div>
+									<div class="form-group">
+										<a href="/cooka-user-web/resetOptions" class="pull-left">quên mật khẩu?</a>
+										<a href="#" class="pull-right" data-goto="signup">đăng ký</a>
+									</div>
+									<div class="form-group">
+
+										<button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-in-btn">
+											<span class="ladda-label">đăng nhập</span>
+										</button>
+									</div>
+									<div class="social-sign" data-j="socialSign">
+										<div class="social-sign-line">
+											<span>or</span>
+										</div>
+										<a href="/cooka-user-web/facebookLogin" class="social-sign-btn ssb-facebook">
+											<span class="icon-facebook"></span>
+											Sign in with Facebook
+										</a>
+										<a href="/cooka-user-web/googleLogin" class="social-sign-btn ssb-google">
+											<span class="icon-google-plus"></span>
+											Sign in with Google+
+										</a>
+									</div>
+								</form>
+								<p class="text-center">
+									chưa có  tài khoản cua Cookabuy?trở thành thành viên trong 30 giây .
+								</p>
+							</div>
+							<div class="sign-modal-signup">
+
+								<div class="sign-switch-tab">
+									<span class="sign-switch-tab-item active" data-switch="s-email2">
+										<span class="icon-envelope-o"></span>
+										Đăng ký bằng hộp thư
+									</span>
+									<span class="sign-switch-tab-item" data-switch="s-phone2">
+										<span class="icon-circle-mobile-o"></span>
+										Đăng ký bằng số di động
+									</span>
+								</div>
+
+								<form class="form-horizontal" id="sign-up-form">
+									<input type="hidden" name="xToken" value="XTOKEN_NOT_FETCH"/>
+									<div class="form-group sign-switch-target active" id="s-email2">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-envelope-o"></span>
+											</span>
+											<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+									</div>
+									<div class="sign-switch-target" id="s-phone2">
+										<div class="form-group">
+											<input type="text" name="account" class="form-control f-mobile" disabled></div>
+										<div class="form-group">
+											<div class="col-md-7">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<span class="icon-vertify-code-o"></span>
+													</span>
+													<input type="text" name="phoneCode" class="form-control f-mcode" placeholder="Code" disabled></div>
+											</div>
+											<div class="col-md-3">
+												<button type="button" data-loading-text="Sending..." class="btn btn-primary btn-block sign-send-code">Send</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-lock-o"></span>
+											</span>
+											<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-check-lock-o"></span>
+											</span>
+											<input type="password" class="form-control f-confirm-password" placeholder="Confirm Password"></div>
+									</div>
+									<div class="form-group sign-modal-captcha">
+										<div class="col-md-5">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<span class="icon-vertify-code-o"></span>
+												</span>
+												<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+										</div>
+										<div class="col-md-4">
+											<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+										<div class="col-md-1">
+											<a href="#" class="sign-modal-refresh">
+												<span class="icon-refresh"></span>
+											</a>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="checkbox">
+											<label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+												<input type="checkbox" value="" id="f-agree" class="f-agree">
+												<span class="icons">
+													<span class="icon-unchecked">
+														<span class="icon-square-o"></span>
+													</span>
+													<span class="icon-checked">
+														<span class="icon-square"></span>
+													</span>
+												</span>
+												tôi đồng ý điều khoản của Cookabuy
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<button class="ladda-button btn btn-secondary-light btn-block" data-style="slide-left" type="submit" id="sign-up-btn">
+											<span class="ladda-label">đăng ký</span>
+										</button>
+									</div>
+								</form>
+								<p class="text-center">
+									đã có tài khoản?
+									<a href="#" data-goto="signin">đăng nhập</a>
+								</p>
+							</div>
+							<div class="sign-modal-verify sign-modal-hide">
+								<img src="/CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+								<p class="text-center">
+									chúng tôi đã gửi email xác nhấn qua hộp thư bạn
+									<a href="#" class="sign-modal-email-link">someone@nowhere.com</a>
+								</p>
+								<a href="#" class="btn btn-primary btn-block sign-modal-verify-btn">kích hoạt tài khoản</a>
+							</div>
+							<div class="sign-modal-verify-m sign-modal-hide">
+								<img src="/CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+								<h4 class="text-success text-center">Sign up Success, please sign in</h4>
+								<div class="text-center">
+									<a href="#" class="btn btn-primary mobile-to-sign-in">Sign In Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="hd-hero">
+			<img src="/CKF/images/hd1/hd.jpg" alt="cookabuy" width="100%">
+			<div class="hd-hero-text">
+				Nền tảng Cookabuy tổ chức các loại hoạt động khuyến mại, từ lễ khai trương cửa hàng được tặng quà đến đăng ký đặt đơn cho chiết khấu, mỗi khâu đều mang lại niềm vui khuyến mại bất ngờ cho các bạn!
+			</div>
+		</div>
+		<div class="container">
+			<div class="hd-block hd-block-1">
+				<div class="hd-block-aside">
+					<div class="hd-block-aside-title" style="top:230px;left:25px">Hoạt động 2</div>
+				</div>
+				<div class="hd-block-main">
+					<span class="hd-text-bg">Chủ đề hoạt động</span>
+					<br>
+					<span class="hd-text-ul">Đến cửa hàng được tặng ngay</span>
+					<span style="font-size:24px">
+						---Top 100 khách hàng đến hiện trường sớm nhất được tặng 1 món quà.
+					</span>
+					<br>
+					<span class="hd-text-bg">Quy tắc hoạt động:</span>
+					<br>
+					<span class="hd-text-ul">Thời gian hoạt động:</span>
+					<span style="font-size:24px">16/12/2015-22/12/2015</span>
+					<br>
+					<span class="hd-text-ul">Qùa tặng hoạt động:</span>
+					<span style="font-size:24px">Đồ dùng sinh hoạt</span>
+					<br>
+					<span class="hd-text-ul">Thuyết minh hoạt động:</span>
+					<br>
+					<span style="font-size:24px">
+						Số lượng quà tặng có hạn, hoạt động có thể kết thúc sớm hơn khi số lượng quà tặng hết
+					</span>
+					<br>
+					<span class="hd-text-ul">Địa chỉ cửa hàng:</span>
+					<br>
+					<span style="font-size:24px">Ki ốtsố 6- Dãy B- Bada- ChợNinhHiệp- HàNội</span>
+					<br>
+					<span class="hd-text-ul">Hotline cửa hàng:</span>
+					<span style="font-size:24px">+84 988251998</span>
+				</div>
+			</div>
+			<div class="hd-block hd-block-2">
+				<div class="hd-block-aside">
+					<div class="hd-block-aside-title" style="top:250px;left:25px">Hoạt động 2</div>
+				</div>
+				<div class="hd-block-main">
+					<span class="hd-text-bg">Chủ đề hoạt động</span>
+					<br>
+					<span class="hd-text-ul">Bốc thăm trúng thưởng tại cửa hang</span>
+					<span style="font-size:24px">
+						--Đặt đơn thanh toán tại hiện trường được tham gia bốc thăm trúng thưởng, giành quà lớn.
+					</span>
+					<br>
+					<span class="hd-text-ul">Thời gian hoạt động:</span>
+					<span style="font-size:24px">16/12/2015---22/12/2015</span>
+					<br>
+					<span class="hd-text-ul">Nội dung hoạt động:</span>
+					<br>
+					<span style="font-size:18px">
+						Top 50 khách hàng đặt hàng sớm nhất với bất kỳ sản phẩm và thanh toán ngay tại hiện trường, có thể tham gia hoạt động bốc thăm trúng thưởng.
+					</span>
+					<br>
+					<span class="hd-text-ul">Hình thức bốc thăm:</span>
+					<br>
+					<span style="font-size:18px">
+						Hình thức rút thăm bóng may mắn, mỗi người tham gia có thể rút thăm một bóng, căn cứ theo màu sắc để nhận được giải thưởng tương ứng.
+					</span>
+					<br>
+					<span class="hd-text-ul">Thuyết minh hoạt động:</span>
+					<br>
+					<span style="font-size:18px">
+						Số lượng qùa tặng có hạn, hoạt động có thể kết thúc sớm hơn khi số lượng quà tặng hết; Người trúng thưởng nên nhận giải thưởng tại chỗ nhận thưởng cửa hàng trong ngày đó, qúa hạn sẽ không thể nhận quà.
+					</span>
+					<br>
+					<span class="hd-text-ul">Địa chỉ cửa hàng:</span>
+					<br>
+					<span style="font-size:24px">Ki ốtsố 6- Dãy B- Bada- ChợNinhHiệp- HàNội</span>
+					<br>
+					<span class="hd-text-ul">Hotline cửa hàng:</span>
+					<span style="font-size:24px">+84 988251998</span>
+				</div>
+			</div>
+			<div class="hd-block hd-block-3">
+				<div class="hd-block-aside">
+					<div class="hd-block-aside-title" style="top:250px;left:25px">Hoạt động 3</div>
+					<a href="/cooka-user-web/register" class="hd-link" target="_blank" style="text-transform:capitalize; position:absolute; top:400px; left:150px;">Clickđể đăng ký</a>
+				</div>
+				<div class="hd-block-main">
+					<span class="hd-text-bg">Chủ đề hoạt động</span>
+					<br>
+					<span class="hd-text-ul">Đến cửa hàng được tặng ngay</span>
+					<span style="font-size:24px">
+						---Đăng ký được tăng Coupon trị giá 700.000VND, top 10khách hàng đăng ký sớm nhất được nhận nhiều quà bất ngờ hơn nữa.
+					</span>
+					<br>
+					<span class="hd-text-bg">Quy tắc hoạt động:</span>
+					<br>
+					<span class="hd-text-ul">Thời gian hoạt động:</span> <span style="font-size:24px">1/12/2015---31/12/2015</span>
+					<br>
+					<span class="hd-text-ul">Nội dung hoạt động:</span>
+					<br>
+					<p style="font-size:18px">1) Top 10 khách hàng đăng ký và đặt đơn sớm nhất: Giao dịch lần đầu được miễn phí vận chuyển quốc tế; nhận được coupon của cookabuy trị giá 700.000 đồng và thẻ nạp điện thoại trị giá 1.500.000 đồng.</p>
+					<p style="font-size:18px">2) Top 10 khách hàng đăng ký sớm nhất chưa đặt đơn: Nhận được coupon của cookabuy trị giá 700.000 đồng và 5 kg gạo tám thơm.</p>
+					<p style="font-size:18px">3) Top từ 11-100 khách hàng đăng ký sớm nhất: nhận được coupon của cookabuy trị giá 700.000 đồng</p>
+					<p style="font-size:18px">4) Coupon trị giá 700.000 VND nên mua hàng đủ 10.800.000 VND mới có thể sử dụng.</p>
+					<a href="/cooka-user-web/register" class="hd-link" target="_blank">Clickđể chuyển sang trang đăng ký</a>
+				</div>
+			</div>
+			<div class="hd-block hd-block-4">
+				<div class="hd-block-aside">
+					<div class="hd-block-aside-title" style="top:280px;left:25px">Hoạt động 4</div>
+					<a href="http://www.cookabuy.com/cooka-productDetail-web/promotionProductsList?promotionSerialNum=14502021697432636" class="hd-link" target="_blank" style="text-transform:capitalize; position:absolute; top:420px; left:130px;">Click để nhận hàng mẫu</a>
+				</div>
+				<div class="hd-block-main">
+					<span class="hd-text-bg">Chủ đề hoạt động</span>
+					<br>
+					<span class="hd-text-ul">Hàng mẫu miền phí</span>
+					<span style="font-size:24px">
+						---Nhận hàng mẫu chất lượng chỉ với 1000 VND
+					</span>
+					<br>
+					<span class="hd-text-ul">Thời gian hoạt động:</span> <span style="font-size:24px;">16/12/2015---25/12/2015</span>
+					<span class="hd-text-ul">Nội dung hoạt động:</span>
+					<p style="font-size:18px;">Người dùng có thể thanh toán online 1000 VND để mua 1 chiếc hàng mẫu của trung tâm Cookabuy, miễn phí vận chuyển đối với hàng mẫu này, bạn chỉ cần tự đến cửa hàng Cookabuy để lấy hàng là được.</p>
+					<span class="hd-text-ul">Đối tượng áp dụng:</span>
+					<p style="font-size:18px;">Tất cả thành viên đăng ký tại Cookabuy.</p>
+					<span class="hd-text-ul">Điều kiện áp dụng:</span>
+					<br>
+					<p style="font-size:18px;">1). Trong thời gian quảng bá (16/12/2015-25/12/2015), tất cả người dùng đã đăng ký đều có thể tham gia, một người dùng chỉ có thể tham gia 3 lần. (Ghi chú: Nếu tài khoản khác nhau có đăng ký “Số điện thoại”/ “Địa chỉ hộp thư”/ “Họ tên”/ “Đỉa chỉ giao hàng” như nhau, thì đều coi là cùng một người dùng.</p>
+					<p style="font-size:18px;">2). Đối với tất cả người dùng đã đăng ký, nếu có giao dịch hơn 2 lần (bao gồm 2 lần) tại Cookabuy trong vòng 1 tháng với số tiền giao dịch hơn 7.000.000 VND (bao gồm 7.000.000VND), thì có thể tham gia thêm 3 lần nữa vào tháng tới.</p>
+					<a href="http://www.cookabuy.com/cooka-productDetail-web/promotionProductsList?promotionSerialNum=14502021697432636" class="hd-link" target="_blank">Click để chuyển sang trang nhận hàng mẫu</a>
+				</div>
+			</div>
+			<div class="hd-block hd-block-5">
+				<div class="hd-block-aside">
+					<div class="hd-block-aside-title" style="top:250px;left:25px">Hoạt động 5</div>
+					<a href="/" class="hd-link" target="_blank" style="text-transform:capitalize; position:absolute; top:400px; left:100px;">Click để bắt đầu mua hàng</a>
+				</div>
+				<div class="hd-block-main">
+					<span class="hd-text-bg">Chủ đề hoạt động</span>
+					<br>
+					<span class="hd-text-ul">Chiết khấu bằng tiền mặt</span>
+					<span style="font-size:24px">
+						---Giao dịch thành công có cơ hội nhận chiết khấu bằng tiền mặt cao nhất đạt 1.500.000 VND
+					</span>
+					<br>
+					<span class="hd-text-ul">Nội dung hoạt động:</span>
+					<p style="font-size:24px">Top 50 khách hàng mua hàng sớm nhất với số tiềncủa 1 đơn hàng từ 3.500.000 VND trở lên, sắp xếp theo thứ tự trước sau, sau khi xác nhận nhận hàng:</p>
+					<p style="font-size:18px">1) Top 10 khách mua hàng đầu tiên được chiết khấu lại 1500K VND.</p>
+					<p style="font-size:18px">2) Top từ 11-20 khách mua hàng đầu tiên được chiết khấu lại 1000K VND.</p>
+					<p style="font-size:18px">3) Top từ 21-50 khách mua hàng đầu tiên được chiết khấu lại 500K VND.</p>
+					<span class="hd-text-ul">Thuyết minh hoạt động:</span>
+					<p style="font-size:24px">Khách hàng tham gia hãy đến cửa hàng để nhận tiền mặt được chiết khấu lại.</p>
+					<a href="/" class="hd-link" target="_blank">Click để chuyển sang trang chủ</a>
+				</div>
+			</div>
+
+			<h2 class="text-center" style="padding: 0 150px; color:white; text-transform:uppercase;">
+				Nhanh tay đăng ký, trở thành thành viên Cookabuy, cùng hưởng nhiều hơn ưu đãi cực hot nữa!
+			</h2>
+
+			<h3 class="text-center" style="padding: 0 150px; color:white; ">
+				Quyển giải thích cuối cùng của tất cả các hoạt động thuộc về Cookabuy trong phạm vi lớn nhất cho phép của pháp luật.
+			</h3>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="footer-inner">
+			<div class="footer-intro">
+				<h6 class="footer-intro-title">Cookabuy Market</h6>
+				<p>
+					Mạng Cooka thuộc top 100 doanh nghiệp kinh doanh internet đứng đầu Trung Quốc, đã có hơn 8000 nhà bán buôn quần áo, xưởng may mặc tham gia vào mạng Cooka, hơn 2 triệu nhà bán lẻ nhập hàng quần áo thông qua mạng Cooka. Cooka là một trong những nhà lãnh đạo mới của Trung Quốc thuộc lĩnh vực bán buôn quần áo. Mạng Cooka chính thức gia nhập thị trường Đông Nam Á vào năm 2015, là nền tảng internet (B2B) thu mua sỉ quần áo lớn nhất ở Đông Nam Á. Chuỗi cung ứng hàng hóa hoàn thiện của mạng Cooka có thể đảm bảo cho bạn mua được nguồn hàng chất lượng tốt nhất với giá cả phải chăng nhất, để thu được lợi nhuận lớn nhất. Chủng loại các mặt hàng bán chạy đầy đủ và đa dạng, có hơn 300 nghìn mẫu trang phục nam, nữ, trẻ em, đồ lót, giày dép túi xách vv với các hạng: cao cấp, trung cấp và bình dân. Mạng Cooka trang bị một hệ thống bảo vệ toàn diện, bạn có thể thanh toán trực tuyến tại mạng Cooka hoặc thanh toán tại cửa hàng, bảo đảm cho bạn được nhập hàng một cách an toàn. Dịch vụ logistics của mạng Cooka đã bao phủ thị trường trên 52 vùng, thành phố tại Đông Nam Á và Trung Quốc. Chu kỳ vận chuyển mất khoảng bảy đến mười ngày giúp cho bạn giảm đáng kể giá thành kinh doanh và rủi ro.
+				</p>
+			</div>
+
+			<div class="footer-row">
+				<div class="footer-col footer-col-large">
+					<div class="footer-sitemap">
+						<dl class="footer-sitemap-section">
+							<dt>trung tâm hỗ trợ</dt>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-6?stage=Stage">hướng dẫn mua hàng</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-14?stage=Stage">làm sao mua hàng online</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-10?stage=Stage">giỏ hàng</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-17?stage=Stage">kiểm tra đơn hàng</a>
+							</dd>
+						</dl>
+						<dl class="footer-sitemap-section">
+							<dt>thanh toán tiền hàng</dt>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-15/page-16?stage=Stage">chính sách thanh toán</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-15/page-5?stage=Stage">thanh toán offline</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-15/page-6?stage=Stage">thanh toán online</a>
+							</dd>
+						</dl>
+						<dl class="footer-sitemap-section">
+							<dt>vận chuyển hàng hóa</dt>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-11/page-2?stage=Stage">chính sách phí vận chuyển</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-11/page-3?stage=Stage">đảm bảo vận chuyển</a>
+							</dd>
+							<dd>
+								<a href="http://www.cookabuy.com/helpcenter/index.php/page-11/page-0?stage=Stage">Về vận chuyển</a>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="footer-col">
+					<span>Hotline cửa hàng Việt Nam:</span>
+					<br> <strong>+84 988251998</strong>
+					<hr>
+					<span>Hotline nhà vận chuyển:</span>
+					<br> <strong>0913199024</strong>
+					<br>
+					<strong>0912203013</strong>
+					<hr>
+					<span>Địa chỉ cửa hàng Việt Nam:</span>
+					<br>
+					<strong>Ki ốt số 6- Dãy B- Bada- Chợ Ninh Hiệp- Hà Nội</strong>
+					<hr>
+					<span>Thời gian làm việc:</span>
+					<br>
+					<strong>Thứ 2 - thứ 7</strong>
+					<br>
+					<strong>9:00-12:00&nbsp;&nbsp;&nbsp;&nbsp;13:00-18:00</strong>
+				</div>
+			</div>
+
+			<ul class="footer-links">
+				<li>
+					<a href="http://www.cookabuy.com/helpcenter/index.php/gii-thiu-cong-ty?stage=Stage">Giới thiệu công ty</a>
+				</li>
+				<li>
+					<a href="http://www.cookabuy.com/helpcenter/index.php/page-2?stage=Stage">địa chỉ công ty</a>
+				</li>
+				<li>
+					<a href="http://www.cookabuy.com/helpcenter/index.php/page-1?stage=Stage">Sơ đồ trang web</a>
+				</li>
+				<li>
+					<a href="http://www.cookabuy.com/helpcenter/index.php/page-4/page-2?stage=Stage">hiệp định</a>
+				</li>
+				<li>
+					<a href="http://www.cookabuy.com/helpcenter/index.php/page-4/page-3?stage=Stage">tuyên bố miễn trách</a>
+				</li>
+				<li>
+					<a href="http://www.cookabuy.com/helpcenter/index.php/page-4/phm-vi-bo-v-quyn-li-ngi-tieu-dung?stage=Stage">bảo vệ người tiêu dùng</a>
+				</li>
+			</ul>
+			<p class="footer-copyright">&copy; 2015 Cooka All Rights Reserved</p>
+		</div>
+	</div>
+	<script src="/CKF/build/vi_VN.hd1.js"></script>
+</body>
+</html>

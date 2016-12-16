@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.ProductMapper" >
+  <resultMap id="Product" type="com.duobao.fundation.data.mybatis.model.Product" >
+    <id column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="is_active" property="isActive" jdbcType="BIT" />
+    <result column="timestamp" property="timestamp" jdbcType="TIMESTAMP" />
+    <result column="market_price" property="marketPrice" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="is_cash_coupon" property="isCashCoupon" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    product_id, is_active, timestamp, market_price, price, title, description,is_cash_coupon
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="Product" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_products
+    where product_id = #{productId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllForTen" resultMap="Product" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_products
+    where price > 2000
+  </select>
+  <select id="selectAllForPk" resultMap="Product" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_products
+    where price &lt; 1000
+  </select>
+  <select id="selectAll" resultMap="Product" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_products
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_products
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.Product" useGeneratedKeys="true"
+    keyProperty="productId">
+    insert into db_products (product_id, is_active, timestamp, 
+      market_price, price, title, 
+      description,is_cash_coupon)
+    values (#{productId,jdbcType=INTEGER}, #{isActive,jdbcType=BIT}, #{timestamp,jdbcType=TIMESTAMP}, 
+      #{marketPrice,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{isCashCoupon,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.Product" useGeneratedKeys="true"
+    keyProperty="productId">
+    insert into db_products
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="isActive != null" >
+        is_active,
+      </if>
+      <if test="timestamp != null" >
+        timestamp,
+      </if>
+      <if test="marketPrice != null" >
+        market_price,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="isCashCoupon != null" >
+        is_cash_coupon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=BIT},
+      </if>
+      <if test="timestamp != null" >
+        #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="marketPrice != null" >
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isCashCoupon != null" >
+        #{isCashCoupon,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.model.Product" >
+    update db_products
+    <set >
+      <if test="isActive != null" >
+        is_active = #{isActive,jdbcType=BIT},
+      </if>
+      <if test="timestamp != null" >
+        timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="marketPrice != null" >
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isCashCoupon != null" >
+        is_cash_coupon = #{isCashCoupon,jdbcType=BIT},
+      </if>
+    </set>
+    where product_id = #{productId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.model.Product" >
+    update db_products
+    set is_active = #{isActive,jdbcType=BIT},
+      is_cash_coupon = #{isCashCoupon,jdbcType=BIT},
+      timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where product_id = #{productId,jdbcType=INTEGER}
+  </update>
+</mapper>

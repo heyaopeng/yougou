@@ -1,0 +1,53 @@
+@import "public.less";
+
+.social-sign {	
+	&-btn {
+		display: block;
+		padding: 10px;
+		background-color: #eee;
+		color: #fff;
+		text-align: center;
+		margin: 10px 0;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #eee;
+			text-decoration: none;
+		}
+	}
+
+	.ssb-facebook {
+		background-color: #3A5795;
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: lighten(#3A5795, 10%);
+		}
+	}
+	.ssb-google {
+		background-color: #DB4437;
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: lighten(#DB4437, 10%);
+		}
+	}
+
+	&-line {
+		border-top: 1px solid #ddd;
+		position: relative;
+		margin: 20px 0;
+		> span {
+			position: absolute;
+			display: block;
+			width: 50px;
+			text-align: center;
+			top: -0.7em;
+			left: 0;
+			right: 0;
+			background-color: #fff;
+			margin: auto;
+		}
+	}
+}

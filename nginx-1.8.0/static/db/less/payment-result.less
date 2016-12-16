@@ -1,0 +1,112 @@
+@import "public.less";
+
+.payment-result {
+	background-color: white;
+	
+	&-button{
+		.clearfix();
+		background-color: white;
+		
+		&-left{
+			
+			position: fixed;
+			padding: 10px;
+			background-color: white;;
+			color:  #FF3300;
+			border: 1px solid #FF3300;
+			text-align: center;
+			width: 40%;
+			z-index: 999;
+			bottom: 60px;
+			border-radius : 15px;
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+				color: white;
+			}
+			left:5%;
+		}
+
+		&-right{
+			
+			position: fixed;
+			padding: 10px;
+			background-color: #FF3300;
+			color: white;
+			text-align: center;
+			width: 45%;
+			z-index: 999;
+			bottom: 60px;
+			border-radius : 15px;
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+				color: white;
+			}
+			right:5%;
+		}
+	}
+	
+	&-title {
+		text-align: center;
+		color: #db3652;
+		padding: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	&-item {
+		
+		border-bottom: 1px solid #ccc;
+		&-header {
+			.clearfix();
+			padding: 5px 5px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		&-person {
+			.clearfix();
+			padding: 5px 0;
+			border-bottom: 1px solid #ccc;
+		}
+
+		&-img {
+			float: left;
+			margin-top: 10px;
+			padding: 10px;
+			> img {
+				border-radius: 50%;
+			}
+		}
+
+		&-info {
+			font-size: 12px;
+			overflow: hidden;
+			padding-left: 10px;
+			&-row{
+				padding: 5px;
+			}
+			.grey{
+				color: #ccc;
+			}
+		}
+
+		&-check {
+			text-align: center;
+			color: @ck_sub;
+			display: block;
+			padding: 10px;			
+		}
+	}
+	&-qrcode{
+		position: fixed;
+		z-index: 999;
+		bottom: 140px;
+		text-align: center;
+		&-image{
+			width: 50%;
+			height: 50%;
+		}
+	}
+}

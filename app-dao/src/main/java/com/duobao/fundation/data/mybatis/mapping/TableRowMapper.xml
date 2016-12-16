@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.TableRowMapper" >
+  <resultMap id="TableRow" type="com.duobao.fundation.data.mybatis.model.TableRow" >
+    <id column="row_id" property="rowId" jdbcType="INTEGER" />
+    <result column="table_name" property="tableName" jdbcType="VARCHAR" />
+    <result column="rows" property="rows" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    row_id, table_name, rows
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="TableRow" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_table_rows
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTableName" resultMap="TableRow" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from db_table_rows
+    where table_name = #{tableName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from db_table_rows
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.mapping.TableRowMapper" useGeneratedKeys="true"
+    keyProperty="rowId">
+    insert into db_table_rows ( row_id, table_name, rows)
+    values (#{rowId,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, 
+      #{rows,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.mapping.TableRowMapper" useGeneratedKeys="true"
+    keyProperty="rowId">
+    insert into db_table_rows
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rowId != null" >
+        row_id,
+      </if>
+      <if test="tableName != null" >
+        table_name,
+      </if>
+      <if test="rows != null" >
+        rows,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rowId != null" >
+        #{rowId,jdbcType=INTEGER},
+      </if>
+      <if test="tableName != null" >
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="rows != null" >
+       #{rows,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duobao.fundation.data.mybatis.mapping.TableRowMapper" >
+    update db_table_rows
+    <set >
+      <if test="tableName != null" >
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="rows != null" >
+        rows = #{rows,jdbcType=INTEGER},
+      </if>
+    </set>
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duobao.fundation.data.mybatis.mapping.TableRowMapper" >
+    update db_table_rows
+    set  table_name = #{tableName,jdbcType=VARCHAR},
+      rows = #{rows,jdbcType=INTEGER}
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </update>
+</mapper>

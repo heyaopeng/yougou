@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<title>Favorite Product</title>
+	<link rel="shortcut icon" href="/CKF/favicon.ico">
+	<link rel="stylesheet" href="$staticConfig.getPath()/CKF/build/favouriteProduct.css?v=$!version.getNum()">
+	<!--[if lt IE 9]>
+		<script src="$staticConfig.getPath()/CKF/js/libs/html5shiv.min.js"></script>
+		<script src="$staticConfig.getPath()/CKF/js/libs/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	#parse("/new/frontend_header_search.vm") 
+	$screen_content
+	#parse("/new/frontend_footer.vm")
+	<script src="$staticConfig.getPath()/CKF/build/$!{cookies.getLanguageCookie($request)}.favouriteProduct.js?v=$!version.getNum()"></script>
+</body>
+</html>

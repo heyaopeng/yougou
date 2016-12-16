@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" href="$staticConfig.getPath()/images/favicon.ico">
+		<link rel="apple-touch-icon" href="$staticConfig.getPath()/images/apple-touch-icon.png">
+
+		<title>#springMessage("add_product")</title>
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/summernote.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/timepicker.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/formValidation.min.css">
+		<link rel="stylesheet" type="text/css" href="$staticConfig.getPath()/css/backend.css?v=$version.getNum()">
+
+		<!--[if lt IE 9]>
+			<script src="$staticConfig.getPath()/js/libs/html5shiv.min.js?v=$version.getNum()"></script>
+			<script src="$staticConfig.getPath()/js/libs/respond.min.js?v=$version.getNum()"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 trim-col">
+					#parse("admin_header.vm")
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2 trim-col">
+				#parse("admin_sidebar.vm")
+				</div>
+				<div class="col-md-10">
+				$screen_content
+				</div>
+			</div>
+		</div>
+		
+		<script src="$staticConfig.getPath()/js/libs/jquery-1.11.2.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/bootstrap.min.js"></script>
+		
+		<script src="$staticConfig.getPath()/js/libs/FV/formValidation.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/FV/bootstrap.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/FV/i18n.min.js"></script>
+		
+		<script src="$staticConfig.getPath()/js/libs/summernote/summernote.min.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/summernote/plugin/summernote-ext-hello.js"></script>
+		<script src="$staticConfig.getPath()/js/libs/timepicker.js"></script>
+		
+		<script src="$staticConfig.getPath()/js/libs/jquery.form.min.js"></script>
+
+		<script src="$staticConfig.getPath()/js/ck_ajax_setup.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/ck_lang.js?v=$version.getNum()"></script>		
+		<script src="$staticConfig.getPath()/js/p_tags_input.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/p_page_group.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/p_checkbox_group.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/p_node_pick.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/p_custom_spec.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/p_dynamic_table2.js?v=$version.getNum()"></script>
+		<!-- price interval 2 beta -->
+		<script src="$staticConfig.getPath()/js/p_price_interval2.js?v=$version.getNum()"></script>
+		<script src="$staticConfig.getPath()/js/p_custom_prop.js?v=$version.getNum()"></script>
+		
+		<script src="$staticConfig.getPath()/js/addProduct.js?v=$version.getNum()"></script>
+#[[
+		<script>
+		$(document).ready(function() {
+			
+			
+			$('.normal-radio').change(function(){
+				if($(this).prop('checked')) {
+					$('.wholesale-div').addClass('hide');
+					$('#unitAmount').prop('required', false);
+				}
+			});
+			$('.wholesale-radio').change(function(){
+				if($(this).prop('checked')) {
+					$('.wholesale-div').removeClass('hide');
+					$('#unitAmount').prop('required', true);
+				}
+			});
+			
+			var ids = JSON.parse(localStorage.getItem('zc_ids'));
+			ids = [1,130];
+			//choose store
+			$('#list').find('li').click(function(){
+				var $this = $(this);
+				var storeid = $this.data('storeid');
+				if(ids.indexOf(storeid) !== -1) {
+					$('#channel').show().find('.yes-radio').prop('checked', true);
+					$('#dianpuxinxi').show();
+				}
+				else {
+					$('#channel').hide();
+					$('#dianpuxinxi').hide();
+				}
+			});
+			$('#list').find('li.active').trigger('click');
+			
+			$('#channel').on('change', function(){
+				if ($(this).find('.yes-radio').is(':checked')) {
+					$('#dianpuxinxi').show();
+					$('#submit-p').prop('disabled', false).removeClass('disabled');
+					$('#preview').prop('disabled', false).removeClass('disabled');
+				}
+				else {
+					$('#dianpuxinxi').hide();
+					$('#submit-p').prop('disabled', false).removeClass('disabled');
+					$('#preview').prop('disabled', false).removeClass('disabled');
+				}
+			});
+		});
+		
+		(function($) {
+			$.expr[':'].Contains = function(a, i, m) {
+				return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+			};
+
+			function filterList(list) {
+				$('.filterinput')
+					.change(function() {
+						var filter = $(this).val();
+						if (filter) {
+							$matches = $(list).find('li:Contains(' + filter + ')');
+							$('li', list).not($matches).slideUp();
+							$matches.slideDown();
+						} else {
+							$(list).find("li").slideDown();
+						}
+						return false;
+					})
+					.keyup(function() {
+						$(this).change();
+					});
+			};
+		}(jQuery));
+		</script>
+		]]#
+	</body>
+</html>

@@ -1,0 +1,316 @@
+@import "public.less";
+
+// category
+.category {
+	&-wrapper {
+		letter-spacing: normal;
+		position: absolute;
+		z-index: 999;
+		transition: all 0.15s ease;
+		transform: translateY(10px);
+		opacity: 0;
+		visibility: hidden;
+		box-shadow: 0 5px 10px -10px;
+	}
+
+	&-heading {
+		color: #fff;
+		font-weight: bold;
+		background-color: @ck-sub-light;
+		padding: 10px;
+		padding-left: 35px;
+		position: relative;
+		text-transform: uppercase;
+
+		> a {
+			color: #fff;
+		}
+
+		[class^="icon-"],
+		[class*=" icon-"] {
+			color: @ck-main-light;
+			position: absolute;
+			font-size: 20px;
+			top: 10px;
+			left: 10px;
+		}
+
+	}
+
+	&-body {
+		background-color: #fff;
+		padding: 0;
+		height: 74px;
+	}
+
+	&-item {
+		color: #333;
+		display: block;
+		float: left;
+		padding: 0 5px;
+		position: relative;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 50%;
+		text-align: center;
+		margin-top: 3px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 1px;
+			height: 100%;
+			background: #555;
+		}
+
+		&:nth-child(odd) {
+			&:before {
+				background: transparent;
+			}
+		}
+	}
+
+	// all-category
+	&-all {
+		> a {
+			color: #333;
+			display: inline-block;
+			padding: 5px 10px;
+			text-transform: uppercase;
+		}
+
+		&:hover {
+			.category-wrapper {
+				transform: translateY(0px);
+				opacity: 1;
+				visibility: visible;
+			}
+
+		}
+
+	}
+
+	&-x {
+		position: absolute;
+		opacity: 0;
+		width: 750px;
+		padding: 10px 0;
+		background-color: #fff;
+		border-left: 1px solid #9b9b9b;
+		border-top: 1px solid #9b9b9b;
+		border-bottom: 1px solid #9b9b9b;
+		color: #333;
+		font-weight: normal;
+		top: 0;
+		bottom: 0;
+		left: 100%;
+		z-index: -1;
+		overflow: hidden;
+		transition: all 0.15s ease;
+		transform: translateX(-10px);
+
+		&-img {
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 244px;
+			height: 100%;
+			background-color: #fff;
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: -4px;
+			right: 1px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 6px;
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-bottom-color: @ck-sub;
+			border-left-color: transparent;
+			z-index: 999;
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: -4px;
+			right: 1px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 6px;
+			border-top-color: @ck-sub;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			z-index: 999;
+		}
+
+	}
+
+	&:hover &-x {
+		overflow: visible;
+		opacity: 1;
+		z-index: 999;
+		transform: translateX(0px);
+	}
+
+	&-xx {
+		background-color: #fff;
+		color: #333;
+		font-weight: normal;
+		margin-top: -1px;
+		margin-bottom: -1px;
+
+		&-list {
+			padding: 0;
+			margin: 5px;
+			.clearfix();
+
+			> li {
+				display: block;
+				text-align: center;
+				width: 20%;
+				float: left;
+				border-left: 1px solid @ck-sub;
+				margin-top: 5px;
+
+				&:nth-child(4n + 1) {
+					border-left-color: transparent;
+				}
+
+				> a {
+					display: block;
+					color: #333;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+			}
+
+		}
+
+	}
+
+	&-list {
+		height: 100%;
+		margin-right: 0;
+
+		> li {
+			color: @ck-sub;
+			display: block;
+			margin-left: 15px;
+			margin-right: 15px;
+			margin-top: 5px;
+
+			> a {
+				display: block;
+				color: #333;
+				padding: 5px;
+				border-bottom: 1px solid #888;
+
+				&:before {
+					content: "●";
+					display: inline-block;
+					margin-right: 10px;
+				}
+
+				&:hover,
+				&:focus {
+					text-decoration: none;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+.scroll-tt > .scroll-element,
+.scroll-tt > .scroll-element div {
+	border: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+}
+
+.scroll-tt > .scroll-element div {
+	display: block;
+	height: 100%;
+	left: 0;
+	top: 0%;
+	width: 100%;
+}
+
+.scroll-tt > .scroll-element.scroll-x {
+	bottom: 2px;
+	height: 9px;
+	left: 0;
+	width: 100%;
+}
+
+.scroll-tt > .scroll-element.scroll-y {
+	height: 100%;
+	right: 2px;
+	top: 0;
+	width: 12px;
+}
+
+.scroll-tt > .scroll-element .scroll-element_outer {
+	overflow: hidden;
+}
+
+.scroll-tt > .scroll-element .scroll-element_outer,
+.scroll-tt > .scroll-element .scroll-element_track,
+.scroll-tt > .scroll-element .scroll-bar {
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.scroll-tt > .scroll-element .scroll-element_track {
+	background-color: #e0e0e0;
+}
+
+.scroll-tt > .scroll-element .scroll-bar {
+	background-color: @ck-sub;
+}
+
+.scroll-tt > .scroll-element:hover .scroll-bar {
+	background-color: @ck-sub;
+}
+
+.scroll-tt > .scroll-element.scroll-draggable .scroll-bar {
+	background-color: @ck-sub;
+}
+
+/* update scrollbar offset if both scrolls are visible */
+.scroll-tt > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track {
+	left: -12px;
+}
+
+.scroll-tt > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track {
+	top: -12px;
+}
+
+.scroll-tt > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
+	left: -12px;
+}
+
+.scroll-tt > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size {
+	top: -12px;
+}

@@ -1,0 +1,53 @@
+<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+<div class="header">
+	#parse("/new/frontend_top_bar.vm")
+
+	<div class="header-inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="logo">
+						<a href="/"><img src="$staticConfig.getPath()/CKF/images/logo.png" alt="Cookabuy Logo" width="200" height="42"></a>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="search-input" data-j="searchInput">
+						<form name="searchform" action="/duobao-search/searchProductFqs" method="GET" class="form-horizontal">
+							<div class="input-group">
+								<span class="input-group-addon">
+	                                <select>
+	                                    <option data-type="q" value="q">sản phẩm</option>
+	                                    <option data-type="pn" value="pn">chi tiết sản phẩm</option>
+	                                </select>
+	                            </span>
+								<input type="text" value="$!{query}" class="form-control" name="q">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit"><span class="icon-search"></span> #springMessage("search")</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="header-btns">
+						<a href="/duobao-cart-web/cart" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-cart"></span>
+							<span class="header-btns-text">#springMessage("cart")</span>
+						</a>
+						<a href="/duobao-search/searchProductFqs" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-search"></span>
+							<span class="header-btns-text">#springMessage("search")</span>
+						</a>
+						<a href="/helpcenter/index.php/page-1/" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-help"></span>
+							<span class="header-btns-text">#springMessage("help")</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	#parse("/new/frontend_header_nav.vm")
+	#parse("/new/frontend_sign_modal.vm")
+</div>

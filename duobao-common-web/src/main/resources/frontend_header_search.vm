@@ -1,0 +1,276 @@
+<div class="header">
+	<div class="top-bar" data-j="topBar">
+		<div class="top-bar-inner">
+			<span class="top-bar-welcome">#springMessage("welcome_to_cooka")</span>
+
+			<div class="dropdown top-bar-lang">
+				<a href="#" data-toggle="dropdown" class="btn btn-default top-bar-lang-set">
+					<span class="flag en_US"></span> English
+					<span class="caret"></span>
+				</a>
+
+				<ul class="dropdown-menu" aria-labelledby="dLabel">
+					<li><a href="#" data-lang="zh_CN"><span class="flag zh_CN"></span> Chinese</a></li>
+					<li><a href="#" data-lang="en_US"><span class="flag en_US"></span> English</a></li>
+					<li><a href="#" data-lang="vi_VN"><span class="flag vi_VN"></span> (coming soon)</a></li>
+				</ul>
+			</div>
+
+			<ul class="top-bar-links">
+				#if($shiro.isAuthenticated()) 
+				<li class="top-bar-user-name">
+					<a href="/cooka-user-web/center/home">
+					$shiro.getPrincipal()
+					</a>
+				</li>
+				<li class="top-bar-sign-out">
+					<a href="/cooka-user-web/logout">
+					#springMessage("sign_out")
+					</a>
+				</li>
+				<li class="top-bar-sign-in hide">
+					<a href="#" data-action="signin">
+						<span class="icon-user"></span>
+						#springMessage("sign_in")
+					</a>
+				</li>
+				<li class="top-bar-sign-up hide">
+					<a href="#" data-action="signup">
+						<span class="icon-register"></span>
+						#springMessage("sign_up")
+					</a>
+				</li>
+				#else
+				<li class="top-bar-user-name hide">
+					<a href="/cooka-user-web/center/home">
+					hello
+					</a>
+				</li>
+				<li class="top-bar-sign-out hide">
+					<a href="/cooka-user-web/logout">
+					#springMessage("sign_out")
+					</a>
+				</li>
+				<li class="top-bar-sign-in">
+					<a href="#" data-action="signin">
+						<span class="icon-user"></span>
+						 #springMessage("sign_in")
+					</a>
+				</li>
+				<li class="top-bar-sign-up">
+					<a href="#" data-action="signup">
+						<span class="icon-register"></span>
+						#springMessage("sign_up")
+					</a>
+				</li>
+				#end
+				
+				<li>
+					<a href="/cooka-user-web/center/favourite?type=product">
+						<span class="icon-star"></span>
+						#springMessage("favorite")
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="icon-phone"></span>
+						#springMessage("customer_service")
+					</a>
+				</li>				
+			</ul>
+		</div>
+	</div>
+
+	<div class="header-inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="logo">
+						<span>COOKA</span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					#parse("frontend_search.vm")
+				</div>
+				<div class="col-md-2">
+					<div class="header-btns">
+						<a href="#" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-cart"></span>
+							<span class="header-btns-text">#springMessage("cart")</span>
+						</a>
+						<a href="#" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-search"></span>
+							<span class="header-btns-text">#springMessage("cart")</span>
+						</a>
+						<a href="#" class="header-btns-item">
+							<span class="header-btns-icon header-btns-icon-help"></span>
+							<span class="header-btns-text">#springMessage("help")</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="header-nav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="category-all">
+						<a href="#">
+							<span class="icon-menu"></span>
+							#springMessage("all_category")
+						</a>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<ul class="header-nav-items">
+						<li>
+							<a href="#">#springMessage("brands")</a>
+						</li>
+						<li>
+							<a href="#">#springMessage("made_in_china")</a>
+						</li>
+						<li>
+							<a href="#">#springMessage("business_college")</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade sign-modal" id="sign-modal" tabindex="-1" data-j="signModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal">
+					<span class="icon-close"></span>
+				</button>
+
+				<div class="modal-body">
+					<div class="sign-modal-content">
+						<img src="$staticConfig.getPath()/CKF/images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+						<h4 class="sign-modal-title">#springMessage("welcome_to_cookabuy")</h4>
+						<div class="sign-modal-signin">
+							<form class="form-horizontal" id="sign-in-form" mehtod="post">
+								<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-envelope-o"></span>
+										</span>
+										<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-lock-o"></span>
+										</span>
+										<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+								</div>
+								<div class="form-group sign-modal-captcha sign-modal-hide">
+									<div class="col-md-5">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-vertify-code-o"></span>
+											</span>
+											<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+									</div>
+									<div class="col-md-4">
+										<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+									<div class="col-md-1">
+										<a href="#" class="sign-modal-refresh">
+											<span class="icon-refresh"></span>
+										</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<a href="#" class="pull-left">#springMessage("forget_password")?</a>
+									<a href="#" class="pull-right" data-goto="signup">#springMessage("sign_up")</a>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block" type="submit">#springMessage("sign_in")</button>
+								</div>
+							</form>
+							<p class="text-center">
+								#springMessage("no_cookabuy_account")?#springMessage("30_seconds_to_become_a_menber_of_cookabuy").
+							</p>
+						</div>
+						<div class="sign-modal-signup">
+							<form class="form-horizontal" id="sign-up-form">
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-envelope-o"></span>
+										</span>
+										<input type="text" name="account" class="form-control f-email" placeholder="Email"></div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-lock-o"></span>
+										</span>
+										<input type="password" name="password" class="form-control f-password" placeholder="Password"></div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="icon-check-lock-o"></span>
+										</span>
+										<input type="password" class="form-control f-confirm-password" placeholder="Confirm Password"></div>
+								</div>
+								<div class="form-group sign-modal-captcha">
+									<div class="col-md-5">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-vertify-code-o"></span>
+											</span>
+											<input type="text" name="captcha" class="form-control f-captcha" placeholder="Code"></div>
+									</div>
+									<div class="col-md-4">
+										<img src="/cooka-user-web/captchaImage.do" height="30" width="100" alt="vcode" class="center-block v-code-img"></div>
+									<div class="col-md-1">
+										<a href="#" class="sign-modal-refresh">
+											<span class="icon-refresh"></span>
+										</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="checkbox">
+										<label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+											<input type="checkbox" value="" id="f-agree" class="f-agree">
+											<span class="icons">
+												<span class="icon-unchecked">
+													<span class="icon-square-o"></span>
+												</span>
+												<span class="icon-checked">
+													<span class="icon-square"></span>
+												</span>
+											</span>
+											#springMessage("i_agree_the_service_agreement_of_cookabuy")
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block" type="submit">#springMessage("sign_up")</button>
+								</div>
+							</form>
+							<p class="text-center">
+								#springMessage("already_have_an_account")?
+								<a href="#" data-goto="signin">#springMessage("sign_in")</a>
+							</p>
+						</div>
+						<div class="sign-modal-verify sign-modal-hide">
+							<img src="$staticConfig.getPath()/CKF/images/verify_email.png" height="130" width="250" alt="" class="center-block">
+							<p class="text-center">
+								#springMessage("we_had_sent_a_confirmation_mail_to_your_registered_email")
+								<a href="#" class="sign-modal-email-link">someone@nowhere.com</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-block">#springMessage("verify_my_account")</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

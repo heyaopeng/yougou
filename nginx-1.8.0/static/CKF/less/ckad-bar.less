@@ -1,0 +1,63 @@
+@import "public.less"; 
+
+.ckad-bar {
+	padding: 18px 14px;
+	&-instance {
+		margin-bottom: 10px;
+		&:hover {
+			z-index: 99;
+			box-shadow: 0 0 10px #ddd;
+		}
+	}
+	&-img {
+        display: block;
+        width: 100%;
+    }
+	&-info {
+		width: 100%;
+		position: static;
+		display: block;
+	}
+	&-title {
+		font-weight: 700;
+		margin: 3px 0;
+		text-align: center;
+		a {
+			color: @ck-sub; 
+		}
+	}
+	&-desc {
+		letter-spacing: 0;
+		line-height: 12px;
+		color: #ccc;
+		p {
+			margin-bottom: 0;
+			height: 48px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
+
+// 广告产品布局自适应
+@media screen and (max-width:600px) {
+	.ckad-bar-search {
+		.ckad-bar-responsive {
+			padding-left: 10px;
+			padding-right: 10px;
+			float: left;
+			width: 33.33% !important;
+		}
+	}
+}
+
+@media (min-width:601px) and (max-width:992px) {
+	.ckad-bar-search {
+		.ckad-bar-responsive {
+			padding-left: 10px;
+			padding-right: 10px;
+			float: left;
+			width: 25% !important;
+		}
+	}
+}

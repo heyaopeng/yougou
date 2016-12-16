@@ -1,0 +1,139 @@
+#set($layout = "/layout/updateRole_layout.vm")
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+#if($type=="edit")
+<div class="admin-breadcrumb">
+	<ol class="breadcrumb">
+		<li><a href="/cooka-backend-web/manageRoles.htm">#springMessage("role_management")</a></li>
+		<li class="active">#springMessage("edit_role_information")</li>
+	</ol>
+</div>
+<form id="editRoleForm" method="post" action="doUpdateRole" class="form-horizontal">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+
+<input type="hidden"  name="roleId" value="$role.roleId"  class="minus-hidden">
+	<div class="form-group">
+		<label class="col-md-3 control-label">#springMessage("role_name"):</label>
+		<div class="col-md-4 f-container">
+			<input type="text" class="form-control f-role-name" name="role" value="$role.role"/>
+		</div>
+		<div class="col-md-9 col-md-offset-3 messageContainer"></div>
+	</div>
+	
+	
+	   <div class="form-group">
+        <label class="col-md-3 control-label">Parent:</label>
+        <div class="col-md-4 f-container">
+         <select name="parentId">
+        
+        #if($role.parentId == 0)
+             <option value="0" selected> root
+        #end            
+       #foreach($item in $roles)
+            #if($role.parentId == $item.roleId)
+             <option value="$item.roleId" selected>
+             #else
+            <option value="$item.roleId" >
+            #end
+                #set($nums=[0 .. $item.level])
+                   #foreach($i in $nums)
+                       &nbsp;&nbsp;&nbsp;
+                   #end
+                $item.role
+           </option>
+         #end
+                                    
+        </select>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+	
+	<div class="form-group jur-checkbox common-manage-checkbox ajax-checkbox">
+		<label class="col-md-3 control-label">#springMessage("permission"):</label>
+		<div class="col-md-8 f-container">
+			#set($temp = 0)
+			#foreach($item in $userPermissions)
+			#set($temp = $velocityCount - 1)
+			<div class="permission unusual-checkbox per-box">
+				<div data-value="$item.permissionId">
+					<i class="fa fa-minus-square minus-click minus-manage" title="#springMessage('delete')"></i> $item.name
+				</div>
+				<div class="checkbox hide update-checkbox">
+	                <label><input type="checkbox" name="permission[$temp].permissionId" class="input-select f-perimissions" value="" >$item.name</label>
+	            </div>
+	         </div>
+	        #end
+	        
+	        
+	        #foreach($item in $permissionsUserNotHave)
+	        #set($temp = 1 + $temp)
+	         <div class="checkbox usual-checkbox">
+	             <label><input type="checkbox" name="permission[$temp].permissionId"  value="$item.permissionId" class="f-perimissions">$item.name</label>
+	         </div>
+	        #end
+		</div>
+		<div class="col-md-9 col-md-offset-3 messageContainer"></div>
+	</div>
+	#if($needButton)
+	<div class="form-group clearfix">
+		<div class="col-md-9 col-md-offset-3">
+			<button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+		</div>
+	</div>
+	#end
+</form>
+
+#elseif($type=="add")
+<div class="admin-breadcrumb">
+    <ol class="breadcrumb">
+        <li><a href="#">#springMessage("management")</a></li>
+        <li class="active">#springMessage("edit_role_information")</li>
+    </ol>
+</div>
+<form id="editRoleForm" method="post" action="doAddRole" class="form-horizontal">
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">#springMessage("role_name"):</label>
+        <div class="col-md-4 f-container">
+            <input type="text" class="form-control f-role-name" name="role" />
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">ParentId:</label>
+        <div class="col-md-4 f-container">
+         <select name="parentId">
+        #foreach($item in $roles)
+                      <option value="$item.roleId" >
+                      #set($nums=[0 .. $item.level])
+                        #foreach($i in $nums)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        #end
+                        
+                      $item.role
+                      </option>
+         #end
+                                </select>
+        </div>
+        <div class="col-md-9 col-md-offset-3 messageContainer"></div>
+    </div>   
+    <div class="form-group jur-checkbox ajax-checkbox">
+        <label class="col-md-3 control-label">#springMessage("permission"):</label>  
+        <div class="col-md-8">
+        #foreach($item in $permissions)
+        #set($temp = $velocityCount - 1)
+            <div class="checkbox">
+                <label><input type="checkbox" name="permission[$temp].permissionId" value="$item.permissionId" class="f-perimissions">$item.name</label>
+            </div>
+        #end 
+        </div>
+    </div>
+  
+    <div class="form-group clearfix">
+        <div class="col-md-9 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">#springMessage("submit")</button>
+        </div>
+    </div>
+</form>
+
+#end

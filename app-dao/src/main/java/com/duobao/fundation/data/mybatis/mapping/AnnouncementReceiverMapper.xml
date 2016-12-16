@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duobao.fundation.data.mybatis.mapping.AnnouncementReceiverMapper" >
+  <resultMap id="AnnouncementReceiver" type="com.duobao.fundation.data.mybatis.model.AnnouncementReceiver" >
+    <result column="message_id" property="messageId" jdbcType="INTEGER" />
+    <result column="receiver_id" property="receiverId" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="is_shift_delete" property="isShiftDelete" jdbcType="BIT" />
+    <result column="is_marked" property="isMarked" jdbcType="BIT" />
+    <result column="is_read" property="isRead" jdbcType="BIT" />
+  </resultMap>
+  <insert id="insert" parameterType="com.duobao.fundation.data.mybatis.model.AnnouncementReceiver" >
+    insert into db_announcement_receiver (message_id, receiver_id, is_delete, 
+      is_shift_delete, is_marked, is_read
+      )
+    values (#{messageId,jdbcType=INTEGER}, #{receiverId,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, 
+      #{isShiftDelete,jdbcType=BIT}, #{isMarked,jdbcType=BIT}, #{isRead,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duobao.fundation.data.mybatis.model.AnnouncementReceiver" >
+    insert into db_announcement_receiver
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="messageId != null" >
+        message_id,
+      </if>
+      <if test="receiverId != null" >
+        receiver_id,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="isShiftDelete != null" >
+        is_shift_delete,
+      </if>
+      <if test="isMarked != null" >
+        is_marked,
+      </if>
+      <if test="isRead != null" >
+        is_read,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="messageId != null" >
+        #{messageId,jdbcType=INTEGER},
+      </if>
+      <if test="receiverId != null" >
+        #{receiverId,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="isShiftDelete != null" >
+        #{isShiftDelete,jdbcType=BIT},
+      </if>
+      <if test="isMarked != null" >
+        #{isMarked,jdbcType=BIT},
+      </if>
+      <if test="isRead != null" >
+        #{isRead,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

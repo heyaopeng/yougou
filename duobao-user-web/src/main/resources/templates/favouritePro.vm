@@ -1,0 +1,248 @@
+#set($layout = "/layout/favouritePro_layout.vm")
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+           #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#" aria-controls="basic-information" role="tab">#springMessage('my_collection')</a>
+                    </li>
+                </ul>
+                <div class="favourite-product js-main-box" data-j="favouriteProduct">
+                    <div class="favourite-product-head">
+                        <div class="favourite-product-checkbox text-center">
+                            <label class="checkbox-custom checkbox-custom-primary">
+                                <input type="checkbox" value="" class="js-par-checkbox">
+                                <span class="icons">
+                                    <span class="icon-unchecked"><span class="icon-square-o"></span></span>
+                                    <span class="icon-checked"><span class="icon-square"></span></span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="favourite-product-batch">
+                            <button type="button" class="favourite-product-batch-btn js-batch-remove" title="remove"><span class="icon-delete-o favourite-product-batch-icon"></span><span class="favourite-product-batch-text">#springMessage('batch_remove')</span></button>
+                        </div>
+                        <div class="favourite-product-search">
+                            <form name="subSearchForm" action="searchFavPro"  method= "get" class="form-horizontal">
+                               
+                                <div class="input-group">
+                                    <input type="text"  name="name" class="form-control" value="$!searchValue">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">
+                                        <span class="icon-search"></span>
+                                      #springMessage('search')
+                                    </button>
+                                </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                   
+                    <table class="table favourite-product-table js-product-content">
+                        <tbody>
+                        #foreach($favPro in $favPro)
+                            #if($!favPro.isActive)
+                            <tr class="js-pro-item" data-id="$favPro.productId">
+                                <td width="8%">
+                                    <label class="checkbox-custom checkbox-custom-primary">
+                                        <input type="checkbox" value="" class="js-sub-checkbox">
+                                        <span class="icons">
+                                            <span class="icon-unchecked"><span class="icon-square-o"></span></span>
+                                            <span class="icon-checked"><span class="icon-square"></span></span>
+                                        </span>
+                                    </label>                                  
+                                </td>
+                                <td width="12%">
+                                    <a href="/cooka-productDetail-web/productDetail?productId=$favPro.productId" target="_blank"><img src="$imageUtil.getSlaveImage($favPro.imageUrl,512, 768)" width="100%" alt="$favPro.title" width="100" height="150"/></a>
+                                </td>
+                                <td width="30%" class="favourite-product-description">
+                                    <h5 class="favourite-product-description-title text-left">
+                                    <a href="/cooka-productDetail-web/productDetail?productId=$favPro.productId">$!favPro.title</a>
+                                    </h5>
+                                    <div class="favourite-product-description-pull">
+                                        <div class="text-left favourite-product-price">$!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($!favPro.price) </div>
+                                        <div class="favourite-product-description-icon">
+                                            <span class="favourite-product-icon js-single-cart" data-value="$favPro.productId" title="$favPro.title">
+                                                <span class="icon-cart"></span>
+                                            </span>
+                                            <span class="favourite-product-icon js-single-delete" title="remove">
+                                                <span class="icon-delete-o"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="17%">
+                                    #if($favPro.numOfInventory == 0)
+                                    <div class="favourite-product-shortage"> #springMessage('out_of_stock')</div>
+                                    #else
+                                   <div class="favourite-product-shortage">#springMessage('inventory'):$favPro.numOfInventory</div>
+                                    #end
+                                </td>
+                                <td width="33%">
+                                  <!-- 推荐 -->
+                                  #foreach($pro in $favPro.similaryPros)
+                                  <div class="favourite-product-similar">
+                                        <div class="product-img-box">
+                                        <a href="/cooka-productDetail-web/productDetail?productId=$pro.productId">
+                                        <img src="$imageUtil.getSlaveImage($!pro.imageUrl,512, 768)" alt="$pro.title" class="product-img" height="145px"/> 
+                                        </a>
+                                        </div>
+                                        
+                                        <div class="favourite-product-price"> $!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($pro.price)</div>
+                                        <div class="favourite-product-similar-des"><a href="/cooka-productDetail-web/productDetail?productId=$pro.productId" title="$!pro.title">$!pro.title</a></div>
+                                    </div>
+                                  #end
+                                </td>
+                            </tr>
+                         	 #else
+                         		<tr class="js-pro-item favourite-product-unable" data-id="$favPro.productId">
+                                <td width="8%">
+                                    <label class="checkbox-custom checkbox-custom-primary">
+                                        <input type="checkbox" value="" class="js-sub-checkbox">
+                                        <span class="icons">
+                                            <span class="icon-unchecked"><span class="icon-square-o"></span></span>
+                                            <span class="icon-checked"><span class="icon-square"></span></span>
+                                        </span>
+                                    </label>                                  
+                                </td>
+                                <td width="12%">
+                                    <a href="/cooka-productDetail-web/productDetail?productId=$favPro.productId" target="_blank"><img src="$imageUtil.getSlaveImage($favPro.imageUrl,512, 768)" width="100%" alt="$favPro.title" width="100" height="150"/></a>
+                                </td>
+                                <td width="30%" class="favourite-product-description">
+                                    <h5 class="favourite-product-description-title text-left">
+                                    <a href="/cooka-productDetail-web/productDetail?productId=$favPro.productId">$!favPro.title</a>
+                                    </h5>
+                                    <div class="favourite-product-description-pull">
+                                        <div class="text-left favourite-product-price">$!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($!favPro.price) </div>
+                                        <div class="favourite-product-description-icon">
+                                            <span class="favourite-product-icon" data-value="$favPro.productId" title="$favPro.title">
+                                                <span class="icon-cart"></span>
+                                            </span>
+                                            <span class="favourite-product-icon js-single-delete" title="remove">
+                                                <span class="icon-delete-o"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="17%">
+                                    #if($favPro.numOfInventory == 0)
+                                    <div class="favourite-product-shortage"> #springMessage('out_of_stock')</div>
+                                    #else
+                                   <div class="favourite-product-shortage">#springMessage('inventory'):$favPro.numOfInventory</div>
+                                    #end
+                                </td>
+                                <td width="33%">
+                                  <!-- 推荐 -->
+                                  #foreach($pro in $favPro.similaryPros)
+                                  <div class="favourite-product-similar">
+                                        <div class="product-img-box">
+                                        <a href="/cooka-productDetail-web/productDetail?productId=$pro.productId">
+                                        <img src="$imageUtil.getSlaveImage($!pro.imageUrl,512, 768)" alt="$pro.title" class="product-img" height="145px"/>
+                                        </a>
+                                         </div>
+                                        
+                                        <div class="favourite-product-price"> $!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($pro.price)</div>
+                                        <div class="favourite-product-similar-des"><a href="/cooka-productDetail-web/productDetail?productId=$pro.productId" title=$!pro.title>$!pro.title</a></div>
+                                    </div>
+                                  #end
+                                </td>
+                            </tr>
+                        	  #end  
+                           
+                            #end
+                        </tbody>
+                    </table>
+                  
+                    #if("$!searchEmpty"!="")
+                        Empty Search result
+                    #else
+	                    <div class="favourite-product-empty hide js-empty">
+	                        <img class="pull-left" src="$staticConfig.getPath()/CKF/images/empty_favorite.png" alt="" width="170" height="80"/>
+	                        <div class="pull-left  text-center favourite-product-empty-info">
+	                            <span class="favourite-product-empty-tip">
+	                                #springMessage('your_favorites_is_empty')
+	                            </span>
+	                            <a href="/" class="favourite-product-empty-a">#springMessage('to_add_an_item') >></a>
+	                        </div>
+	                    </div>
+                    #end
+                    <div class="favourite-product-footer">
+                        <div class="pull-right favourite-product-pagination" data-j="pagination">
+                            $!pageDiv
+                        </div>
+                    </div>
+                    <div class="modal fade" id="shopping-modal" tabindex="-1">
+				        <div class="modal-dialog" role="document">
+				            <div class="modal-content">
+				                <button type="button" class="close" data-dismiss="modal">
+				                    <span class="icon-close"></span>
+				                </button>
+				
+				                <div class="modal-body">
+				                    <div class="shopping-modal">
+				                    </div>
+				                </div>
+				            </div>				 
+					    </div>
+                	</div>
+               	 <div class="modal fade" id="shopping-second-modal" tabindex="-1">
+			        <div class="modal-dialog" role="document">
+			            <div class="modal-content">
+			                <button type="button" class="close" data-dismiss="modal">
+			                    <span class="icon-close"></span>
+			                </button>
+			
+			                <div class="modal-body">
+			                    <div class="favourite-product-added text-center">
+			                   		<div class="favourite-product-added-success">
+			                   			<span class="icon-cart-o favourite-product-added-icon"></span>
+			                   			<span class="favourite-product-added-text">#springMessage("items_was_successfully_added_to_cart")!</span>			                   			
+			                   		</div>
+			                   		<div class="favourite-product-added-btn">
+			                   			<button class="btn btn-primary" data-dismiss="modal" type="button">
+				                   		 	#springMessage("continue_shopping")
+	                                    </button>		                   			
+			                   		</div>
+                          
+			                   		 <a href="/cooka-cart-web/cart" class="favourite-product-added-a">				                   	
+				                   			#springMessage("view")>>>	                                   
+                                    </a>
+			                    </div>
+			                </div>
+			            </div>				 
+				    </div>
+             		 </div>       
+             		 
+             		  <div class="modal fade" id="shopping-second-existed-modal" tabindex="-1">
+				        <div class="modal-dialog" role="document">
+				            <div class="modal-content">
+				                <button type="button" class="close" data-dismiss="modal">
+				                    <span class="icon-close"></span>
+				                </button>
+				
+				                <div class="modal-body">
+				                    <div class="favourite-product-added text-center">
+				                   		<div class="favourite-product-added-success">
+				                   			<span class="icon-cart-o favourite-product-added-icon"></span>
+				                   			<span class="favourite-product-added-text">#springMessage("items_have_been_added_to_cart")!</span>			                   			
+				                   		</div>
+				                   		<div class="favourite-product-added-btn">
+				                   			<button class="btn btn-primary" data-dismiss="modal" type="button">
+					                   		 	#springMessage("continue_shopping")
+		                                    </button>		                   			
+				                   		</div>
+				                   		 <a href="/cooka-cart-web/cart" class="favourite-product-added-a">				                   	
+					                   			#springMessage("view")>>>	                         
+	                                    </a>
+				                    </div>
+				                </div>
+				            </div>				 
+					    </div>
+             		 </div>    
+            </div>
+        </div>
+    </div>
+</div>
+</div>

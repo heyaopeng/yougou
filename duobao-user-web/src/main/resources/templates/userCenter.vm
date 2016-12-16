@@ -1,0 +1,268 @@
+#set($layout = "/layout/userCenter_layout.vm")
+<div class="main">
+        <div class="container main-inner">
+            <div class="row">
+                #parse("/new/user_sidebar.vm")
+                <div class="col-md-6">
+                    <div class="user-dashboard">
+                        <div class="user-dashboard-figure"></div>
+                        <div class="user-dashboard-parts">
+                            <div class="user-dashboard-part">
+                                <h5 class="user-dashboard-part-title">#springMessage("pre_trade")</h5>
+                                <ul class="user-dashboard-links">
+                                    <li>
+                                        <a href="/cooka-cart-web/cart">
+                                            #springMessage("shopping_cart")
+                                            <span class='user-dashboard-links-num'>($!cartNum)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/cooka-user-web/center/favourite">
+                                            #springMessage("my_collection")            
+                                            <span class='user-dashboard-links-num'>($!favProsNum)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="user-dashboard-part">
+                                <h5 class="user-dashboard-part-title">#springMessage("transaction")</h5>
+                                <ul class="user-dashboard-links">
+                                    <li><a href="/cooka-order-web/buyerOrderList?tradeCode=waitPay">#springMessage("awaiting_payment") <span class='user-dashboard-links-num'>($!awaiting_payment)</span></a></li>              <!-- 等待付款 -->
+                                    <li><a href="/cooka-order-web/buyerOrderList?tradeCode=waitSent">#springMessage("awaiting_sent") <span class='user-dashboard-links-num'>($!awaiting_sent)</span></a></li>            <!-- 等待发货 -->
+                                    <li><a href="/cooka-order-web/buyerOrderList?tradeCode=waitConfirm">#springMessage("pending_confirmation") <span class='user-dashboard-links-num'>($!pending_confirmation)</span></a></li>      <!-- 等待确认收货-->
+                                </ul>
+                            </div>
+                            <div class="user-dashboard-part">
+                                <h5 class="user-dashboard-part-title">#springMessage("post_trade")</h5>
+                                <ul class="user-dashboard-links">
+                                <li><a href="/cooka-order-web/buyerOrderList?tradeCode=tradeSuccess">#springMessage("trade_success") <span class='user-dashboard-links-num'>($!trade_success)</span></a></li>     
+                                <li><a href="/cooka-order-web/buyerOrderList?tradeCode=tradeSuccess&isCommented=false">#springMessage("awaiting_evaluation") <span class='user-dashboard-links-num'>($!awaiting_evaluation)</span></a></li>     
+                                  <li><a href="/cooka-order-web/disputeList">#springMessage("dispute") <span class='user-dashboard-links-num'>($!dispute)</span></a></li>                                       
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-collection cart-collection">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#user-may-like" role="tab" data-toggle="tab">#springMessage("you_may_like")</a>
+                            </li>
+                            #if($favPros.size() != 0 )
+                            <li role="presentation">
+                                <a href="#user-my-collection" role="tab" data-toggle="tab">#springMessage("my_collection")</a>
+                            </li>
+                            #end
+                        </ul>
+                     
+                           <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="user-may-like">
+                                <div id="user-collection-carousel1" class="carousel slide user-collection-carousel" data-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item user-collection-carousel-item active">
+                                             #foreach($pro in $pros)
+                                                #if($velocityCount < 6)
+		                                            <div class="user-collection-carousel-col">
+		                                                <div class="product product-in-collection">
+		                                                    <a href="/cooka-productDetail-web/productDetail?productId=$pro.productId" title="$pro.title">
+		                                                        <img src="$imageUtil.getSlaveImage($!pro.imageUrl,512, 768)" alt="$!pro.title" class="product-img">
+		                                                    </a>
+		                                                    <div class="product-info">
+		                                                        <div class="product-title"><a href="/cooka-productDetail-web/productDetail?productId=$pro.productId" title="$pro.title">$!pro.title</a></div>
+		                                                        <div class="product-price"> $!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($pro.price) </div>
+		                                                        <div class="product-rate">
+		                                                            #set($starNum = $!math.toInteger($!pro.score))
+			                                                        #foreach($i in [1..5])
+			                                                            #if($i == $startNum)
+			                                                                <span class="product-rate-star active"><span class="icon-star-solid"></span></span>
+			                                                             #else
+			                                                                <span class="product-rate-star"><span class="icon-star-solid"></span></span>
+			                                                             #end
+			                                                         #end
+		                                                        </div>
+		                                                    </div>
+		                                                </div>
+		                                            </div>
+                                                #end
+                                            #end
+                                        </div>
+                                        
+                                         <div class="item user-collection-carousel-item ">
+                                          #foreach($pro in $pros)
+	                                          #if($velocityCount>5)
+	                                            <div class="user-collection-carousel-col">
+	                                                <div class="product product-in-collection">
+	                                                    <a href="/cooka-productDetail-web/productDetail?productId=$pro.productId" title="$pro.title">
+	                                                        <img src="$imageUtil.getSlaveImage($!pro.imageUrl,512, 768)" alt="$pro.title" class="product-img">
+	                                                    </a>
+	                                                    <div class="product-info">
+	                                                        <div class="product-title"><a href="/cooka-productDetail-web/productDetail?productId=$pro.productId" title="$pro.title">$!pro.title</a></div>
+	                                                        <div class="product-price"> $!currency.getPricecurrencysymbol() $!cookies.getFixLengthByLang($pro.price) </div>
+	                                                        <div class="product-rate">
+	                                                            #set($starNum = $!math.toInteger($!pro.score))
+	                                                             #foreach($i in [1..5])
+		                                                            #if($i == $startNum)
+		                                                                <span class="product-rate-star active"><span class="icon-star-solid"></span></span>
+		                                                             #else
+		                                                                <span class="product-rate-star"><span class="icon-star-solid"></span></span>
+		                                                             #end
+	                                                            #end
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                            #end
+                                            #end
+                                          
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="user-collection-carousel-control">
+                                        <a class="btn btn-primary" href="#user-collection-carousel1" role="button" data-slide="prev">
+                                            <span class="icon-chevron-left"></span>
+                                        </a>
+                                        <a class="btn btn-primary" href="#user-collection-carousel1" role="button" data-slide="next">
+                                            <span class="icon-chevron-right"></span>
+                                            <span class="sr-only">#springMessage("next")</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <!-- 收藏夹 -->
+                            #if("$!favProsNum" != "" )
+                            <div role="tabpanel" class="tab-pane" id="user-my-collection">
+                                <div id="user-collection-carousel2" class="carousel slide user-collection-carousel" data-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item user-collection-carousel-item active">
+                                            #foreach($favPro in $favPros)
+                                            #if($velocityCount < 6)
+                                            <div class="user-collection-carousel-col">
+                                                <div class="product product-in-collection">
+                                                    <a href="/cooka-productDetail-web/productDetail.htm?productId=$!favPro.productId" title="$favPro.title">
+                                                        <img src="$imageUtil.getSlaveImage($!favPro.imageUrl,512, 768)" alt="$favPro.title" class="product-img">
+                                                    </a>
+                                                    <div class="product-info">
+                                                        <div class="product-title"><a href="/cooka-productDetail-web/productDetail.htm?productId=$!favPro.productId">$favPro.title</a></div>
+                                                        <div class="product-price">$!currency.getPricecurrencysymbol()  $!cookies.getFixLengthByLang($!favPro.price) </div>
+                                                        <div class="product-rate">
+                                                        #set($starNum = $!math.toInteger($!favPro.score))
+                                                        #foreach($i in [1..5])
+                                                            #if($i == $startNum)
+                                                                <span class="product-rate-star active"><span class="icon-star-solid"></span></span>
+                                                             #else
+                                                                <span class="product-rate-star"><span class="icon-star-solid"></span></span>
+                                                             #end
+                                                         #end
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            #end
+                                            #end
+                                        </div>
+                                        
+                                         #if($favPros.size() >5)
+                                        <div class="item user-collection-carousel-item">
+                                            #foreach($favPro in $favPros)
+                                            #if($velocityCount>5)
+                                            <div class="user-collection-carousel-col">
+                                                <div class="product product-in-collection">
+                                                    <a href="/cooka-productDetail-web/productDetail.htm?productId=$!favPro.productId" title="some description for the clothes">
+                                                        <img src="$imageUtil.getSlaveImage($!favPro.imageUrl,512, 768)" alt="$favPro.title" class="product-img">
+                                                    </a>
+                                                    <div class="product-info">
+                                                        <div class="product-title"><a href="/cooka-productDetail-web/productDetail.htm?productId=$!favPro.productId">$favPro.title</a></div>
+                                                        <div class="product-price">$!currency.getPricecurrencysymbol()  $!cookies.getFixLengthByLang($!favPro.price) </div>
+                                                        <div class="product-rate">
+                                                        #set($starNum = $!math.toInteger($!favPro.score))
+                                                        #foreach($i in [1..5])
+                                                            #if($i == $startNum)
+                                                                <span class="product-rate-star active"><span class="icon-star-solid"></span></span>
+                                                             #else
+                                                                <span class="product-rate-star"><span class="icon-star-solid"></span></span>
+                                                             #end
+                                                         #end
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            #end
+                                            #end
+                                        </div>
+                                        #end
+                                    </div>
+                                    
+                                    #if($favPros.size() >6)
+                                    <div class="user-collection-carousel-control">
+                                        <a class="btn btn-primary" href="#user-collection-carousel2" role="button" data-slide="prev">
+                                            <span class="icon-chevron-left"></span>
+                                        </a>
+                                        <a class="btn btn-primary" href="#user-collection-carousel2" role="button" data-slide="next">
+                                            <span class="icon-chevron-right"></span>
+                                            <span class="sr-only">#springMessage("next")</span>
+                                        </a>
+                                    </div>
+                                    #end
+                                </div>
+                            </div>
+                            #end
+                        </div>
+                 </div>
+
+                    <div class="user-help-links">
+                        <h5 class="user-help-links-title">#springMessage("help_center")</h5>
+                        <ul class="user-help-links-items">
+                            <li>
+                                <a href="/helpcenter/index.php/page-6?stage=Stage">
+                                    <span class="icon-book"></span>
+                                    <span class="user-help-links-text">#springMessage("newbie")</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/helpcenter/index.php/page-15/page-16?stage=Stage">
+                                    <span class="icon-wallet"></span>
+                                    <span class="user-help-links-text">#springMessage("payment")</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/helpcenter/index.php/page-11?stage=Stage">
+                                    <span class="icon-barrow"></span>
+                                    <span class="user-help-links-text">#springMessage("logistics_information")</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/helpcenter/index.php/page-4/page-2?stage=Stage">
+                                    <span class="icon-return-box"></span>
+                                    <span class="user-help-links-text">#springMessage("exchange_rate")</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 右侧导航 -->
+                <div class="col-md-2">
+                    <div class="user-aside">
+                        <div class="user-aside-announce">
+                            <h5 class="user-aside-announce-title">#springMessage("system_bulletin")</h5>
+                            
+                               #if($announcementList.size() == 0)
+                                 <!-- 公告为空的情况 -->
+                                 <img src="/CKF/images/message.png" style="max-width: 30%" alt=""> #springMessage("there_is_no_bulletin")...
+                                #else
+	                            <ul class="user-aside-announce-list">
+	                             #foreach($item in $announcementList)
+	                                <li><a href="/cooka-user-web/center/announcement?messageId=$item.messageId">$!item.title </a></li>
+	                             #end
+	                            </ul>
+	                             #end
+                        </div>
+                
+                        <div class="user-aside-ad ckad ad-bar" data-j="ckAd" data-code="userCenter" data-id="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

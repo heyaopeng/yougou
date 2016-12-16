@@ -1,0 +1,223 @@
+#set($layout = "/layout/userProfile_layout.vm")
+<div class="main">
+    <div class="container main-inner">
+        <div class="row">
+            #parse("/new/user_sidebar.vm")
+            <div class="col-md-8">
+                <div class="user-profile">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="/cooka-user-web/center/profile" aria-controls="basic-information" role="tab">#springMessage("basic_information")</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="/cooka-user-web/center/myAddress" aria-controls="address-management" role="tab">#springMessage("address_management")</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="basic-information">
+                            <div class="user-profile-info text-center">
+                                <div class="user-profile-info-logo">
+                                    <div class="user-profile-avatar">                                        
+                                        <a class="user-profile-avatar-edit" data-toggle="modal" data-target="#avatar-modal">#springMessage("edit_avatar")</a>
+                                        #if("$!userProfile.userProfile.image"=="")
+                                        <img src="$staticConfig.getPath()/CKF/images/avatar.png" alt="" width="100" height="100" class="user-profile-avatar-img"/>
+                                        #else
+                                        <img src="$!userProfile.userProfile.image" alt="" width="100" height="100" class="user-profile-avatar-img"/>
+                                        #end
+                                    </div>
+                                </div>                         
+	                                <dl class="dl-horizontal">
+	                                    <dt>#springMessage("username")</dt>
+	                                    <dd>$!userProfile.userProfile.name</dd>
+	                                    <dt>#springMessage("sexuality")</dt>
+	                                    <dd>$!userProfile.userProfile.gender</dd>
+	                                    #if("$!userProfile.user.email"!="")
+	                                    <dt>#springMessage("phone")</dt>
+	                                    <dd>
+	                                    <span class="getTel">$!userProfile.userProfile.phone</span>
+	                                    #elseif("$!userProfile.user.phone"!="")
+	                                    <dt>#springMessage("email")</dt>
+                                        <dd>
+                                        <span class="getTel">$!userProfile.userProfile.email</span>
+                                        #end
+	                                    <span class="info-edit-modal-a"><a href="/cooka-user-web/center/security" target="_blank">#springMessage("click_security_setting")</a></span></dd>
+	                                    <dt>#springMessage("address_details")</dt>
+	                                    <dd>$!{userProfile.userProfile.addrDetail}</dd>
+	                                    <dt>#springMessage("address")</dt>
+	                                    <dd>#if("$!{userProfile.userProfile.country}" != "")$!{userProfile.userProfile.region},$!{userProfile.userProfile.city},$!{userProfile.userProfile.state},$!{userProfile.userProfile.country}#end</dd>
+	                                    <dt>#springMessage("zip_code")</dt>
+	                                    <dd>$!userProfile.userProfile.zipcode</dd>
+	                                    #if("$!userProfile.user.email"!="")
+	                                    <dt>#springMessage("email")</dt>
+	                                    <dd>$!userProfile.user.email</dd>
+	                                    #elseif("$!userProfile.user.phone"!="")
+	                                    <dt>#springMessage("phone")</dt>
+                                        <dd>$!userProfile.user.phone</dd>
+                                        #end
+	                                </dl>                          
+                                <div class="user-profile-info-btn">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#info-edit-modal">#springMessage("edit") &nbsp;&nbsp; #springMessage("file")</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="address-management">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade info-edit-modal" id="info-edit-modal" tabindex="-1" data-j="infoEditModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="icon-close"></span>
+                </button>
+
+                <div class="modal-body">
+                    <div class="info-edit-modal-content">
+                        <h5 class="info-edit-modal-title">#springMessage("edit_personal_profile")</h5>
+                        <div class="info-edit-modal-form">
+                            <form action="/cooka-user-web/center/doUpdateUserProfie" method="post" class="form-horizontal" id="info-edit-form">
+                            <input type="hidden" id="XToken" name="xToken" value="$csrfTool.getToken($request)"/>
+                                <div class="form-group">
+                                    <label for="" class="col-md-2 col-md-offset-1 control-label">#springMessage("username")</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control f-name" name="name" placeholder="" value="$!userProfile.userProfile.name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 col-md-offset-1 control-label">#springMessage("sexuality")</label>
+                                    <div class="col-md-5">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" class="f-sex" value="male" #if($!userProfile.userProfile.gender=="male")checked#end> #springMessage("male")
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender" class="f-sex" value="female" #if($!userProfile.userProfile.gender=="female")checked#end> #springMessage("female")
+                                        </label>
+                                    </div>
+                                </div>
+                               <!-- <div class="form-group">
+                                    <label for="" class="col-md-2 col-md-offset-1 control-label">#springMessage("phone_number")</label>
+                                    <div class="col-md-5">
+                                    	 <input type="text" class="form-control f-phone" name="userProfile.phone" placeholder="" value="$!userProfile.userProfile.phone">
+                                    </div>
+                                </div> -->
+                              <div class="form-group captcha-block user-profile-hide">
+									<label class="col-md-2 col-md-offset-1 control-label"> #springMessage("check_code"):</label>
+									<div class="col-md-3 ">
+										<input type="text" class="form-control f-captcha" name="f-captcha" disabled/>
+									</div>
+									<div class="col-md-2"><button type="button" class="btn btn-primary btn-block time-count message-change" data-j="timeCount">#springMessage("get_code")</button></div>
+								</div>
+                                <div class="form-group" data-j="addressGroup">
+                                    <label for="" class="col-md-2 col-md-offset-1 control-label">#springMessage("address")</label>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <select class="form-control f-country address-select" name="country" data-level="0" data-parent="State">
+                                                    <option value="">-- #springMessage("select")--</option>
+                                                    #foreach($country in $countries)
+                                                    <option value="$!country.country" data-parentid="$!country.countryId" #if($!{userProfile.userProfile.country}==$!{country.country})selected#end>
+                                                    $!country.country
+                                                    </option>
+                                                    #end
+                                                </select>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <select class="form-control f-state address-select" name="state" value="$!{userProfile.userProfile.state}" data-level="1" data-parent="City">
+                                                    <option value="">-- #springMessage("select")--</option>
+                                                    #foreach($state in $states)
+                                                    <option value="$!{state.name}" data-parentid="$!{state.id}" #if($!{userProfile.userProfile.state}==$!{state.name}) selected #end>
+                                                    $!{state.name}
+                                                    </option> 
+                                                    #end
+                                                </select>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <select class="form-control f-city address-select" name="city" value="$!{userProfile.userProfile.city}" data-level="2" data-parent="Region">
+                                                    <option value="">-- #springMessage("select")--</option>
+                                                    #foreach($city in $cities)
+                                                    <option value="$!{city.name}" data-parentid="$!{city.id}" #if($!{userProfile.userProfile.city}==$!{city.name}) selected #end>
+                                                    $!{city.name}
+                                                    </option> 
+                                                    #end
+                                                </select>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <select class="form-control f-region address-select" name="region" value="$!{userProfile.userProfile.region}" data-level="3" name="region">
+                                                    <option value="">-- #springMessage("select")--</option>
+                                                    #foreach($region in $regions)
+                                                    <option value="$!{region.name}" data-parentid="$!{region.id}" #if($!{userProfile.userProfile.region}==$!{region.name}) selected #end>
+                                                    $!{region.name}
+                                                    </option>
+													#end
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 col-md-offset-1 control-label">#springMessage("address_details")</label>
+                                    <div class="col-md-5">
+                                        <textarea class="form-control f-addr-detail" name="addrDetail" rows="4">$!userProfile.userProfile.addrDetail</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-md-2 col-md-offset-1 control-label">#springMessage("zip_code")</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control f-zipcode" name="zipcode" value="$!userProfile.userProfile.zipcode"/>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label class="col-md-2 col-md-offset-1 control-label">#springMessage("login_mail")</label>
+									<div class="col-md-5">
+										$!userProfile.user.email
+									</div>
+								</div> -->
+                                <div class="form-group">
+                                    <div class="col-md-5 col-md-offset-3">
+                                        <button class="btn btn-primary btn-full" type="submit">#springMessage("save")</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="modal fade avatar-modal" id="avatar-modal" tabindex="-1" data-j="avatarModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="icon-close"></span>
+                </button>
+
+                <div class="modal-body">                             
+	                <h5 class="avatar-modal-title text-center">#springMessage("get_a_head_portrait")</h5>
+	                <div class="avatar-modal-line"></div>
+	                <div class="avatar-modal-content text-center">
+	                	<form id="profile-form" enctype="multipart/form-data" method="post" action="confirmUserImage">
+	                		<input type="hidden" id="XToken" name="xToken" value="$csrfTool.getToken($request)"/>                         		                                                                     
+                      		#if("$!userProfile.userProfile.image"=="")
+                      		<img class="avatar-modal-content-img" src="$staticConfig.getPath()/CKF/images/avatar.png" alt="" width="100" height="100"/>
+                        	#else
+                        	<img class="avatar-modal-content-img js-avatar-modal-img" src="$!userProfile.userProfile.image" alt="" width="100" height="100"/>
+                      		#end                                     
+                     		<input type="file" name="userImage" class="hidden js-avatar-input" accept="image/*"/>
+                     		<input type="hidden" name="userImageUrl" class="js-confirm-input" value=" "/>
+                     		<div class=" avatar-modal-content-btn">
+                     			<button type="button" class="btn btn-secondary js-avatar-btn">#springMessage("upload_the_picture")</button>                              
+                    		</div>
+                     		<span class="avatar-modal-content-tip"> #springMessage("jpg_or_png_size_is_not_more_than_2_M").</span>   
+                        	<div class="avatar-modal-content-btn">
+                     			<button type="button" class="btn btn-primary js-avatar-confirm disabled">#springMessage("confirm")</button>                              
+                     		</div>              
+	                    </form>
+	               </div>                                                                
+               </div>
+            </div>
+        </div>
+    </div>
+</div>

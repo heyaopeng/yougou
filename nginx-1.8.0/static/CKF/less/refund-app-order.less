@@ -1,0 +1,86 @@
+@import "public.less";
+
+@order-info-bg: #f9f9f9;
+
+.refund-app-order {
+	&-info {
+		background: @order-info-bg;
+		padding: 18px;
+	}
+	&-time,
+	&-num {
+		.clearfix();
+		span {
+			display: block;
+			float: left;
+			&:first-child{
+				width: 14%;
+				text-align: right;
+			}
+			&:nth-child(2){
+				color: @ck-main;
+				margin-left: 5px;
+			}
+		}
+	}
+	&-pro {
+		&-name {
+
+		}
+	}
+	&-table {
+		.table {
+			& > tbody > tr > td,
+			& > tbody > tr > th {
+				padding: 0;
+				font-weight: normal;
+				border-top: 10px solid #fff;
+			}
+			& > tbody > tr > .order-list-pro-img {
+				vertical-align: middle;
+				max-width: 100%;
+			}
+			margin-bottom: 0;
+		}
+		.table-inner {
+			& >.refund-app-order-pro-spe:first-of-type {
+				& > td {
+					border: 0;
+				}
+			}
+			& > tbody > tr > td,
+			& > tbody > tr > th {
+				border-top: 6px solid #fff;
+			}
+			width: 96%;
+			td {
+				background: @order-info-bg;
+				padding-top:0;
+				padding-bottom: 0;
+				padding-right: 0;
+				vertical-align: middle !important;
+
+				&:first-child {
+					padding: 0;
+				}
+			}
+			th{
+				background: #fff;
+				color: @ck-main-light;
+			}
+			.border-left {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				padding-left: 20px;
+				border-left: 6px solid @ck-sub-light;
+			}
+		}
+		.btn-application {
+			float: right;
+			background: @ck-sub-light;
+			color: #fff;
+			padding: 3px 12px;
+		}
+	}
+
+}

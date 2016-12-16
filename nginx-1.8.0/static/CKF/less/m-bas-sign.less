@@ -1,0 +1,112 @@
+@import "public.less";
+@bas-bg: #213347;
+
+body {
+	background-color: @bas-bg;
+	-webkit-animation: fade-in 1s;
+	animation: fade-in 1s;
+}
+
+@-webkit-keyframes fade-in {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(100px);
+		transform: translateY(100px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
+
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(100px);
+		transform: translateY(100px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
+
+}
+
+.m-bas-sign {
+	&-logo {
+		margin-top: 10%;
+	}
+
+	&-inner {
+		background-color: #fff;
+		background-color: rgba(255, 255, 255, 0.5);
+		margin: 15px;
+		padding: 20px 15px;
+		margin-top: 0;
+	}
+
+	.input-group-addon {
+		background-color: #fff;
+		padding: 0 10px;
+		padding-top: 4px;
+		font-size: 24px;
+		border-color: #fff;
+		color: @ck-sub;
+	}
+
+	.form-control {
+		border-color: #fff;
+		color: @ck-sub;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		box-shadow: none;
+
+		&:focus {
+			box-shadow: none;
+			border-color: @ck-main;
+		}
+
+	}
+
+	.form-group:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.sign-switch-tab {
+	margin: 0 15px;
+	margin-top: 30px;
+	.clearfix();
+
+	&-item {
+		disabled: block;
+		width: 50%;
+		float: left;
+		background-color: #fff;
+		background-color: rgba(255, 255, 255, 0.5);
+		opacity: 0.75;
+		text-align: center;
+		padding: 10px;
+		color: #fff;
+
+	}
+
+	.active {
+		opacity: 1;
+		font-weight: bold;
+	}
+}
+
+.sign-switch-target {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}

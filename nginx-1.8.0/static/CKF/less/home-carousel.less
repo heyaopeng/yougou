@@ -1,0 +1,35 @@
+@import "public.less";
+// home-carousel
+.home-carousel {
+    &-item {
+        .clearfix();
+        height: 165px;
+        overflow: hidden;
+
+        > a {
+            display: block;
+            float: left;
+            width: 25%;
+
+            > img {
+                width: 100%;
+            }
+        }
+    }
+    
+    .carousel-control {
+        width: 30px;
+        height: 50px;
+        background-image: url(../images/carousel_arrow.png);
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .left {
+        background-position: 0 0;
+    }
+
+    .right {
+        background-position: -30px 0;
+    }
+}

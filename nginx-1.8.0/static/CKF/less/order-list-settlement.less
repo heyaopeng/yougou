@@ -1,0 +1,54 @@
+@import "public.less"; 
+
+.order-list {
+	&-price-detail {
+		margin-top: 8px;
+	}
+	&-settlement {
+		.clearfix(); 
+		width: 100%;
+		padding: 8px 0;
+		background: #fff;
+		&-fixed {
+			position: fixed;
+    		bottom: 0;
+		}
+	}
+	&-subtotal,
+	&-shipping,
+	&-quantity,
+	&-total {
+		display: inline-block;
+		float: left;
+		width: 50%;
+		strong {
+			color: @ck-main-light;
+		}
+		span {
+			color: @ck-main-light;
+		}
+		
+	}
+	
+	&-shipping,
+	&-quantity,
+	&-total {
+		.form-control {
+			border: 0;
+			-webkit-box-shadow: none;
+    		box-shadow: none;
+		}
+	}
+
+	&-subtotal,
+	&-quantity {
+		text-indent: 5em;
+	}
+
+	&-buy-now {
+		margin-top: 12px;
+		margin-bottom: 12px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}

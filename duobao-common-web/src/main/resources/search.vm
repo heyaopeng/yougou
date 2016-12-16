@@ -1,0 +1,16 @@
+<div class="ck-search">
+	<form name="searchform" action="/cooka-search/searchProductFqs" method="GET" class="form-horizontal">
+		<div class="form-group">
+			<div class="input-group">
+				<input id="queryField" name="q" size="12" type="text" value="$!{query}" class="form-control" placeholder="Search for...">
+				
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary">
+						<span class="glyphicon glyphicon-search"></span>
+						Cookabuy
+					</button>
+				</span>
+			</div>
+		</div>
+	</form>
+</div>

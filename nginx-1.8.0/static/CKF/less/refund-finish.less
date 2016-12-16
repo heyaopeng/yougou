@@ -1,0 +1,64 @@
+@import "public.less";
+
+@success-color: #8cc63f;
+@fail-color: #f15a24;
+@tips-color: #999;
+.refund-finish {
+	padding: 20px;
+
+	.refund-pro-bar {
+		margin-top: 10px;
+	}
+
+	&-content {
+		margin-top: 30px;
+		margin-bottom: 80px;
+		.icon-failed-circle-o,
+		.icon-check-circle-o,
+		.icon-revoke-circle-o {
+			font-weight: bold;
+			color: @success-color;
+			font-size: 40px;
+			position: relative;
+			top: 10px;
+			right: 10px;
+		}
+		.icon-failed-circle-o,
+		.icon-revoke-circle-o {
+			color: @fail-color;
+		}
+		.countdown-refund {
+			color: @ck-main-light;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+	}
+	&-result {
+		padding-left: 10px;
+		margin-bottom: 50px;
+		color: @tips-color;
+
+		.success {
+			color: @success-color;
+		}
+		.failed {
+			color: @fail-color;
+		}
+	}
+	&-tips {
+		color: @tips-color;
+		width: 46%;
+		margin-bottom: 20px;
+	}
+	&-operation {
+		text-align: center;
+	}
+
+	.btn-refund-finish {
+		width: 140px;
+	}
+
+	a + a {
+		margin-left: 10px;
+	}
+}

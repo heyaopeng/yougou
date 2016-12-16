@@ -1,0 +1,87 @@
+@import "public.less";
+
+.pro-detail-info {
+    padding: 0 15px 0 15px;
+
+    &-main-title {
+        border-bottom: solid 2px #ccc;
+        line-height: 30px;
+        font-weight: 600;
+        font-size: 18px;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+    &-main-num{
+       &:first-letter{
+            text-transform: uppercase;
+        } 
+    }
+    &-least{
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+
+    &-p {
+        padding-right: 30px;
+        height: 60px;
+    }
+
+    table>tbody>tr>td {
+        border: none;
+    }
+
+    &-gradient {
+        tbody>tr>td {
+            text-align: center;
+        }
+
+        tbody>tr>td:first-child {
+            padding-left: 40px;
+            width: 25%;
+            text-align: left;
+        }
+
+        &-num {
+            background-color: #fafafa;
+        }
+
+        &-price {
+            background-color: #fff7f4;
+            color: @ck-main;
+            font-weight: 600;
+        }
+
+    }
+
+    &-title {
+        text-align: right;
+        display: block;
+        &:first-letter{
+            text-transform: uppercase;
+        }
+    }
+
+    &-messages {
+        small {
+            font-size: 14px;
+            color: #a94442;
+            width: 100%;
+            text-align: center;
+        }
+
+    }
+
+    &-pack {
+        float: right;
+        font-size: 12px;
+    }
+
+}
+
+.pro-detail-tab {
+    .table > tbody > tr > td {
+        border: none;
+    }
+}

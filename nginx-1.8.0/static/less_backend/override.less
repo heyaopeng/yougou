@@ -1,0 +1,162 @@
+/* =global override */
+.breadcrumb {
+	a:hover,
+	a:active,
+	a:focus {
+		color: @cooka;
+		text-decoration: none;
+	}
+}
+
+.btn-primary {
+	background-color: @cooka;
+	border-color: darken(@cooka, 5%);
+}
+.btn-primary:focus,
+.btn-primary.focus {
+	background-color: @cooka_sub;
+	border-color: darken(@cooka_sub, 5%);
+}
+.btn-primary:hover {
+	background-color: @cooka_sub;
+	border-color: darken(@cooka_sub, 5%);
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: @cooka_sub;
+	border-color: darken(@cooka_sub, 5%);
+}
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+	color: #fff;
+	background-color: darken(@cooka_sub, 5%);
+	border-color: darken(@cooka_sub, 5%);
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+	background-color: @cooka;
+	border-color: darken(@cooka, 5%);
+}
+
+.control-label {
+	font-weight: normal;
+}
+
+.alert {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.form-control:focus {
+  border-color: @cooka;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px lighten(@cooka, 10%);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px lighten(@cooka, 10%);;
+}
+
+.help-block {
+	ul {
+		margin: 0;
+	}
+}
+
+.tab-content > .tab-pane {
+	padding: 15px;
+}
+
+.panel {
+	margin-bottom: 10px;
+}
+
+.form-group {
+	margin-bottom: 10px;
+}
+
+.form-control-feedback {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.help-block {
+	margin-bottom: 5px;
+}
+
+.panel-body {
+	padding: 10px;
+}
+
+.form-inline {
+	.form-group {
+		margin-bottom: 10px;
+	}
+
+	.form-control {
+		width: 150px;
+	}
+}
+
+.badge {
+	background-color: #aaa;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+	background-color: @cooka;
+}
+
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+	color: @cooka;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+	background-color: @cooka;
+	border-color: @cooka;
+}
+
+
+/* ===== maybe remove later ===== */
+.form-horizontal > .form-group .form-group {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.checkbox-inline, .radio-inline {
+	position: static;
+}
+/* ===== maybe remove later ===== */

@@ -1,0 +1,137 @@
+@import "public.less";
+
+.m-bas-header {
+	background-color: @ck-sub;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 99;
+
+	&-inner {
+		text-align: center;
+		padding: 3px 0;
+
+		.dropdown {
+			display: inline-block;
+
+			.btn {
+				color: #fff;
+				border: none;
+				background-color: transparent;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: #fff;
+					box-shadow: none;
+					background-color: transparent;
+				}
+
+			}
+
+			.dropdown-menu {
+				margin: 0;
+			}
+
+		}
+
+	}
+
+	&-in {
+		background-color: #fff;
+		border-bottom: 1px solid @ck-main;
+
+		.m-bas-header-title {
+			color: #333;
+		}
+
+		.m-bas-header-inner {
+			padding: 5px 0;
+		}
+
+	}
+
+	&-title {
+		color: #fff;
+		margin: 0;
+		padding: 10px 16px;
+	}
+
+	&-search {
+		color: #fff;
+		font-size: 28px;
+		width: 28px;
+		height: 28px;
+		position: absolute;
+		top: 8px;
+		right: 40px;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #eee;
+			text-decoration: none;
+		}
+
+	}
+
+	&-back {
+		color: #333;
+		font-size: 28px;
+		width: 28px;
+		height: 28px;
+		position: absolute;
+		top: 8px;
+		left: 10px;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: #aaa;
+			text-decoration: none;
+		}
+
+	}
+
+	&-lang {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		> .dropdown-toggle.btn.btn-default {
+			padding: 12px 5px;
+			border: none;
+			background-color: transparent;
+			color: #fff;
+
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: transparent;
+				color: #eee;
+			}
+
+		}
+
+		&-search {
+			> .dropdown-toggle.btn.btn-default {
+				color: #333;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: #333;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.m-bas-main {
+	padding-top: 50px;
+}

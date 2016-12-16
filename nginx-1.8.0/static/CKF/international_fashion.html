@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>international fashion</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="./build/internationalFashion.css">
+</head>
+<body>
+<div class="header">
+    <div class="top-bar" data-j="topBar">
+        <div class="top-bar-inner">
+            <span class="top-bar-welcome">Welcome to Cooka</span>
+
+            <ul class="top-bar-links">
+                <li><a href="#" data-toggle="modal" data-target="#sign-modal" data-action="signin"><span class="icon-user"></span> Sign In</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#sign-modal" data-action="signup"><span class="icon-register"></span> Sign Up</a></li>
+                <li><a href="#"><span class="icon-star"></span> Favorites</a></li>
+                <li><a href="#"><span class="icon-phone"></span> Customer Service</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="header-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo">
+                        <span>COOKA</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-input">
+                        <form action="">
+                            <div class="input-group">>
+                                <input type="text" class="form-control" name="q">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit"><span class="icon-search"></span> Search</button>
+								</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="header-btns">
+                        <a href="#" class="header-btns-item">
+                            <span class="header-btns-icon header-btns-icon-cart"></span>
+                            <span class="header-btns-text">Cart</span>
+                        </a>
+                        <a href="#" class="header-btns-item">
+                            <span class="header-btns-icon header-btns-icon-search"></span>
+                            <span class="header-btns-text">Search</span>
+                        </a>
+                        <a href="#" class="header-btns-item">
+                            <span class="header-btns-icon header-btns-icon-help"></span>
+                            <span class="header-btns-text">Help</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="category-all">
+                        <a href="#"><span class="icon-menu"></span> All Category</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <ul class="header-nav-items">
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">Made in China</a></li>
+                        <li><a href="#">Somthing Else</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade sign-modal" id="sign-modal" tabindex="-1" data-j="signModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="icon-close"></span>
+                </button>
+
+                <div class="modal-body">
+                    <div class="sign-modal-content">
+                        <img src="./images/sign_modal_logo.png" height="50" width="50" alt="logo" class="center-block">
+                        <h4 class="sign-modal-title">Welcome to Cookabuy</h4>
+                        <div class="sign-modal-signin">
+                            <form class="form-horizontal" id="sign-in-form">
+                                <div class="form-group">
+                                    <div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-envelope-o"></span>
+											</span>
+                                        <input type="email" class="form-control f-email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-lock-o"></span>
+											</span>
+                                        <input type="password" class="form-control f-password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+												<span class="input-group-addon">
+													<span class="icon-vertify-code-o"></span>
+												</span>
+                                            <input type="text" class="form-control f-captcha" placeholder="Code">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="./images/v_code.gif" height="30" width="100" alt="vcode" class="center-block">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="#" class="sign-modal-refresh"><span class="icon-refresh"></span></a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="pull-left">Forget Your Passwrod?</a>
+                                    <a href="#" class="pull-right" data-goto="signup">Sign Up</a>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                                </div>
+                            </form>
+                            <p class="text-center">
+                                No Cookabut account? 30 seconds to become a member of Cookabuy.
+                            </p>
+                        </div>
+                        <div class="sign-modal-signup">
+                            <form class="form-horizontal" id="sign-up-form">
+                                <div class="form-group">
+                                    <div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-envelope-o"></span>
+											</span>
+                                        <input type="email" class="form-control f-email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-lock-o"></span>
+											</span>
+                                        <input type="password" class="form-control f-password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+											<span class="input-group-addon">
+												<span class="icon-check-lock-o"></span>
+											</span>
+                                        <input type="password" class="form-control f-confirm-password" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <div class="input-group">
+												<span class="input-group-addon">
+													<span class="icon-vertify-code-o"></span>
+												</span>
+                                            <input type="text" class="form-control f-captcha" placeholder="Code">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="./images/v_code.gif" height="30" width="100" alt="vcode" class="center-block">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a href="#" class="sign-modal-refresh"><span class="icon-refresh"></span></a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label class="checkbox-custom checkbox-custom-primary" for="f-agree">
+                                            <input type="checkbox" value="" id="f-agree" class="f-agree">
+												<span class="icons">
+													<span class="icon-unchecked"><span class="icon-square-o"></span></span>
+													<span class="icon-checked"><span class="icon-square"></span></span>
+												</span>
+                                            I agree the Cookabuy Service Agreement.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+                                </div>
+                            </form>
+                            <p class="text-center">
+                                Already have an account? <a href="#" data-goto="signin">Sign in</a>
+                            </p>
+                        </div>
+                        <div class="sign-modal-verify sign-modal-hide">
+                            <img src="./images/verify_email.png" height="130" width="250" alt="" class="center-block">
+                            <p class="text-center">We've sent a verify email to your email address <a href="#">someone@nowhere.com</a></p>
+                            <a href="#" class="btn btn-primary btn-block">Verify My Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="in-fashion-bg in-fashion-bg-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="in-fashion-brief-top">
+                        <div class="in-fashion-brief-title">
+                            <div class="in-fashion-brief-title-name pull-left">
+                                Chất Lượng Quốc Tế , Nhu Cầu Về Bản Địa Hóa
+                            </div>
+                        </div>
+                        <div class="in-fashion-brief-content in-fashion-brief-content-left">
+                            <div class="in-fashion-brief-content-text">
+                               Với sự phát triển của toàn cầu hóa kinh tế hiện nay, phân công lao động quốc tế thúc đẩy sản xuất hàng may mặc trên toàn cầu, đồng thời, sự cải tiến kỹ thuật công nghệ và thiết kế đã kiến hàng dệt may và trang phục chất lượng cao bước vào thị trường toàn cầu ngày càng nhiều hơn. Trong thời đại công nghệ...
+                            </div>
+                            <a href="http://help.cookabuy.com/helpcenter/index.php/page-7/" class="pull-right">more >></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="in-fashion-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs in-fashion-tab-ul" role="tablist">
+                            <li role="presentation" class="active"><a href="#cocoronl1" role="tab" data-toggle="tab">Cocoronl</a></li>
+                            <li role="presentation"><a href="#euramerican1" role="tab" data-toggle="tab">Euramerican</a></li>
+                            <li role="presentation"><a href="#sweet1" role="tab" data-toggle="tab">Sweet</a></li>
+                            <li role="presentation"><a href="#casually1" role="tab" data-toggle="tab">Casually</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content in-fashion-tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="cocoronl1">
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="euramerican1">
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="sweet1">
+                                ....
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="casually1">
+                                ....
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="in-fashion-bg in-fashion-bg-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-6">
+                    <div class="in-fashion-brief-middle">
+                        <div class="in-fashion-brief-title">
+                            <div class="in-fashion-brief-title-name pull-right text-right">
+                                Thiết kế về thời trang ăn liền
+                            </div>
+                        </div>
+                        <div class="in-fashion-brief-content in-fashion-brief-content-right">
+                            <div class="in-fashion-brief-content-text">
+                                  Dựa vào đặc tính “ nhanh chóng , mốt thời thượng , giá cả phải chăng, mẫu mã đa dạng ”, thời trang ăn liền thúc đẩy xu hướng tiêu thụ trên toàn cầu , đã được sự ưa chuộng của nhiều người tiêu dùng. Giữ khái niệm thời trang ăn liền , các mặt hàng được trưng bày trên nền tảng gắn liền với xu hướng thời...
+                            </div>
+                            <a href="http://help.cookabuy.com/helpcenter/index.php/page-7/" class="pull-right">more >></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="in-fashion-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs in-fashion-tab-ul" role="tablist">
+                            <li role="presentation" class="active"><a href="#cocoronl2" role="tab" data-toggle="tab">Cocoronl</a></li>
+                            <li role="presentation"><a href="#euramerican2" role="tab" data-toggle="tab">Euramerican</a></li>
+                            <li role="presentation"><a href="#sweet2" role="tab" data-toggle="tab">Sweet</a></li>
+                            <li role="presentation"><a href="#casually2" role="tab" data-toggle="tab">Casually</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content in-fashion-tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="cocoronl2">
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="euramerican2">
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="sweet2">
+                                ....
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="casually2">
+                                ....
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="in-fashion-bg in-fashion-bg-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="in-fashion-brief-bottom">
+                        <div class="in-fashion-brief-title">
+                            <div class="in-fashion-brief-title-name">
+                                Chất liệu tốt , Yếu tố hợp mốt 
+                            </div>
+                        </div>
+                        <div class="in-fashion-brief-content in-fashion-brief-content-left">
+                            <div class="in-fashion-brief-content-text">
+                                Trong thị trường thời trang nếu muốn có một con đườn riêng của mình ,cốt lõi dành được thắnglợi chính là hàng hóa mà kết hợp giữa chất liệu tốt với yếu tố phổ biến , bắt đầu từ việc chọn hàng ,chúng tôi không ngừng theo đuổi về chất liệu vải tốt , hy vọng sẽ đem lại cho khách hàng những trải nghiệm mặc với...
+                            </div>
+                            <a href="http://help.cookabuy.com/helpcenter/index.php/page-7/" class="pull-right">more >></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="in-fashion-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs in-fashion-tab-ul" role="tablist">
+                            <li role="presentation" class="active"><a href="#cocoronl3" role="tab" data-toggle="tab">Cocoronl</a></li>
+                            <li role="presentation"><a href="#euramerican3" role="tab" data-toggle="tab">Euramerican</a></li>
+                            <li role="presentation"><a href="#sweet3" role="tab" data-toggle="tab">Sweet</a></li>
+                            <li role="presentation"><a href="#casually3" role="tab" data-toggle="tab">Casually</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content in-fashion-tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="cocoronl3">
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f1.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="euramerican3">
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                                <div class="in-fashion-tab-pro text-center">
+                                    <a href="#" title="New Korean slim Spring and Autumn Period"><img src="./images/infashion/in_f2.jpg" alt="" width="212" height="318"/></a>
+                                    <div class="text-left in-fashion-tab-pro-des"><a href="#">New Korean slim Spring and Autumn Period</a></div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="sweet3">
+                                ....
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="casually3">
+                                ....
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-inner">
+        <div class="footer-intro">
+            <h6 class="footer-intro-title">China Wholesale Marketplace</h6>
+            <p>Cookabuy.com is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat dolore obcaecati sequi repellendus praesentium, itaque adipisci harum enim consequatur iusto iste, ut quidem doloremque deleniti. Deserunt provident consectetur nobis facere doloremque, sequi aliquam labore nostrum quia illum eum excepturi hic earum dignissimos magnam iure perferendis quas, suscipit, asperiores quos! Explicabo accusantium id vel aliquam consequuntur eligendi blanditiis nemo sed quos ullam nostrum ea odio dolorem quibusdam sequi repudiandae optio et non tenetur, voluptatem neque dicta. Animi aliquid iure fugit culpa enim, porro debitis nobis officia, totam eligendi optio consequatur deserunt velit aliquam tempora. Ad assumenda placeat adipisci veritatis corporis asperiores.</p>
+        </div>
+
+        <div class="footer-row">
+            <div class="footer-col">
+                <form class="footer-form">
+                    <div class="form-group">
+                        <label class="control-label">Subscribe to supply information</label>
+                        <div class="input-group">
+                            <input type="email" class="form-control footer-form-input" placeholder="Your e-mail" required>
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">commit</button>
+								</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="footer-col footer-col-large">
+                <div class="footer-sitemap">
+                    <dl class="footer-sitemap-section">
+                        <dt>Sitemap Heading</dt>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                    </dl>
+                    <dl class="footer-sitemap-section">
+                        <dt>Sitemap Heading</dt>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                    </dl>
+                    <dl class="footer-sitemap-section">
+                        <dt>Sitemap Heading</dt>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                        <dd><a href="#">Sitemap Item</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="footer-col">
+                <span>Local Customer Service Telephone:</span>
+                <br>
+                <strong>400-000-0000</strong>
+                <br>
+                <span>Service Time</span>
+            </div>
+        </div>
+
+        <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Call Center</a></li>
+            <li><a href="#">Site Map</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">User Agreement</a></li>
+            <li><a href="#">Legal Notices</a></li>
+        </ul>
+        <p class="footer-copyright">
+            &copy; 2015 Cooka All Rights Reserved
+        </p>
+    </div>
+</div>
+
+<script src="./build/en_US.internationalFashion.js"></script>
+</body>
+</html>

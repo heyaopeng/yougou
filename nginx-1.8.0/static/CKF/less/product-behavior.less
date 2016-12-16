@@ -1,0 +1,49 @@
+@import "public.less";
+
+.product-behavior {
+	position: absolute;
+	bottom: -46px;
+	left: -1px;
+	display: none;
+	cursor: pointer;
+	width: 100%+1;
+	height: 46px;
+	&-shopping,
+	&-favourite {
+		display: inline-block;
+		float: left;
+		color: #fff;
+		font-weight: 800;
+		font-size: 30px;
+		height: 46px;
+	}
+	&-shopping {
+		background: @ck-main;
+		width: 75%;
+		position: relative;
+		.icon-cart {
+			display: inline-block;
+			padding: 8px;
+			padding-right: 18px;
+		}
+		strong {
+			position: absolute;
+			text-align: center;
+			bottom: 8px;
+			color: #fff;
+			font-weight: normal;
+			font-size: 16px;
+		}
+	}
+	&-favourite {
+		background: #f9d35a;
+		width: 25%;
+		.icon-star {
+			display: block;
+			line-height: 46px;
+			text-align: center;
+		}
+		border-right: 1px solid @ck-main;
+		border-bottom: 1px solid @ck-main;
+	}
+}

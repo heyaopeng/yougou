@@ -1,0 +1,77 @@
+@import "public.less";
+
+.bas-menu {
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	> li {
+		display: block;
+		list-style: none;
+		> a {
+			display: block;
+			position: relative;
+			background-color: #D3DDEA;
+			color: #333;
+			text-decoration: none;
+			text-align: center;
+			padding: 10px;
+		}
+	}
+
+	&-icon {
+		background-color: #758D9E;
+		display: block;
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		[class^="icon-"], [class*=" icon-"] {
+			font-size: 24px;
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			margin: auto;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			color: #fff;
+		}
+	}
+
+	&-arrow {
+		position: absolute;
+		top: 13px;
+		right: 10px;
+	}
+
+	&-x {
+		margin: 0;
+		padding: 0;
+
+		> li {
+			display: block;
+			list-style: none;
+
+			> a {
+				display: block;
+				padding: 10px;
+				text-align: center;
+				text-decoration: none;
+				color: #333;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: #333;
+					background-color: #F4F4F4;
+				}
+			}
+		}
+	}
+
+	[class^="icon-"], [class*=" icon-"] {
+		display: block;
+	}
+}

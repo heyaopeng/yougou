@@ -1,0 +1,40 @@
+<div class="top-bar clearfix">
+	<ul class="list-inline pull-right">
+		<li>
+			<div class="dropdown">
+				<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+				#if($shiro.isAuthenticated()) 
+				    $shiro.getPrincipal()
+				#else
+                    #springMessage('my_cookabuy') 
+                #end
+                <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a tabindex="-1" href="/cooka-user-web/center/home">#springMessage('user_center')</a></li>
+					<li><a tabindex="-1" href="/cooka-user-web/center/profile">#springMessage('my_profile')</a></li>
+					<li><a tabindex="-1" href="/cooka-user-web/center/favourite?type=product">#springMessage('my_favourites')</a></li>
+
+					<li><a tabindex="-1" href="/cooka-cart-web/cart">#springMessage('shopping_cart')</a></li>
+					<li><a tabindex="-1" href="/cooka-order-web/buyerOrderList">#springMessage('my_orders')</a></li>
+					#if($shiro.isAuthenticated())
+					<li><a tabindex="-1" href="/cooka-user-web/logout">#springMessage('sign_out')</a></li>
+					#else
+					<li><a tabindex="-1" href="/cooka-user-web/login">#springMessage('sign_in')</a></li>
+                    <li><a tabindex="-1" href="/cooka-user-web/logout">#springMessage('sign_up')</a></li>
+					#end
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="dropdown">
+				<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#"> #springMessage('languages') <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a tabindex="-1" href="#" data-lang="en_US">#springMessage('english')</a></li>
+					<li><a tabindex="-1" href="#" data-lang="zh_CN">#springMessage('chinese')</a></li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>

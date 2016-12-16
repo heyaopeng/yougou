@@ -1,0 +1,22 @@
+@import "public.less";
+
+.pay-line {
+  margin-left: 3%;
+  &-address {
+    width: 56%;
+    border: 1px solid #ddd;
+    padding: 10px 3%;
+    &-tip {
+      color: @ck-main;
+      font-size: 18px;
+    }
+    &-list {
+      margin-top: 8px;
+    }
+    &-item {
+      span+span {
+          padding-left: 7%;
+        }
+    }
+  }
+}

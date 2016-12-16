@@ -1,0 +1,52 @@
+@import "public.less";
+
+.help-center {
+	.clearfix();
+	padding-top: 45px;
+	background-color: #D7D7D7;
+	&-tab {
+		.clearfix();
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+
+		&-item {
+			display: block;
+			float: left;
+			width: 100/3%;
+			text-align: center;
+			cursor: pointer;
+			padding: 10px;
+			position: relative;
+
+			&.active {
+				color:red;
+				border-bottom: 1px solid red;
+			}
+
+			& + & {
+				&:before {
+					content: "";
+					position: absolute;
+					top: 5px;
+					bottom: 5px;
+					left: 0;
+					width: 1px;
+					background-color: #ddd;
+				}
+			}
+		}
+	}
+	&-ques{
+		background-color: white;
+		&-item{
+			color: #585657;
+			border-bottom: 1px solid #ddd;
+			padding: 15px;
+		}
+	}
+}

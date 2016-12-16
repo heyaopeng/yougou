@@ -1,0 +1,32 @@
+<div class="home-floor active" id="home-floor-1" data-j="homeFloor">
+	<div class="home-floor-heading">
+		<div class="home-floor-title">
+			<span class="icon-zuidijia"></span>
+			Giá rẻ nhất hôm nay
+		</div>
+
+		<div class="home-floor-aside"></div>
+	</div>
+	<div class="home-floor-body">
+		<div id="home-floor-carousel-1" class="carousel slide home-floor-carousel" data-ride="carousel" data-interval="7000">
+
+			<div class="carousel-inner" role="listbox">
+				{{#each f1}}
+				<div class="item home-floor-carousel-item{{#ifEq @index 0}} active{{/ifEq}}">
+					{{#each this}}
+					<div class="home-floor-carousel-col">
+						<div class="product product-home">
+							<a href="/cooka-productDetail-web/productDetail?productId={{id}}" title="{{title}}" target="_blank">
+								<img src="{{src}}" class="product-img"></a>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/each}}
+			</div>
+
+			<a class="left carousel-control" href="#home-floor-carousel-1" role="button" data-slide="prev"></a>
+			<a class="right carousel-control" href="#home-floor-carousel-1" role="button" data-slide="next"></a>
+		</div>
+	</div>
+</div>

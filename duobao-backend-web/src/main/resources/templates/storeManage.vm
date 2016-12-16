@@ -1,0 +1,37 @@
+<input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+#set($layout = "/layout/rolesManage_layout.vm")
+            <div class="role-admin">
+                <div class="admin-breadcrumb">
+                    <ol class="breadcrumb">
+                        <!-- <li ><a href="#">#springMessage("management")</a></li> -->
+                        <li class="active">店铺管理</li>
+                    </ol>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead class="table-head">
+                    <tr>
+                        <th width="5%">店铺名称</th>
+                        <th width="20%">手机号</th>
+                        <th width="10%">地址</th>
+                        <th width="15%">caozuo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    #foreach($item in $applications)
+                    <tr data-id="$item.roleId">
+                        <td>$item.name</td>
+                        <td >
+                        	$item.phone
+                        </td>
+                        <td>
+               			$item.addr
+                        </td>
+                        <td>               
+                           <a href="/duobao-backend-web/storeAuthHandler?applyId=$item.applicationId&status=1" >通过</a>
+                           <a href="/duobao-backend-web/storeAuthHandler?applyId=$item.applicationId&status=0" >不通过</a>
+                        </td>
+                    </tr>
+                    #end
+                    </tbody>
+                </table>
+            </div>

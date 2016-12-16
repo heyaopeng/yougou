@@ -1,0 +1,8 @@
+<div class="row ck-search-header">
+	<div class="col-md-6">
+		#parse("ck_logo.vm")
+	</div>
+	<div class="col-md-6">
+		#parse("search.vm")
+	</div>
+</div>

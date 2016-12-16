@@ -1,0 +1,3 @@
+handlebars shipAddress.handlebars shipAddressForm.handlebars shipAddressList.handlebars -f ship-template.js -k if -k each -k ifEq -k json
+
+handlebars addressForm.handlebars addressItem.handlebars -f address-template.js -k if -k each -k ifEq

@@ -1,0 +1,34 @@
+@import "public.less";
+
+.channel-list {
+  margin-top: 70px;
+    &-pro {
+      .clearfix();
+      &-item {
+        display: inline-block;
+        text-align: center;
+        margin-right: 2%;
+        width: 23%;
+        &:nth-child(4n+0) {
+          margin-right: 0;
+        }
+        &-title {
+          text-align: center;
+          display: block;
+          margin-top: 12px;
+          color: #000;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &-price {
+          text-align: center;
+          display: block;
+          margin-bottom: 25px;
+        }
+      }
+    }
+    &-link {
+      font-size: 25px;
+    }
+}

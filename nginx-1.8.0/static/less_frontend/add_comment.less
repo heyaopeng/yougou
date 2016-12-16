@@ -1,0 +1,133 @@
+/*evaluation_index start*/
+
+.pro-detail-block {
+    .pro-img {
+        width: 360px;
+        height: 360px;
+    }
+    .pro-title {
+        border-bottom: 1px solid #DDD;
+        padding-bottom: 10px;
+    }
+}
+
+.other-info {
+    margin-top: 20px;
+    .total-price {
+        font-size: larger;
+        font-weight: 700;
+        color: @cooka;
+    }
+    .dl-horizontal {
+        dt, dd {
+            line-height: 2.428571;
+        }
+    }
+    .sales-style {
+        font-weight: 700;
+        color: @cooka;
+    }
+    .aside-description {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 2px;
+    }
+}
+
+.evaluation-block {
+    border: 1px solid #ddd;
+    padding: 15px 2%;
+    .title-underline {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 25px;
+        .current {
+            position: relative;
+            z-index: 2;
+            margin-bottom: -1px;
+            border-width: 2px 1px 1px;
+            border-style: solid;
+            border-color: #FBBB10 #DDD #FFF;
+            float: left;
+            padding: 0 10px;
+            margin-left: 1%;
+        }
+    }
+    .pro-evaluation {
+        margin-bottom: 30px;
+        .eval-goods {
+            margin-bottom: 25px;
+            margin-left: 3%;
+        }
+        .pro-eval-text {
+            margin-bottom: 5px;
+        }
+        .open-anonymous-box {
+            float: right;
+        }
+    }
+}
+
+.stars-block {
+    margin-left: 25%;
+    margin-top: 20px;
+    width: 60%;
+    .required-star {
+        color: red;
+    }
+    .dl-horizontal {
+        dt {
+            width: 284px;
+        }
+        dd {
+            margin-left: 300px;
+        }
+    }
+}
+
+.comstars {
+    width: 99px;
+    height: 25px;
+    position: relative;
+    background: url("/images/commstar02.png") repeat-x 0 -21px;
+    display: block;
+    span {
+        display: inline-block;
+        height: 20px;
+        width: 20%;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .star1 {
+        width: 20%;
+        z-index: 9;
+    }
+    .star2 {
+        width: 40%;
+        z-index: 8;
+    }
+    .star3 {
+        width: 60%;
+        z-index: 7;
+    }
+    .star4 {
+        width: 80%;
+        z-index: 6;
+    }
+    .star5 {
+        width: 100%;
+        z-index: 5;
+    }
+    span:hover, .active {
+        background: url("/images/commstar02.png") repeat-x 0 0;
+    }
+}
+
+.dynamic-evaluation {
+    margin-top: 75px;
+    margin-right: 58%;
+}
+
+
+/*evaluation_index end*/

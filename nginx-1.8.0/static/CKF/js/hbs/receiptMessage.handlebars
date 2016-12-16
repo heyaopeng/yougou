@@ -1,0 +1,52 @@
+<input type="hidden" name="deliveraddrId" value="{{deliveraddrId}}">
+<div class="form-group">
+	<label for="" class="col-md-2 col-md-offset-1 control-label">
+		__('Name')
+	</label>
+	<div class="col-md-5">
+		<input type="text" class="form-control f-name" name="name" value="{{name}}">
+	</div>
+</div>
+<div class="form-group">
+	<label for="" class="col-md-2 col-md-offset-1 control-label">__('Phone Number')</label>
+	<div class="col-md-5">
+		<input type="text" class="form-control f-phone" name="phone" value="{{phone}}">
+	</div>
+</div>
+<div class="form-group" data-j="addressGroup">
+	<label for="" class="col-md-2 col-md-offset-1 control-label">
+		__('Address')
+	</label>
+	<div class="col-md-5">
+		<div class="row">
+			{{#each address}}
+			<div class="col-md-5">
+				<select class="form-control f-{{name}} address-select" data-level="{{@index}}" data-parent="{{parent}}" value="{{value}}" name="{{name}}">
+					<option value="">-- __('Select') --</option>
+					{{#each items}}
+						<option value="{{this}}" data-parentid="{{@key}}" {{#ifEq this ../value}}selected{{/ifEq}}>{{this}}</option>
+					{{/each}}
+				</select>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="" class="col-md-2 col-md-offset-1 control-label">__('Address Detail')</label>
+	<div class="col-md-5">
+		<textarea rows="4" class="form-control f-addr-detail" name="addrDetail">{{addrDetail}}</textarea>
+	</div>
+</div>
+<div class="form-group">
+	<label for="" class="col-md-2 col-md-offset-1 control-label">__('Zip Code')</label>
+	<div class="col-md-5">
+		<input type="text" class="form-control f-zipcode" name="zipcode" value="{{zipcode}}">
+	</div>
+</div>
+<div class="form-group">
+	<div class="col-md-5 col-md-offset-3">
+		<button type="submit" class="btn btn-primary btn-full edit-confirm">__('Save')</button>
+	</div>
+</div>

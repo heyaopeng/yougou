@@ -1,0 +1,198 @@
+2016-10-08 12:03:14,205 - {dataSource-1} inited
+ 2016-10-08 12:03:55,764 - getServerName   localhost
+ 2016-10-08 12:03:55,963 - cookie[{"httpOnly":false,"maxAge":-1,"name":"LS","secure":false,"value":"Y","version":0},{"httpOnly":false,"maxAge":-1,"name":"Visited_Prod","secure":false,"value":"664%2C658%2C770%2C1883%2C659%2C667","version":0},{"httpOnly":false,"maxAge":-1,"name":"menu","secure":false,"value":"http%3A//localhost%3A8080/legendshop/admin/order/processing","version":0}]
+ 2016-10-08 12:04:05,025 - account 为cookabuy@163.com
+ 2016-10-08 12:04:05,029 - 默认为namecookabuy@163.com
+ 2016-10-08 12:04:05,123 - account为cookabuy@163.com
+ 2016-10-08 12:04:05,123 - 默认为namecookabuy@163.com
+ 2016-10-08 12:04:05,188 - 长度11
+ 2016-10-08 12:04:05,204 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-10-08 12:04:05,204 - inputPassword: "nicaicaia3+"
+ 2016-10-08 12:04:05,218 - Session默认超时时间为[3600000]毫秒
+ 2016-10-08 12:04:05,219 - Session默认超时时间为[3600000]毫秒
+ 2016-10-08 12:04:05,238 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-10-08 12:04:05,290 - userProfile: {"email":"cookabuy@163.com","image":"http://120.25.193.220/group1/M00/00/00/eBnB3FfeClKAXL_iAAF3jBR1AjU20.file","ipAddr":"广东 湛江","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名字","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-10-08 12:04:05,358 - 登陆成功----
+ 2016-10-08 12:04:05,431 - 登录名是cookabuy@163.com
+ 2016-10-08 12:04:05,434 - 默认为namecookabuy@163.com
+ 2016-10-08 12:04:05,545 - 用户ID为1拥有的所有角色：["超级管理员"]
+ 2016-10-08 12:04:05,545 - 用户ID为1拥有的所有权限：["backend:home","backend:permissionManage","backend:productManage","backend:userManage","backend:roleManage"]
+ 2016-10-08 12:04:06,643 - cookie[{"httpOnly":false,"maxAge":-1,"name":"LS","secure":false,"value":"Y","version":0},{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"b0e5c798-9705-43bb-91fd-e77e1be6afcf","version":0},{"httpOnly":false,"maxAge":-1,"name":"Visited_Prod","secure":false,"value":"664%2C658%2C770%2C1883%2C659%2C667","version":0},{"httpOnly":false,"maxAge":-1,"name":"menu","secure":false,"value":"http%3A//localhost%3A8080/legendshop/admin/order/processing","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"yCfrreo1pdRBpgxmtg+te1x1xRzCS22AuuLyZqwzcR2yoppGLKT0Zi1a7XXyGHPflM0EM9UejRGR6PzHbQV3azNBHGDWWbt2fi7xv2hO6NVTLMRjQymprUVNqHUCRKMYpBgUKNbzy+8Gm45LETqiPpIa+Q84v6uGCo6/pquQhYCpxLDqz6AQ9BYUjxobpdQm0Z7ET74K6ZFBMHTo0icnlP6F4pqO6e+ITgGJ7EAAyHyJbTyn8O7mDOtSX2Vx94qz4yrQe+7ZjPnk3+nLceFasvzOangxW/xBWAS35sVTg2pt2VHx7M6uwaZr7wg1HXSt+4yJtH+D7nc58vwqbagDHhFgPMZhARgfleJoZgOfSzM85waGdzYhJ/z2XnQmo7K5LmObCghkTg0LAxJ+vaSGabZnDJ1KCuo0yx/sEs58i8dCLl+Jv00xLgTKT3yglmuZiswyRv/qmoIflDRjY1sCe2szdsek/+XT7RVFxz/lswT9dQy6BthaGFGRqBJvEY8pwr3mfdSF95lYv4EkMk6VMw","version":0}]
+ 2016-10-08 13:38:53,308 - {dataSource-1} inited
+ 2016-10-08 13:42:56,681 - getServerName   localhost
+ 2016-10-08 13:42:56,859 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"fc7b87ff-976b-48ab-b8a6-81b208bc9288","version":0},{"httpOnly":false,"maxAge":-1,"name":"Visited_Prod","secure":false,"value":"664%2C658%2C770%2C1883%2C659%2C667","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"yCfrreo1pdRBpgxmtg+te1x1xRzCS22AuuLyZqwzcR2yoppGLKT0Zi1a7XXyGHPflM0EM9UejRGR6PzHbQV3azNBHGDWWbt2fi7xv2hO6NVTLMRjQymprUVNqHUCRKMYpBgUKNbzy+8Gm45LETqiPpIa+Q84v6uGCo6/pquQhYCpxLDqz6AQ9BYUjxobpdQm0Z7ET74K6ZFBMHTo0icnlP6F4pqO6e+ITgGJ7EAAyHyJbTyn8O7mDOtSX2Vx94qz4yrQe+7ZjPnk3+nLceFasvzOangxW/xBWAS35sVTg2pt2VHx7M6uwaZr7wg1HXSt+4yJtH+D7nc58vwqbagDHhFgPMZhARgfleJoZgOfSzM85waGdzYhJ/z2XnQmo7K5LmObCghkTg0LAxJ+vaSGabZnDJ1KCuo0yx/sEs58i8dCLl+Jv00xLgTKT3yglmuZiswyRv/qmoIflDRjY1sCe2szdsek/+XT7RVFxz/lswT9dQy6BthaGFGRqBJvEY8pwr3mfdSF95lYv4EkMk6VMw","version":0}]
+ 2016-10-08 13:43:02,602 - account 为cookabuy@163.com
+ 2016-10-08 13:43:02,606 - 默认为namecookabuy@163.com
+ 2016-10-08 13:43:02,867 - account为cookabuy@163.com
+ 2016-10-08 13:43:02,867 - 默认为namecookabuy@163.com
+ 2016-10-08 13:43:02,890 - 长度11
+ 2016-10-08 13:43:02,895 - user: {"parentId":0,"password":"gca7NbU8GLeXvDtVxJApBtj6bB+aWBBW6j93TzZthv8=","registTime":1458251036000,"serialNum":"100001","userId":1}
+ 2016-10-08 13:43:02,895 - inputPassword: "nicaicaia3+"
+ 2016-10-08 13:43:02,902 - Session默认超时时间为[3600000]毫秒
+ 2016-10-08 13:43:02,902 - Session默认超时时间为[3600000]毫秒
+ 2016-10-08 13:43:02,913 - x-forwarded-for: 0:0:0:0:0:0:0:1
+ 2016-10-08 13:43:02,941 - userProfile: {"email":"cookabuy@163.com","image":"http://120.25.193.220/group1/M00/00/00/eBnB3FfeClKAXL_iAAF3jBR1AjU20.file","ipAddr":"广东 湛江","isActive":true,"loginCount":0,"name":"何耀澎","nickName":"很长的名字","phone":"15902023879","profileId":1,"registTime":1458251036000,"userId":1}
+ 2016-10-08 13:43:02,976 - 登陆成功----
+ 2016-10-08 13:43:03,007 - 登录名是cookabuy@163.com
+ 2016-10-08 13:43:03,008 - 默认为namecookabuy@163.com
+ 2016-10-08 13:43:03,068 - 用户ID为1拥有的所有角色：["超级管理员"]
+ 2016-10-08 13:43:03,069 - 用户ID为1拥有的所有权限：["backend:home","backend:permissionManage","backend:productManage","backend:userManage","backend:roleManage"]
+ 2016-10-08 13:43:03,404 - cookie[{"httpOnly":false,"maxAge":-1,"name":"SESSION","secure":false,"value":"fc7b87ff-976b-48ab-b8a6-81b208bc9288","version":0},{"httpOnly":false,"maxAge":-1,"name":"Visited_Prod","secure":false,"value":"664%2C658%2C770%2C1883%2C659%2C667","version":0},{"httpOnly":false,"maxAge":-1,"name":"rememberMe","secure":false,"value":"4VB+kbU2+9dIDep9iRRfjI34/50HVLaGa0NOLizGUOho+3t5XYyj4vzH+xnRkw0uJ1fVtERA14ARH6Q5GOLWkE68q99q9ilJol9SYqZoaQKeX2Z/G1SM2xo2bB1wQVsBRkzB4wx2jZ385j7oOcarKUFLD5NyDz6/BZswsbM4l3JTNssrL9gIl35NjcqMu4MY7SXIZBm1ZQ11IWv2vWmuY5BaeW1W/SuDOYyBR4LEX2PC7QCEFW5tf592M60N+dZHVf9O+9URB4EpsHFkV0ZAEKuKM4rDuV4XB6H+fZOAQdKOFhNGGQuDbYeGFTqMpQo9PcCIESVuni+z0cSA0nNwV62CsTJgyrsvdBBERadaarrcsK2pcgFivUY5jJ+evg/24fOlnXu8nm/vVaovPkCGV2SPBZ8dmGIBF6TfXOTCJFZy8M9rKAptT1+INtt1aoQtTukcqYy7WC/25V63o7hjAw4ZUdmDBlcIyZQNDdRDID+Fm6sGRsDZdNAjX4mI5NmGEIgIvCdLMqofg2tbRntTvQ","version":0}]
+ 2016-10-08 13:45:06,823 - {dataSource-1} inited
+ 2016-10-08 13:55:28,616 - {dataSource-1} inited
+ 2016-10-08 14:40:58,176 - {dataSource-1} inited
+ 2016-10-08 14:55:12,864 - {dataSource-1} inited
+ 2016-10-08 14:59:51,610 - {dataSource-1} inited
+ 2016-10-08 15:46:18,748 - {dataSource-1} inited
+ 2016-10-08 17:34:24,088 - discard connection
+ com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 19,888 milliseconds ago.  The last packet sent successfully to the server was 18,908 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1038)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3422)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3322)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3762)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1203)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2931)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:118)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor30.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:386)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy118.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:434)
+	at com.sun.proxy.$Proxy55.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:231)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:137)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:75)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:53)
+	at com.sun.proxy.$Proxy66.selectForSchedule(Unknown Source)
+	at com.duobao.user.service.impl.UserServiceImpl.orderScheduleHandler(UserServiceImpl.java:1094)
+	at com.duobao.web.user.controller.DuobaoSchedule.disableOrders(DuobaoSchedule.java:38)
+	at sun.reflect.GeneratedMethodAccessor34.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:100)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:143)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:173)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:2911)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3332)
+	... 54 more
+2016-10-08 17:34:24,088 - discard connection
+ com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 19,888 milliseconds ago.  The last packet sent successfully to the server was 18,908 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1038)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3422)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3322)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3762)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1203)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2931)
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440)
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:2929)
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:118)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at sun.reflect.GeneratedMethodAccessor30.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.github.pagehelper.SqlUtil._processPage(SqlUtil.java:386)
+	at com.github.pagehelper.SqlUtil.processPage(SqlUtil.java:329)
+	at com.github.pagehelper.PageHelper.intercept(PageHelper.java:150)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy118.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:434)
+	at com.sun.proxy.$Proxy55.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:231)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:137)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:75)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:53)
+	at com.sun.proxy.$Proxy71.selectCartItemForSchedule(Unknown Source)
+	at com.duobao.user.service.impl.UserServiceImpl.selectCartItemForSchedule(UserServiceImpl.java:1049)
+	at com.duobao.web.user.controller.DuobaoSchedule.deleteDisableCardItem(DuobaoSchedule.java:30)
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:100)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:143)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:173)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:2911)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3332)
+	... 54 more

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+    <title>return confirmation</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/backend.css">
+
+    <style type="text/css">
+        @media print {
+            .admin-header {
+                display: none;
+            }
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="./js/libs/html5shiv.min.js"></script>
+    <script src="./js/libs/respond.min.js"></script>
+    <![endif]-->
+    
+	<style type="text/css">
+        @media print {      
+            .admin-header,.order-return-number,.admin-sidebar{
+            	display: none;
+            }
+			.order-return-detail {
+			  margin-top: 40px;
+			  padding-left: 3%;
+			}
+			.order-return-detail-a {
+			  padding-left: 3%;
+			}
+			.order-return-detail dd,
+			.order-return-detail dt {
+			  line-height: 2.3;
+			}
+			.order-return-detail-confirm {
+			  display: none;
+			}
+            .order-return-title {
+              border-bottom: 1px solid #ddd;
+              width: 70%;
+              margin-bottom: 20px;
+              padding-left: 6%;
+              margin-top: 30px;
+            }
+            .order-return-title-text {
+              display: inline-block;
+              margin-left: 5%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 trim-col">
+            <div class="admin-header">
+                <img src="./images/admin_mgr_logo.png" alt="admin manager logo" class="admin-logo" width="300" height="100">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 trim-col">
+            <div class="admin-sidebar" id="admin-side-menu">
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#order-receivable-menu">
+                        订单收款
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="order-receivable-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">订单收款</a></li>
+                            <li><a href="#">收款记录</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel sidebar-section">
+                    <a data-toggle="collapse" data-parent="#admin-side-menu" class="collapsed has-subside" href="#load-return-menu">
+                        货款回笼
+                        <span class="pull-right glyphicon glyphicon-menu-right"></span>
+                        <span class="pull-right glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <div id="load-return-menu" class="panel-collapse collapse">
+                        <ul class="subside-menu">
+                            <li><a href="#">回笼记录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 trim-right">
+            <div class="order-return">
+                <div class="order-return-number">
+                    <form class="form-inline" action="">
+                        <div class="form-group order-return-number-group">
+                            <label for="order-number">请输入接收退货的订单号 ：</label>
+                            <input type="text" class="form-control order-return-number-input" id="order-number">
+                        </div>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </form>
+                </div>
+
+                <div class="order-return-detail">
+                    <h2>货物已验收！</h2>
+                    <div class="order-return-title">
+                        <img src="./images/logo_f.png">
+                        <h3 class="order-return-title-text">Cooka网退货验收确认单</h3>
+                    </div>
+                    <dl class="dl-horizontal">
+                        <dt>订单号 ：</dt>
+                        <dd>2015009345355232546325</dd>
+                        <dt>货号 ：</dt>
+                        <dd>#4498</dd>
+                        <dt>商品名称 ：</dt>
+                        <dd>2015夏 韩版碎花连衣裙</dd>
+                        <dt>规格 ：</dt>
+                        <dd>颜色：红色   尺码：M</dd>
+                        <dt>数量 ：</dt>
+                        <dd>12</dd>
+                        <dt>退货时间 ：</dt>
+                        <dd>2015—12-17 12:12:12</dd>                   
+                    </dl>
+                    <div class="order-return-detail-confirm">
+                        <a href="#"><button type="button" class="btn btn-primary">打印回执</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/libs/jquery-1.11.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+</body>
+</html>

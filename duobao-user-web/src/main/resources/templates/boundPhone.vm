@@ -1,0 +1,143 @@
+#set($layout = "/layout/boundPhone_layout.vm")
+<div class="confirmation-status">
+	#if($message=="confirm")
+	<div class="cooka-steps cooka-steps-fix">
+        <div class="wrap">
+            <div class="current first">
+                <span><span class="round">1</span><span>#springMessage("confirm_the_status")</span></span>
+                <i class="triangle-right-bg"></i><i class="triangle-right"></i>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="todo">
+                <span><span class="round">2</span><span>#springMessage("setting")</span></span>
+                <i class="triangle-right-bg"></i><i class="triangle-right"></i>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="todo final">
+                <span><span class="round">3</span><span>#springMessage("finished")</span></span>
+            </div>
+        </div>
+    </div>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1">
+			<div class="confirmation-area">
+				<h4 class="text-primary">#springMessage("confirm_status_first").</h4>
+				<form id="mobileInputForm" class="form-horizontal clearfix" method="post" action="getTele">
+                    <input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+					<div class="form-group">
+						<label class="col-xs-3 control-label">#springMessage("login_password"):</label>
+						<div class="col-xs-7">
+						  	<input type="password" name="password" class="form-control f-password">
+						</div>
+					</div>
+				  
+				 	#if("$!wrong_password" !="")
+				  		<div class="alert alert-danger col-xs-10 text-center" role="alert">#springMessage("wrong_code")</div>
+				  	#end
+				  	<div class="form-group">
+				      	<div class="col-xs-3 col-xs-offset-3">
+				          	<button type="submit" id="validateButton" class="btn btn-primary" disabled="disabled">#springMessage("submit")</button>
+				      	</div>
+				  	</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-5">
+		  	<img src="$staticConfig.getPath()/images/login_bg.jpg" alt="." class="img-responsive center-block reset-bg-img">
+		</div>
+	</div>
+
+  	#elseif($message=="get_phone")
+  	<div class="cooka-steps cooka-steps-fix">
+        <div class="wrap">
+            <div class="finished first">
+                <span><span class="round"><i class="fa fa-check"></i></span><span>#springMessage("confirm_the_status")</span></span>
+                <i class="triangle-right-bg"></i><i class="triangle-right"></i>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="current">
+                <span><span class="round">2</span><span>#springMessage("setting")</span></span>
+                <i class="triangle-right-bg"></i><i class="triangle-right"></i>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="todo final">
+                <span><span class="round">3</span><span>#springMessage("finished")</span></span>
+            </div>
+        </div>
+    </div>
+
+  	<div class="row">
+      	<div class="col-md-6 col-md-offset-1">
+          	<div class="confirmation-area">
+              	<h4>#springMessage("you_can_bind").</h4>
+                <form id="boundMobileForm" class="form-horizontal clearfix" method="post" action="doAddMobile">
+                    <input type="hidden" id="xToken" name="xToken" value="$csrfTool.getToken($request)"/>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">#springMessage("input_your_mobile_number"):</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="phone" class="form-control get-mobile-num f-mobile">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">#springMessage("confirm_code"):</label>
+                       	<div class="col-xs-4">
+                           	<input type="text" name="confirm_code" class="form-control f-confirm_code">
+                       	</div>
+                       	<div class="col-xs-4 col-md-5">
+                           	<button id="skipButton" class="btn btn-primary time-count message-change" type="button">#springMessage("get_confirm_code")</button>
+                       	</div>
+                	</div>
+                    <div class="form-group">
+                        <div class="col-xs-3 col-xs-offset-3">
+                            <button type="submit" id="validateButton" class="btn btn-primary" disabled>#springMessage("submit")</button>
+                        </div>
+                    </div>
+                    #if("$!wrong_password" !="")
+                    	<div class="alert alert-danger col-xs-10 text-center" role="alert">#springMessage("wrong_code")</div>
+                    #end
+                </form>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="$staticConfig.getPath()/images/login_bg.jpg" alt=".." class="img-responsive center-block reset-bg-img">
+        </div>
+    </div>
+
+	#elseif($message=="setSuccess")
+	<div class="cooka-steps cooka-steps-fix">
+        <div class="wrap">
+            <div class="finished first">
+                <span><span class="round"><i class="fa fa-check"></i></span><span>#springMessage("confirm_the_status")</span></span>
+                <i class="triangle-right-bg"></i><i class="triangle-right"></i>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="finished">
+                <span><span class="round"><i class="fa fa-check"></i></span><span>#springMessage("setting")</span></span>
+                <i class="triangle-right-bg"></i><i class="triangle-right"></i>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="current final">
+                <span><span class="round">3</span><span>#springMessage("finished")</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+            <div class="confirmation-area">
+                <h4 class="text-success ck-success-tips"> <span class="glyphicon glyphicon-ok-circle"></span> #springMessage("you_have_already_succeeded_bound_your_mobile").Click return  <a href="/cooka-user-web/center/security">security</a></h4>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <img src="$staticConfig.getPath()/images/login_bg.jpg" alt=".." class="img-responsive center-block reset-bg-img">
+        </div>
+    </div>
+    #end
+</div>

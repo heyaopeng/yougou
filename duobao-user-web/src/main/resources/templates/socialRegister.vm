@@ -1,0 +1,34 @@
+#set($layout = "/layout/socialRegister_layout.vm")
+<div class="main">
+	<div class="container">
+		<div class="col-md-10">
+			<div class="sign" data-j="sign">
+				<h1 class="text-center">Sign Up from Social Network Account</h1>
+				<div class="sign-social">
+					<div class="alert alert-warning">
+						Please set your account password to continue.
+					</div>
+					<form action="socialRegister" method="post" id="sign-social-form"> 
+						<input type="hidden" name="xToken" value="$csrfTool.getToken($request)"/>
+						#if($!account=="")
+							Could not get your email
+						#end
+						<div class="form-group">
+							<label class="control-label">#springMessage("email") :</label>
+							<input type="text" name="account" value="$!account" class="form-control" readonly>
+						</div>
+						<div class="form-group">
+							<label class="control-label">#springMessage("password") :</label>
+							<input type="password" name="password" class="form-control f-password">
+						</div>
+						<div class="form-group">
+							<div class="text-center">
+								<button class="btn btn-primary btn-block sign-social-btn" type="submit">#springMessage("submit")</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

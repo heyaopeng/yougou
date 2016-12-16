@@ -1,0 +1,35 @@
+@cooka: #f6891c;
+@cooka_sub: #fbbb10;
+.top-tab {
+  li.active {
+    height: 42px;
+    a,a:hover,a:focus {
+      border: 1px solid #ddd;
+      border-top-color: @cooka;
+      border-top-width: 2px;
+      border-bottom-color: transparent;
+    }
+  }
+  li {
+    a:hover {
+      color: @cooka;
+    }
+  }
+}
+.edit-btn {
+  padding-left: 5px;
+  font-size: 18px;
+  color: #5F9EA0;
+  cursor: pointer;
+  &:hover {
+    color: @cooka;
+  }
+}
+.tab-pane.user-panel {
+ padding: 15px 0;
+}
+.role-border {
+  p {
+    border-bottom: 1px solid #ddd;
+  }
+}

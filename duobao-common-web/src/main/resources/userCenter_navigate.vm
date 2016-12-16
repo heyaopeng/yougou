@@ -1,0 +1,20 @@
+
+<div class="my-cooka-nav">
+	<ul class="my-cooka-nav-list clearfix">
+		<li class="#if($navigator==1)active#end">
+			<a  href="/cooka-user-web/center/home">#springMessage("home")</a>
+		</li>
+		<li class="#if($navigator==2)active#end">
+			<a  href="/cooka-user-web/center/profile">#springMessage("user_center")</a>
+		</li>
+		<li class="#if($navigator==3)active#end">
+			<a  href="/cooka-user-web/center/security">#springMessage("account_setting")</a>
+		</li>
+		<li class="#if($navigator==4)active#end">
+			<a href="/cooka-finance-web/financialAccount">#springMessage("financial_account")</a>
+		</li>
+		<li class="#if($navigator==5)active#end">
+			<a  href="/cooka-finance-web/transactionHistory">#springMessage("transactions")</a>
+		</li>
+	</ul>
+</div>
